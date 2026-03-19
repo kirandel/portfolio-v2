@@ -1,4 +1,4 @@
-import { Brain, Globe2, Layers, BookOpen, Rocket, GraduationCap, Award, Lightbulb, Package, BarChart3, Shield, Briefcase, Search, TrendingUp, Network, Star } from 'lucide-react';
+import { Brain, Globe2, Layers, BookOpen, Rocket, GraduationCap, Award, Lightbulb, Package, BarChart3, Shield, Briefcase, Search, TrendingUp, Network, Star, School } from 'lucide-react';
 import { motion, useScroll, useTransform, useInView } from 'motion/react';
 import { useRef } from 'react';
 
@@ -132,9 +132,9 @@ export function Education() {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm mb-5"
           >
-            <GraduationCap className="w-4 h-4 text-indigo-600" />
+            <School className="w-4 h-4 text-indigo-600" />
             <span className="text-gray-700" style={{ fontSize: '14px', fontWeight: '500', letterSpacing: '0.05em' }}>
-              ACADEMIC FOUNDATION
+              UC BERKELEY
             </span>
           </motion.div>
           
