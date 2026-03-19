@@ -178,116 +178,73 @@ export function Education() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-16"
+          className="mt-20"
         >
-          {/* Section Title */}
-          <div className="max-w-[900px] mx-auto mb-12">
+          {/* Section Title - Clean & Minimal */}
+          <div className="text-center mb-14">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative rounded-3xl p-10 overflow-hidden"
-              style={{
-                border: '1px solid rgba(148, 163, 184, 0.15)',
-                boxShadow: '0 4px 20px rgba(99, 102, 241, 0.08)',
-              }}
             >
-              {/* Animated gradient background */}
-              <motion.div
-                className="absolute inset-0"
-                animate={{
-                  background: [
-                    'linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 50%, #F5F3FF 100%)',
-                    'linear-gradient(180deg, #F8FAFC 0%, #F5F3FF 50%, #EFF6FF 100%)',
-                    'linear-gradient(225deg, #EFF6FF 0%, #F8FAFC 50%, #F5F3FF 100%)',
-                    'linear-gradient(270deg, #F5F3FF 0%, #EFF6FF 50%, #F8FAFC 100%)',
-                    'linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 50%, #F5F3FF 100%)',
-                  ],
-                }}
-                transition={{
-                  duration: 15,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-
-              {/* Animated gradient orbs */}
-              <motion.div 
-                animate={{ 
-                  x: [0, 30, 0],
-                  y: [0, -20, 0],
-                }}
-                transition={{ 
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-[0.15] blur-3xl"
-                style={{
-                  background: 'radial-gradient(circle, #6366F1 0%, transparent 70%)',
-                }}
-              />
-              <motion.div 
-                animate={{ 
-                  x: [0, -30, 0],
-                  y: [0, 20, 0],
-                }}
-                transition={{ 
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-                className="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-[0.15] blur-3xl"
-                style={{
-                  background: 'radial-gradient(circle, #8B5CF6 0%, transparent 70%)',
-                }}
-              />
-
-              {/* Subtle dot pattern */}
-              <div 
-                className="absolute inset-0 opacity-[0.04]"
-                style={{
-                  backgroundImage: 'radial-gradient(circle, #6366F1 1px, transparent 1px)',
-                  backgroundSize: '24px 24px',
-                }}
-              />
+              <div className="inline-flex items-center gap-2 mb-6">
+                <div className="h-px w-8 bg-indigo-400" />
+                <span 
+                  style={{ 
+                    fontSize: '13px', 
+                    fontWeight: '600', 
+                    color: '#6366F1',
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  Reflections
+                </span>
+                <div className="h-px w-8 bg-indigo-400" />
+              </div>
               
               <h3 
-                className="relative z-10 text-center"
                 style={{
-                  fontSize: '48px',
+                  fontSize: '36px',
                   fontWeight: '700',
                   color: '#0F172A',
-                  lineHeight: '1.1',
-                  letterSpacing: '-0.03em',
+                  lineHeight: '1.2',
+                  letterSpacing: '-0.02em',
                 }}
               >
-                How my Berkeley education shaped me as a product manager
+                How my Berkeley education shaped me
+                <br />
+                <span style={{ color: '#6366F1' }}>as a product manager</span>
               </h3>
             </motion.div>
           </div>
 
-          {/* Three Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Three Cards - Refined Design */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               { 
-                title: 'I learned to diagnose real problems before designing solutions',
-                description: 'Through multi-year research projects, including my undergraduate thesis on Bali\'s freshwater crisis, I learned how to start with messy, real-world systems. That work involved field research, interviewing diverse stakeholders across languages and cultures, and combining qualitative insight with quantitative analysis.\n\nThis foundation shows up in my PM work as a bias toward deep problem definition, user research, and understanding root causes before shipping features.',
+                number: '01',
+                title: 'Diagnose real problems before designing solutions',
+                description: 'Through multi-year research projects, including my undergraduate thesis on Bali\'s freshwater crisis, I learned how to start with messy, real-world systems. That work involved field research, interviewing diverse stakeholders across languages and cultures, and combining qualitative insight with quantitative analysis.',
+                takeaway: 'This foundation shows up in my PM work as a bias toward deep problem definition, user research, and understanding root causes before shipping features.',
                 color: '#6366F1',
                 icon: Search,
               },
               { 
-                title: 'I learned to design systems, not just interfaces',
-                description: 'Across graduate work in product design, GIS modeling, and systems analysis, I consistently worked on problems where success depended on incentives, constraints, and second-order effects, not just UI. I spent time modeling infrastructure, forecasting system behavior, and prototyping products end to end.\n\nThat experience shaped how I think about product today: abstracting complexity into systems that scale and hold up under real-world pressure.',
+                number: '02',
+                title: 'Design systems, not just interfaces',
+                description: 'Across graduate work in product design, GIS modeling, and systems analysis, I consistently worked on problems where success depended on incentives, constraints, and second-order effects, not just UI. I spent time modeling infrastructure, forecasting system behavior, and prototyping products end to end.',
+                takeaway: 'That experience shaped how I think about product today: abstracting complexity into systems that scale and hold up under real-world pressure.',
                 color: '#8B5CF6',
                 icon: Network,
               },
               { 
-                title: 'I learned to balance design, data, and business judgment',
-                description: 'My time at Berkeley combined hands-on design prototyping at the Jacobs Institute, data-driven forecasting with the Energy & Resources Group, and business fundamentals through Haas coursework. I was constantly forced to weigh usability, metrics, and feasibility against each other.\n\nThat mix trained me to evaluate tradeoffs thoughtfully, an approach I now apply in product when balancing user needs, operational realities, and company outcomes.',
-                color: '#A855F7',
+                number: '03',
+                title: 'Balance design, data, and business judgment',
+                description: 'My time at Berkeley combined hands-on design prototyping at the Jacobs Institute, data-driven forecasting with the Energy & Resources Group, and business fundamentals through Haas coursework. I was constantly forced to weigh usability, metrics, and feasibility against each other.',
+                takeaway: 'That mix trained me to evaluate tradeoffs thoughtfully, an approach I now apply in product when balancing user needs, operational realities, and company outcomes.',
+                color: '#10B981',
                 icon: Lightbulb,
               },
             ].map((item, idx) => {
@@ -298,58 +255,99 @@ export function Education() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 + idx * 0.15 }}
-                  whileHover={{ y: -6 }}
-                  className="p-8 rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
+                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
+                  className="group relative"
                 >
-                  {/* Icon */}
                   <motion.div
-                    whileHover={{ 
-                      scale: 1.1, 
-                      y: -4,
-                      rotate: 2,
-                    }}
-                    transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
-                    className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+                    whileHover={{ y: -8 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="h-full p-7 rounded-2xl bg-white border border-gray-100 flex flex-col relative overflow-hidden"
                     style={{
-                      background: `linear-gradient(135deg, ${item.color}15 0%, ${item.color}25 100%)`,
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)',
                     }}
                   >
-                    <Icon 
-                      style={{ 
-                        width: '22px', 
-                        height: '22px',
-                        strokeWidth: 2.5,
-                        color: item.color,
-                      }} 
+                    {/* Top accent line */}
+                    <div 
+                      className="absolute top-0 left-0 right-0 h-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ background: item.color }}
                     />
+
+                    {/* Number & Icon Row */}
+                    <div className="flex items-center justify-between mb-5">
+                      <span 
+                        style={{ 
+                          fontSize: '48px', 
+                          fontWeight: '800', 
+                          color: '#F1F5F9',
+                          lineHeight: '1',
+                          letterSpacing: '-0.04em',
+                        }}
+                      >
+                        {item.number}
+                      </span>
+                      <div 
+                        className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                        style={{
+                          background: `${item.color}10`,
+                        }}
+                      >
+                        <Icon 
+                          style={{ 
+                            width: '20px', 
+                            height: '20px',
+                            strokeWidth: 2,
+                            color: item.color,
+                          }} 
+                        />
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <h4 
+                      className="mb-4"
+                      style={{
+                        fontSize: '17px',
+                        fontWeight: '700',
+                        color: '#0F172A',
+                        lineHeight: '1.35',
+                        letterSpacing: '-0.01em',
+                      }}
+                    >
+                      {item.title}
+                    </h4>
+
+                    {/* Description */}
+                    <p 
+                      className="mb-4 flex-grow"
+                      style={{
+                        fontSize: '14px',
+                        lineHeight: '1.65',
+                        color: '#64748B',
+                      }}
+                    >
+                      {item.description}
+                    </p>
+
+                    {/* Takeaway - highlighted */}
+                    <div 
+                      className="pt-4 mt-auto"
+                      style={{
+                        borderTop: '1px solid #F1F5F9',
+                      }}
+                    >
+                      <p 
+                        style={{
+                          fontSize: '13px',
+                          lineHeight: '1.6',
+                          color: '#475569',
+                          fontWeight: '500',
+                          fontStyle: 'italic',
+                        }}
+                      >
+                        {item.takeaway}
+                      </p>
+                    </div>
                   </motion.div>
-
-                  {/* Title */}
-                  <h4 
-                    className="mb-4"
-                    style={{
-                      fontSize: '18px',
-                      fontWeight: '700',
-                      color: '#0F172A',
-                      lineHeight: '1.3',
-                      letterSpacing: '-0.01em',
-                    }}
-                  >
-                    {item.title}
-                  </h4>
-
-                  {/* Description */}
-                  <p 
-                    style={{
-                      fontSize: '14px',
-                      lineHeight: '1.6',
-                      color: '#64748B',
-                      whiteSpace: 'pre-line',
-                    }}
-                  >
-                    {item.description}
-                  </p>
                 </motion.div>
               );
             })}
