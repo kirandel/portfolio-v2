@@ -166,23 +166,21 @@ export default function App() {
           </nav>
           
           {/* CTA - Right */}
-          <div className="cta-glow flex-shrink-0">
-            <a 
-              href="#contact" 
-              className="cta-glow-inner"
-              style={{
-                padding: isScrolled || isDarkSection ? '8px 20px' : '10px 24px',
-                borderRadius: '100px',
-                background: isDarkSection ? 'rgba(20,20,20,0.95)' : '#1a1a1a',
-                color: '#ffffff',
-                border: isDarkSection ? '1px solid rgba(255,255,255,0.15)' : 'none',
-                fontSize: isScrolled || isDarkSection ? '14px' : '15px',
-                fontWeight: '500',
-              }}
-            >
-              <span>{"Let's talk"}</span>
-            </a>
-          </div>
+          <a 
+            href="#contact" 
+            className="flex-shrink-0 transition-all duration-300"
+            style={{
+              padding: isScrolled || isDarkSection ? '8px 20px' : '10px 24px',
+              borderRadius: '100px',
+              background: isDarkSection ? 'transparent' : '#1a1a1a',
+              color: '#ffffff',
+              border: isDarkSection ? '1.5px solid rgba(255,255,255,0.6)' : 'none',
+              fontSize: isScrolled || isDarkSection ? '14px' : '15px',
+              fontWeight: '500',
+            }}
+          >
+            {"Let's talk"}
+          </a>
         </div>
       </header>
 

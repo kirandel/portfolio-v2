@@ -49,24 +49,22 @@ export function WhatILove() {
             </p>
             
             {/* CTA Button */}
-            <div className="cta-glow">
-              <a 
-                href="mailto:hello@kirandelneuville.com"
-                className="cta-glow-inner gap-3 px-8 py-4 rounded-full bg-white text-gray-900 font-semibold text-lg"
+            <a 
+              href="mailto:hello@kirandelneuville.com"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-gray-900 font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              <span>{"Let's talk"}</span>
+              
+              {/* Arrow */}
+              <svg 
+                className="w-5 h-5" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
               >
-                <span>{"Let's talk"}</span>
-                
-                {/* Arrow with subtle slide */}
-                <svg 
-                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </a>
-            </div>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
