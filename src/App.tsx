@@ -17,25 +17,28 @@ export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkSection, setIsDarkSection] = useState(false);
 
-  // Scroll detection for navbar transformation
+  // Combined scroll detection for navbar transformation and dark section overlap
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      
+      // Check if navbar physically overlaps the dark KiranGPT section
+      const darkSection = document.getElementById('kiran-gpt-section');
+      if (!darkSection) return;
+      
+      const rect = darkSection.getBoundingClientRect();
+      // Navbar bottom edge is approximately 72px from top (12px padding + ~48px navbar + 12px padding when scrolled)
+      const navbarBottom = 72;
+      
+      // Dark mode when: dark section top is above navbar bottom AND dark section bottom is below navbar bottom
+      const isOverDark = rect.top <= navbarBottom && rect.bottom >= navbarBottom;
+      setIsDarkSection(isOverDark);
     };
+    
     window.addEventListener('scroll', handleScroll);
+    // Run once on mount to set initial state
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Dark section detection via IntersectionObserver on KiranGPT
-  useEffect(() => {
-    const target = document.getElementById('kiran-gpt-section');
-    if (!target) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsDarkSection(entry.isIntersecting),
-      { threshold: 0.15 }
-    );
-    observer.observe(target);
-    return () => observer.disconnect();
   }, []);
   
   // Hero images for carousel (8 images)
