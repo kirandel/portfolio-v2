@@ -15,6 +15,7 @@ export default function App() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [hoveredImageIndex, setHoveredImageIndex] = useState<number | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDarkSection, setIsDarkSection] = useState(false);
 
   // Scroll detection for navbar transformation
   useEffect(() => {
@@ -23,6 +24,18 @@ export default function App() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Dark section detection via IntersectionObserver on KiranGPT
+  useEffect(() => {
+    const target = document.getElementById('kiran-gpt-section');
+    if (!target) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsDarkSection(entry.isIntersecting),
+      { threshold: 0.15 }
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
   }, []);
   
   // Hero images for carousel (8 images)
@@ -97,13 +110,15 @@ export default function App() {
             maxWidth: isScrolled ? '900px' : '100%',
             padding: isScrolled ? '12px 24px' : '16px 48px',
             borderRadius: isScrolled ? '100px' : '0',
-            backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.75)' : 'rgba(255, 255, 255, 0.55)',
+            backgroundColor: isDarkSection
+              ? 'rgba(20, 20, 20, 0.75)'
+              : isScrolled ? 'rgba(255, 255, 255, 0.75)' : 'rgba(255, 255, 255, 0.55)',
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
-            boxShadow: isScrolled 
-              ? '0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04)' 
+            boxShadow: isScrolled || isDarkSection
+              ? '0 4px 24px rgba(0, 0, 0, 0.18), 0 1px 2px rgba(0, 0, 0, 0.08)' 
               : 'none',
-            borderBottom: isScrolled ? 'none' : '1px solid rgba(0, 0, 0, 0.06)',
+            borderBottom: isScrolled || isDarkSection ? 'none' : '1px solid rgba(0, 0, 0, 0.06)',
           }}
         >
           {/* Logo - Left */}
@@ -112,7 +127,7 @@ export default function App() {
             style={{ 
               fontSize: isScrolled ? '20px' : '22px', 
               fontWeight: '600',
-              color: '#1a1a1a',
+              color: isDarkSection ? '#ffffff' : '#1a1a1a',
             }}
           >
             Kiran.
@@ -134,11 +149,12 @@ export default function App() {
               <a 
                 key={item.label}
                 href={item.href} 
-                className="text-gray-600 hover:text-gray-900 transition-colors"
+                className="transition-colors duration-300"
                 style={{ 
                   fontSize: isScrolled ? '14px' : '15px',
                   fontWeight: '500',
                   whiteSpace: 'nowrap',
+                  color: isDarkSection ? 'rgba(255,255,255,0.75)' : '#4b5563',
                 }}
               >
                 {item.label}
@@ -153,13 +169,14 @@ export default function App() {
             style={{
               padding: isScrolled ? '8px 20px' : '10px 24px',
               borderRadius: '100px',
-              background: '#1a1a1a',
-              color: '#ffffff',
+              background: isDarkSection ? 'transparent' : '#1a1a1a',
+              color: isDarkSection ? '#ffffff' : '#ffffff',
+              border: isDarkSection ? '1.5px solid rgba(255,255,255,0.6)' : 'none',
               fontSize: isScrolled ? '14px' : '15px',
               fontWeight: '500',
             }}
           >
-            Let's Talk
+            {"Let's Talk"}
           </a>
         </div>
       </header>

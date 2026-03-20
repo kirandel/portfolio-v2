@@ -50,6 +50,7 @@ export function KiranGPT() {
 
   return (
     <div 
+      id="kiran-gpt-section"
       className="w-screen relative overflow-hidden -mx-6"
       style={{
         background: 'linear-gradient(180deg, #0D1117 0%, #0a0e13 100%)',
