@@ -14,6 +14,16 @@ export default function App() {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [hoveredImageIndex, setHoveredImageIndex] = useState<number | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Scroll detection for navbar transformation
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   // Hero images for carousel (8 images)
   const heroImages = [
@@ -74,28 +84,81 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center px-6">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-[100] backdrop-blur-md bg-white/90 border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      {/* Header - Scroll-responsive navbar */}
+      <header 
+        className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ease-in-out"
+        style={{
+          padding: isScrolled ? '12px 24px' : '0',
+        }}
+      >
+        <div 
+          className="transition-all duration-300 ease-in-out mx-auto flex items-center justify-between"
+          style={{
+            maxWidth: isScrolled ? '900px' : '100%',
+            padding: isScrolled ? '12px 24px' : '16px 48px',
+            borderRadius: isScrolled ? '100px' : '0',
+            backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.8)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            boxShadow: isScrolled 
+              ? '0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04)' 
+              : 'none',
+            borderBottom: isScrolled ? 'none' : '1px solid rgba(0, 0, 0, 0.06)',
+          }}
+        >
           {/* Logo - Left */}
-          <div className="text-gray-900 flex-shrink-0" style={{ fontSize: '22px', fontWeight: '600' }}>Kiran.</div>
+          <div 
+            className="flex-shrink-0 transition-all duration-300"
+            style={{ 
+              fontSize: isScrolled ? '20px' : '22px', 
+              fontWeight: '600',
+              color: '#1a1a1a',
+            }}
+          >
+            Kiran.
+          </div>
           
           {/* Navigation - Center */}
-          <nav className="absolute left-1/2 -translate-x-1/2 flex items-center gap-8">
-            <a href="#home" className="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
-            <a href="#experience" className="text-gray-600 hover:text-gray-900 transition-colors">Experience</a>
-            <a href="#education" className="text-gray-600 hover:text-gray-900 transition-colors">Education</a>
-            <a href="#kiran-gpt" className="text-gray-600 hover:text-gray-900 transition-colors">Kiran-GPT</a>
-            <a href="#download-cv" className="text-gray-600 hover:text-gray-900 transition-colors">Download CV</a>
-            <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+          <nav 
+            className="absolute left-1/2 -translate-x-1/2 flex items-center transition-all duration-300"
+            style={{ gap: isScrolled ? '24px' : '32px' }}
+          >
+            {[
+              { label: 'Home', href: '#home' },
+              { label: 'Experience', href: '#experience' },
+              { label: 'KiranGPT', href: '#kiran-gpt' },
+              { label: 'Education', href: '#education' },
+              { label: 'Download Resume', href: '#download-cv' },
+              { label: 'Contact', href: '#contact' },
+            ].map((item) => (
+              <a 
+                key={item.label}
+                href={item.href} 
+                className="text-gray-600 hover:text-gray-900 transition-colors"
+                style={{ 
+                  fontSize: isScrolled ? '14px' : '15px',
+                  fontWeight: '500',
+                }}
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
           
-          {/* Fun Mode - Right */}
+          {/* CTA - Right */}
           <a 
-            href="#fun-mode" 
-            className="px-6 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-600 hover:to-purple-700 transition-all shadow-sm hover:shadow-md flex-shrink-0"
+            href="#contact" 
+            className="flex-shrink-0 transition-all duration-300 hover:opacity-90"
+            style={{
+              padding: isScrolled ? '8px 20px' : '10px 24px',
+              borderRadius: '100px',
+              background: '#1a1a1a',
+              color: '#ffffff',
+              fontSize: isScrolled ? '14px' : '15px',
+              fontWeight: '500',
+            }}
           >
-            Fun Mode
+            Let's Talk
           </a>
         </div>
       </header>

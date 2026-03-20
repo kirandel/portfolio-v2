@@ -1,5 +1,4 @@
 export function WhatILove() {
-
   return (
     <div 
       className="relative w-screen -mx-6"
@@ -49,7 +48,7 @@ export function WhatILove() {
                 lineHeight: '1.5',
               }}
             >
-              Let's build something exceptional together.
+              {"Let's build something exceptional together."}
             </p>
             
             {/* CTA Button */}
@@ -65,7 +64,7 @@ export function WhatILove() {
               
               {/* Button content */}
               <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-                Let's connect
+                {"Let's connect"}
               </span>
               
               {/* Arrow icon with animation */}
