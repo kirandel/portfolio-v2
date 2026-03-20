@@ -168,18 +168,33 @@ export default function App() {
           {/* CTA - Right */}
           <a 
             href="#contact" 
-            className="flex-shrink-0 transition-all duration-300 hover:opacity-90"
+            className="group flex-shrink-0 relative overflow-hidden transition-all duration-300"
             style={{
-              padding: isScrolled ? '8px 20px' : '10px 24px',
+              padding: isScrolled || isDarkSection ? '8px 20px' : '10px 24px',
               borderRadius: '100px',
               background: isDarkSection ? 'transparent' : '#1a1a1a',
-              color: isDarkSection ? '#ffffff' : '#ffffff',
+              color: '#ffffff',
               border: isDarkSection ? '1.5px solid rgba(255,255,255,0.6)' : 'none',
-              fontSize: isScrolled ? '14px' : '15px',
+              fontSize: isScrolled || isDarkSection ? '14px' : '15px',
               fontWeight: '500',
+              boxShadow: '0 0 0 rgba(0,0,0,0)',
+            }}
+            onMouseEnter={e => {
+              const el = e.currentTarget;
+              el.style.transform = 'translateY(-1px)';
+              el.style.boxShadow = isDarkSection
+                ? '0 4px 16px rgba(255,255,255,0.12)'
+                : '0 4px 16px rgba(0,0,0,0.18)';
+            }}
+            onMouseLeave={e => {
+              const el = e.currentTarget;
+              el.style.transform = 'translateY(0)';
+              el.style.boxShadow = '0 0 0 rgba(0,0,0,0)';
             }}
           >
-              {"Let's talk"}
+            {/* Shimmer sweep */}
+            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-in-out bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
+            <span className="relative z-10">{"Let's talk"}</span>
           </a>
         </div>
       </header>
