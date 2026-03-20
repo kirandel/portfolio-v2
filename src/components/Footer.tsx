@@ -1,31 +1,19 @@
-import { Linkedin, Mail, ArrowRight, ExternalLink } from 'lucide-react';
-import React from 'react';
+import { Mail, ExternalLink } from 'lucide-react';
 
 export function Footer() {
   const navigation = [
-    { label: 'About', href: '#' },
-    { label: 'Experience', href: '#' },
-    { label: 'Kiran-GPT', href: '#' },
-    { label: 'Education', href: '#' },
-    { label: 'Downloadable Resume PDF', href: '#' },
+    { label: 'Home', href: '#home' },
+    { label: 'Experience', href: '#experience' },
+    { label: 'KiranGPT', href: '#kiran-gpt' },
+    { label: 'Education', href: '#education' },
+    { label: 'Download Resume', href: '#download-cv' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   const externalLinks = [
-    { label: 'LinkedIn', href: '#' },
-    { label: 'Niche.ai iOS App', href: '#' },
+    { label: 'LinkedIn', href: 'https://linkedin.com' },
+    { label: 'TandemChat.ai', href: 'https://tandemchat.ai' },
     { label: 'True North Posters', href: '#' },
-  ];
-
-  const focusAreas = [
-    'Zero-to-one product development',
-    'Marketplace & AI strategy',
-    'Systems thinking & execution',
-  ];
-
-  const legalLinks = [
-    { label: 'Privacy', href: '#' },
-    { label: 'Terms', href: '#' },
-    { label: 'Credits', href: '#' },
   ];
 
   return (
@@ -113,29 +101,8 @@ export function Footer() {
                   opacity: 0.7,
                 }}
               >
-                Product leader building zero-to-one systems at the intersection of marketplaces, AI, and design.
+                Product manager building zero-to-one systems at the intersection of marketplaces, AI, and design.
               </p>
-              {/* Decorative line */}
-              <div 
-                className="w-20 h-px mb-5"
-                style={{ background: 'rgba(255, 255, 255, 0.12)' }}
-              />
-              {/* Brand themes */}
-              <div className="flex flex-col gap-2">
-                {focusAreas.map((theme, index) => (
-                  <p
-                    key={index}
-                    className="text-white"
-                    style={{
-                      fontSize: '14px',
-                      opacity: 0.65,
-                      lineHeight: '1.6',
-                    }}
-                  >
-                    • {theme}
-                  </p>
-                ))}
-              </div>
             </div>
           </div>
 
@@ -221,7 +188,7 @@ export function Footer() {
             <div className="flex flex-col gap-5">
               {/* Email */}
               <a
-                href="mailto:contact@kirandelneuville.com"
+                href="mailto:hello@kirandelneuville.com"
                 className="text-white transition-opacity duration-200 hover:opacity-100 inline-flex items-center gap-2 w-fit"
                 style={{
                   fontSize: '16px',
@@ -229,10 +196,10 @@ export function Footer() {
                 }}
               >
                 <Mail className="w-4 h-4" />
-                contact@kirandelneuville.com
+                hello@kirandelneuville.com
               </a>
               
-              {/* Tagline */}
+              {/* Availability */}
               <p 
                 className="text-white"
                 style={{
@@ -242,7 +209,7 @@ export function Footer() {
                   maxWidth: '280px',
                 }}
               >
-                Open to conversations about building new products and early-stage ideas.
+                Open to new roles and conversations about building new products and early-stage ideas.
               </p>
             </div>
           </div>
@@ -267,37 +234,8 @@ export function Footer() {
                 opacity: 0.6,
               }}
             >
-              © 2025 Kiran Delneuville
+              © 2026 Kiran Delneuville
             </p>
-            
-            {/* Legal links */}
-            <div className="flex items-center gap-3">
-              {legalLinks.map((link, index) => (
-                <React.Fragment key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-white transition-opacity duration-200 hover:opacity-100"
-                    style={{
-                      fontSize: '14px',
-                      opacity: 0.6,
-                    }}
-                  >
-                    {link.label}
-                  </a>
-                  {index < legalLinks.length - 1 && (
-                    <span 
-                      className="text-white"
-                      style={{
-                        fontSize: '14px',
-                        opacity: 0.4,
-                      }}
-                    >
-                      ·
-                    </span>
-                  )}
-                </React.Fragment>
-              ))}
-            </div>
           </div>
         </div>
       </div>
