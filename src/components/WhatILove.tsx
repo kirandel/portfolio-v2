@@ -1,4 +1,4 @@
-import { Brain, Globe2, Layers, BookOpen, Rocket } from 'lucide-react';
+import { Brain, Globe2, Layers, BookOpen, Rocket } from 'lucide-react'
 
 export function WhatILove() {
   const interests = [
@@ -80,7 +80,8 @@ export function WhatILove() {
               lineHeight: '1.05',
               letterSpacing: '-0.03em',
             }}
-            Beyond the Resume
+          >
+            What Drives Me
           </h2>
           
           <p 
