@@ -73,67 +73,35 @@ export default function App() {
   }, [displayedText, isDeleting, currentMessageIndex, messages]);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center">
-      {/* Header - Apple-style frosted glass */}
-      <header 
-        className="fixed top-0 left-0 right-0 z-[100]"
-        style={{
-          backdropFilter: 'saturate(180%) blur(20px)',
-          WebkitBackdropFilter: 'saturate(180%) blur(20px)',
-          backgroundColor: 'rgba(255, 255, 255, 0.72)',
-          borderBottom: '0.5px solid rgba(0, 0, 0, 0.08)',
-        }}
-      >
-        <div className="max-w-[980px] mx-auto px-6 h-12 flex items-center justify-between">
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center px-6">
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-[100] backdrop-blur-md bg-white/90 border-b border-gray-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo - Left */}
-          <div 
-            className="flex-shrink-0" 
-            style={{ 
-              fontSize: '21px', 
-              fontWeight: '600',
-              color: '#1d1d1f',
-              letterSpacing: '-0.01em',
-            }}
-          >
-            Kiran.
-          </div>
+          <div className="text-gray-900 flex-shrink-0" style={{ fontSize: '22px', fontWeight: '600' }}>Kiran.</div>
           
           {/* Navigation - Center */}
-          <nav className="absolute left-1/2 -translate-x-1/2 flex items-center gap-7">
-            {['Home', 'Experience', 'Education', 'Kiran-GPT', 'Contact'].map((item) => (
-              <a 
-                key={item}
-                href={`#${item.toLowerCase()}`} 
-                className="transition-opacity hover:opacity-70"
-                style={{
-                  fontSize: '12px',
-                  fontWeight: '400',
-                  color: '#1d1d1f',
-                  letterSpacing: '0',
-                }}
-              >
-                {item}
-              </a>
-            ))}
+          <nav className="absolute left-1/2 -translate-x-1/2 flex items-center gap-8">
+            <a href="#home" className="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+            <a href="#experience" className="text-gray-600 hover:text-gray-900 transition-colors">Experience</a>
+            <a href="#education" className="text-gray-600 hover:text-gray-900 transition-colors">Education</a>
+            <a href="#kiran-gpt" className="text-gray-600 hover:text-gray-900 transition-colors">Kiran-GPT</a>
+            <a href="#download-cv" className="text-gray-600 hover:text-gray-900 transition-colors">Download CV</a>
+            <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
           </nav>
           
-          {/* CTA - Right */}
+          {/* Fun Mode - Right */}
           <a 
-            href="#download-cv" 
-            className="flex-shrink-0 transition-all hover:opacity-80"
-            style={{
-              fontSize: '12px',
-              fontWeight: '400',
-              color: '#0066cc',
-            }}
+            href="#fun-mode" 
+            className="px-6 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-600 hover:to-purple-700 transition-all shadow-sm hover:shadow-md flex-shrink-0"
           >
-            Download CV
+            Fun Mode
           </a>
         </div>
       </header>
 
       {/* SECTION 1: Hero Carousel */}
-      <div className="relative w-screen min-h-screen bg-white flex flex-col items-center justify-center pt-24 overflow-hidden">
+      <div className="relative w-screen -mx-6 min-h-screen bg-white flex flex-col items-center justify-center pt-32 overflow-hidden">
         {/* Carousel Container - 1700px wide */}
         <div className="relative w-[1700px] h-[600px] flex items-center justify-center mb-8">
           {/* Carousel Images */}
@@ -225,54 +193,45 @@ export default function App() {
           
           {/* Text Box Overlay */}
           <div 
-            className="absolute z-[60] bg-white/95 rounded-3xl p-10"
-            style={{ 
-              width: '680px', 
-              minHeight: '200px',
-              backdropFilter: 'blur(20px)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08)',
-            }}
+            className="absolute z-[60] bg-white rounded-3xl shadow-2xl p-10"
+            style={{ width: '700px', minHeight: '220px' }}
           >
             <div>
               <h1 
+                className="text-black" 
                 style={{ 
-                  fontSize: '64px', 
-                  lineHeight: '1.07', 
-                  fontWeight: '600',
-                  letterSpacing: '-0.005em',
-                  color: '#1d1d1f',
+                  fontSize: '72px', 
+                  lineHeight: '1.05', 
+                  fontWeight: '700',
+                  letterSpacing: '-0.03em'
                 }}
               >
-                {displayedText}<span className="animate-pulse" style={{ color: '#86868b' }}>|</span>
+                {displayedText}<span className="animate-pulse">|</span>
               </h1>
             </div>
           </div>
         </div>
 
-        {/* Description Text - Apple style */}
-        <div className="relative z-10 text-center max-w-[680px] px-6 mb-6">
+        {/* Description Text */}
+        <div className="relative z-10 text-center max-w-4xl px-4 mb-4">
           <p 
+            className="text-gray-900" 
             style={{ 
-              fontSize: '21px', 
-              lineHeight: '1.381',
-              fontWeight: '400',
-              color: '#1d1d1f',
+              fontSize: '24px', 
+              lineHeight: '1.4',
+              fontWeight: '500',
+              letterSpacing: '-0.01em'
             }}
           >
-            I'm a product manager specializing in uncovering high-TAM opportunities, validating new concepts quickly, and scaling zero-to-one initiatives into durable business lines.
+            I'm a product manager in a complex two-sided marketplace, blending deep technical, design, marketing, and operational expertise. I specialize in uncovering high-TAM opportunities, validating new concepts quickly, and scaling zero-to-one initiatives into durable business lines.
           </p>
         </div>
 
-        {/* CTA Link - Apple style */}
+        {/* CTA Link */}
         <div className="relative z-10 mb-16">
           <a 
             href="#experience"
-            className="inline-flex items-center gap-1 transition-opacity hover:opacity-70"
-            style={{
-              fontSize: '21px',
-              fontWeight: '400',
-              color: '#0066cc',
-            }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-600 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl"
           >
             See my work
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

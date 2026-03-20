@@ -1,4 +1,4 @@
-import { Lightbulb, Package, BarChart3, Shield, Briefcase, Search, TrendingUp, Network, Star } from 'lucide-react';
+import { Brain, Globe2, Layers, BookOpen, Rocket, GraduationCap, Award, Lightbulb, Package, BarChart3, Shield, Briefcase, Search, TrendingUp, Network, Star } from 'lucide-react';
 import { motion, useScroll, useTransform, useInView } from 'motion/react';
 import { useRef } from 'react';
 
@@ -84,55 +84,84 @@ export function Education() {
       ref={sectionRef}
       className="relative w-screen -mx-6 overflow-hidden"
       style={{
-        background: '#ffffff',
-        paddingTop: '100px',
-        paddingBottom: '100px',
+        background: 'linear-gradient(180deg, #FAFBFC 0%, #F8FAFC 50%, #FFFFFF 100%)',
+        paddingTop: '80px',
+        paddingBottom: '80px',
       }}
     >
+      {/* Subtle grid background */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #000 1px, transparent 1px),
+            linear-gradient(to bottom, #000 1px, transparent 1px)
+          `,
+          backgroundSize: '48px 48px',
+        }}
+      />
+
+      {/* Animated background elements */}
+      <motion.div 
+        style={{ y, opacity }}
+        className="absolute top-20 right-[10%] w-[400px] h-[400px] rounded-full opacity-[0.06] blur-3xl pointer-events-none"
+      >
+        <div style={{ background: 'radial-gradient(circle, #6366F1 0%, transparent 70%)', width: '100%', height: '100%' }} />
+      </motion.div>
+      <motion.div 
+        style={{ y: useTransform(y, (val) => -val), opacity }}
+        className="absolute bottom-20 left-[10%] w-[400px] h-[400px] rounded-full opacity-[0.06] blur-3xl pointer-events-none"
+      >
+        <div style={{ background: 'radial-gradient(circle, #8B5CF6 0%, transparent 70%)', width: '100%', height: '100%' }} />
+      </motion.div>
+
       {/* Main content container */}
-      <div className="max-w-[980px] mx-auto px-6 relative z-10">
-        {/* Section Header - Apple style */}
+      <div className="max-w-[1300px] mx-auto px-8 lg:px-12 relative z-10">
+        {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <p
-            style={{
-              fontSize: '17px',
-              fontWeight: '400',
-              color: '#86868b',
-              marginBottom: '8px',
-            }}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm mb-5"
           >
-            UC Berkeley
-          </p>
+            <GraduationCap className="w-4 h-4 text-indigo-600" />
+            <span className="text-gray-700" style={{ fontSize: '14px', fontWeight: '500', letterSpacing: '0.05em' }}>
+              UC BERKELEY
+            </span>
+          </motion.div>
           
           <h2 
-            className="mb-5"
+            className="mb-4"
             style={{
-              fontSize: '56px',
-              fontWeight: '600',
-              color: '#1d1d1f',
-              lineHeight: '1.07',
-              letterSpacing: '-0.005em',
+              fontSize: '72px',
+              fontWeight: '700',
+              color: '#0F172A',
+              lineHeight: '1.05',
+              letterSpacing: '-0.03em',
             }}
           >
-            Education.
+            Education
           </h2>
           
           <p 
-            className="max-w-[680px] mx-auto"
+            className="max-w-[650px] mx-auto"
             style={{
-              fontSize: '21px',
-              fontWeight: '400',
-              color: '#1d1d1f',
-              lineHeight: '1.381',
+              fontSize: '24px',
+              fontWeight: '500',
+              color: '#64748B',
+              lineHeight: '1.4',
+              letterSpacing: '-0.01em',
             }}
           >
-            Across both degrees, my academic work focused on understanding incentives, designing systems, and grounding decisions in research and data.
+            Across both degrees, my academic work focused on understanding incentives, designing systems, and grounding decisions in research and data - principles that continue to guide my approach to building trustworthy, scalable products.
           </p>
         </motion.div>
 
