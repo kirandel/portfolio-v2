@@ -146,7 +146,7 @@ export default function App() {
               { label: 'Experience', href: '#experience' },
               { label: 'KiranGPT', href: '#kiran-gpt' },
               { label: 'Education', href: '#education' },
-              { label: 'Download Resume', href: '#download-cv', nowrap: true },
+              { label: 'Resume', href: '#download-cv', nowrap: true },
               { label: 'Contact', href: '#contact' },
             ].map((item) => (
               <a 
@@ -179,7 +179,7 @@ export default function App() {
               fontWeight: '500',
             }}
           >
-            {"Let's Talk"}
+              {"Let's talk"}
           </a>
         </div>
       </header>

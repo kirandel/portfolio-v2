@@ -6,7 +6,7 @@ export function Footer() {
     { label: 'Experience', href: '#experience' },
     { label: 'KiranGPT', href: '#kiran-gpt' },
     { label: 'Education', href: '#education' },
-    { label: 'Download Resume', href: '#download-cv' },
+    { label: 'Resume', href: '#download-cv' },
     { label: 'Contact', href: '#contact' },
   ];
 
