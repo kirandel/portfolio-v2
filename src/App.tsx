@@ -97,7 +97,7 @@ export default function App() {
             maxWidth: isScrolled ? '900px' : '100%',
             padding: isScrolled ? '12px 24px' : '16px 48px',
             borderRadius: isScrolled ? '100px' : '0',
-            backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.8)',
+            backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.75)' : 'rgba(255, 255, 255, 0.55)',
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
             boxShadow: isScrolled 
@@ -128,7 +128,7 @@ export default function App() {
               { label: 'Experience', href: '#experience' },
               { label: 'KiranGPT', href: '#kiran-gpt' },
               { label: 'Education', href: '#education' },
-              { label: 'Download Resume', href: '#download-cv' },
+              { label: 'Download Resume', href: '#download-cv', nowrap: true },
               { label: 'Contact', href: '#contact' },
             ].map((item) => (
               <a 
@@ -138,6 +138,7 @@ export default function App() {
                 style={{ 
                   fontSize: isScrolled ? '14px' : '15px',
                   fontWeight: '500',
+                  whiteSpace: 'nowrap',
                 }}
               >
                 {item.label}
