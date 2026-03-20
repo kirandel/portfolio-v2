@@ -7,7 +7,6 @@ export function Footer() {
     { label: 'Experience', href: '#' },
     { label: 'Kiran-GPT', href: '#' },
     { label: 'Education', href: '#' },
-    { label: 'Beyond the Resume', href: '#' },
     { label: 'Downloadable Resume PDF', href: '#' },
   ];
 

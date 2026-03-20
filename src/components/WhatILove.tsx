@@ -80,7 +80,6 @@ export function WhatILove() {
               lineHeight: '1.05',
               letterSpacing: '-0.03em',
             }}
-          >
             Beyond the Resume
           </h2>
           
