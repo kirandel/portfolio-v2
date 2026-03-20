@@ -110,9 +110,9 @@ export default function App() {
         <div 
           className="transition-all duration-300 ease-in-out mx-auto flex items-center justify-between"
           style={{
-            maxWidth: isScrolled ? '900px' : '100%',
-            padding: isScrolled ? '12px 24px' : '16px 48px',
-            borderRadius: isScrolled ? '100px' : '0',
+            maxWidth: isScrolled || isDarkSection ? '900px' : '100%',
+            padding: isScrolled || isDarkSection ? '12px 24px' : '16px 48px',
+            borderRadius: isScrolled || isDarkSection ? '100px' : '0',
             backgroundColor: isDarkSection
               ? 'rgba(20, 20, 20, 0.75)'
               : isScrolled ? 'rgba(255, 255, 255, 0.75)' : 'rgba(255, 255, 255, 0.55)',
