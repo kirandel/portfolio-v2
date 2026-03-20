@@ -335,3 +335,55 @@ html {
     transform: scale(1.05);
   }
 }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Vibey CTA button hover styles */
+.cta-glow {
+  position: relative;
+}
+
+.cta-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 100px;
+  background: conic-gradient(from var(--angle, 0deg), #6366f1, #8b5cf6, #d946ef, #f43f5e, #f97316, #eab308, #22c55e, #06b6d4, #6366f1);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: spin 4s linear infinite;
+  filter: blur(8px);
+}
+
+.cta-glow:hover::before {
+  opacity: 0.6;
+}
+
+.cta-glow-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-glow:hover .cta-glow-inner {
+  transform: translateY(-2px);
+}

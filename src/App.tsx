@@ -166,36 +166,23 @@ export default function App() {
           </nav>
           
           {/* CTA - Right */}
-          <a 
-            href="#contact" 
-            className="group flex-shrink-0 relative overflow-hidden transition-all duration-300"
-            style={{
-              padding: isScrolled || isDarkSection ? '8px 20px' : '10px 24px',
-              borderRadius: '100px',
-              background: isDarkSection ? 'transparent' : '#1a1a1a',
-              color: '#ffffff',
-              border: isDarkSection ? '1.5px solid rgba(255,255,255,0.6)' : 'none',
-              fontSize: isScrolled || isDarkSection ? '14px' : '15px',
-              fontWeight: '500',
-              boxShadow: '0 0 0 rgba(0,0,0,0)',
-            }}
-            onMouseEnter={e => {
-              const el = e.currentTarget;
-              el.style.transform = 'translateY(-1px)';
-              el.style.boxShadow = isDarkSection
-                ? '0 4px 16px rgba(255,255,255,0.12)'
-                : '0 4px 16px rgba(0,0,0,0.18)';
-            }}
-            onMouseLeave={e => {
-              const el = e.currentTarget;
-              el.style.transform = 'translateY(0)';
-              el.style.boxShadow = '0 0 0 rgba(0,0,0,0)';
-            }}
-          >
-            {/* Shimmer sweep */}
-            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-500 ease-in-out bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
-            <span className="relative z-10">{"Let's talk"}</span>
-          </a>
+          <div className="cta-glow flex-shrink-0">
+            <a 
+              href="#contact" 
+              className="cta-glow-inner"
+              style={{
+                padding: isScrolled || isDarkSection ? '8px 20px' : '10px 24px',
+                borderRadius: '100px',
+                background: isDarkSection ? 'rgba(20,20,20,0.95)' : '#1a1a1a',
+                color: '#ffffff',
+                border: isDarkSection ? '1px solid rgba(255,255,255,0.15)' : 'none',
+                fontSize: isScrolled || isDarkSection ? '14px' : '15px',
+                fontWeight: '500',
+              }}
+            >
+              <span>{"Let's talk"}</span>
+            </a>
+          </div>
         </div>
       </header>
 

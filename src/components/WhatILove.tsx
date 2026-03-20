@@ -49,37 +49,24 @@ export function WhatILove() {
             </p>
             
             {/* CTA Button */}
-            <a 
-              href="mailto:hello@kirandelneuville.com"
-              className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-gray-900 font-semibold text-lg overflow-hidden transition-all duration-300"
-              style={{
-                boxShadow: '0 10px 40px rgba(255, 255, 255, 0.15)',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 16px 48px rgba(255,255,255,0.25)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 10px 40px rgba(255,255,255,0.15)';
-              }}
-            >
-              {/* Shimmer sweep */}
-              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-600 ease-in-out bg-gradient-to-r from-transparent via-gray-100/60 to-transparent pointer-events-none" />
-
-              {/* Button content */}
-              <span className="relative z-10">{"Let's talk"}</span>
-              
-              {/* Arrow with subtle slide */}
-              <svg 
-                className="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
+            <div className="cta-glow">
+              <a 
+                href="mailto:hello@kirandelneuville.com"
+                className="cta-glow-inner gap-3 px-8 py-4 rounded-full bg-white text-gray-900 font-semibold text-lg"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
+                <span>{"Let's talk"}</span>
+                
+                {/* Arrow with subtle slide */}
+                <svg 
+                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
