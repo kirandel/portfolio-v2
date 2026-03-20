@@ -52,80 +52,56 @@ export function KiranGPT() {
     <div 
       className="w-screen relative overflow-hidden -mx-6"
       style={{
-        background: 'linear-gradient(180deg, #0D1117 0%, #0a0e13 100%)',
-        paddingTop: '120px',
-        paddingBottom: '120px',
+        background: '#1d1d1f',
+        paddingTop: '100px',
+        paddingBottom: '100px',
       }}
     >
-      {/* Ambient glow elements */}
-      <div 
-        className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-20 blur-3xl"
-        style={{
-          background: 'radial-gradient(circle, #667eea 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }}
-      />
-      <div 
-        className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full opacity-20 blur-3xl"
-        style={{
-          background: 'radial-gradient(circle, #f5576c 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }}
-      />
-
-      {/* Decorative curved lines */}
-      <svg 
-        className="absolute top-0 right-0 w-full h-full opacity-10"
-        style={{ pointerEvents: 'none' }}
-      >
-        <path
-          d="M 0 300 Q 400 100 800 300 T 1600 300"
-          stroke="white"
-          strokeWidth="2"
-          fill="none"
-          opacity="0.1"
-        />
-        <path
-          d="M 0 500 Q 400 300 800 500 T 1600 500"
-          stroke="white"
-          strokeWidth="2"
-          fill="none"
-          opacity="0.08"
-        />
-      </svg>
-
       {/* Main content container */}
       <div 
-        className="max-w-[1536px] mx-auto px-8 lg:px-[120px] relative z-10"
+        className="max-w-[980px] mx-auto px-6 relative z-10"
       >
+        {/* Section Header - Apple style */}
+        <div className="text-center mb-12">
+          <p
+            style={{
+              fontSize: '17px',
+              fontWeight: '400',
+              color: '#86868b',
+              marginBottom: '8px',
+            }}
+          >
+            Ask me anything.
+          </p>
+          <h2 
+            style={{
+              fontSize: '56px',
+              fontWeight: '600',
+              color: '#f5f5f7',
+              lineHeight: '1.07',
+              letterSpacing: '-0.005em',
+              marginBottom: '16px',
+            }}
+          >
+            Meet Kiran-GPT.
+          </h2>
+          <p 
+            className="max-w-[680px] mx-auto"
+            style={{
+              fontSize: '21px',
+              fontWeight: '400',
+              color: 'rgba(245, 245, 247, 0.8)',
+              lineHeight: '1.381',
+            }}
+          >
+            An AI assistant trained on my product thinking, career history, and philosophy.
+          </p>
+        </div>
+
         {/* Two-column layout */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-          {/* LEFT COLUMN: Text and Mode Cards */}
-          <div className="w-full lg:w-[40%] flex flex-col gap-8">
-            {/* Title */}
-            <h2 
-              className="text-white"
-              style={{
-                fontSize: 'clamp(36px, 5.5vw, 60px)',
-                fontWeight: '700',
-                letterSpacing: '-0.02em',
-                lineHeight: '1.1',
-              }}
-            >
-              Meet Kiran-GPT
-            </h2>
-
-            {/* Subtitle */}
-            <p 
-              className="text-white max-w-[450px]"
-              style={{
-                fontSize: 'clamp(18px, 2vw, 21px)',
-                lineHeight: '1.6',
-                opacity: 0.78,
-              }}
-            >
-              An AI assistant trained on my product thinking, career history, case studies, experiments, and philosophy. Ask anything about my work, my approach to building products, or even just for fun.
-            </p>
+          {/* LEFT COLUMN: Mode Cards */}
+          <div className="w-full lg:w-[40%] flex flex-col gap-6">
 
             {/* Mode Cards */}
             <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 mt-4">

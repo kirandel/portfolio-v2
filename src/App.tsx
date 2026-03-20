@@ -14,7 +14,6 @@ export default function App() {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [hoveredImageIndex, setHoveredImageIndex] = useState<number | null>(null);
-  const [showTLDRText, setShowTLDRText] = useState(false);
   
   // Hero images for carousel (8 images)
   const heroImages = [
@@ -74,35 +73,67 @@ export default function App() {
   }, [displayedText, isDeleting, currentMessageIndex, messages]);
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center px-6">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-[100] backdrop-blur-md bg-white/90 border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div className="min-h-screen bg-white flex flex-col items-center">
+      {/* Header - Apple-style frosted glass */}
+      <header 
+        className="fixed top-0 left-0 right-0 z-[100]"
+        style={{
+          backdropFilter: 'saturate(180%) blur(20px)',
+          WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+          backgroundColor: 'rgba(255, 255, 255, 0.72)',
+          borderBottom: '0.5px solid rgba(0, 0, 0, 0.08)',
+        }}
+      >
+        <div className="max-w-[980px] mx-auto px-6 h-12 flex items-center justify-between">
           {/* Logo - Left */}
-          <div className="text-gray-900 flex-shrink-0" style={{ fontSize: '22px', fontWeight: '600' }}>Kiran.</div>
+          <div 
+            className="flex-shrink-0" 
+            style={{ 
+              fontSize: '21px', 
+              fontWeight: '600',
+              color: '#1d1d1f',
+              letterSpacing: '-0.01em',
+            }}
+          >
+            Kiran.
+          </div>
           
           {/* Navigation - Center */}
-          <nav className="absolute left-1/2 -translate-x-1/2 flex items-center gap-8">
-            <a href="#home" className="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
-            <a href="#experience" className="text-gray-600 hover:text-gray-900 transition-colors">Experience</a>
-            <a href="#education" className="text-gray-600 hover:text-gray-900 transition-colors">Education</a>
-            <a href="#kiran-gpt" className="text-gray-600 hover:text-gray-900 transition-colors">Kiran-GPT</a>
-            <a href="#download-cv" className="text-gray-600 hover:text-gray-900 transition-colors">Download CV</a>
-            <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+          <nav className="absolute left-1/2 -translate-x-1/2 flex items-center gap-7">
+            {['Home', 'Experience', 'Education', 'Kiran-GPT', 'Contact'].map((item) => (
+              <a 
+                key={item}
+                href={`#${item.toLowerCase()}`} 
+                className="transition-opacity hover:opacity-70"
+                style={{
+                  fontSize: '12px',
+                  fontWeight: '400',
+                  color: '#1d1d1f',
+                  letterSpacing: '0',
+                }}
+              >
+                {item}
+              </a>
+            ))}
           </nav>
           
-          {/* Fun Mode - Right */}
+          {/* CTA - Right */}
           <a 
-            href="#fun-mode" 
-            className="px-6 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-600 hover:to-purple-700 transition-all shadow-sm hover:shadow-md flex-shrink-0"
+            href="#download-cv" 
+            className="flex-shrink-0 transition-all hover:opacity-80"
+            style={{
+              fontSize: '12px',
+              fontWeight: '400',
+              color: '#0066cc',
+            }}
           >
-            Fun Mode
+            Download CV
           </a>
         </div>
       </header>
 
       {/* SECTION 1: Hero Carousel */}
-      <div className="relative w-screen -mx-6 min-h-screen bg-white flex flex-col items-center justify-center pt-32 overflow-hidden">
+      <div className="relative w-screen min-h-screen bg-white flex flex-col items-center justify-center pt-24 overflow-hidden">
         {/* Carousel Container - 1700px wide */}
         <div className="relative w-[1700px] h-[600px] flex items-center justify-center mb-8">
           {/* Carousel Images */}
@@ -177,7 +208,7 @@ export default function App() {
                     transform: `translateX(${translateX}px) scale(${isHovered ? 1.05 : scale})`,
                     opacity,
                     zIndex,
-                    boxShadow: isHovered ? '0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(99, 102, 241, 0.5)' : '0 10px 40px rgba(0, 0, 0, 0.1)',
+                    boxShadow: isHovered ? '0 20px 40px rgba(0, 0, 0, 0.15)' : '0 8px 24px rgba(0, 0, 0, 0.08)',
                   }}
                   onMouseEnter={() => setHoveredImageIndex(index)}
                   onMouseLeave={() => setHoveredImageIndex(null)}
@@ -194,115 +225,61 @@ export default function App() {
           
           {/* Text Box Overlay */}
           <div 
-            className="absolute z-[60] bg-white rounded-3xl shadow-2xl p-10"
-            style={{ width: '700px', minHeight: '220px' }}
+            className="absolute z-[60] bg-white/95 rounded-3xl p-10"
+            style={{ 
+              width: '680px', 
+              minHeight: '200px',
+              backdropFilter: 'blur(20px)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08)',
+            }}
           >
             <div>
               <h1 
-                className="text-black" 
                 style={{ 
-                  fontSize: '72px', 
-                  lineHeight: '1.05', 
-                  fontWeight: '700',
-                  letterSpacing: '-0.03em'
+                  fontSize: '64px', 
+                  lineHeight: '1.07', 
+                  fontWeight: '600',
+                  letterSpacing: '-0.005em',
+                  color: '#1d1d1f',
                 }}
               >
-                {displayedText}<span className="animate-pulse">|</span>
+                {displayedText}<span className="animate-pulse" style={{ color: '#86868b' }}>|</span>
               </h1>
             </div>
           </div>
         </div>
 
-        {/* Description Text */}
-        <div className="relative z-10 text-center max-w-4xl px-4 mb-4">
+        {/* Description Text - Apple style */}
+        <div className="relative z-10 text-center max-w-[680px] px-6 mb-6">
           <p 
-            className={`text-gray-900 transition-all duration-500 ${showTLDRText ? 'blur-sm' : ''}`} 
             style={{ 
-              fontSize: '24px', 
-              lineHeight: '1.4',
-              fontWeight: '500',
-              letterSpacing: '-0.01em'
+              fontSize: '21px', 
+              lineHeight: '1.381',
+              fontWeight: '400',
+              color: '#1d1d1f',
             }}
           >
-            I'm a product manager in a complex two-sided marketplace, blending deep technical, design, marketing, and operational expertise. I specialize in uncovering high-TAM opportunities, validating new concepts quickly, and scaling zero-to-one initiatives into durable business lines.
+            I'm a product manager specializing in uncovering high-TAM opportunities, validating new concepts quickly, and scaling zero-to-one initiatives into durable business lines.
           </p>
         </div>
 
-        {/* TLDR Checkbox */}
-        <div className="relative z-10 flex items-center justify-center gap-3 mb-6">
-          <button
-            onClick={() => setShowTLDRText(!showTLDRText)}
-            className="group flex items-center gap-3 cursor-pointer"
+        {/* CTA Link - Apple style */}
+        <div className="relative z-10 mb-16">
+          <a 
+            href="#experience"
+            className="inline-flex items-center gap-1 transition-opacity hover:opacity-70"
+            style={{
+              fontSize: '21px',
+              fontWeight: '400',
+              color: '#0066cc',
+            }}
           >
-            <div 
-              className={`
-                relative w-6 h-6 rounded-md border-2 
-                transition-all duration-300 ease-out
-                ${showTLDRText 
-                  ? 'bg-gradient-to-br from-indigo-500 to-purple-600 border-indigo-500 scale-110' 
-                  : 'bg-white border-gray-300 hover:border-indigo-400'
-                }
-              `}
-              style={{
-                boxShadow: showTLDRText ? '0 0 20px rgba(99, 102, 241, 0.4), 0 4px 12px rgba(0, 0, 0, 0.1)' : 'none'
-              }}
-            >
-              {/* Checkmark SVG */}
-              <svg
-                className={`absolute inset-0 w-full h-full text-white transition-all duration-300 ${
-                  showTLDRText ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
-                }`}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              
-              {/* Ripple effect on click */}
-              {showTLDRText && (
-                <div 
-                  className="absolute inset-0 rounded-md animate-ping"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(168, 85, 247, 0.6))',
-                    animationDuration: '0.6s',
-                    animationIterationCount: '1'
-                  }}
-                />
-              )}
-            </div>
-            <span 
-              className={`transition-colors duration-300 ${
-                showTLDRText ? 'text-indigo-600' : 'text-gray-600 group-hover:text-gray-900'
-              }`}
-              style={{ fontSize: '16px', fontWeight: '500' }}
-            >
-              TLDR
-            </span>
-          </button>
+            See my work
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
-
-        {/* TLDR Text - Appears when checkbox is clicked */}
-        {showTLDRText && (
-          <div className="relative z-10 text-center max-w-3xl px-4 mb-16 animate-in fade-in slide-in-from-top-2 duration-500">
-            <p 
-              className="text-gray-900"
-              style={{ 
-                fontSize: '20px', 
-                lineHeight: '1.7',
-                fontWeight: '600',
-                letterSpacing: '-0.01em'
-              }}
-            >
-              I find the biggest opportunities, build them fast, launch them well, and scale them into meaningful revenue.
-            </p>
-          </div>
-        )}
-
-        {!showTLDRText && <div className="mb-16" />}
       </div>
 
       {/* Bento Grid */}

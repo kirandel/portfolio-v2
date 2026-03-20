@@ -7,46 +7,38 @@ export function BentoGrid() {
 
   return (
     <div 
-      className="w-full px-8"
-      style={{ paddingTop: '120px', paddingBottom: '120px' }}
+      className="w-full"
+      style={{ 
+        paddingTop: '100px', 
+        paddingBottom: '100px',
+        background: '#F5F5F7',
+      }}
     >
-      {/* Responsive Container with Auto Layout behavior */}
-      <div className="max-w-[1536px] mx-auto">
-        {/* Section Title */}
-        <div className="relative" style={{ marginBottom: '120px' }}>
-          <h1 
-            className="text-center text-gray-900 mb-4"
-            style={{ 
-              fontSize: '72px', 
-              lineHeight: '1.05',
-              fontWeight: '700',
-              letterSpacing: '-0.03em'
-            }}
-          >
-            Things I've Shipped
-          </h1>
-          <p 
-            className="text-center text-gray-700 mb-3"
+      {/* Responsive Container */}
+      <div className="max-w-[980px] mx-auto px-6">
+        {/* Section Title - Apple style */}
+        <div className="text-center" style={{ marginBottom: '60px' }}>
+          <p
             style={{
-              fontSize: '24px',
-              lineHeight: '1.4',
-              fontWeight: '500',
-              letterSpacing: '-0.01em'
-            }}
-          >
-            A selection of products I've brought to life
-          </p>
-          <p 
-            className="text-center text-gray-500"
-            style={{
-              fontSize: '20px',
-              lineHeight: '1.5',
+              fontSize: '17px',
               fontWeight: '400',
-              letterSpacing: '-0.005em'
+              color: '#86868b',
+              marginBottom: '8px',
             }}
           >
-            From idea → launch → impact
+            Get to know my work.
           </p>
+          <h1 
+            style={{ 
+              fontSize: '56px', 
+              lineHeight: '1.07',
+              fontWeight: '600',
+              letterSpacing: '-0.005em',
+              color: '#1d1d1f',
+            }}
+          >
+            Things I've Shipped.
+          </h1>
         </div>
         
         {/* Add keyframe animations */}
