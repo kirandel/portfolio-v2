@@ -114,7 +114,7 @@ export default function App() {
             padding: isScrolled || isDarkSection ? '12px 24px' : '16px 48px',
             borderRadius: isScrolled || isDarkSection ? '100px' : '0',
             backgroundColor: isDarkSection
-              ? 'rgba(20, 20, 20, 0.75)'
+              ? 'rgba(35, 35, 35, 0.8)'
               : isScrolled ? 'rgba(255, 255, 255, 0.75)' : 'rgba(255, 255, 255, 0.55)',
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
