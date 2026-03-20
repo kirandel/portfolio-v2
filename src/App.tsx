@@ -5,6 +5,7 @@ import { KiranGPT } from './components/KiranGPT';
 import { Education } from './components/Education';
 import { WhatILove } from './components/WhatILove';
 import { Footer } from './components/Footer';
+import { ContactModal } from './components/ContactModal';
 
 export default function App() {
   // Hero carousel state
@@ -16,6 +17,7 @@ export default function App() {
   const [hoveredImageIndex, setHoveredImageIndex] = useState<number | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkSection, setIsDarkSection] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   // Combined scroll detection for navbar transformation and dark section overlap
   useEffect(() => {
@@ -166,9 +168,9 @@ export default function App() {
           </nav>
           
           {/* CTA - Right */}
-          <a 
-            href="#contact" 
-            className="flex-shrink-0 transition-all duration-300"
+          <button 
+            onClick={() => setIsContactModalOpen(true)}
+            className="flex-shrink-0 transition-all duration-300 cursor-pointer"
             style={{
               padding: isScrolled || isDarkSection ? '8px 20px' : '10px 24px',
               borderRadius: '100px',
@@ -180,7 +182,7 @@ export default function App() {
             }}
           >
             {"Let's talk"}
-          </a>
+          </button>
         </div>
       </header>
 
@@ -335,10 +337,16 @@ export default function App() {
       <Education />
 
       {/* What I Love */}
-      <WhatILove />
+      <WhatILove onContactClick={() => setIsContactModalOpen(true)} />
 
       {/* Footer */}
       <Footer />
+
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </div>
   );
 }

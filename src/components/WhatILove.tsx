@@ -1,4 +1,8 @@
-export function WhatILove() {
+interface WhatILoveProps {
+  onContactClick?: () => void;
+}
+
+export function WhatILove({ onContactClick }: WhatILoveProps) {
   return (
     <div 
       className="relative w-screen -mx-6"
@@ -49,9 +53,9 @@ export function WhatILove() {
             </p>
             
             {/* CTA Button */}
-            <a 
-              href="mailto:hello@kirandelneuville.com"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-gray-900 font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            <button 
+              onClick={onContactClick}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-gray-900 font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
             >
               <span>{"Let's talk"}</span>
               
@@ -64,7 +68,7 @@ export function WhatILove() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </div>
