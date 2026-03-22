@@ -16,7 +16,7 @@ export function Education() {
     {
       id: 'masters',
       level: 'Master\'s Degree',
-      field: 'Global Studies — International Business, Innovation & Product Design',
+      field: 'Global Studies (Focus: International Business, Innovation & Product Design)',
       institution: 'University of California, Berkeley',
       location: 'Berkeley, CA',
       year: '2017 - 2018',
@@ -25,23 +25,23 @@ export function Education() {
       highlights: [
         {
           icon: Package,
-          title: 'Product Design & Full Lifecycle Ownership',
-          description: 'Built products from first principles through Berkeley\'s Jacobs Institute for Design Innovation, working end-to-end across sketching, CAD, prototyping, iteration testing, and production—while coordinating teams through tight deadlines and real delivery constraints.',
+          title: 'Thesis: Global Cybersecurity & Emerging Governance Gaps',
+          description: 'Authored a 40-page thesis on global cybersecurity, analyzing state-sponsored attacks, system vulnerabilities, and incentive structures with a focus on how emerging technologies outpace existing governance frameworks—a challenge increasingly relevant to AI safety and regulation.',
         },
         {
           icon: BarChart3,
-          title: 'Data, Systems & Forecasting',
-          description: 'Conducted advanced analytical work with Berkeley\'s Energy & Resources Group, applying statistical modeling, efficiency forecasting, and systems analysis to large-scale energy and manufacturing problems—sharpening a data-driven approach to decision-making.',
+          title: 'Graduate Student Instructor & Curriculum Design',
+          description: 'Served as a Graduate Student Instructor at UC Berkeley, independently designing curriculum, writing and delivering lectures, and leading ~150 students through complex, multidisciplinary coursework focused on international business, political economy and diplomacy.',
         },
         {
           icon: Shield,
-          title: 'Technology, Security & Global Systems Research',
-          description: 'Authored graduate research on 21st-century cybersecurity, including a 40-page investigation into international cyber-crime and state-sponsored attacks, analyzing technical mechanisms, incentives, and downstream impacts on global trade and diplomacy.',
+          title: 'Systems Analysis & Infrastructure Forecasting',
+          description: 'Conducted advanced systems analysis and forecasting with the Energy & Resources Group, applying statistical modeling to large-scale infrastructure and manufacturing problems.',
         },
         {
           icon: Briefcase,
-          title: 'Business Acumen & Leadership',
-          description: 'Completed coursework and executive seminars through Berkeley Haas (Finance, Marketing, Management), and served as a Graduate Student Instructor—lecturing ~150 students, designing new multidisciplinary curriculum, and leading large cohorts through complex, real-world projects.',
+          title: 'Product Design & Full-Cycle Shipping',
+          description: 'Designed and shipped both physical and digital products through the Jacobs Institute for Design Innovation, working end-to-end from concept through prototyping, iteration, and production under real-world constraints.',
         },
       ],
     },
