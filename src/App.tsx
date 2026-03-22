@@ -272,7 +272,6 @@ export default function App() {
                     alt={`Carousel image ${index + 1}`}
                     className="w-full h-full object-cover"
                   />
-                  />
                 </a>
               );
             })}
