@@ -235,17 +235,17 @@ export function Education() {
               },
               {
                 number: '05',
-                title: 'International Experience',
-                description: 'I grew up across Laos, Cambodia, Thailand, and Indonesia, and later worked with international NGOs in former conflict zones. These experiences required navigating different cultural norms, languages, and political environments while working with diverse stakeholders.',
-                takeaway: 'I understand how to build and scale systems that work across geographies, regulatory environments, user behaviors, and socio-cultural norms.',
-                icon: Globe,
-              },
-              {
-                number: '06',
                 title: 'Evening MBA Program',
                 description: 'Through UC Berkeley Haas\' Evening MBA program, I built a strong foundation across marketing, financial accounting, corporate finance, strategy, and operations — learning how businesses make decisions, how markets behave, and how to evaluate tradeoffs between growth, profitability, and risk.',
                 takeaway: 'I think about products not just as user experiences, but as economic systems. Pricing, positioning, and go-to-market strategy are part of the product itself.',
                 icon: TrendingUp,
+              },
+              {
+                number: '06',
+                title: 'International Experience',
+                description: 'I grew up across Laos, Cambodia, Thailand, and Indonesia, and later worked with international NGOs in former conflict zones. These experiences required navigating different cultural norms, languages, and political environments while working with diverse stakeholders.',
+                takeaway: 'I understand how to build and scale systems that work across geographies, regulatory environments, user behaviors, and socio-cultural norms.',
+                icon: Globe,
               },
             ].map((item, idx) => {
               const Icon = item.icon;
