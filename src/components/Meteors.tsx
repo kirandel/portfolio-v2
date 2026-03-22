@@ -1,32 +1,47 @@
 const cn = (...classes: any[]) => classes.filter(Boolean).join(' ');
-import React from "react";
+import React, { useMemo } from "react";
 
 export const Meteors = ({
-  number,
+  number = 20,
   className,
 }: {
   number?: number;
   className?: string;
 }) => {
-  const meteors = new Array(number || 20).fill(true);
+  const meteors = useMemo(() =>
+    Array.from({ length: number }, (_, idx) => ({
+      id: idx,
+      top: Math.floor(Math.random() * 100) + "%",
+      left: Math.floor(Math.random() * 100) + "%",
+      delay: (Math.random() * 6) + "s",
+      duration: (Math.random() * 6 + 4) + "s",
+    })),
+    [number]
+  );
+
   return (
-    <>
-      {meteors.map((el, idx) => (
+    <div className={cn("absolute inset-0 overflow-hidden pointer-events-none", className)}>
+      {meteors.map((meteor) => (
         <span
-          key={"meteor" + idx}
-          className={cn(
-            "animate-meteor-effect absolute top-1/2 left-1/2 h-0.5 w-0.5 rounded-[9999px] bg-slate-500 shadow-[0_0_0_1px_#ffffff10] rotate-[215deg]",
-            "before:content-[''] before:absolute before:top-1/2 before:transform before:-translate-y-[50%] before:w-[50px] before:h-[1px] before:bg-gradient-to-r before:from-[#64748b] before:to-transparent",
-            className
-          )}
+          key={meteor.id}
+          className="animate-meteor-effect absolute h-px w-px rounded-full bg-white/30"
           style={{
-            top: 0,
-            left: Math.floor(Math.random() * (400 - -400) + -400) + "px",
-            animationDelay: Math.random() * (0.8 - 0.2) + 0.2 + "s",
-            animationDuration: Math.floor(Math.random() * (10 - 2) + 2) + "s",
+            top: meteor.top,
+            left: meteor.left,
+            animationDelay: meteor.delay,
+            animationDuration: meteor.duration,
+            boxShadow: "0 0 0 1px rgba(255,255,255,0.05)",
           }}
-        ></span>
+        >
+          {/* Tail */}
+          <span
+            className="absolute top-1/2 -translate-y-1/2 left-0 w-20 h-px"
+            style={{
+              background: "linear-gradient(to right, rgba(255,255,255,0.6), transparent)",
+            }}
+          />
+        </span>
       ))}
-    </>
+    </div>
   );
 };
