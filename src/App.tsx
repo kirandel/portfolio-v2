@@ -44,16 +44,9 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
-  // Hero images for carousel (8 images)
+  // Hero images for carousel - single mockup image
   const heroImages = [
-    'https://images.unsplash.com/photo-1624901344246-8759f305fef3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGFydCUyMGRlc2lnbnxlbnwxfHx8fDE3NjMyNDI3NTh8MA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1519662978799-2f05096d3636?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmV8ZW58MXx8fHwxNzYzMjkyODMwfDA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1617634667039-8e4cb277ab46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuYXR1cmUlMjBsYW5kc2NhcGV8ZW58MXx8fHwxNzYzMjMyMDI0fDA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1541661538396-53ba2d051eed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvbG9yZnVsfGVufDF8fHx8MTc2MzMyMjgxN3ww&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1673885831398-9581891a3155?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5JTIwZGlnaXRhbHxlbnwxfHx8fDE3NjMyNjAxNTB8MA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1708004228425-85703b49692e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1cmJhbiUyMHBob3RvZ3JhcGh5fGVufDF8fHx8MTc2MzI0MDI5MXww&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1541661538396-53ba2d051eed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvbG9yZnVsfGVufDF8fHx8MTc2MzMyMjgxN3ww&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1624901344246-8759f305fef3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGFydCUyMGRlc2lnbnxlbnwxfHx8fDE3NjMyNDI3NTh8MA&ixlib=rb-4.1.0&q=80&w=1200',
+    '/mockup.png',
   ];
   
   const messages = [
@@ -307,8 +300,8 @@ export default function App() {
           <div
             className="transition-all duration-500"
             style={{
-              filter: isTldrExpanded ? 'blur(6px)' : 'blur(0px)',
-              opacity: isTldrExpanded ? 0.2 : 1,
+              filter: isTldrExpanded ? 'blur(12px)' : 'blur(0px)',
+              opacity: isTldrExpanded ? 0.15 : 1,
               userSelect: isTldrExpanded ? 'none' : 'auto',
               pointerEvents: isTldrExpanded ? 'none' : 'auto',
               marginBottom: '28px',
