@@ -189,7 +189,7 @@ export default function App() {
       {/* SECTION 1: Hero Carousel */}
       <div className="relative w-screen -mx-6 min-h-screen bg-white flex flex-col items-center justify-center pt-32 overflow-hidden">
         {/* Carousel Container - 1700px wide */}
-        <div className="relative w-[1700px] h-[600px] flex items-center justify-center mb-8">
+        <div className="relative w-[1700px] h-[600px] flex items-center justify-center mb-20">
           {/* Carousel Images */}
           <div className="relative flex items-center justify-center">
             {heroImages.map((image, index) => {
@@ -370,10 +370,10 @@ export default function App() {
           {/* TLDR summary — absolutely centered over the paragraph block */}
           <div
             style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
+              position: 'absolute' as const,
+              top: '0',
+              left: '0',
+              right: '0',
               bottom: '80px',
               display: 'flex',
               alignItems: 'center',
