@@ -300,65 +300,84 @@ export default function App() {
           </div>
         </div>
 
-        {/* Description Text */}
-        <div className="relative z-10 text-center max-w-3xl px-4 mb-12">
-          <p 
+        {/* Description Text + TLDR — fixed height container so page doesn't shift */}
+        <div className="relative z-10 text-center max-w-3xl px-4 mb-12" style={{ minHeight: '260px' }}>
+
+          {/* Main paragraph — blurs when TLDR is active */}
+          <p
             className="text-gray-900 transition-all duration-500"
-            style={{ 
-              fontSize: '18px', 
-              lineHeight: '1.6',
+            style={{
+              fontSize: '18px',
+              lineHeight: '1.7',
               fontWeight: '400',
               letterSpacing: '-0.01em',
-              marginBottom: '24px',
-              filter: isTldrExpanded ? 'blur(3px)' : 'blur(0px)',
-              opacity: isTldrExpanded ? 0.4 : 1,
+              marginBottom: '28px',
+              filter: isTldrExpanded ? 'blur(4px)' : 'blur(0px)',
+              opacity: isTldrExpanded ? 0.3 : 1,
+              userSelect: isTldrExpanded ? 'none' : 'auto',
             }}
           >
             {"I'm a product manager with experience in complex, high-scale platforms that operate at the intersection of user experience, data, and marketplace dynamics. I blend technical depth, product intuition, and go-to-market execution to identify high-leverage opportunities, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines. I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in."}
           </p>
 
-          {/* TLDR Checkbox */}
-          <label className="inline-flex items-center gap-3 cursor-pointer select-none group">
-            <div
-              onClick={() => setIsTldrExpanded(!isTldrExpanded)}
-              className="relative flex items-center justify-center w-5 h-5 rounded border-2 transition-all duration-200"
+          {/* TLDR checkbox row */}
+          <button
+            onClick={() => setIsTldrExpanded(!isTldrExpanded)}
+            className="inline-flex items-center gap-3 cursor-pointer select-none group"
+            style={{ background: 'none', border: 'none', padding: 0 }}
+          >
+            {/* Custom checkbox */}
+            <span
+              className="flex items-center justify-center transition-all duration-200"
               style={{
-                borderColor: isTldrExpanded ? '#1a1a1a' : '#9ca3af',
+                width: '20px',
+                height: '20px',
+                borderRadius: '5px',
+                border: isTldrExpanded ? '2px solid #1a1a1a' : '2px solid #9ca3af',
                 backgroundColor: isTldrExpanded ? '#1a1a1a' : 'transparent',
+                flexShrink: 0,
               }}
             >
               {isTldrExpanded && (
-                <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               )}
-            </div>
+            </span>
             <span
-              onClick={() => setIsTldrExpanded(!isTldrExpanded)}
-              className="text-gray-500 group-hover:text-gray-700 transition-colors duration-200"
-              style={{ fontSize: '14px', fontWeight: '500' }}
+              className="transition-colors duration-200"
+              style={{
+                fontSize: '15px',
+                fontWeight: '700',
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                color: isTldrExpanded ? '#1a1a1a' : '#6b7280',
+              }}
             >
               TLDR
             </span>
-          </label>
+          </button>
 
-          {/* TLDR Content */}
+          {/* TLDR summary — overlays in the same space, fades in */}
           <div
             style={{
-              maxHeight: isTldrExpanded ? '120px' : '0px',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              pointerEvents: isTldrExpanded ? 'auto' : 'none',
               opacity: isTldrExpanded ? 1 : 0,
-              overflow: 'hidden',
-              transition: 'max-height 0.4s ease, opacity 0.4s ease',
-              marginTop: isTldrExpanded ? '20px' : '0px',
+              transform: isTldrExpanded ? 'translateY(0)' : 'translateY(8px)',
+              transition: 'opacity 0.4s ease, transform 0.4s ease',
             }}
           >
             <p
-              className="text-gray-900"
               style={{
-                fontSize: '17px',
-                lineHeight: '1.6',
-                fontWeight: '500',
-                fontStyle: 'italic',
+                fontSize: '22px',
+                lineHeight: '1.55',
+                fontWeight: '600',
+                color: '#1a1a1a',
+                letterSpacing: '-0.02em',
               }}
             >
               {"I find the biggest opportunities, build and launch them quickly, and scale them into meaningful, lasting revenue."}
