@@ -59,7 +59,7 @@ export default function App() {
   const messages = [
     "Hi 👋 — I'm Kiran",
     "Nice to meet you",
-    "Welcome to my interactive resume",
+    "Scroll down to see my work",
   ];
 
   // Auto-scroll carousel
@@ -280,7 +280,7 @@ export default function App() {
           {/* Text Box Overlay */}
           <div 
             className="absolute z-[60] bg-white rounded-3xl shadow-2xl p-8 flex items-center"
-            style={{ width: '620px', height: '110px', overflow: 'hidden' }}
+            style={{ width: '760px', height: '110px', overflow: 'hidden' }}
           >
             <div style={{ width: '100%' }}>
               <h1 
@@ -312,7 +312,7 @@ export default function App() {
               marginBottom: '20px'
             }}
           >
-            I'm a product manager with experience in complex, high-scale platforms that operate at the intersection of user experience, data, and marketplace dynamics. I blend technical depth, product intuition, and go-to-market execution to identify high-leverage opportunities, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines. I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in 🗺️
+            {"I'm a product manager with experience in complex, high-scale platforms that operate at the intersection of user experience, data, and marketplace dynamics. I blend technical depth, product intuition, and go-to-market execution to identify high-leverage opportunities, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines. I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in."}
           </p>
 
           {/* TLDR Button and Expandable Section */}
