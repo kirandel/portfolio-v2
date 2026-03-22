@@ -8,8 +8,8 @@ export function WhatILove({ onContactClick }: WhatILoveProps) {
       className="relative w-screen -mx-6"
       style={{
         background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
-        paddingTop: '140px',
-        paddingBottom: '140px',
+        paddingTop: '100px',
+        paddingBottom: '100px',
       }}
     >
       {/* Subtle grid background */}
@@ -27,7 +27,7 @@ export function WhatILove({ onContactClick }: WhatILoveProps) {
         <div 
           className="relative rounded-3xl overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
+            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.85) 100%)',
             padding: '48px 64px',
           }}
         >
