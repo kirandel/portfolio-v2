@@ -307,26 +307,16 @@ export default function App() {
         {/* Description Text + TLDR — fixed height container so page does not shift */}
         <div className="relative z-10 text-center max-w-3xl px-4 mb-24" style={{ minHeight: '340px' }}>
 
-          {/* Background container with gradient */}
+          {/* Background container - Apple-style frosted glass */}
           <div
-            className="relative rounded-3xl p-8 transition-all duration-500"
+            className="relative rounded-2xl p-10 transition-all duration-500 overflow-hidden"
             style={{
-              background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(168, 85, 247, 0.06) 50%, rgba(236, 72, 153, 0.05) 100%)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(99, 102, 241, 0.12)',
-              boxShadow: '0 4px 24px rgba(99, 102, 241, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04)',
+              background: 'rgba(255, 255, 255, 0.72)',
+              backdropFilter: 'saturate(180%) blur(20px)',
+              WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+              boxShadow: '0 0 0 0.5px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(0, 0, 0, 0.06)',
             }}
           >
-            {/* Decorative gradient orbs */}
-            <div 
-              className="absolute -top-20 -left-20 w-40 h-40 rounded-full opacity-30 blur-3xl pointer-events-none"
-              style={{ background: 'radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, transparent 70%)' }}
-            />
-            <div 
-              className="absolute -bottom-16 -right-16 w-32 h-32 rounded-full opacity-25 blur-3xl pointer-events-none"
-              style={{ background: 'radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, transparent 70%)' }}
-            />
-
             {/* Main paragraphs — blur when TLDR is active */}
             <div
               className="relative z-10 transition-all duration-500"
@@ -338,13 +328,13 @@ export default function App() {
                 marginBottom: '28px',
               }}
             >
-              <p className="text-gray-900" style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.01em', marginBottom: '18px' }}>
+              <p style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.022em', marginBottom: '18px', color: '#1d1d1f' }}>
                 {"I'm a product manager with experience in complex, high-scale platforms that operate at the intersection of user experience, data, and marketplace dynamics."}
               </p>
-              <p className="text-gray-900" style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.01em', marginBottom: '18px' }}>
+              <p style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.022em', marginBottom: '18px', color: '#1d1d1f' }}>
                 {"I blend technical depth, product intuition, and go-to-market execution to identify the best ideas, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines."}
               </p>
-              <p className="text-gray-900" style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.01em' }}>
+              <p style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.022em', color: '#1d1d1f' }}>
                 {"I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in "}&#x1F5FA;&#xFE0F;
               </p>
             </div>
