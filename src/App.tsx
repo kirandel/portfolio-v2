@@ -4,6 +4,7 @@ import { BentoGrid } from './components/BentoGrid';
 import { KiranGPT } from './components/KiranGPT';
 import { Education } from './components/Education';
 import { WhatILove } from './components/WhatILove';
+import { MeteorsDemo } from './components/MeteorsDemo';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
 
@@ -428,6 +429,9 @@ export default function App() {
 
       {/* What I Love */}
       <WhatILove onContactClick={() => setIsContactModalOpen(true)} />
+
+      {/* Meteors Demo Section */}
+      <MeteorsDemo />
 
       {/* Footer */}
       <Footer />
