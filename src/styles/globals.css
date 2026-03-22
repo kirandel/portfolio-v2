@@ -346,3 +346,14 @@ html {
     transform: translateY(0);
   }
 }
+
+@keyframes meteor-effect {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 500px) scale(0);
+    opacity: 0;
+  }
+}

@@ -2,6 +2,8 @@ interface WhatILoveProps {
   onContactClick?: () => void;
 }
 
+import { Meteors } from './Meteors';
+
 export function WhatILove({ onContactClick }: WhatILoveProps) {
   return (
     <div 
@@ -31,6 +33,9 @@ export function WhatILove({ onContactClick }: WhatILoveProps) {
             padding: '48px 64px',
           }}
         >
+          {/* Meteors background effect */}
+          <Meteors number={30} className="absolute top-0 left-0 w-full h-full" />
+          
           {/* Subtle glow effect */}
           <div 
             className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full opacity-[0.08] blur-3xl"
