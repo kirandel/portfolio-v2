@@ -301,76 +301,71 @@ export default function App() {
         </div>
 
         {/* Description Text */}
-        <div className="relative z-10 text-center max-w-3xl px-4 mb-8">
+        <div className="relative z-10 text-center max-w-3xl px-4 mb-12">
           <p 
-            className="text-gray-900" 
+            className="text-gray-900 transition-all duration-500"
             style={{ 
               fontSize: '18px', 
               lineHeight: '1.6',
               fontWeight: '400',
               letterSpacing: '-0.01em',
-              marginBottom: '20px'
+              marginBottom: '24px',
+              filter: isTldrExpanded ? 'blur(3px)' : 'blur(0px)',
+              opacity: isTldrExpanded ? 0.4 : 1,
             }}
           >
             {"I'm a product manager with experience in complex, high-scale platforms that operate at the intersection of user experience, data, and marketplace dynamics. I blend technical depth, product intuition, and go-to-market execution to identify high-leverage opportunities, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines. I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in."}
           </p>
 
-          {/* TLDR Button and Expandable Section */}
-          <div>
-            <button
+          {/* TLDR Checkbox */}
+          <label className="inline-flex items-center gap-3 cursor-pointer select-none group">
+            <div
               onClick={() => setIsTldrExpanded(!isTldrExpanded)}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-900 hover:bg-gray-50 transition-all duration-200"
+              className="relative flex items-center justify-center w-5 h-5 rounded border-2 transition-all duration-200"
               style={{
-                fontSize: '14px',
-                fontWeight: '600',
+                borderColor: isTldrExpanded ? '#1a1a1a' : '#9ca3af',
+                backgroundColor: isTldrExpanded ? '#1a1a1a' : 'transparent',
               }}
             >
-              <span>TLDR</span>
-              <svg 
-                className={`w-4 h-4 transition-transform duration-300 ${isTldrExpanded ? 'rotate-180' : ''}`}
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </button>
+              {isTldrExpanded && (
+                <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </svg>
+              )}
+            </div>
+            <span
+              onClick={() => setIsTldrExpanded(!isTldrExpanded)}
+              className="text-gray-500 group-hover:text-gray-700 transition-colors duration-200"
+              style={{ fontSize: '14px', fontWeight: '500' }}
+            >
+              TLDR
+            </span>
+          </label>
 
-            {/* TLDR Content */}
-            {isTldrExpanded && (
-              <div 
-                className="mt-6 p-6 bg-gray-50 rounded-2xl border border-gray-200 animate-in fade-in duration-300"
-                style={{
-                  animation: 'fadeIn 0.3s ease-in-out'
-                }}
-              >
-                <p 
-                  className="text-gray-900" 
-                  style={{ 
-                    fontSize: '16px', 
-                    lineHeight: '1.6',
-                    fontWeight: '500',
-                  }}
-                >
-                  I find the biggest opportunities, build and launch them quickly, and scale them into meaningful, lasting revenue.
-                </p>
-              </div>
-            )}
+          {/* TLDR Content */}
+          <div
+            style={{
+              maxHeight: isTldrExpanded ? '120px' : '0px',
+              opacity: isTldrExpanded ? 1 : 0,
+              overflow: 'hidden',
+              transition: 'max-height 0.4s ease, opacity 0.4s ease',
+              marginTop: isTldrExpanded ? '20px' : '0px',
+            }}
+          >
+            <p
+              className="text-gray-900"
+              style={{
+                fontSize: '17px',
+                lineHeight: '1.6',
+                fontWeight: '500',
+                fontStyle: 'italic',
+              }}
+            >
+              {"I find the biggest opportunities, build and launch them quickly, and scale them into meaningful, lasting revenue."}
+            </p>
           </div>
         </div>
 
-        {/* CTA Link */}
-        <div className="relative z-10 mb-16">
-          <a 
-            href="#experience"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-600 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl"
-          >
-            See my work
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
       </div>
 
       {/* Bento Grid */}
