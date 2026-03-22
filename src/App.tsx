@@ -307,26 +307,47 @@ export default function App() {
         {/* Description Text + TLDR — fixed height container so page does not shift */}
         <div className="relative z-10 text-center max-w-3xl px-4 mb-24" style={{ minHeight: '340px' }}>
 
-          {/* Main paragraphs — blur when TLDR is active */}
+          {/* Background container with gradient */}
           <div
-            className="transition-all duration-500"
+            className="relative rounded-3xl p-8 transition-all duration-500"
             style={{
-              filter: isTldrExpanded ? 'blur(6px)' : 'blur(0px)',
-              opacity: isTldrExpanded ? 0.2 : 1,
-              userSelect: isTldrExpanded ? 'none' : 'auto',
-              pointerEvents: isTldrExpanded ? 'none' : 'auto',
-              marginBottom: '28px',
+              background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(168, 85, 247, 0.06) 50%, rgba(236, 72, 153, 0.05) 100%)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(99, 102, 241, 0.12)',
+              boxShadow: '0 4px 24px rgba(99, 102, 241, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04)',
             }}
           >
-            <p className="text-gray-900" style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.01em', marginBottom: '18px' }}>
-              {"I'm a product manager with experience in complex, high-scale platforms that operate at the intersection of user experience, data, and marketplace dynamics."}
-            </p>
-            <p className="text-gray-900" style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.01em', marginBottom: '18px' }}>
-              {"I blend technical depth, product intuition, and go-to-market execution to identify the best ideas, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines."}
-            </p>
-            <p className="text-gray-900" style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.01em' }}>
-              {"I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in "}&#x1F5FA;&#xFE0F;
-            </p>
+            {/* Decorative gradient orbs */}
+            <div 
+              className="absolute -top-20 -left-20 w-40 h-40 rounded-full opacity-30 blur-3xl pointer-events-none"
+              style={{ background: 'radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, transparent 70%)' }}
+            />
+            <div 
+              className="absolute -bottom-16 -right-16 w-32 h-32 rounded-full opacity-25 blur-3xl pointer-events-none"
+              style={{ background: 'radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, transparent 70%)' }}
+            />
+
+            {/* Main paragraphs — blur when TLDR is active */}
+            <div
+              className="relative z-10 transition-all duration-500"
+              style={{
+                filter: isTldrExpanded ? 'blur(6px)' : 'blur(0px)',
+                opacity: isTldrExpanded ? 0.2 : 1,
+                userSelect: isTldrExpanded ? 'none' : 'auto',
+                pointerEvents: isTldrExpanded ? 'none' : 'auto',
+                marginBottom: '28px',
+              }}
+            >
+              <p className="text-gray-900" style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.01em', marginBottom: '18px' }}>
+                {"I'm a product manager with experience in complex, high-scale platforms that operate at the intersection of user experience, data, and marketplace dynamics."}
+              </p>
+              <p className="text-gray-900" style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.01em', marginBottom: '18px' }}>
+                {"I blend technical depth, product intuition, and go-to-market execution to identify the best ideas, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines."}
+              </p>
+              <p className="text-gray-900" style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.01em' }}>
+                {"I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in "}&#x1F5FA;&#xFE0F;
+              </p>
+            </div>
           </div>
 
           {/* TLDR checkbox — styled as a prominent pill */}
