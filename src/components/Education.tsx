@@ -444,35 +444,6 @@ function DegreeCard({ degree, index }: { degree: any; index: number }) {
             </div>
             
             <div className="flex flex-col gap-2 items-end">
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.4, delay: 0.6 }}
-                className="px-3 py-1 rounded-lg"
-                style={{
-                  background: 'linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%)',
-                  fontSize: '13px',
-                  fontWeight: '600',
-                  color: '#475569',
-                }}
-              >
-                {degree.year}
-              </motion.div>
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.4, delay: 0.7 }}
-                whileHover={{ scale: 1.1 }}
-                className="px-3 py-1 rounded-lg"
-                style={{
-                  background: 'linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%)',
-                  fontSize: '13px',
-                  fontWeight: '700',
-                  color: '#92400E',
-                }}
-              >
-                GPA: {degree.gpa}
-              </motion.div>
             </div>
           </div>
 
