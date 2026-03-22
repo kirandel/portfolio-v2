@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import { BentoGrid } from './components/BentoGrid';
 import { KiranGPT } from './components/KiranGPT';
@@ -20,6 +21,7 @@ export default function App() {
   const [isDarkSection, setIsDarkSection] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isTldrExpanded, setIsTldrExpanded] = useState(false);
+  const [activeSection, setActiveSection] = useState('Home');
 
   // Combined scroll detection for navbar transformation and dark section overlap
   useEffect(() => {
@@ -43,6 +45,43 @@ export default function App() {
     // Run once on mount to set initial state
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Intersection Observer for active section detection
+  useEffect(() => {
+    const sectionIds = ['home', 'experience', 'kiran-gpt', 'education', 'download-cv', 'contact'];
+    const sectionToLabel: Record<string, string> = {
+      'home': 'Home',
+      'experience': 'Experience',
+      'kiran-gpt': 'KiranGPT',
+      'education': 'Education',
+      'download-cv': 'Resume',
+      'contact': 'Contact',
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            if (sectionToLabel[id]) {
+              setActiveSection(sectionToLabel[id]);
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '-20% 0px -70% 0px', // Trigger when section is in top 30% of viewport
+        threshold: 0,
+      }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
   
   // Hero images for carousel (8 images)
@@ -142,7 +181,7 @@ export default function App() {
           {/* Navigation - Center */}
           <nav 
             className="absolute left-1/2 -translate-x-1/2 flex items-center transition-all duration-300"
-            style={{ gap: isScrolled ? '24px' : '32px' }}
+            style={{ gap: isScrolled ? '8px' : '12px' }}
           >
             {[
               { label: 'Home', href: '#home' },
@@ -151,21 +190,52 @@ export default function App() {
               { label: 'Education', href: '#education' },
               { label: 'Resume', href: '#download-cv', nowrap: true },
               { label: 'Contact', href: '#contact' },
-            ].map((item) => (
-              <a 
-                key={item.label}
-                href={item.href} 
-                className="transition-colors duration-300"
-                style={{ 
-                  fontSize: isScrolled ? '14px' : '15px',
-                  fontWeight: '500',
-                  whiteSpace: 'nowrap',
-                  color: isDarkSection ? 'rgba(255,255,255,0.75)' : '#4b5563',
-                }}
-              >
-                {item.label}
-              </a>
-            ))}
+            ].map((item) => {
+              const isActive = activeSection === item.label;
+              return (
+                <a 
+                  key={item.label}
+                  href={item.href} 
+                  className="relative transition-colors duration-300 rounded-full"
+                  style={{ 
+                    fontSize: isScrolled ? '14px' : '15px',
+                    fontWeight: isActive ? '600' : '500',
+                    whiteSpace: 'nowrap',
+                    color: isActive 
+                      ? (isDarkSection ? '#ffffff' : '#1a1a1a')
+                      : (isDarkSection ? 'rgba(255,255,255,0.6)' : '#6b7280'),
+                    padding: isScrolled ? '6px 14px' : '8px 16px',
+                  }}
+                >
+                  {item.label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="nav-tubelight"
+                      className="absolute inset-0 rounded-full -z-10"
+                      style={{
+                        backgroundColor: isDarkSection 
+                          ? 'rgba(255, 255, 255, 0.1)' 
+                          : 'rgba(0, 0, 0, 0.05)',
+                      }}
+                      initial={false}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 350,
+                        damping: 30,
+                      }}
+                    >
+                      {/* Tubelight glow pill */}
+                      <div 
+                        className="absolute -top-1 left-1/2 -translate-x-1/2 w-6 h-1 rounded-full"
+                        style={{
+                          backgroundColor: isDarkSection ? '#ffffff' : '#1a1a1a',
+                        }}
+                      />
+                    </motion.div>
+                  )}
+                </a>
+              );
+            })}
           </nav>
           
           {/* CTA - Right */}
@@ -188,7 +258,7 @@ export default function App() {
       </header>
 
       {/* SECTION 1: Hero Carousel */}
-      <div className="relative w-screen -mx-6 min-h-screen bg-white flex flex-col items-center justify-center pt-32 overflow-hidden">
+      <div id="home" className="relative w-screen -mx-6 min-h-screen bg-white flex flex-col items-center justify-center pt-32 overflow-hidden">
         {/* Carousel Container - 1700px wide */}
         <div className="relative w-[1700px] h-[600px] flex items-center justify-center mb-20">
           {/* Carousel Images */}
@@ -419,19 +489,29 @@ export default function App() {
       </div>
 
       {/* Bento Grid */}
-      <BentoGrid />
+      <div id="experience">
+        <BentoGrid />
+      </div>
 
       {/* Kiran-GPT */}
-      <KiranGPT />
+      <div id="kiran-gpt">
+        <KiranGPT />
+      </div>
 
       {/* Education */}
-      <Education />
+      <div id="education">
+        <Education />
+      </div>
 
       {/* What I Love */}
-      <WhatILove onContactClick={() => setIsContactModalOpen(true)} />
+      <div id="contact">
+        <WhatILove onContactClick={() => setIsContactModalOpen(true)} />
+      </div>
 
       {/* Meteors Demo Section */}
-      <MeteorsDemo />
+      <div id="download-cv">
+        <MeteorsDemo />
+      </div>
 
       {/* Footer */}
       <Footer />
