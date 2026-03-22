@@ -177,7 +177,7 @@ export function Education() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-20"
         >
-          {/* Section Title - Clean & Minimal */}
+          {/* Section Title */}
           <div className="text-center mb-14">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -185,22 +185,6 @@ export function Education() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 mb-6">
-                <div className="h-px w-8 bg-indigo-400" />
-                <span 
-                  style={{ 
-                    fontSize: '13px', 
-                    fontWeight: '600', 
-                    color: '#6366F1',
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  Reflections
-                </span>
-                <div className="h-px w-8 bg-indigo-400" />
-              </div>
-              
               <h3 
                 style={{
                   fontSize: '36px',
@@ -210,7 +194,7 @@ export function Education() {
                   letterSpacing: '-0.02em',
                 }}
               >
-                How my Berkeley experience shapes how I build products
+                How my experience shapes how I build products
               </h3>
             </motion.div>
           </div>
@@ -327,26 +311,18 @@ export function Education() {
 
                     {/* Description */}
                     <p
-                      className="mb-4 flex-grow"
+                      className="mb-4"
                       style={{ fontSize: '14px', lineHeight: '1.65', color: '#64748B' }}
                     >
                       {item.description}
                     </p>
 
                     {/* Takeaway */}
-                    <div className="pt-4 mt-auto" style={{ borderTop: '1px solid #F1F5F9' }}>
-                      <p
-                        style={{
-                          fontSize: '13px',
-                          lineHeight: '1.6',
-                          color: '#475569',
-                          fontWeight: '500',
-                          fontStyle: 'italic',
-                        }}
-                      >
-                        {item.takeaway}
-                      </p>
-                    </div>
+                    <p
+                      style={{ fontSize: '14px', lineHeight: '1.65', color: '#64748B' }}
+                    >
+                      {item.takeaway}
+                    </p>
                   </motion.div>
                 </motion.div>
               );
