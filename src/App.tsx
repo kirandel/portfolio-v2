@@ -18,6 +18,7 @@ export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkSection, setIsDarkSection] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isTldrExpanded, setIsTldrExpanded] = useState(false);
 
   // Combined scroll detection for navbar transformation and dark section overlap
   useEffect(() => {
@@ -56,10 +57,9 @@ export default function App() {
   ];
   
   const messages = [
-    "Hi 👋 — i'm Kiran",
-    "It's nice to meet you!",
+    "Hi 👋 — I'm Kiran",
+    "Nice to meet you",
     "Welcome to my interactive resume",
-    "Click here to get started →"
   ];
 
   // Auto-scroll carousel
@@ -299,18 +299,62 @@ export default function App() {
         </div>
 
         {/* Description Text */}
-        <div className="relative z-10 text-center max-w-4xl px-4 mb-4">
+        <div className="relative z-10 text-center max-w-3xl px-4 mb-8">
           <p 
             className="text-gray-900" 
             style={{ 
-              fontSize: '24px', 
-              lineHeight: '1.4',
-              fontWeight: '500',
-              letterSpacing: '-0.01em'
+              fontSize: '18px', 
+              lineHeight: '1.6',
+              fontWeight: '400',
+              letterSpacing: '-0.01em',
+              marginBottom: '20px'
             }}
           >
-            I'm a product manager in a complex two-sided marketplace, blending deep technical, design, marketing, and operational expertise. I specialize in uncovering high-TAM opportunities, validating new concepts quickly, and scaling zero-to-one initiatives into durable business lines.
+            I'm a product manager with experience in complex, high-scale platforms that operate at the intersection of user experience, data, and marketplace dynamics. I blend technical depth, product intuition, and go-to-market execution to identify high-leverage opportunities, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines. I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in 🗺️
           </p>
+
+          {/* TLDR Button and Expandable Section */}
+          <div>
+            <button
+              onClick={() => setIsTldrExpanded(!isTldrExpanded)}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-900 hover:bg-gray-50 transition-all duration-200"
+              style={{
+                fontSize: '14px',
+                fontWeight: '600',
+              }}
+            >
+              <span>TLDR</span>
+              <svg 
+                className={`w-4 h-4 transition-transform duration-300 ${isTldrExpanded ? 'rotate-180' : ''}`}
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </button>
+
+            {/* TLDR Content */}
+            {isTldrExpanded && (
+              <div 
+                className="mt-6 p-6 bg-gray-50 rounded-2xl border border-gray-200 animate-in fade-in duration-300"
+                style={{
+                  animation: 'fadeIn 0.3s ease-in-out'
+                }}
+              >
+                <p 
+                  className="text-gray-900" 
+                  style={{ 
+                    fontSize: '16px', 
+                    lineHeight: '1.6',
+                    fontWeight: '500',
+                  }}
+                >
+                  I find the biggest opportunities, build and launch them quickly, and scale them into meaningful, lasting revenue.
+                </p>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* CTA Link */}
