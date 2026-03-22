@@ -2,7 +2,7 @@ interface WhatILoveProps {
   onContactClick?: () => void;
 }
 
-import { Meteors } from './Meteors';
+import { Meteors } from '@/components/ui/meteors';
 
 export function WhatILove({ onContactClick }: WhatILoveProps) {
   return (
