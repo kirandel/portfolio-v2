@@ -301,7 +301,7 @@ export default function App() {
         </div>
 
         {/* Description Text + TLDR — fixed height container so page does not shift */}
-        <div className="relative z-10 text-center max-w-3xl px-4 mb-12" style={{ minHeight: '340px' }}>
+        <div className="relative z-10 text-center max-w-3xl px-4 mb-24" style={{ minHeight: '340px' }}>
 
           {/* Main paragraphs — blur when TLDR is active */}
           <div
