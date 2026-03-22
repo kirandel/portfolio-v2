@@ -307,8 +307,8 @@ export default function App() {
           <div
             className="transition-all duration-500"
             style={{
-              filter: isTldrExpanded ? 'blur(4px)' : 'blur(0px)',
-              opacity: isTldrExpanded ? 0.25 : 1,
+              filter: isTldrExpanded ? 'blur(6px)' : 'blur(0px)',
+              opacity: isTldrExpanded ? 0.2 : 1,
               userSelect: isTldrExpanded ? 'none' : 'auto',
               pointerEvents: isTldrExpanded ? 'none' : 'auto',
               marginBottom: '28px',
@@ -321,11 +321,11 @@ export default function App() {
               {"I blend technical depth, product intuition, and go-to-market execution to identify high-leverage opportunities, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines."}
             </p>
             <p className="text-gray-900" style={{ fontSize: '18px', lineHeight: '1.75', fontWeight: '400', letterSpacing: '-0.01em' }}>
-              {"I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in. \uD83D\uDDFA\uFE0F"}
+              {"I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in "}&#x1F5FA;&#xFE0F;
             </p>
           </div>
 
-          {/* TLDR checkbox — styled as a prominent pill tag */}
+          {/* TLDR checkbox — styled as a prominent pill */}
           <button
             onClick={() => setIsTldrExpanded(!isTldrExpanded)}
             className="inline-flex items-center gap-2 transition-all duration-200"
@@ -367,16 +367,20 @@ export default function App() {
             </span>
           </button>
 
-          {/* TLDR summary — absolutely positioned, centered over the blurred text */}
+          {/* TLDR summary — absolutely centered over the paragraph block */}
           <div
             style={{
               position: 'absolute',
-              top: '50%',
+              top: 0,
               left: 0,
               right: 0,
-              transform: isTldrExpanded ? 'translateY(-60%)' : 'translateY(-50%)',
+              bottom: '80px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               pointerEvents: isTldrExpanded ? 'auto' : 'none',
               opacity: isTldrExpanded ? 1 : 0,
+              transform: isTldrExpanded ? 'translateY(0)' : 'translateY(10px)',
               transition: 'opacity 0.45s ease, transform 0.45s ease',
               padding: '0 16px',
             }}
@@ -388,6 +392,7 @@ export default function App() {
                 fontWeight: '600',
                 color: '#1a1a1a',
                 letterSpacing: '-0.025em',
+                textAlign: 'center',
               }}
             >
               {"I find the biggest opportunities, build and launch them quickly, and scale them into meaningful, lasting revenue."}
