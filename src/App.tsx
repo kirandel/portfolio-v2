@@ -279,22 +279,25 @@ export default function App() {
           
           {/* Text Box Overlay */}
           <div 
-            className="absolute z-[60] bg-white rounded-3xl shadow-2xl p-10"
-            style={{ width: '700px', minHeight: '220px' }}
+            className="absolute z-[60] bg-white rounded-3xl shadow-2xl p-8 flex items-center"
+            style={{ width: '620px', height: '110px', overflow: 'hidden' }}
           >
-            <div>
+            <div style={{ width: '100%' }}>
               <h1 
-                className="text-black" 
+                className="text-black"
                 style={{ 
-                  fontSize: '72px', 
+                  fontSize: '52px', 
                   lineHeight: '1.05', 
                   fontWeight: '700',
-                  letterSpacing: '-0.03em'
+                  letterSpacing: '-0.03em',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
                 }}
               >
                 {displayedText}<span className="animate-pulse">|</span>
               </h1>
             </div>
+          </div>
           </div>
         </div>
 
