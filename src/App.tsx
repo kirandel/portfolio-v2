@@ -314,13 +314,13 @@ export default function App() {
               marginBottom: '28px',
             }}
           >
-            <p className="text-gray-900" style={{ fontSize: '18px', lineHeight: '1.75', fontWeight: '400', letterSpacing: '-0.01em', marginBottom: '18px' }}>
+            <p className="text-gray-900" style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.01em', marginBottom: '18px' }}>
               {"I'm a product manager with experience in complex, high-scale platforms that operate at the intersection of user experience, data, and marketplace dynamics."}
             </p>
-            <p className="text-gray-900" style={{ fontSize: '18px', lineHeight: '1.75', fontWeight: '400', letterSpacing: '-0.01em', marginBottom: '18px' }}>
-              {"I blend technical depth, product intuition, and go-to-market execution to identify high-leverage opportunities, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines."}
+            <p className="text-gray-900" style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.01em', marginBottom: '18px' }}>
+              {"I blend technical depth, product intuition, and go-to-market execution to identify the best ideas, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines."}
             </p>
-            <p className="text-gray-900" style={{ fontSize: '18px', lineHeight: '1.75', fontWeight: '400', letterSpacing: '-0.01em' }}>
+            <p className="text-gray-900" style={{ fontSize: '19px', lineHeight: '1.75', fontWeight: '500', letterSpacing: '-0.01em' }}>
               {"I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in "}&#x1F5FA;&#xFE0F;
             </p>
           </div>
