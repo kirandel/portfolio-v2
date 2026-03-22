@@ -158,7 +158,7 @@ export function Education() {
               letterSpacing: '-0.01em',
             }}
           >
-            Across both degrees, my academic work focused on understanding incentives, designing systems, and grounding decisions in research and data - principles that continue to guide my approach to building trustworthy, scalable products.
+            Across both degrees, my academic work focused on understanding incentives, designing complex systems, and grounding decisions in research and data - principles that continue to shape how I build scalable, trustworthy products.
           </p>
         </motion.div>
 
