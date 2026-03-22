@@ -298,7 +298,6 @@ export default function App() {
               </h1>
             </div>
           </div>
-          </div>
         </div>
 
         {/* Description Text */}
