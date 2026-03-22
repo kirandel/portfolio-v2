@@ -300,84 +300,94 @@ export default function App() {
           </div>
         </div>
 
-        {/* Description Text + TLDR — fixed height container so page doesn't shift */}
-        <div className="relative z-10 text-center max-w-3xl px-4 mb-12" style={{ minHeight: '260px' }}>
+        {/* Description Text + TLDR — fixed height container so page does not shift */}
+        <div className="relative z-10 text-center max-w-3xl px-4 mb-12" style={{ minHeight: '340px' }}>
 
-          {/* Main paragraph — blurs when TLDR is active */}
-          <p
-            className="text-gray-900 transition-all duration-500"
+          {/* Main paragraphs — blur when TLDR is active */}
+          <div
+            className="transition-all duration-500"
             style={{
-              fontSize: '18px',
-              lineHeight: '1.7',
-              fontWeight: '400',
-              letterSpacing: '-0.01em',
-              marginBottom: '28px',
               filter: isTldrExpanded ? 'blur(4px)' : 'blur(0px)',
-              opacity: isTldrExpanded ? 0.3 : 1,
+              opacity: isTldrExpanded ? 0.25 : 1,
               userSelect: isTldrExpanded ? 'none' : 'auto',
+              pointerEvents: isTldrExpanded ? 'none' : 'auto',
+              marginBottom: '28px',
             }}
           >
-            {"I'm a product manager with experience in complex, high-scale platforms that operate at the intersection of user experience, data, and marketplace dynamics. I blend technical depth, product intuition, and go-to-market execution to identify high-leverage opportunities, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines. I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in."}
-          </p>
+            <p className="text-gray-900" style={{ fontSize: '18px', lineHeight: '1.75', fontWeight: '400', letterSpacing: '-0.01em', marginBottom: '18px' }}>
+              {"I'm a product manager with experience in complex, high-scale platforms that operate at the intersection of user experience, data, and marketplace dynamics."}
+            </p>
+            <p className="text-gray-900" style={{ fontSize: '18px', lineHeight: '1.75', fontWeight: '400', letterSpacing: '-0.01em', marginBottom: '18px' }}>
+              {"I blend technical depth, product intuition, and go-to-market execution to identify high-leverage opportunities, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines."}
+            </p>
+            <p className="text-gray-900" style={{ fontSize: '18px', lineHeight: '1.75', fontWeight: '400', letterSpacing: '-0.01em' }}>
+              {"I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in. \uD83D\uDDFA\uFE0F"}
+            </p>
+          </div>
 
-          {/* TLDR checkbox row */}
+          {/* TLDR checkbox — styled as a prominent pill tag */}
           <button
             onClick={() => setIsTldrExpanded(!isTldrExpanded)}
-            className="inline-flex items-center gap-3 cursor-pointer select-none group"
-            style={{ background: 'none', border: 'none', padding: 0 }}
+            className="inline-flex items-center gap-2 transition-all duration-200"
+            style={{
+              background: isTldrExpanded ? '#1a1a1a' : '#f3f4f6',
+              border: isTldrExpanded ? '1.5px solid #1a1a1a' : '1.5px solid #d1d5db',
+              borderRadius: '100px',
+              padding: '8px 16px',
+              cursor: 'pointer',
+            }}
           >
-            {/* Custom checkbox */}
             <span
               className="flex items-center justify-center transition-all duration-200"
               style={{
-                width: '20px',
-                height: '20px',
-                borderRadius: '5px',
-                border: isTldrExpanded ? '2px solid #1a1a1a' : '2px solid #9ca3af',
-                backgroundColor: isTldrExpanded ? '#1a1a1a' : 'transparent',
+                width: '16px',
+                height: '16px',
+                borderRadius: '4px',
+                border: isTldrExpanded ? '2px solid white' : '2px solid #6b7280',
+                backgroundColor: isTldrExpanded ? 'white' : 'transparent',
                 flexShrink: 0,
               }}
             >
               {isTldrExpanded && (
-                <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="#1a1a1a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               )}
             </span>
             <span
-              className="transition-colors duration-200"
               style={{
-                fontSize: '15px',
+                fontSize: '13px',
                 fontWeight: '700',
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
-                color: isTldrExpanded ? '#1a1a1a' : '#6b7280',
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase' as const,
+                color: isTldrExpanded ? 'white' : '#374151',
               }}
             >
               TLDR
             </span>
           </button>
 
-          {/* TLDR summary — overlays in the same space, fades in */}
+          {/* TLDR summary — absolutely positioned, centered over the blurred text */}
           <div
             style={{
               position: 'absolute',
-              top: 0,
+              top: '50%',
               left: 0,
               right: 0,
+              transform: isTldrExpanded ? 'translateY(-60%)' : 'translateY(-50%)',
               pointerEvents: isTldrExpanded ? 'auto' : 'none',
               opacity: isTldrExpanded ? 1 : 0,
-              transform: isTldrExpanded ? 'translateY(0)' : 'translateY(8px)',
-              transition: 'opacity 0.4s ease, transform 0.4s ease',
+              transition: 'opacity 0.45s ease, transform 0.45s ease',
+              padding: '0 16px',
             }}
           >
             <p
               style={{
-                fontSize: '22px',
-                lineHeight: '1.55',
+                fontSize: '26px',
+                lineHeight: '1.5',
                 fontWeight: '600',
                 color: '#1a1a1a',
-                letterSpacing: '-0.02em',
+                letterSpacing: '-0.025em',
               }}
             >
               {"I find the biggest opportunities, build and launch them quickly, and scale them into meaningful, lasting revenue."}
