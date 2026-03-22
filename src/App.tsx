@@ -45,15 +45,16 @@ export default function App() {
   }, []);
   
   // Hero images for carousel (8 images)
+  const mockupUrl = 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Example-mRn4JKv2gAMYBUafdohu14xarCffc6.png';
   const heroImages = [
-    'https://images.unsplash.com/photo-1624901344246-8759f305fef3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGFydCUyMGRlc2lnbnxlbnwxfHx8fDE3NjMyNDI3NTh8MA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1519662978799-2f05096d3636?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmV8ZW58MXx8fHwxNzYzMjkyODMwfDA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1617634667039-8e4cb277ab46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuYXR1cmUlMjBsYW5kc2NhcGV8ZW58MXx8fHwxNzYzMjMyMDI0fDA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1541661538396-53ba2d051eed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvbG9yZnVsfGVufDF8fHx8MTc2MzMyMjgxN3ww&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1673885831398-9581891a3155?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5JTIwZGlnaXRhbHxlbnwxfHx8fDE3NjMyNjAxNTB8MA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1708004228425-85703b49692e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1cmJhbiUyMGRlc2lnbnxlbnwxfHx8fDE3NjMyNjAxNTB8MA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1541661538396-53ba2d051eed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvbG9yZnVsfGVufDF8fHx8MTc2MzMyMjgxN3ww&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1624901344246-8759f305fef3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGFydCUyMGRlc2lnbnxlbnwxfHx8fDE3NjMyNDI3NTh8MA&ixlib=rb-4.1.0&q=80&w=1200',
+    mockupUrl,
+    mockupUrl,
+    mockupUrl,
+    mockupUrl,
+    mockupUrl,
+    mockupUrl,
+    mockupUrl,
+    mockupUrl,
   ];
   
   const messages = [
@@ -255,14 +256,13 @@ export default function App() {
                   href="https://www.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute transition-all duration-700 ease-out rounded-2xl overflow-hidden"
+                  className="absolute transition-all duration-700 ease-out"
                   style={{
                     width: `${width}px`,
                     height: `${height}px`,
                     transform: `translateX(${translateX}px) scale(${isHovered ? 1.05 : scale})`,
                     opacity,
                     zIndex,
-                    boxShadow: isHovered ? '0 20px 40px rgba(0, 0, 0, 0.15)' : '0 8px 24px rgba(0, 0, 0, 0.08)',
                   }}
                   onMouseEnter={() => setHoveredImageIndex(index)}
                   onMouseLeave={() => setHoveredImageIndex(null)}
@@ -270,7 +270,8 @@ export default function App() {
                   <ImageWithFallback
                     src={image}
                     alt={`Carousel image ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
+                    style={{ background: 'transparent' }}
                   />
                 </a>
               );
