@@ -255,14 +255,17 @@ export default function App() {
                   href="https://www.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute transition-all duration-700 ease-out rounded-2xl overflow-hidden"
+                  className={`absolute transition-all duration-700 ease-out ${index >= 4 ? 'rounded-2xl overflow-hidden' : ''}`}
                   style={{
                     width: `${width}px`,
                     height: `${height}px`,
                     transform: `translateX(${translateX}px) scale(${isHovered ? 1.05 : scale})`,
                     opacity,
                     zIndex,
-                    boxShadow: isHovered ? '0 20px 40px rgba(0, 0, 0, 0.15)' : '0 8px 24px rgba(0, 0, 0, 0.08)',
+                    boxShadow: index >= 4
+                      ? (isHovered ? '0 20px 40px rgba(0, 0, 0, 0.15)' : '0 8px 24px rgba(0, 0, 0, 0.08)')
+                      : 'none',
+                    background: 'transparent',
                   }}
                   onMouseEnter={() => setHoveredImageIndex(index)}
                   onMouseLeave={() => setHoveredImageIndex(null)}
@@ -270,7 +273,8 @@ export default function App() {
                   <ImageWithFallback
                     src={image}
                     alt={`Carousel image ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full ${index >= 4 ? 'object-cover' : 'object-contain'}`}
+                    style={{ background: 'transparent' }}
                   />
                 </a>
               );
