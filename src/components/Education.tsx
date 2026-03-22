@@ -48,7 +48,7 @@ export function Education() {
     {
       id: 'undergraduate',
       level: 'Bachelor\'s Degree',
-      field: 'Political Economy — Resource Management & Global Systems',
+      field: 'Political Economy (Focus: Resource Management & Global Systems)',
       institution: 'University of California, Berkeley',
       location: 'Berkeley, CA',
       year: '2015 - 2017',
@@ -57,23 +57,23 @@ export function Education() {
       highlights: [
         {
           icon: Search,
-          title: 'Research-Driven Systems Analysis',
-          description: 'Led a two-year undergraduate thesis (Running Out of Air) on Bali\'s freshwater crisis, conducting on-the-ground research in Indonesia, multilingual stakeholder interviews across two continents, quantitative analysis, and producing a 75-page systems-level diagnosis of infrastructure mismanagement.',
+          title: 'Thesis: Freshwater Crisis & Systems Failure',
+          description: 'Led a two-year thesis on Bali\'s freshwater crisis, conducting on-the-ground research, multilingual stakeholder interviews, and quantitative analysis to diagnose how misaligned incentives drive large-scale system failure.',
         },
         {
           icon: TrendingUp,
-          title: 'Economic & Policy Foundations',
-          description: 'Trained in analyzing how incentives, governance, and economic forces shape large-scale systems—developing a strong foundation in resource allocation, institutional decision-making, and market dynamics.',
+          title: 'International Political Economy & Development',
+          description: 'Studied international political economy and global development, analyzing how governments design economic systems, policy frameworks, and growth strategies to drive GDP expansion and shape national competitiveness.',
         },
         {
           icon: Network,
-          title: 'Cross-Disciplinary Technical Exposure',
-          description: 'Completed coursework spanning cybersecurity, computer programming, web design, political science, and economic forecasting through Berkeley\'s International & Area Studies program.',
+          title: 'Computer Science Foundations',
+          description: 'Completed elective computer science course series, including coursework in algorithm design, object-oriented programming, data structures and data models, building a strong foundation in how software systems are designed and operate.',
         },
         {
           icon: Star,
-          title: 'Leadership & Technical Curiosity',
-          description: 'Inducted into Sigma Iota Rho honors society; organized academic panels with experts across business and technology; completed aviation ground school studying aerodynamics, navigation systems, and safety-critical decision-making.',
+          title: 'Product & Business Strategy',
+          description: 'Developed product and business acumen through coursework in marketing and strategy, learning how to design, position, and bring products to market through effective go-to-market and growth frameworks.',
         },
       ],
     },
