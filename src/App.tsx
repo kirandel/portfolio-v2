@@ -4,7 +4,6 @@ import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import { BentoGrid } from './components/BentoGrid';
 import { KiranGPT } from './components/KiranGPT';
 import { Education } from './components/Education';
-import { WhatILove } from './components/WhatILove';
 import { MeteorsDemo } from './components/MeteorsDemo';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
@@ -503,14 +502,9 @@ export default function App() {
         <Education />
       </div>
 
-      {/* What I Love */}
+      {/* Meteors CTA Section */}
       <div id="contact">
-        <WhatILove onContactClick={() => setIsContactModalOpen(true)} />
-      </div>
-
-      {/* Meteors Demo Section */}
-      <div id="download-cv">
-        <MeteorsDemo />
+        <MeteorsDemo onContactClick={() => setIsContactModalOpen(true)} />
       </div>
 
       {/* Footer */}
