@@ -83,16 +83,12 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
   
-  // Hero images for carousel (8 images)
+  // Hero images for carousel (4 product screenshots)
   const heroImages = [
     'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Carousel%20Image%201-Kkt9R9Ru4MFoYeAEuLv3iZk54jdGwt.png',
     'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Carousel%20Image%202-U9bERd3qVxrkW4L34bqOrddSyu1Szl.png',
     'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Carousel%20Image%203-E2QoXB1QN71DmOIwfBe4pNcRN8Y160.png',
     'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Carousel%20Image%204-XwdZs8NWufs8zALr9kB8Lg3RY99rYx.png',
-    'https://images.unsplash.com/photo-1673885831398-9581891a3155?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5JTIwZGlnaXRhbHxlbnwxfHx8fDE3NjMyNjAxNTB8MA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1708004228425-85703b49692e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1cmJhbiUyMGRlc2lnbnxlbnwxfHx8fDE3NjMyNjAxNTB8MA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1541661538396-53ba2d051eed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvbG9yZnVsfGVufDF8fHx8MTc2MzMyMjgxN3ww&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1624901344246-8759f305fef3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGFydCUyMGRlc2lnbnxlbnwxfHx8fDE3NjMyNDI3NTh8MA&ixlib=rb-4.1.0&q=80&w=1200',
   ];
   
   const messages = [
@@ -325,16 +321,14 @@ export default function App() {
                   href="https://www.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`absolute transition-all duration-700 ease-out ${index >= 4 ? 'rounded-2xl overflow-hidden' : ''}`}
+                  className="absolute transition-all duration-700 ease-out"
                   style={{
                     width: `${width}px`,
                     height: `${height}px`,
                     transform: `translateX(${translateX}px) scale(${isHovered ? 1.05 : scale})`,
                     opacity,
                     zIndex,
-                    boxShadow: index >= 4
-                      ? (isHovered ? '0 20px 40px rgba(0, 0, 0, 0.15)' : '0 8px 24px rgba(0, 0, 0, 0.08)')
-                      : 'none',
+                    boxShadow: 'none',
                     background: 'transparent',
                   }}
                   onMouseEnter={() => setHoveredImageIndex(index)}
@@ -343,7 +337,7 @@ export default function App() {
                   <ImageWithFallback
                     src={image}
                     alt={`Carousel image ${index + 1}`}
-                    className={`w-full h-full ${index >= 4 ? 'object-cover' : 'object-contain'}`}
+                    className="w-full h-full object-contain"
                     style={{ background: 'transparent' }}
                   />
                 </a>
