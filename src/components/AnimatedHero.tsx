@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { Button } from "./ui/flow-hover-button";
 
 interface AnimatedHeroProps {
@@ -72,6 +72,12 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
               onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
             >
               See my work
+            </Button>
+            <Button
+              icon={<Download size={18} strokeWidth={2.5} />}
+              onClick={() => window.open('/resume.pdf', '_blank')}
+            >
+              Download resume
             </Button>
           </div>
 
