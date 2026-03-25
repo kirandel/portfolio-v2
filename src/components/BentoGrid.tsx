@@ -34,17 +34,29 @@ export function BentoGrid() {
           >
             A selection of products I've brought to life
           </p>
-          <p 
-            className="text-center text-gray-500"
-            style={{
-              fontSize: '20px',
-              lineHeight: '1.5',
-              fontWeight: '400',
-              letterSpacing: '-0.005em'
-            }}
-          >
-            From idea → launch → impact
-          </p>
+          <div className="flex items-center justify-center mt-2">
+            <div
+              className="flex items-center gap-0 rounded-full border overflow-hidden"
+              style={{ borderColor: '#e5e7eb', background: '#fafafa' }}
+            >
+              {['From idea', 'launch', 'impact'].map((step, i) => (
+                <div key={step} className="flex items-center">
+                  <span
+                    className="px-5 py-2 text-sm font-medium"
+                    style={{
+                      color: i === 0 ? '#6b7280' : i === 1 ? '#374151' : '#111827',
+                      fontWeight: i === 2 ? 600 : 400,
+                    }}
+                  >
+                    {step}
+                  </span>
+                  {i < 2 && (
+                    <span style={{ color: '#d1d5db', fontSize: '14px', userSelect: 'none' }}>→</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
         
         {/* Add keyframe animations */}
