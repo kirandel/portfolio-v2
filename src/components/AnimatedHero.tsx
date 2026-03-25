@@ -25,21 +25,6 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
       <div className="container mx-auto">
         <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
 
-          {/* Badge */}
-          <div>
-            <button
-              className="flex items-center gap-3 rounded-full px-4 py-2 text-sm font-medium transition-colors"
-              style={{
-                background: '#f3f4f6',
-                color: '#374151',
-                border: 'none',
-                cursor: 'default',
-              }}
-            >
-              Hey there 👋
-            </button>
-          </div>
-
           {/* Heading */}
           <div className="flex gap-4 flex-col">
             <h1
@@ -73,9 +58,6 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
               style={{ color: '#6b7280', lineHeight: '1.65' }}
             >
               I'm a product manager with experience in complex, high-scale platforms that operate at the intersection of user experience, data, and marketplace dynamics.
-              <br />
-              <br />
-              I blend technical depth, product intuition, and go-to-market execution to identify the best ideas, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines.
               <br />
               <br />
               I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in 🗺️
