@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { InteractiveHoverButton } from "./ui/interactive-hover-button";
+import { ArrowRight } from "lucide-react";
 
 interface AnimatedHeroProps {
   onContactClick?: () => void;
@@ -63,17 +63,42 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
             </p>
           </div>
 
-          {/* CTAs */}
+          {/* CTA */}
           <div className="flex flex-row gap-3">
-            <InteractiveHoverButton
-              text="Let's talk"
-              onClick={onContactClick}
-            />
-            <InteractiveHoverButton
-              text="See my work"
-              variant="dark"
+            <motion.button
               onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
-            />
+              className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-base overflow-hidden"
+              style={{
+                background: '#ffffff',
+                color: '#111827',
+                border: '1.5px solid #e5e7eb',
+                cursor: 'pointer',
+                boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+              }}
+              whileHover={{ scale: 1.03, boxShadow: '0 6px 28px rgba(0,0,0,0.13)' }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
+              {/* Animated dark fill on hover */}
+              <motion.span
+                className="absolute inset-0 rounded-full"
+                style={{ background: '#111827', originX: 0 }}
+                initial={{ scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              />
+              <span className="relative z-10 transition-colors duration-300 group-hover:text-white font-semibold tracking-tight">
+                See my work
+              </span>
+              <motion.span
+                className="relative z-10 flex items-center"
+                initial={{ x: 0 }}
+                whileHover={{ x: 3 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+              >
+                <ArrowRight size={18} strokeWidth={2.5} className="transition-colors duration-300 group-hover:text-white" />
+              </motion.span>
+            </motion.button>
           </div>
 
         </div>
