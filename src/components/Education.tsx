@@ -208,7 +208,7 @@ export function Education() {
               {
                 number: '01',
                 title: 'Product Design',
-                description: 'Through work at the Jacobs Institute and in GIS-based modeling, I learned to design products as complete systems, not just interfaces. I built and tested physical and digital products end to end, while also modeling how they would perform in real-world environments.',
+                description: 'Through work at the Jacobs Institute for Design Innovation and in GIS-based modeling, I learned to design products as complete systems, not just interfaces. I built and tested physical and digital products end to end, while also modeling how they would perform in real-world environments.',
                 takeaway: 'I focus on designing products and systems that are intuitive at the surface but grounded in real-world user behavior and customer needs.',
                 icon: Layers,
               },
