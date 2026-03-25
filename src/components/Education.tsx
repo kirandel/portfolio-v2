@@ -168,17 +168,31 @@ export function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="flex flex-col items-center gap-4"
             >
-              <h3 
+              <span
                 style={{
-                  fontSize: '36px',
-                  fontWeight: '700',
-                  color: '#0F172A',
-                  lineHeight: '1.2',
-                  letterSpacing: '-0.02em',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  color: '#6366F1',
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
                 }}
               >
-                How my experience shapes how I build products
+                Background
+              </span>
+              <h3 
+                style={{
+                  fontSize: '40px',
+                  fontWeight: '700',
+                  color: '#0F172A',
+                  lineHeight: '1.15',
+                  letterSpacing: '-0.025em',
+                  maxWidth: '600px',
+                }}
+                className="text-balance"
+              >
+                Where my thinking comes from
               </h3>
             </motion.div>
           </div>
