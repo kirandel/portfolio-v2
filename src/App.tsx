@@ -8,7 +8,7 @@ import { Education } from './components/Education';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
 import { Button } from './components/ui/flow-hover-button';
-import { Download, Phone } from 'lucide-react';
+import { Download, Mail } from 'lucide-react';
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -273,7 +273,7 @@ export default function App() {
               </h2>
               <div className="flex flex-row gap-3">
                 <Button 
-                  icon={<Phone size={18} strokeWidth={2.5} />}
+                  icon={<Mail size={18} strokeWidth={2.5} />}
                   onClick={() => setIsContactModalOpen(true)}
                 >
                   {"Let's talk"}
