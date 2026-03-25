@@ -9,6 +9,7 @@ import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
 import { Button } from './components/ui/flow-hover-button';
 import AnimatedShaderBackground from './components/ui/animated-shader-background';
+import { HandWrittenTitle } from './components/ui/hand-writing-text';
 import { Download } from 'lucide-react';
 
 export default function App() {
@@ -232,6 +233,14 @@ export default function App() {
 
         <div id="education" className="relative z-10">
           <Education />
+        </div>
+
+        {/* Hand-written title above CTA */}
+        <div className="relative z-10">
+          <HandWrittenTitle
+            title="Let's work together"
+            subtitle="Get in touch and let's build something great"
+          />
         </div>
 
         {/* CTA Module */}
