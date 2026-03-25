@@ -126,7 +126,109 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+}
+
+/* ========== UNIFIED TYPE SYSTEM ========== */
+
+/* Caption/Label - 12px */
+.type-caption {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Small Label - 13px */
+.type-label-sm {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+}
+
+/* Body Small - 14px */
+.type-body-sm {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+/* Body Base - 16px */
+.type-body {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+/* Body Large - 18px */
+.type-body-lg {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+/* Label - 19px (for descriptions) */
+.type-label-lg {
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: -0.022em;
+}
+
+/* Heading 6 - 24px */
+.type-h6 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+/* Heading 5 - 32px */
+.type-h5 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Heading 4 - 40px */
+.type-h4 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+/* Heading 3 - 48px */
+.type-h3 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+/* Heading 2 - 60px */
+.type-h2 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+/* Heading 1 - 72px (Hero/Large display) */
+.type-h1 {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
 }
 
 /**
