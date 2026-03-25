@@ -1,6 +1,6 @@
 import React from "react";
-import { Meteors } from "./Meteors";
 import { InteractiveHoverButton } from "./ui/interactive-hover-button";
+import AnimatedShaderBackground from "./ui/animated-shader-background";
 
 interface MeteorsDemoProps {
   onContactClick?: () => void;
@@ -13,18 +13,12 @@ export function MeteorsDemo({ onContactClick }: MeteorsDemoProps) {
       <div
         className="relative w-full max-w-4xl rounded-3xl overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
+          background: '#0F172A',
           padding: '64px 48px',
         }}
       >
-        {/* Meteors inside box */}
-        <Meteors number={30} />
-
-        {/* Subtle center glow */}
-        <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] opacity-15 blur-3xl pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse, #6366F1 0%, transparent 70%)' }}
-        />
+        {/* Animated shader background — fills the box */}
+        <AnimatedShaderBackground />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center text-center">
