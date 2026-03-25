@@ -9,7 +9,7 @@ interface AnimatedHeroProps {
 function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
-    () => ["impactful", "thoughtful", "ambitious", "exceptional", "meaningful"],
+    () => ["Product manager", "Coffee lover", "(Terrible) surfer", "Planner of all my group trips"],
     []
   );
 
@@ -36,18 +36,17 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
                 cursor: 'default',
               }}
             >
-              Product · Strategy · Growth
-              <MoveRight className="w-4 h-4" />
+              Hey there 👋
             </button>
           </div>
 
           {/* Heading */}
           <div className="flex gap-4 flex-col">
             <h1
-              className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center"
+              className="text-5xl md:text-7xl max-w-3xl tracking-tighter text-center"
               style={{ fontWeight: 400, lineHeight: 1.1 }}
             >
-              <span style={{ color: '#111827' }}>Building products that are</span>
+              <span style={{ color: '#111827' }}>Hi 👋 - Nice to meet you! I'm Kiran, a</span>
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
                 {titles.map((title, index) => (
@@ -70,11 +69,16 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
             </h1>
 
             <p
-              className="text-lg md:text-xl leading-relaxed tracking-tight text-center max-w-2xl mx-auto"
-              style={{ color: '#6b7280' }}
+              className="text-base md:text-lg leading-relaxed tracking-tight text-center max-w-2xl mx-auto"
+              style={{ color: '#6b7280', lineHeight: '1.65' }}
             >
-              Senior Product Manager with 7+ years building marketplace and consumer products at scale.
-              Currently at Turo — formerly in e-commerce, AI, and international expansion.
+              I'm a product manager with experience in complex, high-scale platforms that operate at the intersection of user experience, data, and marketplace dynamics.
+              <br />
+              <br />
+              I blend technical depth, product intuition, and go-to-market execution to identify the best ideas, validate new concepts quickly, and scale zero-to-one initiatives into durable business lines.
+              <br />
+              <br />
+              I studied at UC Berkeley, grew up across Laos, Cambodia, Thailand, and Indonesia, and have been the default trip planner in every group I've ever been in 🗺️
             </p>
           </div>
 
