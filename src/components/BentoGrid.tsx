@@ -44,16 +44,16 @@ export function BentoGrid() {
               }}
             >
               {[
-                { label: 'From idea', bg: '#374151' },
-                { label: 'launch', bg: '#4b5563' },
-                { label: 'impact', bg: '#ffffff', color: '#111827' },
+                { label: 'From idea' },
+                { label: 'launch' },
+                { label: 'impact' },
               ].map((step, i) => (
                 <div key={step.label} className="flex items-center gap-1">
                   <span
                     className="rounded-full px-4 py-1.5 text-sm font-medium"
                     style={{
-                      background: step.bg,
-                      color: step.color ?? '#ffffff',
+                      background: '#374151',
+                      color: '#ffffff',
                       letterSpacing: '-0.01em',
                     }}
                   >
