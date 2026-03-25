@@ -25,18 +25,34 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
       <div className="container mx-auto">
         <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
 
+          {/* Badge */}
+          <div>
+            <button
+              className="flex items-center gap-3 rounded-full px-4 py-2 text-sm font-medium transition-colors"
+              style={{
+                background: '#f3f4f6',
+                color: '#374151',
+                border: 'none',
+                cursor: 'default',
+              }}
+            >
+              Hey there 👋
+            </button>
+          </div>
+
           {/* Heading */}
           <div className="flex gap-4 flex-col">
             <h1
-              className="text-3xl md:text-5xl max-w-4xl tracking-tighter text-center whitespace-nowrap"
+              className="text-5xl md:text-7xl max-w-3xl tracking-tighter text-center"
               style={{ fontWeight: 400, lineHeight: 1.1 }}
             >
               <span style={{ color: '#111827' }}>Hi 👋 - Nice to meet you! I'm Kiran, a</span>
-              <span className="relative inline-flex overflow-hidden text-center md:pb-2 md:pt-1 ml-2">
+              <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
+                &nbsp;
                 {titles.map((title, index) => (
                   <motion.span
                     key={index}
-                    className="absolute whitespace-nowrap"
+                    className="absolute"
                     style={{ fontWeight: 700, color: '#111827' }}
                     initial={{ opacity: 0, y: 100 }}
                     transition={{ type: "spring", stiffness: 50 }}
