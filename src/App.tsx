@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
+import { AnimatedHero } from './components/AnimatedHero';
 import { BentoGrid } from './components/BentoGrid';
 import { KiranGPT } from './components/KiranGPT';
 import { Education } from './components/Education';
@@ -251,6 +252,9 @@ export default function App() {
           </button>
         </div>
       </header>
+
+      {/* Animated Hero Intro */}
+      <AnimatedHero onContactClick={() => setIsContactModalOpen(true)} />
 
       {/* SECTION 1: Hero Carousel */}
       <div id="home" className="relative w-screen -mx-6 min-h-screen bg-white flex flex-col items-center justify-center pt-32 overflow-hidden">
