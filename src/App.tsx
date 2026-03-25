@@ -7,6 +7,9 @@ import { KiranGPT } from './components/KiranGPT';
 import { Education } from './components/Education';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
+import { Button } from './components/ui/flow-hover-button';
+import AnimatedShaderBackground from './components/ui/animated-shader-background';
+import { Download } from 'lucide-react';
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -210,6 +213,41 @@ export default function App() {
       {/* Education */}
       <div id="education">
         <Education />
+      </div>
+
+      {/* CTA Module */}
+      <div className="w-full flex items-center justify-center py-24 px-6">
+        <div
+          className="relative w-full max-w-4xl rounded-3xl overflow-hidden flex flex-col items-center justify-center text-center"
+          style={{ background: '#0F172A', padding: '72px 48px' }}
+        >
+          <AnimatedShaderBackground />
+          <div className="relative z-10 flex flex-col items-center gap-8">
+            <h2
+              style={{
+                fontSize: '42px',
+                fontWeight: '700',
+                color: '#ffffff',
+                lineHeight: '1.15',
+                letterSpacing: '-0.025em',
+                maxWidth: '600px',
+              }}
+            >
+              {"Let's build something amazing together."}
+            </h2>
+            <div className="flex flex-row gap-3">
+              <Button onClick={() => setIsContactModalOpen(true)}>
+                {"Let's talk"}
+              </Button>
+              <Button
+                icon={<Download size={18} strokeWidth={2.5} />}
+                onClick={() => window.open('/resume.pdf', '_blank')}
+              >
+                Download resume
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Footer */}
