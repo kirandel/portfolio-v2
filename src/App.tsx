@@ -208,33 +208,14 @@ export default function App() {
         <KiranGPT />
       </div>
 
-      {/* Education + CTA — shared continuous background */}
-      <div
-        className="relative"
-        style={{
-          background: 'linear-gradient(180deg, #FAFBFC 0%, #F8FAFC 50%, #FFFFFF 100%)',
-        }}
-      >
-        {/* Shared grid overlay */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: 'linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)',
-            backgroundSize: '48px 48px',
-            opacity: 0.02,
-          }}
-        />
-        {/* Shared radial accents */}
-        <div className="absolute top-[10%] left-[5%] w-96 h-96 opacity-[0.06] blur-3xl pointer-events-none" style={{ background: 'radial-gradient(circle, #6366F1 0%, transparent 70%)' }} />
-        <div className="absolute bottom-[15%] right-[5%] w-96 h-96 opacity-[0.05] blur-3xl pointer-events-none" style={{ background: 'radial-gradient(circle, #8B5CF6 0%, transparent 70%)' }} />
+      {/* Education */}
+      <div id="education">
+        <Education />
+      </div>
 
-        <div id="education" className="relative z-10">
-          <Education />
-        </div>
-
-        <div id="contact" className="relative z-10">
-          <MeteorsDemo onContactClick={() => setIsContactModalOpen(true)} />
-        </div>
+      {/* Meteors CTA Section */}
+      <div id="contact">
+        <MeteorsDemo onContactClick={() => setIsContactModalOpen(true)} />
       </div>
 
       {/* Footer */}
