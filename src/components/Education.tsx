@@ -84,27 +84,11 @@ export function Education() {
       ref={sectionRef}
       className="relative w-screen -mx-6 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #FAFBFC 0%, #F8FAFC 50%, #FFFFFF 100%)',
         paddingTop: '80px',
         paddingBottom: '80px',
       }}
     >
-      {/* Subtle grid background */}
-      <div 
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: 'linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)',
-          backgroundSize: '48px 48px',
-        }}
-      />
-
-      {/* Animated background elements */}
-      <motion.div 
-        style={{ y, opacity }}
-        className="absolute top-20 right-[10%] w-[400px] h-[400px] rounded-full opacity-[0.06] blur-3xl pointer-events-none"
-      >
-        <div style={{ background: 'radial-gradient(circle, #6366F1 0%, transparent 70%)', width: '100%', height: '100%' }} />
-      </motion.div>
+      {/* Content — background handled by parent wrapper */}
       <motion.div 
         style={{ y: useTransform(y, (val) => -val), opacity }}
         className="absolute bottom-20 left-[10%] w-[400px] h-[400px] rounded-full opacity-[0.06] blur-3xl pointer-events-none"
