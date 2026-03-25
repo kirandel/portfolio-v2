@@ -28,17 +28,17 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
           {/* Heading */}
           <div className="flex gap-4 flex-col">
             <h1
-              className="text-5xl md:text-7xl max-w-3xl tracking-tighter text-center"
+              className="text-5xl md:text-7xl max-w-5xl tracking-tighter text-center"
               style={{ fontWeight: 400, lineHeight: 1.1 }}
             >
-              <span style={{ color: '#111827' }}>Hi 👋 - Nice to meet you! I'm Kiran, a</span>
-              <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
+              <span style={{ color: '#111827' }}>Hi 👋 - Nice to meet you! I'm Kiran</span>
+              <span className="relative inline-flex overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
                 {titles.map((title, index) => (
                   <motion.span
                     key={index}
                     className="absolute"
-                    style={{ fontWeight: 700, color: '#111827' }}
+                    style={{ fontWeight: 700, color: '#111827', whiteSpace: 'nowrap' }}
                     initial={{ opacity: 0, y: 100 }}
                     transition={{ type: "spring", stiffness: 50 }}
                     animate={
