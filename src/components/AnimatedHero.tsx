@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { MoveRight, Phone } from "lucide-react";
+import { InteractiveHoverButton } from "./ui/interactive-hover-button";
 
 interface AnimatedHeroProps {
   onContactClick?: () => void;
@@ -65,32 +65,15 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
 
           {/* CTAs */}
           <div className="flex flex-row gap-3">
-            <button
+            <InteractiveHoverButton
+              text="Let's talk"
               onClick={onContactClick}
-              className="flex items-center gap-3 rounded-lg px-6 py-3 text-base font-medium transition-all duration-200 hover:bg-gray-50"
-              style={{
-                background: '#ffffff',
-                color: '#111827',
-                border: '1px solid #e5e7eb',
-                cursor: 'pointer',
-                fontSize: '15px',
-              }}
-            >
-              <Phone className="w-4 h-4" />
-              Let's talk
-            </button>
-            <a
-              href="#experience"
-              className="flex items-center gap-3 rounded-lg px-6 py-3 text-base font-medium transition-all duration-200"
-              style={{
-                background: '#111827',
-                color: '#ffffff',
-                fontSize: '15px',
-                textDecoration: 'none',
-              }}
-            >
-              See my work <MoveRight className="w-4 h-4" />
-            </a>
+            />
+            <InteractiveHoverButton
+              text="See my work"
+              variant="dark"
+              onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
+            />
           </div>
 
         </div>
