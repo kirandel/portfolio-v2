@@ -1,6 +1,6 @@
 import React from "react";
 import { Meteors } from "./Meteors";
-import { ArrowRight } from "lucide-react";
+import { InteractiveHoverButton } from "./ui/interactive-hover-button";
 
 interface MeteorsDemoProps {
   onContactClick?: () => void;
@@ -40,25 +40,18 @@ export function MeteorsDemo({ onContactClick }: MeteorsDemoProps) {
           >
             Let's build something exceptional together.
           </h2>
-          <button
+          <InteractiveHoverButton 
+            text="Let's talk"
             onClick={onContactClick}
-            className="group flex items-center gap-2 transition-all duration-300 hover:gap-3 mt-6"
+            className="mt-6"
             style={{
               background: '#ffffff',
               color: '#0F172A',
               fontSize: '16px',
               fontWeight: '600',
-              padding: '14px 28px',
-              borderRadius: '100px',
-              border: 'none',
-              cursor: 'pointer',
-              letterSpacing: '-0.01em',
-              boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
+              border: '2px solid #ffffff',
             }}
-          >
-            Let's talk
-            <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5" />
-          </button>
+          />
         </div>
       </div>
     </div>
