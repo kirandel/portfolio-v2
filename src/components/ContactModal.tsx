@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Mail, Copy, Check, X, Linkedin, ExternalLink, Coffee } from 'lucide-react';
-import { InteractiveHoverButton } from './ui/interactive-hover-button';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -206,64 +205,24 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
             {/* Social links */}
             <div className="flex gap-3">
-              <button
-                onClick={() => window.open('https://linkedin.com/in/kirandelneuville', '_blank')}
-                className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 overflow-hidden flex-1 justify-center"
-                style={{
-                  border: '1px solid #e5e7eb',
-                  background: '#ffffff',
-                  color: '#111827',
-                  cursor: 'pointer',
-                }}
+              <a
+                href="https://linkedin.com/in/kirandelneuville"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl bg-[#0077b5] text-white font-medium text-sm transition-all duration-200 hover:brightness-110 hover:scale-[1.02]"
               >
-                <span
-                  className="inline-block rounded-full transition-all duration-300 group-hover:opacity-0"
-                  style={{
-                    width: '8px',
-                    height: '8px',
-                    background: '#111827',
-                    flexShrink: 0,
-                  }}
-                ></span>
-                <span className="transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2">
-                  LinkedIn
-                </span>
-                <div
-                  className="absolute inset-0 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-2"
-                  style={{
-                    background: '#0077b5',
-                    color: '#ffffff',
-                  }}
-                >
-                  <Linkedin size={18} strokeWidth={2.5} />
-                  <span>LinkedIn</span>
-                </div>
-              </button>
-
-              <button
-                onClick={() => window.open('https://tandemchat.ai', '_blank')}
-                className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 overflow-hidden flex-1 justify-center"
-                style={{
-                  border: '1px solid #1a1a1a',
-                  background: '#1a1a1a',
-                  color: '#ffffff',
-                  cursor: 'pointer',
-                }}
+                <Linkedin className="w-4 h-4" />
+                LinkedIn
+              </a>
+              <a
+                href="https://tandemchat.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl bg-gray-900 text-white font-medium text-sm transition-all duration-200 hover:brightness-110 hover:scale-[1.02]"
               >
-                <span className="transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-1">
-                  TandemChat.ai
-                </span>
-                <div
-                  className="absolute inset-0 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-2"
-                  style={{
-                    background: '#1a1a1a',
-                    color: '#ffffff',
-                  }}
-                >
-                  <span>TandemChat.ai</span>
-                  <ExternalLink size={18} strokeWidth={2.5} />
-                </div>
-              </button>
+                <ExternalLink className="w-4 h-4" />
+                TandemChat.ai
+              </a>
             </div>
 
             {/* Availability badge */}
