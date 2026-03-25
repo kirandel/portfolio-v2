@@ -8,8 +8,6 @@ import { Education } from './components/Education';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
 import { Button } from './components/ui/flow-hover-button';
-import AnimatedShaderBackground from './components/ui/animated-shader-background';
-import { HandWrittenTitle } from './components/ui/hand-writing-text';
 import { Download } from 'lucide-react';
 
 export default function App() {
@@ -235,30 +233,40 @@ export default function App() {
           <Education />
         </div>
 
-        {/* Hand-written title above CTA */}
-        <div className="relative z-10">
-          <HandWrittenTitle
-            title="Let's work together"
-            subtitle="Get in touch and let's build something great"
-          />
-        </div>
-
         {/* CTA Module */}
         <div className="relative z-10 w-full flex items-center justify-center py-24 px-6">
           <div
             className="relative w-full max-w-4xl rounded-3xl overflow-hidden flex flex-col items-center justify-center text-center"
-            style={{ background: '#0F172A', padding: '72px 48px' }}
+            style={{
+              background: 'linear-gradient(145deg, #0a0a0f 0%, #0d1117 40%, #0f1a2e 100%)',
+              padding: '80px 48px',
+              boxShadow: '0 0 0 1px rgba(255,255,255,0.06), 0 32px 80px rgba(0,0,0,0.35)',
+            }}
           >
-            <AnimatedShaderBackground />
+            {/* Subtle radial glow — centered, no harsh edges */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(99,102,241,0.18) 0%, transparent 70%)',
+              }}
+            />
+            {/* Soft bottom fade */}
+            <div
+              className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+              style={{
+                background: 'linear-gradient(to top, rgba(15,20,40,0.6) 0%, transparent 100%)',
+              }}
+            />
+
             <div className="relative z-10 flex flex-col items-center gap-8">
               <h2
                 style={{
-                  fontSize: '42px',
+                  fontSize: '44px',
                   fontWeight: '700',
                   color: '#ffffff',
-                  lineHeight: '1.15',
-                  letterSpacing: '-0.025em',
-                  maxWidth: '600px',
+                  lineHeight: '1.12',
+                  letterSpacing: '-0.03em',
+                  maxWidth: '560px',
                 }}
               >
                 {"Let's build something amazing together."}
