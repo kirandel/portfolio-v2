@@ -5,7 +5,6 @@ import { AnimatedHero } from './components/AnimatedHero';
 import { BentoGrid } from './components/BentoGrid';
 import { KiranGPT } from './components/KiranGPT';
 import { Education } from './components/Education';
-import { MeteorsDemo } from './components/MeteorsDemo';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
 
@@ -211,11 +210,6 @@ export default function App() {
       {/* Education */}
       <div id="education">
         <Education />
-      </div>
-
-      {/* Meteors CTA Section */}
-      <div id="contact">
-        <MeteorsDemo onContactClick={() => setIsContactModalOpen(true)} />
       </div>
 
       {/* Footer */}
