@@ -8,6 +8,7 @@ import { Education } from './components/Education';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
 import { Button } from './components/ui/flow-hover-button';
+import { DitheringShader } from './components/ui/dithering-shader';
 import { Download, Mail } from 'lucide-react';
 
 export default function App() {
@@ -238,24 +239,18 @@ export default function App() {
           <div
             className="relative w-full max-w-4xl rounded-3xl overflow-hidden flex flex-col items-center justify-center text-center"
             style={{
-              background: 'linear-gradient(145deg, #0a0a0f 0%, #0d1117 40%, #0f1a2e 100%)',
               padding: '80px 48px',
               boxShadow: '0 0 0 1px rgba(255,255,255,0.06), 0 32px 80px rgba(0,0,0,0.35)',
             }}
           >
-            {/* Subtle radial glow — centered, no harsh edges */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(99,102,241,0.18) 0%, transparent 70%)',
-              }}
-            />
-            {/* Soft bottom fade */}
-            <div
-              className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-              style={{
-                background: 'linear-gradient(to top, rgba(15,20,40,0.6) 0%, transparent 100%)',
-              }}
+            {/* Wave shader background — fills the entire box */}
+            <DitheringShader
+              shape="wave"
+              type="8x8"
+              colorBack="#0a0a12"
+              colorFront="#1e3a5f"
+              pxSize={3}
+              speed={0.5}
             />
 
             <div className="relative z-10 flex flex-col items-center gap-8">
