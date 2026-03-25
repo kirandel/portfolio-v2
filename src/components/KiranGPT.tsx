@@ -10,22 +10,22 @@ export function KiranGPT() {
   const modes = [
     {
       id: 'recruiter' as Mode,
-      title: 'Recruiter Mode',
-      subtitle: 'Career & experience focused',
+      title: 'About Me',
+      subtitle: 'Background, education, and the path that shaped how I build product',
       gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       glowColor: '#667eea',
     },
     {
       id: 'product' as Mode,
-      title: 'Deep Product Mode',
-      subtitle: 'Strategy & methodology',
+      title: 'Product Mode',
+      subtitle: 'How I design, build, and scale products from 0 to 1 and beyond',
       gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
       glowColor: '#f093fb',
     },
     {
       id: 'fun' as Mode,
       title: 'Fun Mode',
-      subtitle: 'Creative & casual',
+      subtitle: 'Travel, food, random thoughts — or see how good AI jokes are',
       gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
       glowColor: '#4facfe',
     },
@@ -113,32 +113,41 @@ export function KiranGPT() {
                 lineHeight: '1.1',
               }}
             >
-              Meet Kiran-GPT
+              Meet KiranGPT
             </h2>
 
             {/* Subtitle */}
             <p 
-              className="text-white max-w-[450px]"
+              className="text-white max-w-[500px]"
               style={{
-                fontSize: '21px',
-                lineHeight: '1.6',
+                fontSize: '19px',
+                lineHeight: '1.7',
                 opacity: 0.78,
               }}
             >
-              An AI assistant trained on my product thinking, career history, case studies, experiments, and philosophy. Ask anything about my work, my approach to building products, or even just for fun.
+              An AI assistant trained on my product thinking, my education, my background and real-world experience, and how I approach building and scaling products.
+            </p>
+            <p 
+              className="text-white max-w-[500px]"
+              style={{
+                fontSize: '19px',
+                lineHeight: '1.7',
+                opacity: 0.78,
+                marginTop: '-8px',
+              }}
+            >
+              Ask about strategy, past work, or decision-making frameworks — or go off-script and ask about travel, food, or even tell it to crack a joke!
             </p>
 
             {/* Mode Cards */}
-            <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 mt-4">
+            <div className="flex flex-col gap-3 mt-4">
               {modes.map((mode) => (
                 <button
                   key={mode.id}
                   onClick={() => setSelectedMode(mode.id)}
-                  className="flex-1 sm:flex-initial lg:flex-1 xl:flex-initial rounded-2xl p-5 transition-all duration-300 cursor-pointer relative overflow-hidden"
+                  className="w-full rounded-2xl p-5 transition-all duration-300 cursor-pointer relative overflow-hidden text-left"
                   style={{
                     background: selectedMode === mode.id ? mode.gradient : 'rgba(255, 255, 255, 0.05)',
-                    minWidth: '180px',
-                    minHeight: '100px',
                     boxShadow: selectedMode === mode.id 
                       ? '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 24px rgba(255, 255, 255, 0.1)' 
                       : '0 2px 8px rgba(0, 0, 0, 0.2)',
@@ -159,8 +168,9 @@ export function KiranGPT() {
                     <p 
                       className="text-white"
                       style={{
-                        fontSize: '13px',
+                        fontSize: '14px',
                         opacity: 0.7,
+                        lineHeight: '1.4',
                       }}
                     >
                       {mode.subtitle}
