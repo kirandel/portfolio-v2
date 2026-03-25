@@ -282,7 +282,7 @@ export function KiranGPT() {
                     }}
                   />
                   <button
-                    className="rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105"
+                    className="rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95"
                     style={{
                       width: '48px',
                       height: '48px',
