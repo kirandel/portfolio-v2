@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Mail, Copy, Check, X, Linkedin, ExternalLink } from 'lucide-react';
+import { Mail, Copy, Check, X, Linkedin, ExternalLink, Coffee } from 'lucide-react';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -161,6 +161,39 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <p className={`text-center text-xs mt-2 transition-all duration-300 ${copied ? 'text-emerald-600 opacity-100' : 'text-gray-400 opacity-0'}`}>
                 Copied to clipboard!
               </p>
+            </div>
+
+            {/* Coffee meetup card */}
+            <div className="mb-6">
+              <div 
+                className="w-full p-4 rounded-2xl text-left"
+                style={{
+                  background: '#f8f9fa',
+                  border: '1px solid #e5e7eb',
+                }}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div 
+                      className="p-2 rounded-xl"
+                      style={{
+                        background: '#e5e7eb',
+                      }}
+                    >
+                      <Coffee className="w-4 h-4 text-gray-600" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium mb-0.5 text-gray-400">
+                        In SF?
+                      </p>
+                      <p className="font-medium text-gray-900">
+                        Let's meet for coffee
+                      </p>
+                    </div>
+                  </div>
+                  <span className="text-lg">☕</span>
+                </div>
+              </div>
             </div>
 
             {/* Divider */}
