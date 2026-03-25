@@ -9,22 +9,46 @@ interface InteractiveHoverButtonProps
 const InteractiveHoverButton = React.forwardRef<
   HTMLButtonElement,
   InteractiveHoverButtonProps
->(({ text = "Button", className = "", ...props }, ref) => {
+>(({ text = "Let's talk", className = "", ...props }, ref) => {
   return (
     <button
       ref={ref}
-      className={`group relative cursor-pointer overflow-hidden rounded-full border-2 border-white bg-transparent p-2 text-center font-semibold ${className}`}
-      style={{ minWidth: '140px' }}
+      className={`group relative inline-flex items-center gap-3 px-6 py-3 rounded-full font-semibold transition-all duration-300 overflow-hidden ${className}`}
+      style={{
+        border: '1px solid #e5e7eb',
+        background: '#ffffff',
+        color: '#111827',
+        cursor: 'pointer',
+      }}
       {...props}
     >
-      <span className="inline-block translate-x-1 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0" style={{ color: '#ffffff' }}>
+      {/* Dot indicator */}
+      <span
+        className="inline-block rounded-full transition-all duration-300 group-hover:opacity-0"
+        style={{
+          width: '8px',
+          height: '8px',
+          background: '#111827',
+          flexShrink: 0,
+        }}
+      ></span>
+
+      {/* Default text */}
+      <span className="transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2">
         {text}
       </span>
-      <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:-translate-x-1 group-hover:opacity-100" style={{ color: '#0F172A' }}>
-        <span>{text}</span>
-        <ArrowRight size={16} />
+
+      {/* Hover overlay - fills background */}
+      <div
+        className="absolute inset-0 rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-2"
+        style={{
+          background: '#1f2937',
+          color: '#ffffff',
+        }}
+      >
+        <span className="font-semibold">{text}</span>
+        <ArrowRight size={18} strokeWidth={2.5} />
       </div>
-      <div className="absolute left-[20%] top-[40%] h-2 w-2 scale-[1] rounded-lg transition-all duration-300 group-hover:left-[0%] group-hover:top-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8]" style={{ backgroundColor: '#ffffff' }}></div>
     </button>
   );
 });
