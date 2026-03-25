@@ -21,7 +21,7 @@ export function BentoGrid() {
               letterSpacing: '-0.03em'
             }}
           >
-            Things I've Shipped
+            Things I've shipped
           </h1>
           <p 
             className="text-center text-gray-700 mb-3"
@@ -34,24 +34,33 @@ export function BentoGrid() {
           >
             A selection of products I've brought to life
           </p>
-          <div className="flex items-center justify-center mt-2">
+          <div className="flex items-center justify-center mt-4">
             <div
-              className="flex items-center gap-0 rounded-full border overflow-hidden"
-              style={{ borderColor: '#e5e7eb', background: '#fafafa' }}
+              className="inline-flex items-center rounded-full"
+              style={{
+                background: '#111827',
+                padding: '6px 8px',
+                gap: '4px',
+              }}
             >
-              {['From idea', 'launch', 'impact'].map((step, i) => (
-                <div key={step} className="flex items-center">
+              {[
+                { label: 'From idea', bg: '#374151' },
+                { label: 'launch', bg: '#4b5563' },
+                { label: 'impact', bg: '#ffffff', color: '#111827' },
+              ].map((step, i) => (
+                <div key={step.label} className="flex items-center gap-1">
                   <span
-                    className="px-5 py-2 text-sm font-medium"
+                    className="rounded-full px-4 py-1.5 text-sm font-medium"
                     style={{
-                      color: i === 0 ? '#6b7280' : i === 1 ? '#374151' : '#111827',
-                      fontWeight: i === 2 ? 600 : 400,
+                      background: step.bg,
+                      color: step.color ?? '#ffffff',
+                      letterSpacing: '-0.01em',
                     }}
                   >
-                    {step}
+                    {step.label}
                   </span>
                   {i < 2 && (
-                    <span style={{ color: '#d1d5db', fontSize: '14px', userSelect: 'none' }}>→</span>
+                    <span style={{ color: '#6b7280', fontSize: '13px', padding: '0 2px' }}>→</span>
                   )}
                 </div>
               ))}
