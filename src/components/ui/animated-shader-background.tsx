@@ -10,12 +10,16 @@ const AnimatedShaderBackground = () => {
 
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
 
     const width = container.clientWidth;
     const height = container.clientHeight;
     renderer.setSize(width, height);
     renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.domElement.style.position = 'absolute';
+    renderer.domElement.style.inset = '0';
+    renderer.domElement.style.width = '100%';
+    renderer.domElement.style.height = '100%';
     container.appendChild(renderer.domElement);
 
     const material = new THREE.ShaderMaterial({
@@ -32,7 +36,7 @@ const AnimatedShaderBackground = () => {
         uniform float iTime;
         uniform vec2 iResolution;
 
-        #define NUM_OCTAVES 3
+        #define NUM_OCTAVES 4
 
         float rand(vec2 n) {
           return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
@@ -41,50 +45,67 @@ const AnimatedShaderBackground = () => {
         float noise(vec2 p) {
           vec2 ip = floor(p);
           vec2 u = fract(p);
-          u = u*u*(3.0-2.0*u);
-          float res = mix(
+          u = u * u * (3.0 - 2.0 * u);
+          return mix(
             mix(rand(ip), rand(ip + vec2(1.0, 0.0)), u.x),
-            mix(rand(ip + vec2(0.0, 1.0)), rand(ip + vec2(1.0, 1.0)), u.x), u.y);
-          return res * res;
+            mix(rand(ip + vec2(0.0, 1.0)), rand(ip + vec2(1.0, 1.0)), u.x),
+            u.y
+          );
         }
 
         float fbm(vec2 x) {
           float v = 0.0;
-          float a = 0.3;
-          vec2 shift = vec2(100);
+          float a = 0.5;
+          vec2 shift = vec2(100.0);
           mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.5));
           for (int i = 0; i < NUM_OCTAVES; ++i) {
             v += a * noise(x);
             x = rot * x * 2.0 + shift;
-            a *= 0.4;
+            a *= 0.5;
           }
           return v;
         }
 
         void main() {
-          vec2 shake = vec2(sin(iTime * 1.2) * 0.005, cos(iTime * 2.1) * 0.005);
-          vec2 p = ((gl_FragCoord.xy + shake * iResolution.xy) - iResolution.xy * 0.5) / iResolution.y * mat2(6.0, -4.0, 4.0, 6.0);
-          vec2 v;
-          vec4 o = vec4(0.0);
+          vec2 uv = gl_FragCoord.xy / iResolution.xy;
+          vec2 p = (gl_FragCoord.xy - iResolution.xy * 0.5) / iResolution.y;
+          p *= 5.0;
 
-          float f = 2.0 + fbm(p + vec2(iTime * 5.0, 0.0)) * 0.5;
+          float t = iTime * 0.18;
 
-          for (float i = 0.0; i < 35.0; i++) {
-            v = p + cos(i * i + (iTime + p.x * 0.08) * 0.025 + i * vec2(13.0, 11.0)) * 3.5 + vec2(sin(iTime * 3.0 + i) * 0.003, cos(iTime * 3.5 - i) * 0.003);
-            float tailNoise = fbm(v + vec2(iTime * 0.5, i)) * 0.3 * (1.0 - (i / 35.0));
-            vec4 auroraColors = vec4(
-              0.1 + 0.3 * sin(i * 0.2 + iTime * 0.4),
-              0.3 + 0.5 * cos(i * 0.3 + iTime * 0.5),
-              0.7 + 0.3 * sin(i * 0.4 + iTime * 0.3),
-              1.0
-            );
-            vec4 currentContribution = auroraColors * exp(sin(i * i + iTime * 0.8)) / length(max(v, vec2(v.x * f * 0.015, v.y * 1.5)));
-            float thinnessFactor = smoothstep(0.0, 1.0, i / 35.0) * 0.6;
-            o += currentContribution * (1.0 + tailNoise * 0.8) * thinnessFactor;
+          // Layered aurora bands
+          vec3 color = vec3(0.02, 0.02, 0.06);
+
+          for (float i = 1.0; i <= 6.0; i++) {
+            vec2 q = p + vec2(
+              fbm(p + vec2(t * 0.4, i * 1.7)),
+              fbm(p + vec2(i * 2.3, t * 0.3))
+            ) * 1.6;
+
+            float band = fbm(q + t * vec2(0.3, -0.2) + vec2(i));
+            float stripe = smoothstep(0.3, 0.7, band);
+
+            // Rich aurora palette: deep blues, teals, purples, greens
+            vec3 c1 = vec3(0.05 + 0.1 * sin(i * 1.1), 0.4 + 0.3 * cos(i * 0.9), 0.7 + 0.2 * sin(i * 1.3));
+            vec3 c2 = vec3(0.3 + 0.2 * cos(i * 1.7), 0.1 + 0.15 * sin(i * 1.2), 0.6 + 0.3 * cos(i * 0.7));
+            vec3 bandColor = mix(c1, c2, stripe);
+
+            float brightness = exp(-3.0 * abs(band - 0.5)) * 0.9;
+            color += bandColor * brightness / (i * 0.4);
           }
 
-          o = tanh(pow(o / 100.0, vec4(1.6)));
-          gl_FragColor = o * 1.5;
+          // Vertical fade — brighter in the center vertically
+          float vignette = smoothstep(0.0, 0.5, uv.y) * smoothstep(1.0, 0.5, uv.y);
+          color *= 0.6 + 0.8 * vignette;
+
+          // Dark base overlay so text stays readable
+          color = mix(vec3(0.04, 0.04, 0.10), color, 0.85);
+
+          // Subtle tonemap
+          color = color / (color + 0.6);
+          color = pow(color, vec3(0.85));
+
+          gl_FragColor = vec4(color, 1.0);
         }
       `,
     });
@@ -94,8 +115,9 @@ const AnimatedShaderBackground = () => {
     scene.add(mesh);
 
     let frameId: number;
+    const clock = new THREE.Clock();
     const animate = () => {
-      material.uniforms.iTime.value += 0.016;
+      material.uniforms.iTime.value = clock.getElapsedTime();
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(animate);
     };
@@ -126,8 +148,14 @@ const AnimatedShaderBackground = () => {
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 w-full h-full"
-      style={{ zIndex: 0 }}
+      style={{
+        position: 'absolute',
+        inset: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: 0,
+        overflow: 'hidden',
+      }}
     />
   );
 };
