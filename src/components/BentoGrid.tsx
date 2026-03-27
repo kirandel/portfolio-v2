@@ -95,7 +95,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 1 
                 ? '0px 12px 48px rgba(217, 73, 98, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '250px',
+              minHeight: '400px',
               transform: hoveredTile === 1 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(1)}
@@ -105,25 +105,9 @@ export function BentoGrid() {
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
                 In-App Vehicle Swaps
               </h3>
-              <p className="text-white mb-6" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
+              <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
                 Turning a 30-minute support workflow into a 30-second product interaction
               </p>
-            </div>
-            
-            <div className={`mt-auto space-y-2 transition-all duration-500 ${hoveredTile === 1 ? 'blur-lg' : 'blur-0'}`}>
-              <div className="bg-black/20 backdrop-blur-sm rounded-xl p-3">
-                <p className="text-white text-xs mb-2" style={{ opacity: 0.6 }}>VEHICLE SWAP REQUEST</p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 rounded border-2 border-white/40 bg-white/20"></div>
-                    <span className="text-white text-sm">2022 Toyota Camry → 2023 Honda Accord</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 rounded border-2 border-white/40"></div>
-                    <span className="text-white text-sm">Guest approved · No price change</span>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 1 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
@@ -147,7 +131,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 2 
                 ? '0px 12px 48px rgba(200, 57, 85, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '250px',
+              minHeight: '400px',
               transform: hoveredTile === 2 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(2)}
@@ -157,25 +141,9 @@ export function BentoGrid() {
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
                 True North Posters
               </h3>
-              <p className="text-white mb-6" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
+              <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
                 Built and scaled a personalized map art commerce product from insight to profitable consumer experience
               </p>
-            </div>
-            
-            <div className={`mt-auto transition-all duration-500 ${hoveredTile === 2 ? 'blur-sm' : 'blur-0'}`}>
-              <div className="mb-2">
-                <p className="text-white text-xs" style={{ opacity: 0.6 }}>Revenue milestone</p>
-                <p className="text-emerald-400" style={{ fontSize: '28px', fontWeight: '700' }}>
-                  Profitable in 90 days
-                </p>
-              </div>
-              <div className="flex items-end gap-2 h-16">
-                <div className="bg-emerald-500 rounded-t" style={{ width: '20%', height: '30%' }}></div>
-                <div className="bg-emerald-500 rounded-t" style={{ width: '20%', height: '50%' }}></div>
-                <div className="bg-emerald-500 rounded-t" style={{ width: '20%', height: '70%' }}></div>
-                <div className="bg-emerald-500 rounded-t" style={{ width: '20%', height: '85%' }}></div>
-                <div className="bg-emerald-500 rounded-t" style={{ width: '20%', height: '100%' }}></div>
-              </div>
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 2 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
@@ -258,7 +226,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 4 
                 ? '0px 12px 48px rgba(231, 91, 141, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '260px',
+              minHeight: '400px',
               transform: hoveredTile === 4 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(4)}
@@ -268,16 +236,9 @@ export function BentoGrid() {
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
                 Australia Launch
               </h3>
-              <p className="text-white mb-4" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
+              <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
                 Led market expansion, built supply, and established a repeatable launch playbook
               </p>
-            </div>
-            
-            <div className={`mt-auto transition-all duration-500 ${hoveredTile === 4 ? 'blur-sm' : 'blur-0'}`}>
-              <div className="bg-white/10 rounded-xl p-3 flex items-center justify-between">
-                <span className="text-white text-sm">Market leader in Australia</span>
-                <span className="text-emerald-400 font-bold text-sm">within 6 months</span>
-              </div>
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 4 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
@@ -307,37 +268,13 @@ export function BentoGrid() {
             onMouseEnter={() => setHoveredTile(5)}
             onMouseLeave={() => setHoveredTile(null)}
           >
-            <div className="mb-6 relative z-20">
+            <div className="relative z-20">
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
                 Turo Shop
               </h3>
               <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
                 Built a consumer commerce experience extending brand, engagement, and revenue beyond core trips
               </p>
-            </div>
-            
-            <div className={`flex-1 flex flex-col justify-end transition-all duration-500 ${hoveredTile === 5 ? 'blur-sm' : 'blur-0'}`}>
-              <div className="bg-white/95 rounded-xl p-4">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="bg-purple-600 text-white px-3 py-1 rounded text-xs font-semibold">Turo Shop</div>
-                </div>
-                <div className="space-y-3">
-                  <div className="border-b border-gray-100 pb-2 flex justify-between items-center">
-                    <div>
-                      <p className="text-gray-900 text-sm font-medium">Turo Branded Cap</p>
-                      <p className="text-gray-500 text-xs">ACCESSORIES</p>
-                    </div>
-                    <span className="text-gray-900 font-semibold">$34.00</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <p className="text-gray-900 text-sm font-medium">Turo Hoodie</p>
-                      <p className="text-gray-500 text-xs">APPAREL</p>
-                    </div>
-                    <span className="text-gray-900 font-semibold">$68.00</span>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 5 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
@@ -367,28 +304,13 @@ export function BentoGrid() {
             onMouseEnter={() => setHoveredTile(6)}
             onMouseLeave={() => setHoveredTile(null)}
           >
-            <div className="mb-6 relative z-20">
+            <div className="relative z-20">
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
                 Co-Host Network (AI)
               </h3>
               <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
                 Created and scaled an AI-powered marketplace unlocking supply and revenue through vehicle financialization
               </p>
-            </div>
-            
-            <div className={`flex-1 flex flex-col justify-center gap-3 transition-all duration-500 ${hoveredTile === 6 ? 'blur-sm' : 'blur-0'}`}>
-              <div className="bg-white/10 rounded-2xl p-4">
-                <p className="text-white/60 text-xs mb-1">Annual revenue</p>
-                <p className="text-white font-bold text-2xl">$15M</p>
-              </div>
-              <div className="bg-white/10 rounded-2xl p-4">
-                <p className="text-white/60 text-xs mb-1">Projected growth</p>
-                <p className="text-white font-bold text-lg">$50–100M</p>
-              </div>
-              <div className="bg-white/10 rounded-2xl p-4">
-                <p className="text-white/60 text-xs mb-1">Built with</p>
-                <p className="text-white text-sm">AI-assisted workflows · No dedicated eng</p>
-              </div>
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 6 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
@@ -412,7 +334,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 7 
                 ? '0px 12px 48px rgba(127, 45, 244, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '350px',
+              minHeight: '420px',
               transform: hoveredTile === 7 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(7)}
@@ -422,26 +344,9 @@ export function BentoGrid() {
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
                 Pricing & Discount Platform
               </h3>
-              <p className="text-white mb-4" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
+              <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
                 Balancing host revenue growth, guest experience, and marketplace risk
               </p>
-            </div>
-            
-            <div className={`flex items-center justify-center transition-all duration-500 ${hoveredTile === 7 ? 'blur-sm' : 'blur-0'}`}>
-              <div className="bg-white/10 rounded-2xl p-4 w-full">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-white/60 text-xs">Weekend discount</span>
-                  <span className="text-emerald-400 text-sm font-semibold">–15%</span>
-                </div>
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-white/60 text-xs">Weekly discount</span>
-                  <span className="text-emerald-400 text-sm font-semibold">–20%</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-white/60 text-xs">Early bird</span>
-                  <span className="text-emerald-400 text-sm font-semibold">–10%</span>
-                </div>
-              </div>
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 7 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
@@ -465,7 +370,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 8 
                 ? '0px 12px 48px rgba(127, 45, 244, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '350px',
+              minHeight: '420px',
               transform: hoveredTile === 8 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(8)}
@@ -475,26 +380,9 @@ export function BentoGrid() {
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
                 "Which car should I buy next?"
               </h3>
-              <p className="text-white mb-4" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
+              <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
                 ML-powered vehicle recommendation engine to guide supply investment
               </p>
-            </div>
-
-            <div className={`flex items-center justify-center transition-all duration-500 ${hoveredTile === 8 ? 'blur-sm' : 'blur-0'}`}>
-              <div className="bg-white/10 rounded-2xl p-4 w-full space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-white text-sm">#1 · 2023 Tesla Model 3</span>
-                  <span className="text-emerald-400 text-xs font-semibold">Score: 94</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-white text-sm">#2 · 2022 Honda Civic</span>
-                  <span className="text-emerald-400 text-xs font-semibold">Score: 87</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-white/50 text-sm">#3 · 2023 Toyota RAV4</span>
-                  <span className="text-white/50 text-xs">Score: 81</span>
-                </div>
-              </div>
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 8 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
@@ -518,7 +406,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 9 
                 ? '0px 12px 48px rgba(91, 52, 199, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '350px',
+              minHeight: '420px',
               transform: hoveredTile === 9 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(9)}
@@ -528,26 +416,9 @@ export function BentoGrid() {
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
                 TandemChat.ai
               </h3>
-              <p className="text-white mb-4" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
+              <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
                 Collaborative AI app for real-time trip planning and group decision-making
               </p>
-            </div>
-            
-            <div className={`flex items-center justify-center transition-all duration-500 ${hoveredTile === 9 ? 'blur-sm' : 'blur-0'}`}>
-              <div className="bg-white/10 rounded-2xl p-4 w-full space-y-2">
-                <div className="flex items-start gap-2">
-                  <div className="w-6 h-6 rounded-full bg-blue-400 flex-shrink-0 mt-0.5"></div>
-                  <p className="text-white/80 text-xs">"Let's plan Tokyo for April"</p>
-                </div>
-                <div className="flex items-start gap-2 justify-end">
-                  <p className="text-white/80 text-xs text-right">"I'll add the flights I found"</p>
-                  <div className="w-6 h-6 rounded-full bg-purple-400 flex-shrink-0 mt-0.5"></div>
-                </div>
-                <div className="flex items-start gap-2">
-                  <div className="w-6 h-6 rounded-full bg-emerald-400 flex-shrink-0 mt-0.5"></div>
-                  <p className="text-white/80 text-xs">AI: "Here are 3 itinerary options based on your preferences..."</p>
-                </div>
-              </div>
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 9 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
