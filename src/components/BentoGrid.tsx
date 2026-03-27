@@ -193,7 +193,7 @@ export function BentoGrid() {
 
           {/* ROW 1 - Tile 3: Co-Host Network Financial Infrastructure (tall) */}
           <div 
-            className="rounded-3xl p-6 flex flex-col lg:row-span-2 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
+            className="rounded-3xl lg:row-span-2 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
               background: 'linear-gradient(135deg, #5E3FBF 0%, #7F2DF4 100%)',
               boxShadow: hoveredTile === 3 
@@ -205,37 +205,36 @@ export function BentoGrid() {
             onMouseEnter={() => setHoveredTile(3)}
             onMouseLeave={() => setHoveredTile(null)}
           >
-            <div className="mb-6 relative z-20">
+            {/* Text anchored top-left */}
+            <div className="p-6 relative z-20">
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
                 Co-Host Network
               </h3>
-              <p className="text-white mb-6" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
+              <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
                 Designed financial infrastructure enabling vehicle-based investment on Turo
               </p>
             </div>
-            
-            <div className={`flex-1 flex flex-col items-center justify-end transition-all duration-500 ${hoveredTile === 3 ? 'blur-lg' : 'blur-0'}`}>
+
+            {/* Phone mockup — angled bottom-right, partially overflowing */}
+            <div className={`absolute bottom-0 right-0 transition-all duration-500 ${hoveredTile === 3 ? 'blur-lg' : 'blur-0'}`}
+              style={{ width: '90%', height: '75%' }}
+            >
+              {/* Glow behind phone */}
               <div
-                className="relative w-full flex items-end justify-center"
-                style={{ marginTop: '8px' }}
-              >
-                {/* Subtle glow behind phone */}
-                <div
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-32 blur-3xl opacity-40 pointer-events-none"
-                  style={{ background: 'radial-gradient(ellipse, #a78bfa 0%, transparent 70%)' }}
-                />
-                <img
-                  src="/images/revenue-dashboard.png"
-                  alt="Revenue split dashboard product mockup"
-                  className="relative z-10 drop-shadow-2xl"
-                  style={{
-                    width: '78%',
-                    maxWidth: '260px',
-                    borderRadius: '28px',
-                    transform: 'translateY(8px)',
-                  }}
-                />
-              </div>
+                className="absolute bottom-8 right-8 w-56 h-56 blur-3xl opacity-30 pointer-events-none"
+                style={{ background: 'radial-gradient(ellipse, #c4b5fd 0%, transparent 70%)' }}
+              />
+              <img
+                src="/images/revenue-dashboard.png"
+                alt="Revenue split dashboard product mockup"
+                className="absolute bottom-0 right-0 drop-shadow-2xl"
+                style={{
+                  width: '85%',
+                  maxWidth: '300px',
+                  transform: 'rotate(-15deg) translate(12%, 8%)',
+                  transformOrigin: 'bottom right',
+                }}
+              />
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 3 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
