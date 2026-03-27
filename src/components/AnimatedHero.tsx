@@ -60,9 +60,7 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
             >
               I'm a product manager with experience building complex, high-scale platforms at the intersection of user experience, data, and marketplace dynamics.
               <br />
-              <br />
               With 8+ years in tech across product, marketing, and strategic growth, I specialize in turning ambiguous problems into scalable, user-centric solutions.
-              <br />
               <br />
               I studied at UC Berkeley and grew up across Laos, Cambodia, Thailand, and Indonesia — and have been the default trip planner in every group I've ever been in 🗺️
             </p>
