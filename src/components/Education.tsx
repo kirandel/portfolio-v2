@@ -162,39 +162,41 @@ export function Education() {
           className="mt-20"
         >
           {/* Section Title */}
-          <div className="text-center mb-14">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-col items-center gap-4"
+          <div className="relative" style={{ marginBottom: '120px' }}>
+            <h1 
+              className="text-center text-gray-900 mb-4"
+              style={{ 
+                fontSize: '72px', 
+                lineHeight: '1.05',
+                fontWeight: '700',
+                letterSpacing: '-0.03em'
+              }}
             >
-              <span
-                style={{
-                  fontSize: '13px',
-                  fontWeight: '600',
-                  color: '#6366F1',
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                }}
-              >
-                Background
-              </span>
-              <h3 
-                style={{
-                  fontSize: '40px',
-                  fontWeight: '700',
-                  color: '#0F172A',
-                  lineHeight: '1.15',
-                  letterSpacing: '-0.025em',
-                  maxWidth: '600px',
-                }}
-                className="text-balance"
-              >
-                Where my thinking comes from
-              </h3>
-            </motion.div>
+              UC Berkeley
+            </h1>
+            <p 
+              className="text-center text-gray-700 mb-6"
+              style={{
+                fontSize: '24px',
+                lineHeight: '1.4',
+                fontWeight: '500',
+                letterSpacing: '-0.01em'
+              }}
+            >
+              Education
+            </p>
+            <p
+              className="text-center text-gray-600 mx-auto"
+              style={{
+                fontSize: '16px',
+                lineHeight: '1.625',
+                fontWeight: '400',
+                letterSpacing: '-0.01em',
+                maxWidth: '700px',
+              }}
+            >
+              Across both degrees, my academic work centered on system design, behavioral economics, and data-driven decision making — foundations that continue to shape how I build scalable, trustworthy products.
+            </p>
           </div>
 
           {/* 6 Cards — horizontal scroll */}
