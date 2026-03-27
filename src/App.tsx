@@ -65,7 +65,7 @@ export default function App() {
         });
       },
       {
-        rootMargin: '-20% 0px -70% 0px', // Trigger when section is in top 30% of viewport
+        rootMargin: '-10% 0px -60% 0px',
         threshold: 0,
       }
     );
@@ -131,10 +131,17 @@ export default function App() {
               { label: 'Contact', href: '#contact' },
             ].map((item) => {
               const isActive = activeSection === item.label;
+              const handleClick = (e: React.MouseEvent) => {
+                if (item.label === 'Home') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              };
               return (
                 <a 
                   key={item.label}
-                  href={item.href} 
+                  href={item.href}
+                  onClick={handleClick}
                   className="relative transition-colors duration-300 rounded-full"
                   style={{ 
                     fontSize: isScrolled ? '14px' : '15px',
@@ -197,7 +204,9 @@ export default function App() {
       </header>
 
       {/* Animated Hero Intro */}
-      <AnimatedHero onContactClick={() => setIsContactModalOpen(true)} />
+      <div id="home" className="w-full">
+        <AnimatedHero onContactClick={() => setIsContactModalOpen(true)} />
+      </div>
 
 
       {/* Bento Grid */}

@@ -125,6 +125,7 @@ export function Footer() {
                 <a
                   key={item.label}
                   href={item.href}
+                  onClick={item.label === 'Home' ? (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); } : undefined}
                   className="text-white transition-all duration-200 hover:opacity-100 group inline-flex items-center w-fit"
                   style={{
                     fontSize: '16px',
