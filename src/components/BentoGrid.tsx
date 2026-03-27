@@ -214,18 +214,27 @@ export function BentoGrid() {
               </p>
             </div>
             
-            <div className={`flex-1 flex flex-col justify-center gap-3 transition-all duration-500 ${hoveredTile === 3 ? 'blur-lg' : 'blur-0'}`}>
-              <div className="bg-white/10 rounded-2xl p-4">
-                <p className="text-white/60 text-xs mb-1">Annual processing volume</p>
-                <p className="text-white font-bold text-2xl">$50M+</p>
-              </div>
-              <div className="bg-white/10 rounded-2xl p-4">
-                <p className="text-white/60 text-xs mb-1">New user identity</p>
-                <p className="text-white font-bold text-lg">Investor</p>
-              </div>
-              <div className="bg-white/10 rounded-2xl p-4">
-                <p className="text-white/60 text-xs mb-1">Prior state</p>
-                <p className="text-white text-sm">Venmo / Zelle / Cash App — off platform</p>
+            <div className={`flex-1 flex flex-col items-center justify-end transition-all duration-500 ${hoveredTile === 3 ? 'blur-lg' : 'blur-0'}`}>
+              <div
+                className="relative w-full flex items-end justify-center"
+                style={{ marginTop: '8px' }}
+              >
+                {/* Subtle glow behind phone */}
+                <div
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-32 blur-3xl opacity-40 pointer-events-none"
+                  style={{ background: 'radial-gradient(ellipse, #a78bfa 0%, transparent 70%)' }}
+                />
+                <img
+                  src="/images/revenue-dashboard.png"
+                  alt="Revenue split dashboard product mockup"
+                  className="relative z-10 drop-shadow-2xl"
+                  style={{
+                    width: '78%',
+                    maxWidth: '260px',
+                    borderRadius: '28px',
+                    transform: 'translateY(8px)',
+                  }}
+                />
               </div>
             </div>
 
