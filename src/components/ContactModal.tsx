@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Mail, Copy, Check, X, Linkedin, ExternalLink, Coffee } from 'lucide-react';
+import { Mail, Copy, Check, X, Linkedin, ExternalLink } from 'lucide-react';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -55,152 +55,99 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       <div
         className="absolute inset-0 transition-all duration-300"
         style={{
-          backgroundColor: isAnimating ? 'rgba(0, 0, 0, 0.6)' : 'rgba(0, 0, 0, 0)',
-          backdropFilter: isAnimating ? 'blur(8px)' : 'blur(0px)',
-          WebkitBackdropFilter: isAnimating ? 'blur(8px)' : 'blur(0px)',
+          backgroundColor: isAnimating ? 'rgba(0, 0, 0, 0.7)' : 'rgba(0, 0, 0, 0)',
+          backdropFilter: isAnimating ? 'blur(12px)' : 'blur(0px)',
+          WebkitBackdropFilter: isAnimating ? 'blur(12px)' : 'blur(0px)',
         }}
       />
 
       {/* Modal */}
       <div
-        className="relative w-full max-w-md transition-all duration-300 ease-out"
+        className="relative w-full max-w-sm transition-all duration-300 ease-out"
         style={{
           transform: isAnimating ? 'scale(1) translateY(0)' : 'scale(0.95) translateY(20px)',
           opacity: isAnimating ? 1 : 0,
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Glass card */}
+        {/* Card */}
         <div
-          className="relative overflow-hidden rounded-3xl"
+          className="relative overflow-hidden rounded-2xl"
           style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(250,250,252,0.95) 100%)',
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255,255,255,0.1)',
+            background: '#0a0a12',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.08)',
           }}
         >
-          {/* Subtle gradient accent at top */}
-          <div 
-            className="absolute top-0 left-0 right-0 h-1"
-            style={{
-              background: 'linear-gradient(90deg, #6366f1, #8b5cf6, #d946ef)',
-            }}
-          />
-
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full transition-all duration-200 hover:bg-gray-100 text-gray-400 hover:text-gray-600"
+            className="absolute top-4 right-4 p-2 rounded-full transition-all duration-200 hover:bg-white/10 text-white/40 hover:text-white/80"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
 
           {/* Content */}
-          <div className="p-8 pt-10">
+          <div className="p-8">
             {/* Header */}
-            <div className="text-center mb-8">
-              <div 
-                className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4"
+            <div className="mb-8">
+              <h3 
+                className="text-white mb-2"
                 style={{
-                  background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)',
+                  fontSize: '28px',
+                  fontWeight: '600',
+                  letterSpacing: '-0.02em',
                 }}
               >
-                <Mail className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-2">
                 {"Let's talk"}
               </h3>
-              <p className="text-gray-500 text-sm">
-                {"I'm always open to new opportunities and collaborations."}
+              <p 
+                className="text-white/50"
+                style={{
+                  fontSize: '15px',
+                  lineHeight: '1.5',
+                }}
+              >
+                {"Open to new opportunities and collaborations."}
               </p>
             </div>
 
-            {/* Email card - interactive */}
-            <div className="mb-6">
-              <button
-                onClick={handleCopy}
-                className="group w-full p-4 rounded-2xl transition-all duration-300 text-left"
-                style={{
-                  background: copied ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : '#f8f9fa',
-                  border: '1px solid',
-                  borderColor: copied ? 'transparent' : '#e5e7eb',
-                }}
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div 
-                      className="p-2 rounded-xl transition-colors duration-300"
-                      style={{
-                        background: copied ? 'rgba(255,255,255,0.2)' : '#e5e7eb',
-                      }}
-                    >
-                      <Mail className={`w-4 h-4 transition-colors duration-300 ${copied ? 'text-white' : 'text-gray-600'}`} />
-                    </div>
-                    <div>
-                      <p className={`text-xs font-medium mb-0.5 transition-colors duration-300 ${copied ? 'text-white/80' : 'text-gray-400'}`}>
-                        Email
-                      </p>
-                      <p className={`font-medium transition-colors duration-300 ${copied ? 'text-white' : 'text-gray-900'}`}>
-                        {email}
-                      </p>
-                    </div>
-                  </div>
-                  <div 
-                    className="p-2 rounded-xl transition-all duration-300"
-                    style={{
-                      background: copied ? 'rgba(255,255,255,0.2)' : 'transparent',
-                    }}
-                  >
-                    {copied ? (
-                      <Check className="w-5 h-5 text-white" />
-                    ) : (
-                      <Copy className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" />
-                    )}
+            {/* Email card */}
+            <button
+              onClick={handleCopy}
+              className="group w-full p-4 rounded-xl transition-all duration-200 text-left mb-4"
+              style={{
+                background: copied ? '#10b981' : 'rgba(255,255,255,0.05)',
+                border: '1px solid',
+                borderColor: copied ? 'transparent' : 'rgba(255,255,255,0.08)',
+              }}
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <Mail className={`w-4 h-4 transition-colors duration-200 ${copied ? 'text-white' : 'text-white/50'}`} />
+                  <div>
+                    <p className={`text-xs mb-0.5 transition-colors duration-200 ${copied ? 'text-white/80' : 'text-white/40'}`}>
+                      Email
+                    </p>
+                    <p className={`font-medium transition-colors duration-200 ${copied ? 'text-white' : 'text-white'}`} style={{ fontSize: '14px' }}>
+                      {email}
+                    </p>
                   </div>
                 </div>
-              </button>
-              <p className={`text-center text-xs mt-2 transition-all duration-300 ${copied ? 'text-emerald-600 opacity-100' : 'text-gray-400 opacity-0'}`}>
-                Copied to clipboard!
-              </p>
-            </div>
-
-            {/* Coffee meetup card */}
-            <div className="mb-6">
-              <div 
-                className="w-full p-4 rounded-2xl text-left"
-                style={{
-                  background: '#f8f9fa',
-                  border: '1px solid #e5e7eb',
-                }}
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div 
-                      className="p-2 rounded-xl"
-                      style={{
-                        background: '#e5e7eb',
-                      }}
-                    >
-                      <Coffee className="w-4 h-4 text-gray-600" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium mb-0.5 text-gray-400">
-                        In SF?
-                      </p>
-                      <p className="font-medium text-gray-900">
-                        Let's meet for coffee
-                      </p>
-                    </div>
-                  </div>
-                  <span className="text-lg">☕</span>
+                <div className="transition-all duration-200">
+                  {copied ? (
+                    <Check className="w-4 h-4 text-white" />
+                  ) : (
+                    <Copy className="w-4 h-4 text-white/30 group-hover:text-white/60" />
+                  )}
                 </div>
               </div>
-            </div>
+            </button>
 
             {/* Divider */}
-            <div className="flex items-center gap-4 mb-6">
-              <div className="flex-1 h-px bg-gray-200" />
-              <span className="text-xs text-gray-400 font-medium">or connect via</span>
-              <div className="flex-1 h-px bg-gray-200" />
+            <div className="flex items-center gap-3 my-6">
+              <div className="flex-1 h-px bg-white/10" />
+              <span className="text-xs text-white/30">or connect via</span>
+              <div className="flex-1 h-px bg-white/10" />
             </div>
 
             {/* Social links */}
@@ -209,7 +156,11 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 href="https://www.linkedin.com/in/kirandelneuville/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl bg-[#0077b5] text-white font-medium text-sm transition-all duration-200 hover:brightness-110 hover:scale-[1.02]"
+                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl text-white/80 font-medium text-sm transition-all duration-200 hover:bg-white/10 hover:text-white"
+                style={{
+                  background: 'rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                }}
               >
                 <Linkedin className="w-4 h-4" />
                 LinkedIn
@@ -218,21 +169,25 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 href="https://www.tandemchat.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl bg-gray-900 text-white font-medium text-sm transition-all duration-200 hover:brightness-110 hover:scale-[1.02]"
+                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl text-white/80 font-medium text-sm transition-all duration-200 hover:bg-white/10 hover:text-white"
+                style={{
+                  background: 'rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                }}
               >
                 <ExternalLink className="w-4 h-4" />
                 TandemChat.ai
               </a>
             </div>
 
-            {/* Availability badge */}
-            <div className="mt-6 flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-emerald-50 border border-emerald-100">
-              <span className="relative flex h-2 w-2">
+            {/* Availability indicator */}
+            <div className="mt-6 flex items-center justify-center gap-2">
+              <span className="relative flex h-1.5 w-1.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
               </span>
-              <span className="text-sm text-emerald-700 font-medium">
-                Open to new opportunities
+              <span className="text-xs text-white/40">
+                Available for new roles
               </span>
             </div>
           </div>

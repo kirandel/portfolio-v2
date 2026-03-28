@@ -184,9 +184,9 @@ export default function App() {
           </nav>
           
           {/* CTA - Right */}
-          <button 
+          <Button 
             onClick={() => setIsContactModalOpen(true)}
-            className="flex-shrink-0 transition-all duration-300 cursor-pointer"
+            className="flex-shrink-0 !px-6 !py-3 !text-sm !border-none !bg-black !text-white transition-all duration-300 cursor-pointer"
             style={{
               padding: isScrolled || isDarkSection ? '8px 20px' : '10px 24px',
               borderRadius: '100px',
@@ -198,7 +198,7 @@ export default function App() {
             }}
           >
             {"Let's talk"}
-          </button>
+          </Button>
         </div>
       </header>
 
