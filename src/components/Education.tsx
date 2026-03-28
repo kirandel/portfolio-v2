@@ -174,7 +174,6 @@ export function Education() {
                 icon: Globe,
               },
             ].map((item, idx) => {
-              const Icon = item.icon;
               return (
                 <div
                   key={idx}
@@ -182,13 +181,13 @@ export function Education() {
                   style={{ width: '340px' }}
                 >
                   <div
-                    className="h-full p-7 rounded-2xl bg-white border border-gray-100 flex flex-col relative overflow-hidden"
+                    className="h-full p-7 rounded-2xl bg-white border border-gray-200 flex flex-col relative overflow-hidden"
                     style={{
                       boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)',
                     }}
                   >
-                    {/* Number & Icon Row */}
-                    <div className="flex items-center justify-between mb-5">
+                    {/* Number Row */}
+                    <div className="mb-5">
                       <span
                         style={{
                           fontSize: '48px',
@@ -200,12 +199,6 @@ export function Education() {
                       >
                         {item.number}
                       </span>
-                      <div
-                        className="w-10 h-10 rounded-xl flex items-center justify-center"
-                        style={{ background: '#F1F5F9' }}
-                      >
-                        <Icon style={{ width: '20px', height: '20px', strokeWidth: 2, color: '#6B7280' }} />
-                      </div>
                     </div>
 
                     {/* Title */}
