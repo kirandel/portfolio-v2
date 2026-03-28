@@ -206,7 +206,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             {/* Social links */}
             <div className="flex gap-3">
               <a
-                href="https://linkedin.com/in/kirandelneuville"
+                href="https://www.linkedin.com/in/kirandelneuville/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl bg-[#0077b5] text-white font-medium text-sm transition-all duration-200 hover:brightness-110 hover:scale-[1.02]"
@@ -215,7 +215,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 LinkedIn
               </a>
               <a
-                href="https://tandemchat.ai"
+                href="https://www.tandemchat.ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl bg-gray-900 text-white font-medium text-sm transition-all duration-200 hover:brightness-110 hover:scale-[1.02]"

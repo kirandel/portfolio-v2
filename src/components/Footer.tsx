@@ -20,9 +20,9 @@ export function Footer() {
   };
 
   const externalLinks = [
-    { label: 'LinkedIn', href: 'https://linkedin.com' },
-    { label: 'TandemChat.ai', href: 'https://tandemchat.ai' },
-    { label: 'True North Posters', href: '#' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/kirandelneuville/' },
+    { label: 'TandemChat.ai', href: 'https://www.tandemchat.ai' },
+    { label: 'True North Posters', href: 'https://www.truenorthposters.com' },
   ];
 
   return (
