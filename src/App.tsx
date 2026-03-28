@@ -196,6 +196,7 @@ export default function App() {
               fontSize: isScrolled || isDarkSection ? '14px' : '15px',
               fontWeight: '500',
               whiteSpace: 'nowrap',
+            }}
           >
             {"Let's talk"}
           </Button>
