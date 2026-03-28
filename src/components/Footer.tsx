@@ -87,10 +87,10 @@ export function Footer() {
 
       {/* Main footer content */}
       <div className="max-w-[1536px] mx-auto px-8 lg:px-[120px] relative z-10 pb-16">
-        {/* Four-column layout with more space for first column */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_0.8fr_1fr_1fr_1fr] gap-12 lg:gap-0">
-          {/* COLUMN 1: Identity Block */}
-          <div className="flex flex-col gap-6">
+        {/* Horizontal layout for all four sections */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+          {/* SECTION 1: Identity Block */}
+          <div className="flex-1 flex flex-col gap-6">
             <div>
               <h3 
                 className="text-white mb-3"
@@ -115,11 +115,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* SPACER COLUMN */}
-          <div className="hidden lg:block" />
-
-          {/* COLUMN 2: Site Navigation */}
-          <div className="flex flex-col gap-6">
+          {/* SECTION 2: Site Navigation */}
+          <div className="flex-1 flex flex-col gap-6">
             <h4 
               className="text-white"
               style={{
@@ -153,8 +150,8 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* COLUMN 3: External Links */}
-          <div className="flex flex-col gap-6">
+          {/* SECTION 3: External Links */}
+          <div className="flex-1 flex flex-col gap-6">
             <h4 
               className="text-white"
               style={{
@@ -184,8 +181,8 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* COLUMN 4: Contact + CTA */}
-          <div className="flex flex-col gap-6">
+          {/* SECTION 4: Contact + CTA */}
+          <div className="flex-1 flex flex-col gap-6">
             <h4 
               className="text-white"
               style={{
