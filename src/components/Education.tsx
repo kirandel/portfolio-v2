@@ -125,6 +125,54 @@ export function Education() {
 
         {/* Bottom Stats Section */}
         <div className="mt-20">
+
+          {/* Sub-heading */}
+          <div className="relative mb-12">
+            <h2
+              className="text-center text-gray-900 mb-3"
+              style={{
+                fontSize: '48px',
+                lineHeight: '1.1',
+                fontWeight: '700',
+                letterSpacing: '-0.03em',
+              }}
+            >
+              What my education taught me
+            </h2>
+            <div className="flex items-center justify-center mt-4">
+              <div
+                className="inline-flex items-center rounded-full"
+                style={{
+                  background: '#111827',
+                  padding: '6px 8px',
+                  gap: '4px',
+                }}
+              >
+                {[
+                  { label: 'Research' },
+                  { label: 'Analysis' },
+                  { label: 'Systems' },
+                ].map((step, i) => (
+                  <div key={step.label} className="flex items-center gap-1">
+                    <span
+                      className="rounded-full px-4 py-1.5 text-sm font-medium"
+                      style={{
+                        background: '#374151',
+                        color: '#ffffff',
+                        letterSpacing: '-0.01em',
+                      }}
+                    >
+                      {step.label}
+                    </span>
+                    {i < 2 && (
+                      <span style={{ color: '#6b7280', fontSize: '13px', padding: '0 2px' }}>+</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* 6 Cards — horizontal scroll */}
           <div
             className="flex gap-5 overflow-x-auto pb-4"
