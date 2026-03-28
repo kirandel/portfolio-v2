@@ -55,94 +55,106 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       <div
         className="absolute inset-0 transition-all duration-300"
         style={{
-          backgroundColor: isAnimating ? 'rgba(0, 0, 0, 0.45)' : 'rgba(0, 0, 0, 0)',
-          backdropFilter: isAnimating ? 'blur(10px)' : 'blur(0px)',
-          WebkitBackdropFilter: isAnimating ? 'blur(10px)' : 'blur(0px)',
+          backgroundColor: isAnimating ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0)',
+          backdropFilter: isAnimating ? 'blur(12px)' : 'blur(0px)',
+          WebkitBackdropFilter: isAnimating ? 'blur(12px)' : 'blur(0px)',
         }}
       />
 
       {/* Modal */}
       <div
-        className="relative w-full max-w-sm transition-all duration-300 ease-out"
+        className="relative w-full max-w-[400px] transition-all duration-300 ease-out"
         style={{
-          transform: isAnimating ? 'scale(1) translateY(0)' : 'scale(0.96) translateY(16px)',
+          transform: isAnimating ? 'scale(1) translateY(0)' : 'scale(0.95) translateY(20px)',
           opacity: isAnimating ? 1 : 0,
         }}
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className="relative overflow-hidden rounded-2xl"
+          className="relative overflow-hidden rounded-3xl"
           style={{
             background: '#ffffff',
-            boxShadow: '0 24px 48px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.06)',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.05)',
           }}
         >
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full transition-all duration-200 hover:bg-gray-100 text-gray-400 hover:text-gray-600"
+            className="absolute top-5 right-5 p-2 rounded-full transition-all duration-200 hover:bg-gray-100 text-gray-400 hover:text-gray-600 z-10"
           >
             <X className="w-4 h-4" />
           </button>
 
           {/* Content */}
-          <div className="p-8">
+          <div className="px-8 pt-10 pb-8">
+
+            {/* Icon */}
+            <div 
+              className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+              style={{ background: '#111827' }}
+            >
+              <Mail className="w-6 h-6 text-white" />
+            </div>
 
             {/* Header */}
-            <div className="mb-7">
+            <div className="mb-8">
               <h3
-                className="text-gray-900 mb-1.5"
+                className="text-gray-900 mb-2"
                 style={{
-                  fontSize: '26px',
+                  fontSize: '28px',
                   fontWeight: '700',
-                  letterSpacing: '-0.025em',
+                  letterSpacing: '-0.03em',
+                  lineHeight: '1.2',
                 }}
               >
                 {"Let's talk"}
               </h3>
               <p
                 className="text-gray-500"
-                style={{ fontSize: '15px', lineHeight: '1.5' }}
+                style={{ fontSize: '16px', lineHeight: '1.5', letterSpacing: '-0.01em' }}
               >
-                Open to new opportunities and collaborations.
+                Always open to new opportunities and interesting conversations.
               </p>
             </div>
 
             {/* Email card */}
             <button
               onClick={handleCopy}
-              className="group w-full p-4 rounded-xl transition-all duration-200 text-left mb-3"
+              className="group w-full p-4 rounded-2xl transition-all duration-200 text-left mb-3"
               style={{
-                background: copied ? '#111827' : '#f9fafb',
+                background: copied ? '#111827' : '#fafafa',
                 border: '1px solid',
-                borderColor: copied ? 'transparent' : '#e5e7eb',
+                borderColor: copied ? 'transparent' : '#f0f0f0',
               }}
             >
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-4">
                   <div
-                    className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: copied ? 'rgba(255,255,255,0.1)' : '#e5e7eb' }}
+                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: copied ? 'rgba(255,255,255,0.15)' : '#e8e8e8' }}
                   >
-                    <Mail className={`w-4 h-4 ${copied ? 'text-white' : 'text-gray-500'}`} />
+                    <Mail className={`w-5 h-5 ${copied ? 'text-white' : 'text-gray-600'}`} />
                   </div>
                   <div>
-                    <p className={`text-xs mb-0.5 font-medium ${copied ? 'text-white/60' : 'text-gray-400'}`}>
+                    <p className={`text-xs font-medium mb-0.5 ${copied ? 'text-white/50' : 'text-gray-400'}`}>
                       Email
                     </p>
                     <p
-                      className={`font-medium ${copied ? 'text-white' : 'text-gray-900'}`}
-                      style={{ fontSize: '14px', letterSpacing: '-0.01em' }}
+                      className={`font-semibold ${copied ? 'text-white' : 'text-gray-900'}`}
+                      style={{ fontSize: '15px', letterSpacing: '-0.01em' }}
                     >
                       {email}
                     </p>
                   </div>
                 </div>
-                <div>
+                <div
+                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-150"
+                  style={{ background: copied ? 'rgba(255,255,255,0.1)' : 'transparent' }}
+                >
                   {copied ? (
                     <Check className="w-4 h-4 text-white" />
                   ) : (
-                    <Copy className="w-4 h-4 text-gray-300 group-hover:text-gray-500 transition-colors duration-150" />
+                    <Copy className="w-4 h-4 text-gray-300 group-hover:text-gray-500" />
                   )}
                 </div>
               </div>
@@ -150,22 +162,22 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
             {/* Coffee card */}
             <div
-              className="w-full p-4 rounded-xl mb-7"
+              className="w-full p-4 rounded-2xl mb-8"
               style={{
-                background: '#f9fafb',
-                border: '1px solid #e5e7eb',
+                background: '#fafafa',
+                border: '1px solid #f0f0f0',
               }}
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4">
                 <div
-                  className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                  style={{ background: '#e5e7eb' }}
+                  className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: '#e8e8e8' }}
                 >
-                  <Coffee className="w-4 h-4 text-gray-500" />
+                  <Coffee className="w-5 h-5 text-gray-600" />
                 </div>
                 <div>
-                  <p className="text-xs mb-0.5 font-medium text-gray-400">In San Francisco?</p>
-                  <p className="font-medium text-gray-900" style={{ fontSize: '14px', letterSpacing: '-0.01em' }}>
+                  <p className="text-xs font-medium mb-0.5 text-gray-400">In San Francisco?</p>
+                  <p className="font-semibold text-gray-900" style={{ fontSize: '15px', letterSpacing: '-0.01em' }}>
                     {"Let's grab a coffee!"}
                   </p>
                 </div>
@@ -173,24 +185,23 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </div>
 
             {/* Divider */}
-            <div className="flex items-center gap-3 mb-5">
-              <div className="flex-1 h-px bg-gray-200" />
-              <span className="text-xs text-gray-400 font-medium">or connect via</span>
-              <div className="flex-1 h-px bg-gray-200" />
+            <div className="flex items-center gap-4 mb-5">
+              <div className="flex-1 h-px bg-gray-100" />
+              <span className="text-xs text-gray-400 font-medium uppercase tracking-wide">or connect via</span>
+              <div className="flex-1 h-px bg-gray-100" />
             </div>
 
             {/* Social links */}
-            <div className="flex gap-3 mb-6">
+            <div className="flex gap-3 mb-7">
               <a
                 href="https://www.linkedin.com/in/kirandelneuville/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl font-medium text-sm transition-all duration-200 hover:bg-gray-100"
+                className="flex-1 flex items-center justify-center gap-2.5 py-3.5 rounded-xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
-                  background: '#f3f4f6',
-                  color: '#111827',
-                  border: '1px solid #e5e7eb',
-                  fontSize: '13px',
+                  background: '#111827',
+                  color: '#ffffff',
+                  fontSize: '14px',
                   letterSpacing: '-0.01em',
                 }}
               >
@@ -201,12 +212,12 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 href="https://www.tandemchat.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl font-medium text-sm transition-all duration-200 hover:bg-gray-100"
+                className="flex-1 flex items-center justify-center gap-2.5 py-3.5 rounded-xl font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
-                  background: '#f3f4f6',
+                  background: '#fafafa',
                   color: '#111827',
-                  border: '1px solid #e5e7eb',
-                  fontSize: '13px',
+                  border: '1px solid #e5e5e5',
+                  fontSize: '14px',
                   letterSpacing: '-0.01em',
                 }}
               >
@@ -216,12 +227,18 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </div>
 
             {/* Availability */}
-            <div className="flex items-center justify-center gap-2">
-              <span className="relative flex h-1.5 w-1.5">
+            <div 
+              className="flex items-center justify-center gap-2.5 py-3 rounded-full"
+              style={{ background: '#f0fdf4' }}
+            >
+              <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span className="text-xs text-gray-400 font-medium">
+              <span 
+                className="font-medium"
+                style={{ fontSize: '13px', color: '#16a34a', letterSpacing: '-0.01em' }}
+              >
                 Open to new opportunities
               </span>
             </div>
