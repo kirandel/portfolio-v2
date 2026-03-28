@@ -120,25 +120,24 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             {/* Email card */}
             <button
               onClick={handleCopy}
-              className="group w-full p-3.5 rounded-lg transition-all duration-200 text-left mb-2.5"
+              className="group w-full p-4 rounded-xl transition-all duration-200 text-left mb-2"
               style={{
-                background: copied ? '#111827' : '#f9fafb',
-                border: '1px solid',
+                background: copied ? '#111827' : '#ffffff',
+                border: '1.5px solid',
                 borderColor: copied ? 'transparent' : '#e5e7eb',
+                boxShadow: copied ? 'none' : '0 1px 4px rgba(0,0,0,0.04)',
               }}
             >
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3 min-w-0">
                   <div
-                    className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: copied ? 'rgba(255,255,255,0.15)' : '#e5e7eb' }}
+                    className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: copied ? 'rgba(255,255,255,0.12)' : '#f3f4f6' }}
                   >
                     <Mail className={`w-4 h-4 ${copied ? 'text-white' : 'text-gray-600'}`} />
                   </div>
                   <div className="min-w-0">
-                    <p className={`text-xs font-medium mb-0.5 ${copied ? 'text-white/60' : 'text-gray-400'}`}>
-                      Email
-                    </p>
+                    <p className={`text-xs mb-0.5 ${copied ? 'text-white/50' : 'text-gray-400'}`}>Email</p>
                     <p
                       className={`font-medium truncate ${copied ? 'text-white' : 'text-gray-900'}`}
                       style={{ fontSize: '13px', letterSpacing: '-0.01em' }}
@@ -147,36 +146,32 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     </p>
                   </div>
                 </div>
-                <div
-                  className="w-8 h-8 rounded-lg flex items-center justify-center transition-colors duration-150 flex-shrink-0"
-                  style={{ background: copied ? 'rgba(255,255,255,0.1)' : 'transparent' }}
-                >
-                  {copied ? (
-                    <Check className="w-3.5 h-3.5 text-white" />
-                  ) : (
-                    <Copy className="w-3.5 h-3.5 text-gray-300 group-hover:text-gray-500" />
-                  )}
-                </div>
+                {copied ? (
+                  <Check className="w-3.5 h-3.5 text-white/70 flex-shrink-0" />
+                ) : (
+                  <Copy className="w-3.5 h-3.5 text-gray-300 group-hover:text-gray-500 transition-colors flex-shrink-0" />
+                )}
               </div>
             </button>
 
             {/* Coffee card */}
             <div
-              className="w-full p-3.5 rounded-lg mb-6"
+              className="w-full p-4 rounded-xl mb-6"
               style={{
-                background: '#f9fafb',
-                border: '1px solid #e5e7eb',
+                background: '#ffffff',
+                border: '1.5px solid #e5e7eb',
+                boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
               }}
             >
               <div className="flex items-center gap-3">
                 <div
-                  className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                  style={{ background: '#e5e7eb' }}
+                  className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: '#f3f4f6' }}
                 >
                   <Coffee className="w-4 h-4 text-gray-600" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs font-medium mb-0.5 text-gray-400">In San Francisco?</p>
+                  <p className="text-xs mb-0.5 text-gray-400">In San Francisco?</p>
                   <p className="font-medium text-gray-900" style={{ fontSize: '13px', letterSpacing: '-0.01em' }}>
                     {"Let's grab a coffee!"}
                   </p>
@@ -185,14 +180,14 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </div>
 
             {/* Divider */}
-            <div className="flex items-center gap-3 mb-4">
-              <div className="flex-1 h-px bg-gray-200" />
-              <span className="text-xs text-gray-400 font-medium">or</span>
-              <div className="flex-1 h-px bg-gray-200" />
+            <div className="flex items-center gap-3 mb-3">
+              <div className="flex-1 h-px bg-gray-100" />
+              <span className="text-xs text-gray-300 font-medium tracking-wide uppercase">also find me at</span>
+              <div className="flex-1 h-px bg-gray-100" />
             </div>
 
             {/* Social links */}
-            <div className="flex flex-col gap-2 mb-5">
+            <div className="flex flex-col gap-1.5 mb-5">
               {[
                 { href: 'https://www.linkedin.com/in/kirandelneuville/', label: 'LinkedIn' },
                 { href: 'https://www.tandemchat.ai', label: 'TandemChat.ai' },
@@ -203,18 +198,16 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-100 group"
+                  className="w-full flex items-center justify-between px-4 py-2.5 rounded-lg transition-all duration-150 hover:bg-gray-50 group"
                   style={{
-                    background: '#f9fafb',
-                    border: '1px solid #e5e7eb',
-                    fontSize: '14px',
+                    fontSize: '13px',
                     fontWeight: '500',
-                    color: '#111827',
+                    color: '#374151',
                     letterSpacing: '-0.01em',
                   }}
                 >
                   {link.label}
-                  <ExternalLink className="w-3.5 h-3.5 text-gray-400 group-hover:text-gray-600 transition-colors" />
+                  <ExternalLink className="w-3 h-3 text-gray-300 group-hover:text-gray-400 transition-colors" />
                 </a>
               ))}
             </div>
