@@ -105,7 +105,7 @@ export function Footer() {
               <p 
                 className="text-white mb-5"
                 style={{
-                  fontSize: '17px',
+                  fontSize: '15px',
                   lineHeight: '1.5',
                   opacity: 0.7,
                 }}
@@ -123,7 +123,7 @@ export function Footer() {
             <h4 
               className="text-white"
               style={{
-                fontSize: '19px',
+                fontSize: '16px',
                 fontWeight: '600',
               }}
             >
@@ -158,7 +158,7 @@ export function Footer() {
             <h4 
               className="text-white"
               style={{
-                fontSize: '19px',
+                fontSize: '16px',
                 fontWeight: '600',
               }}
             >
@@ -189,7 +189,7 @@ export function Footer() {
             <h4 
               className="text-white"
               style={{
-                fontSize: '19px',
+                fontSize: '16px',
                 fontWeight: '600',
               }}
             >
@@ -228,7 +228,7 @@ export function Footer() {
 
       {/* Bottom Legal Strip */}
       <div 
-        className="relative z-10 mt-16"
+              className="relative z-10 mt-8 md:mt-16"
         style={{
           background: 'linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.2) 100%)',
           borderTop: '1px solid rgba(255, 255, 255, 0.08)',

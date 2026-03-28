@@ -71,17 +71,16 @@ export function Education() {
 
   return (
     <div
-      ref={sectionRef}
-      className="relative w-screen -mx-6 overflow-hidden"
+      className="w-full"
       style={{
         paddingTop: '80px',
         paddingBottom: '80px',
       }}
     >
-      {/* Main content container */}
-      <div className="max-w-[1300px] mx-auto px-4 md:px-8 lg:px-12 relative z-10">
+      {/* Main content container — centered */}
+      <div className="max-w-[1300px] mx-auto px-4 md:px-8 lg:px-12 relative z-10 w-full">
         {/* Section Header */}
-        <div className="text-center mb-8 md:mb-12">
+        <div className="text-center mb-8 md:mb-12 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm mb-5">
             <GraduationCap className="w-4 h-4 text-gray-500" />
             <span className="text-gray-600" style={{ fontSize: '14px', fontWeight: '500', letterSpacing: '0.05em' }}>
@@ -127,7 +126,8 @@ export function Education() {
         <div className="mt-12 md:mt-20">
 
           {/* Sub-heading */}
-          <div className="relative mb-8 md:mb-12">
+          <div className="flex items-center justify-center mb-8 md:mb-12">
+          <div className="relative mb-8 md:mb-0 text-center flex flex-col items-center">
             <h2
               className="text-center text-gray-900 mb-3"
               style={{
@@ -170,6 +170,7 @@ export function Education() {
                   </div>
                 ))}
               </div>
+            </div>
             </div>
           </div>
 
@@ -293,7 +294,7 @@ function DegreeCard({ degree, index }: { degree: any; index: number }) {
     <div className="relative bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm">
       <div className="p-5 md:p-8">
         {/* Degree Header */}
-        <div className="flex items-start justify-between mb-6">
+        <div className="flex items-start justify-between mb-4">
           <div className="flex-1">
             <div
               className="mb-1"

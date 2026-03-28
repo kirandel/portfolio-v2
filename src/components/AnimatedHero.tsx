@@ -22,21 +22,29 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
   }, [titleNumber, titles]);
 
   return (
-    <div className="w-screen -mx-6 relative" style={{ background: '#f3f4f6' }}>
+    <div
+      className="relative"
+      style={{
+        background: '#f3f4f6',
+        width: '100vw',
+        marginLeft: 'calc(50% - 50vw)',
+        marginRight: 'calc(50% - 50vw)',
+      }}
+    >
       <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(229, 231, 235, 0.2) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(229, 231, 235, 0.15) 0%, transparent 50%)' }}></div>
-      <div className="container mx-auto relative z-10 px-6">
-        <div className="flex gap-5 py-20 md:py-40 items-center justify-center flex-col">
+      <div className="max-w-5xl mx-auto relative z-10 px-6">
+        <div className="flex gap-6 pt-28 pb-20 md:py-40 items-center justify-center flex-col">
 
           {/* Heading */}
-          <div className="flex gap-5 flex-col w-full">
+          <div className="flex gap-4 flex-col w-full items-center">
             <h1
-              className="max-w-5xl tracking-tighter text-center mx-auto w-full"
-              style={{ fontWeight: 400, lineHeight: 1.1, fontSize: 'clamp(32px, 6vw, 72px)' }}
+              className="max-w-5xl tracking-tighter text-center w-full"
+              style={{ fontWeight: 400, lineHeight: 1.1, fontSize: 'clamp(30px, 6vw, 72px)' }}
             >
-              <div style={{ color: '#111827', marginBottom: '12px' }}>Hi, I&apos;m Kiran</div>
+              <div style={{ color: '#111827', marginBottom: '10px' }}>Hi 👋 I&apos;m Kiran</div>
               <span
                 className="relative flex justify-center overflow-hidden text-center"
-                style={{ height: 'clamp(60px, 9vw, 80px)' }}
+                style={{ height: 'clamp(56px, 9vw, 80px)' }}
               >
                 {titles.map((title, index) => (
                   <motion.span
@@ -58,32 +66,32 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
             </h1>
 
             <p
-              className="leading-relaxed tracking-tight text-center max-w-2xl mx-auto px-4"
-              style={{ color: '#6b7280', lineHeight: '1.65', fontSize: 'clamp(14px, 2.5vw, 18px)' }}
+              className="leading-relaxed tracking-tight text-center max-w-xl mx-auto"
+              style={{ color: '#6b7280', lineHeight: '1.7', fontSize: 'clamp(14px, 2.2vw, 17px)' }}
             >
-              I&apos;m a product manager with experience building complex, high-scale platforms at the intersection of user experience, data, and marketplace dynamics.
-              <br />
-              <span style={{ display: 'block', height: '0.5em' }} />
-              With 8+ years in tech across product, marketing, strategic growth and user acquisition, I specialize in turning ambiguous problems into scalable, revenue-driving solutions.
-              <br />
-              <span style={{ display: 'block', height: '0.5em' }} />
-              I studied at UC Berkeley and grew up across Laos, Cambodia, Thailand, and Indonesia — and have been the default trip planner in every group I&apos;ve ever been in.
+              Product manager with 8+ years building high-scale platforms at the intersection of user experience, data, and marketplace dynamics. I specialize in turning ambiguous problems into scalable, revenue-driving solutions.
+            </p>
+            <p
+              className="leading-relaxed tracking-tight text-center max-w-xl mx-auto"
+              style={{ color: '#6b7280', lineHeight: '1.7', fontSize: 'clamp(14px, 2.2vw, 17px)' }}
+            >
+              UC Berkeley grad. Grew up across Laos, Cambodia, Thailand, and Indonesia — and have been the default trip planner in every group I&apos;ve ever been in 🗺️
             </p>
           </div>
 
           {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto items-center px-4 sm:px-0">
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto items-center">
             <Button
               icon={<ArrowRight size={18} strokeWidth={2.5} />}
               onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full sm:w-auto max-w-xs"
+              className="w-full sm:w-auto"
             >
               See my work
             </Button>
             <Button
               icon={<Download size={18} strokeWidth={2.5} />}
               onClick={() => window.open('/resume.pdf', '_blank')}
-              className="w-full sm:w-auto max-w-xs"
+              className="w-full sm:w-auto"
             >
               Download resume
             </Button>

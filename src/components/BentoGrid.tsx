@@ -14,7 +14,7 @@ export function BentoGrid() {
   return (
     <div 
       className="w-full px-4 md:px-8"
-      style={{ paddingTop: '60px', paddingBottom: '60px' }}
+      style={{ paddingTop: '40px', paddingBottom: '40px' }}
     >
       {/* Responsive Container with Auto Layout behavior */}
       <div className="max-w-[1536px] mx-auto">
@@ -118,7 +118,7 @@ export function BentoGrid() {
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${isRevealed(1) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
-            <div className={`absolute top-24 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(1) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-20 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(1) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 Vehicle swaps were one of Turo's highest-friction operational workflows and a meaningful source of customer stress, support cost, and trip risk. When a booked vehicle became unavailable, hosts and guests had to rely on lengthy support calls to identify alternatives, validate eligibility, confirm pricing, and secure consent under time pressure. I identified this as a strategic reliability problem, not just a support issue, because it sat at the intersection of customer trust, marketplace efficiency, and operational scale.
                 <br /><br />
@@ -153,7 +153,7 @@ export function BentoGrid() {
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${isRevealed(2) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
-            <div className={`absolute top-24 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(2) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-20 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(2) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 True North Posters began with a consumer insight I identified while studying Geographic Information Systems (GIS) at UC Berkeley: people want meaningful, personalized art connected to places that matter to them, but existing products felt generic, static, and difficult to customize in a way that felt personal.
                 <br /><br />
@@ -211,7 +211,7 @@ export function BentoGrid() {
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${isRevealed(3) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
-            <div className={`absolute top-24 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(3) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-20 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(3) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 I led the creation and launch of a net new product that enabled individuals to invest in a Turo business by placing their vehicles with hosts who operated them on their behalf. This introduced a new user identity within the marketplace — investors — and effectively financialized the Turo business model. Prior to this, financial flows between hosts and investors were handled off platform through Venmo, Zelle, and Cash App, creating significant risk, lack of transparency, and no system of record for how revenue was generated or distributed.
                 <br /><br />
@@ -246,7 +246,7 @@ export function BentoGrid() {
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${isRevealed(4) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
-            <div className={`absolute top-24 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(4) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-20 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(4) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 Launching Turo in Australia required adapting a complex two sided marketplace to a new regulatory, insurance, and cultural environment while rapidly building enough supply to support a credible consumer launch. The core challenge was balancing speed with trust and compliance, ensuring the platform could operate reliably in a new market without fragmenting the global product or introducing long term risk.
                 <br /><br />
@@ -281,7 +281,7 @@ export function BentoGrid() {
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${isRevealed(5) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
-            <div className={`absolute top-24 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(5) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-20 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(5) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 As Turo's brand matured, I identified an opportunity to extend the customer relationship beyond the trip itself by launching a branded commerce experience that could deepen affinity, strengthen storytelling, and unlock incremental revenue. The challenge was to build a product that felt like a natural extension of the Turo experience while maintaining high standards for design, usability, and operational scalability.
                 <br /><br />
@@ -316,7 +316,7 @@ export function BentoGrid() {
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${isRevealed(6) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
-            <div className={`absolute top-24 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(6) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-20 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(6) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 As Turo scaled, a growing segment of vehicle owners wanted to participate in the marketplace without taking on the operational complexity of hosting, while professional operators were constrained by access to reliable supply. This created a structural gap in the marketplace and a clear opportunity to introduce a managed model that could unlock new supply, improve utilization, and enable operators to scale more efficiently.
                 <br /><br />
@@ -351,7 +351,7 @@ export function BentoGrid() {
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${isRevealed(7) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
-            <div className={`absolute top-24 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(7) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-20 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(7) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 Pricing is one of the most critical and sensitive levers in a two sided marketplace. Hosts needed more control to grow revenue, but existing tools were limited and lacked clarity, often leading to inconsistent pricing, poor guest comparison experiences, and increased exposure to high risk trips that negatively impacted marketplace profitability.
                 <br /><br />
@@ -386,7 +386,7 @@ export function BentoGrid() {
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${isRevealed(8) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
-            <div className={`absolute top-24 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(8) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-20 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(8) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 As the marketplace matured, hosts faced a critical and recurring decision with limited guidance: which vehicles to acquire to maximize returns. This lack of decision support led to inefficient capital allocation, inconsistent host performance, and supply growth that was misaligned with underlying demand patterns, ultimately impacting marketplace efficiency and profitability.
                 <br /><br />
@@ -421,7 +421,7 @@ export function BentoGrid() {
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${isRevealed(9) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
-            <div className={`absolute top-24 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(9) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-20 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(9) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 TandemChat started from a simple, personal observation: planning trips and experiences with friends was always fragmented across group chats, docs, and notes, often driven by one person coordinating everything. As AI became more useful for planning, it remained a single player tool, disconnected from the people actually involved in the decision.
                 <br /><br />
@@ -455,7 +455,7 @@ export function BentoGrid() {
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${isRevealed(10) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
-            <div className={`absolute top-24 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(10) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-20 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(10) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 In a marketplace where strangers share vehicles worth tens of thousands of dollars, trust is not a soft metric — it is the product. Bad actors, fraudulent listings, and unresolved disputes erode the confidence of every participant in the network, creating churn, increasing support costs, and degrading the brand equity that drives organic growth.
                 <br /><br />
@@ -490,7 +490,7 @@ export function BentoGrid() {
             </div>
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${isRevealed(11) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
-            <div className={`absolute top-24 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(11) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-20 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${isRevealed(11) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 Supply quality and density are the fundamental drivers of marketplace liquidity and guest trust. As Turo expanded into new markets and segments, acquiring the right hosts — particularly multi-vehicle operators with the experience and capacity to deliver consistent, high quality experiences — required more than standard paid acquisition. It required targeted outreach, differentiated value propositions, and onboarding systems designed for professional operators rather than individual owners.
                 <br /><br />

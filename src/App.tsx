@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import { AnimatedHero } from './components/AnimatedHero';
 import { BentoGrid } from './components/BentoGrid';
@@ -9,13 +9,14 @@ import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
 import { Button } from './components/ui/flow-hover-button';
 import { DitheringShader } from './components/ui/dithering-shader';
-import { Download, Mail } from 'lucide-react';
+import { Download, Mail, Menu, X } from 'lucide-react';
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkSection, setIsDarkSection] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('Home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Combined scroll detection for navbar transformation and dark section overlap
   useEffect(() => {
@@ -184,24 +185,117 @@ export default function App() {
           </nav>
           
           {/* CTA - Right */}
-          <Button 
-            onClick={() => setIsContactModalOpen(true)}
-            className="flex-shrink-0 !px-6 !py-3 !text-sm !border-none !bg-black !text-white transition-all duration-300 cursor-pointer"
-            style={{
-              padding: isScrolled || isDarkSection ? '8px 20px' : '10px 24px',
-              borderRadius: '100px',
-              background: isDarkSection ? 'transparent' : '#1a1a1a',
-              color: '#ffffff',
-              border: isDarkSection ? '1.5px solid rgba(255,255,255,0.6)' : 'none',
-              fontSize: isScrolled || isDarkSection ? '14px' : '15px',
-              fontWeight: '500',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {"Let's talk"}
-          </Button>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <Button 
+              onClick={() => setIsContactModalOpen(true)}
+              className="hidden sm:flex !px-6 !py-3 !text-sm !border-none !bg-black !text-white transition-all duration-300 cursor-pointer"
+              style={{
+                padding: isScrolled || isDarkSection ? '8px 20px' : '10px 24px',
+                borderRadius: '100px',
+                background: isDarkSection ? 'transparent' : '#1a1a1a',
+                color: '#ffffff',
+                border: isDarkSection ? '1.5px solid rgba(255,255,255,0.6)' : 'none',
+                fontSize: isScrolled || isDarkSection ? '14px' : '15px',
+                fontWeight: '500',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {"Let's talk"}
+            </Button>
+
+            {/* Hamburger — mobile only */}
+            <button
+              className="flex md:hidden items-center justify-center w-10 h-10 rounded-full transition-colors duration-200"
+              style={{
+                background: isDarkSection ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.06)',
+                color: isDarkSection ? '#ffffff' : '#1a1a1a',
+              }}
+              onClick={() => setIsMobileMenuOpen((v) => !v)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
         </div>
       </header>
+
+      {/* Mobile full-screen nav overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="fixed inset-0 z-[99] flex flex-col md:hidden"
+            style={{ background: 'rgba(250, 250, 250, 0.97)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+          >
+            {/* Top bar — mirrors navbar height */}
+            <div className="flex items-center justify-between px-6 pt-5 pb-4">
+              <span style={{ fontSize: '22px', fontWeight: '600', color: '#1a1a1a' }}>Kiran.</span>
+              <button
+                className="w-10 h-10 rounded-full flex items-center justify-center"
+                style={{ background: 'rgba(0,0,0,0.06)', color: '#1a1a1a' }}
+                onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Nav links */}
+            <nav className="flex flex-col gap-1 px-4 pt-6 flex-1">
+              {[
+                { label: 'Home', href: '#home', id: 'home' },
+                { label: 'Experience', href: '#experience', id: 'experience' },
+                { label: 'KiranGPT', href: '#kiran-gpt', id: 'kiran-gpt' },
+                { label: 'Education', href: '#education', id: 'education' },
+                { label: 'Resume', href: '#download-cv', id: 'download-cv' },
+              ].map((item, i) => (
+                <motion.a
+                  key={item.label}
+                  href={item.href}
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 + i * 0.06, duration: 0.2 }}
+                  className="flex items-center justify-between px-4 py-4 rounded-2xl transition-colors duration-150"
+                  style={{
+                    background: activeSection === item.label ? 'rgba(0,0,0,0.05)' : 'transparent',
+                    color: '#1a1a1a',
+                    fontSize: '20px',
+                    fontWeight: activeSection === item.label ? '600' : '500',
+                    textDecoration: 'none',
+                  }}
+                  onClick={(e) => {
+                    setIsMobileMenuOpen(false);
+                    if (item.id === 'home') {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  {item.label}
+                  <span style={{ color: '#9ca3af', fontSize: '16px' }}>→</span>
+                </motion.a>
+              ))}
+            </nav>
+
+            {/* Bottom CTA */}
+            <div className="px-4 pb-12 pt-4">
+              <button
+                className="w-full py-4 rounded-2xl text-white font-semibold text-lg transition-opacity duration-200 active:opacity-80"
+                style={{ background: '#1a1a1a', fontSize: '17px' }}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsContactModalOpen(true);
+                }}
+              >
+                {"Let's talk"}
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Animated Hero Intro */}
       <div id="home" className="w-full">
