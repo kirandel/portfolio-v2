@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Sparkles, Copy, Check, X, ExternalLink, Coffee } from 'lucide-react';
+import { Sparkles, Mail, Copy, Check, X, ExternalLink, Coffee } from 'lucide-react';
 
 interface ContactModalProps {
   isOpen: boolean;
