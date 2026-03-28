@@ -82,60 +82,38 @@ export function Education() {
       <div className="max-w-[1300px] mx-auto px-8 lg:px-12 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h1
-            className="text-center text-gray-900 mb-4"
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm mb-5">
+            <GraduationCap className="w-4 h-4 text-gray-500" />
+            <span className="text-gray-600" style={{ fontSize: '14px', fontWeight: '500', letterSpacing: '0.05em' }}>
+              UC BERKELEY
+            </span>
+          </div>
+
+          <h2
+            className="mb-4"
             style={{
               fontSize: '72px',
-              lineHeight: '1.05',
               fontWeight: '700',
+              color: '#0F172A',
+              lineHeight: '1.05',
               letterSpacing: '-0.03em',
             }}
           >
-            UC Berkeley
-          </h1>
+            Education
+          </h2>
+
           <p
-            className="text-center text-gray-700 mb-3"
+            className="max-w-[650px] mx-auto"
             style={{
               fontSize: '24px',
-              lineHeight: '1.4',
               fontWeight: '500',
+              color: '#64748B',
+              lineHeight: '1.4',
               letterSpacing: '-0.01em',
             }}
           >
-            What my education taught me
+            Across both degrees, my academic work centered on system design, behavioral economics, and data-driven decision making — foundations that continue to shape how I build scalable, trustworthy products.
           </p>
-          <div className="flex items-center justify-center mt-4">
-            <div
-              className="inline-flex items-center rounded-full"
-              style={{
-                background: '#111827',
-                padding: '6px 8px',
-                gap: '4px',
-              }}
-            >
-              {[
-                { label: 'Research + Analysis' },
-                { label: 'Systems Thinking' },
-                { label: 'Building' },
-              ].map((step, i) => (
-                <div key={step.label} className="flex items-center gap-1">
-                  <span
-                    className="rounded-full px-4 py-1.5 text-sm font-medium"
-                    style={{
-                      background: '#374151',
-                      color: '#ffffff',
-                      letterSpacing: '-0.01em',
-                    }}
-                  >
-                    {step.label}
-                  </span>
-                  {i < 2 && (
-                    <span style={{ color: '#6b7280', fontSize: '13px', padding: '0 2px' }}>→</span>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Degrees */}
@@ -196,6 +174,7 @@ export function Education() {
                 icon: Globe,
               },
             ].map((item, idx) => {
+              const Icon = item.icon;
               return (
                 <div
                   key={idx}
@@ -208,8 +187,8 @@ export function Education() {
                       boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)',
                     }}
                   >
-                    {/* Number row */}
-                    <div className="mb-5">
+                    {/* Number & Icon Row */}
+                    <div className="flex items-center justify-between mb-5">
                       <span
                         style={{
                           fontSize: '48px',
@@ -221,6 +200,12 @@ export function Education() {
                       >
                         {item.number}
                       </span>
+                      <div
+                        className="w-10 h-10 rounded-xl flex items-center justify-center"
+                        style={{ background: '#F1F5F9' }}
+                      >
+                        <Icon style={{ width: '20px', height: '20px', strokeWidth: 2, color: '#6B7280' }} />
+                      </div>
                     </div>
 
                     {/* Title */}
