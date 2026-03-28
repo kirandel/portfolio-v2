@@ -80,7 +80,7 @@ export default function App() {
   
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center px-6">
+      <div className="min-h-screen bg-gray-50 flex flex-col items-center overflow-x-hidden">
       {/* Header - Scroll-responsive navbar */}
       <header 
         className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ease-in-out"
@@ -92,7 +92,7 @@ export default function App() {
           className="transition-all duration-300 ease-in-out mx-auto flex items-center justify-between"
           style={{
             maxWidth: isScrolled || isDarkSection ? '900px' : '100%',
-            padding: isScrolled || isDarkSection ? '12px 24px' : '16px 48px',
+            padding: isScrolled || isDarkSection ? '12px 24px' : '16px 24px',
             borderRadius: isScrolled || isDarkSection ? '100px' : '0',
             backgroundColor: isDarkSection
               ? 'rgba(35, 35, 35, 0.8)'
@@ -117,9 +117,9 @@ export default function App() {
             Kiran.
           </div>
           
-          {/* Navigation - Center */}
+          {/* Navigation - Center (hidden on mobile) */}
           <nav 
-            className="absolute left-1/2 -translate-x-1/2 flex items-center transition-all duration-300"
+            className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center transition-all duration-300"
             style={{ gap: isScrolled ? '8px' : '12px' }}
           >
             {[
@@ -243,11 +243,11 @@ export default function App() {
         </div>
 
         {/* CTA Module */}
-        <div id="download-cv" className="relative z-10 w-full flex items-center justify-center py-24 px-6 pb-40">
+        <div id="download-cv" className="relative z-10 w-full flex items-center justify-center py-16 px-4 md:px-6 pb-32 md:pb-40">
           <div
             className="relative w-full max-w-4xl rounded-3xl overflow-hidden flex flex-col items-center justify-center text-center"
             style={{
-              padding: '80px 48px',
+              padding: 'clamp(40px, 8vw, 80px) clamp(20px, 5vw, 48px)',
               boxShadow: '0 0 0 1px rgba(255,255,255,0.06), 0 32px 80px rgba(0,0,0,0.35)',
             }}
           >
@@ -261,10 +261,10 @@ export default function App() {
               speed={0.5}
             />
 
-            <div className="relative z-10 flex flex-col items-center gap-8">
+            <div className="relative z-10 flex flex-col items-center gap-6 md:gap-8">
               <h2
                 style={{
-                  fontSize: '44px',
+                  fontSize: 'clamp(28px, 5vw, 44px)',
                   fontWeight: '700',
                   color: '#ffffff',
                   lineHeight: '1.12',
@@ -274,7 +274,7 @@ export default function App() {
               >
                 {"Let's build something amazing together."}
               </h2>
-              <div className="flex flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto items-center justify-center">
                 <Button 
                   icon={<Mail size={18} strokeWidth={2.5} />}
                   onClick={() => setIsContactModalOpen(true)}

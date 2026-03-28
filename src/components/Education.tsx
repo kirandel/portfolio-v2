@@ -79,7 +79,7 @@ export function Education() {
       }}
     >
       {/* Main content container */}
-      <div className="max-w-[1300px] mx-auto px-8 lg:px-12 relative z-10">
+      <div className="max-w-[1300px] mx-auto px-4 md:px-8 lg:px-12 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm mb-5">
@@ -92,7 +92,7 @@ export function Education() {
           <h2
             className="mb-4"
             style={{
-              fontSize: '72px',
+              fontSize: 'clamp(36px, 6vw, 72px)',
               fontWeight: '700',
               color: '#0F172A',
               lineHeight: '1.05',
@@ -103,9 +103,9 @@ export function Education() {
           </h2>
 
           <p
-            className="max-w-[650px] mx-auto"
+            className="max-w-[650px] mx-auto px-2"
             style={{
-              fontSize: '24px',
+              fontSize: 'clamp(16px, 2.5vw, 24px)',
               fontWeight: '500',
               color: '#64748B',
               lineHeight: '1.4',
@@ -131,7 +131,7 @@ export function Education() {
             <h2
               className="text-center text-gray-900 mb-3"
               style={{
-                fontSize: '48px',
+                fontSize: 'clamp(26px, 4.5vw, 48px)',
                 lineHeight: '1.1',
                 fontWeight: '700',
                 letterSpacing: '-0.03em',
@@ -226,7 +226,7 @@ export function Education() {
                 <div
                   key={idx}
                   className="group flex-shrink-0"
-                  style={{ width: '340px' }}
+                  style={{ width: 'clamp(280px, 80vw, 340px)' }}
                 >
                   <div
                     className="h-full p-7 rounded-2xl bg-white border border-gray-200 flex flex-col relative overflow-hidden"
@@ -291,7 +291,7 @@ export function Education() {
 function DegreeCard({ degree, index }: { degree: any; index: number }) {
   return (
     <div className="relative bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm">
-      <div className="p-8">
+      <div className="p-5 md:p-8">
         {/* Degree Header */}
         <div className="flex items-start justify-between mb-6">
           <div className="flex-1">
@@ -310,7 +310,7 @@ function DegreeCard({ degree, index }: { degree: any; index: number }) {
             <h3
               className="mb-2"
               style={{
-                fontSize: '26px',
+                fontSize: 'clamp(17px, 3vw, 26px)',
                 fontWeight: '700',
                 color: '#0F172A',
                 letterSpacing: '-0.02em',

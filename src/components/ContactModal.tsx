@@ -48,7 +48,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[200] flex items-center justify-center p-4"
+      className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center sm:p-4"
       onClick={onClose}
     >
       {/* Backdrop */}
@@ -61,22 +61,29 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         }}
       />
 
-      {/* Modal */}
+      {/* Modal — bottom-sheet on mobile, centered card on sm+ */}
       <div
-        className="relative w-full max-w-sm transition-all duration-300 ease-out"
+        className="relative w-full sm:max-w-sm transition-all duration-300 ease-out"
         style={{
-          transform: isAnimating ? 'scale(1) translateY(0)' : 'scale(0.95) translateY(20px)',
+          transform: isAnimating
+            ? 'translateY(0)'
+            : 'translateY(100%)',
           opacity: isAnimating ? 1 : 0,
         }}
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className="relative overflow-hidden rounded-2xl"
+          className="relative overflow-hidden rounded-t-3xl sm:rounded-2xl max-h-[92vh] overflow-y-auto"
           style={{
             background: '#ffffff',
-            boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)',
+            boxShadow: '0 -4px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)',
           }}
         >
+          {/* Drag pill (mobile only) */}
+          <div className="flex justify-center pt-3 pb-1 sm:hidden">
+            <div className="w-10 h-1 rounded-full bg-gray-200" />
+          </div>
+
           {/* Close button */}
           <button
             onClick={onClose}

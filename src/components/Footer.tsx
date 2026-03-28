@@ -30,7 +30,7 @@ export function Footer() {
       className="w-screen relative overflow-hidden -mx-6"
       style={{
         background: '#0a0a12',
-        paddingTop: '120px',
+        paddingTop: '80px',
         paddingBottom: '0',
       }}
     >
@@ -86,7 +86,7 @@ export function Footer() {
       </svg>
 
       {/* Main footer content */}
-      <div className="max-w-[1536px] mx-auto px-8 lg:px-[120px] relative z-10 pb-16">
+      <div className="max-w-[1536px] mx-auto px-4 md:px-8 lg:px-[120px] relative z-10 pb-16">
         {/* Four-column layout with more space for first column */}
         <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_0.8fr_1fr_1fr_1fr] gap-12 lg:gap-0">
           {/* COLUMN 1: Identity Block */}
@@ -199,7 +199,7 @@ export function Footer() {
               {/* Email */}
               <a
                 href="mailto:hello@kirandelneuville.com"
-                className="text-white transition-opacity duration-200 hover:opacity-100 inline-flex items-center gap-2 w-fit"
+                className="text-white transition-opacity duration-200 hover:opacity-100 inline-flex items-center gap-2 break-all"
                 style={{
                   fontSize: '16px',
                   opacity: 0.9,
@@ -234,7 +234,7 @@ export function Footer() {
           borderTop: '1px solid rgba(255, 255, 255, 0.08)',
         }}
       >
-        <div className="max-w-[1536px] mx-auto px-8 lg:px-[120px] py-6">
+        <div className="max-w-[1536px] mx-auto px-4 md:px-8 lg:px-[120px] py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             {/* Copyright */}
             <p 

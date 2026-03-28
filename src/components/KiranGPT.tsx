@@ -54,8 +54,8 @@ export function KiranGPT() {
       className="w-screen relative overflow-hidden -mx-6"
       style={{
         background: 'linear-gradient(180deg, #0D1117 0%, #0a0e13 100%)',
-        paddingTop: '120px',
-        paddingBottom: '120px',
+        paddingTop: '80px',
+        paddingBottom: '80px',
       }}
     >
       {/* Ambient glow elements */}
@@ -97,7 +97,7 @@ export function KiranGPT() {
 
       {/* Main content container */}
       <div 
-        className="max-w-[1536px] mx-auto px-8 lg:px-[120px] relative z-10"
+        className="max-w-[1536px] mx-auto px-4 md:px-8 lg:px-[120px] relative z-10"
       >
         {/* Two-column layout */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
@@ -107,7 +107,7 @@ export function KiranGPT() {
             <h2 
               className="text-white"
               style={{
-                fontSize: '60px',
+                fontSize: 'clamp(36px, 6vw, 60px)',
                 fontWeight: '700',
                 letterSpacing: '-0.02em',
                 lineHeight: '1.1',
@@ -118,9 +118,9 @@ export function KiranGPT() {
 
             {/* Subtitle */}
             <p 
-              className="text-white max-w-[500px]"
+              className="text-white"
               style={{
-                fontSize: '19px',
+                fontSize: 'clamp(15px, 2.5vw, 19px)',
                 lineHeight: '1.7',
                 opacity: 0.78,
               }}
@@ -128,9 +128,9 @@ export function KiranGPT() {
               An AI assistant trained on my product thinking, my education, my background and real-world experience, and how I approach building and scaling products.
             </p>
             <p 
-              className="text-white max-w-[500px]"
+              className="text-white"
               style={{
-                fontSize: '19px',
+                fontSize: 'clamp(15px, 2.5vw, 19px)',
                 lineHeight: '1.7',
                 opacity: 0.78,
                 marginTop: '-8px',
