@@ -81,7 +81,7 @@ export function Education() {
       {/* Main content container */}
       <div className="max-w-[1300px] mx-auto px-4 md:px-8 lg:px-12 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm mb-5">
             <GraduationCap className="w-4 h-4 text-gray-500" />
             <span className="text-gray-600" style={{ fontSize: '14px', fontWeight: '500', letterSpacing: '0.05em' }}>
@@ -124,10 +124,10 @@ export function Education() {
         </div>
 
         {/* Bottom Stats Section */}
-        <div className="mt-20">
+        <div className="mt-12 md:mt-20">
 
           {/* Sub-heading */}
-          <div className="relative mb-12">
+          <div className="relative mb-8 md:mb-12">
             <h2
               className="text-center text-gray-900 mb-3"
               style={{
@@ -175,7 +175,7 @@ export function Education() {
 
           {/* 6 Cards — horizontal scroll */}
           <div
-            className="flex gap-5 overflow-x-auto pb-4"
+            className="flex gap-5 overflow-x-auto pb-4 -mx-4 px-4 md:mx-0 md:px-0"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {[

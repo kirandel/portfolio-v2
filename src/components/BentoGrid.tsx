@@ -19,7 +19,7 @@ export function BentoGrid() {
       {/* Responsive Container with Auto Layout behavior */}
       <div className="max-w-[1536px] mx-auto">
         {/* Section Title */}
-        <div className="relative" style={{ marginBottom: '60px' }}>
+        <div className="relative mb-10 md:mb-[60px]">
           <h1 
             className="text-center text-gray-900 mb-4"
             style={{ 
@@ -102,7 +102,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 1 
                 ? '0px 12px 48px rgba(232, 69, 106, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '400px',
+              minHeight: 'clamp(300px, 50vw, 400px)',
               transform: (!isTouch && hoveredTile === 1) ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(1)}
@@ -137,7 +137,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 2 
                 ? '0px 12px 48px rgba(207, 52, 112, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '400px',
+              minHeight: 'clamp(300px, 50vw, 400px)',
               transform: (!isTouch && hoveredTile === 2) ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(2)}
@@ -230,7 +230,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 4 
                 ? '0px 12px 48px rgba(181, 46, 138, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '400px',
+              minHeight: 'clamp(300px, 50vw, 400px)',
               transform: (!isTouch && hoveredTile === 4) ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(4)}
@@ -335,7 +335,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 7 
                 ? '0px 12px 48px rgba(107, 47, 212, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '420px',
+              minHeight: 'clamp(300px, 50vw, 420px)',
               transform: (!isTouch && hoveredTile === 7) ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(7)}
@@ -370,7 +370,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 8 
                 ? '0px 12px 48px rgba(74, 32, 236, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '420px',
+              minHeight: 'clamp(300px, 50vw, 420px)',
               transform: (!isTouch && hoveredTile === 8) ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(8)}
@@ -405,7 +405,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 9 
                 ? '0px 12px 48px rgba(58, 24, 240, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '420px',
+              minHeight: 'clamp(300px, 50vw, 420px)',
               transform: (!isTouch && hoveredTile === 9) ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(9)}
@@ -439,7 +439,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 10
                 ? '0px 12px 48px rgba(45, 20, 245, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)'
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '420px',
+              minHeight: 'clamp(300px, 50vw, 420px)',
               transform: (!isTouch && hoveredTile === 10) ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(10)}
@@ -474,7 +474,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 11
                 ? '0px 12px 48px rgba(26, 14, 197, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)'
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '420px',
+              minHeight: 'clamp(300px, 50vw, 420px)',
               transform: (!isTouch && hoveredTile === 11) ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(11)}

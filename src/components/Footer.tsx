@@ -88,14 +88,14 @@ export function Footer() {
       {/* Main footer content */}
       <div className="max-w-[1536px] mx-auto px-4 md:px-8 lg:px-[120px] relative z-10 pb-16">
         {/* Four-column layout with more space for first column */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_0.8fr_1fr_1fr_1fr] gap-12 lg:gap-0">
+        <div           className="grid grid-cols-1 lg:grid-cols-[1.5fr_0.8fr_1fr_1fr_1fr] gap-8 lg:gap-0">
           {/* COLUMN 1: Identity Block */}
           <div className="flex flex-col gap-6">
             <div>
               <h3 
                 className="text-white mb-3"
                 style={{
-                  fontSize: '30px',
+                  fontSize: 'clamp(22px, 5vw, 30px)',
                   fontWeight: '600',
                   letterSpacing: '-0.01em',
                 }}

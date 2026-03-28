@@ -93,7 +93,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
           </button>
 
           {/* Content */}
-          <div className="px-6 pt-8 pb-6">
+          <div className="px-6 pt-8 pb-6" style={{ paddingBottom: 'max(24px, env(safe-area-inset-bottom, 24px))' }}>
 
             {/* Icon */}
             <div 

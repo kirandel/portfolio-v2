@@ -100,7 +100,7 @@ export function KiranGPT() {
         className="max-w-[1536px] mx-auto px-4 md:px-8 lg:px-[120px] relative z-10"
       >
         {/* Two-column layout */}
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
           {/* LEFT COLUMN: Text and Mode Cards */}
           <div className="w-full lg:w-[40%] flex flex-col gap-8">
             {/* Title */}
@@ -225,10 +225,10 @@ export function KiranGPT() {
 
               {/* Main chat container */}
               <div 
-                className="relative rounded-[32px] p-8 flex flex-col"
+                className="relative rounded-[32px] p-5 md:p-8 flex flex-col"
                 style={{
                   background: '#111318',
-                  minHeight: 'clamp(550px, 60vh, 750px)',
+                  minHeight: 'clamp(420px, 55vh, 750px)',
                   boxShadow: 'inset 0 2px 8px rgba(0, 0, 0, 0.4), 0 8px 32px rgba(0, 0, 0, 0.6)',
                 }}
               >

@@ -195,7 +195,7 @@ export default function App() {
               border: isDarkSection ? '1.5px solid rgba(255,255,255,0.6)' : 'none',
               fontSize: isScrolled || isDarkSection ? '14px' : '15px',
               fontWeight: '500',
-            }}
+              whiteSpace: 'nowrap',
           >
             {"Let's talk"}
           </Button>
@@ -243,7 +243,7 @@ export default function App() {
         </div>
 
         {/* CTA Module */}
-        <div id="download-cv" className="relative z-10 w-full flex items-center justify-center py-16 px-4 md:px-6 pb-32 md:pb-40">
+        <div id="download-cv" className="relative z-10 w-full flex items-center justify-center py-12 md:py-16 px-4 md:px-6 pb-16 md:pb-40">
           <div
             className="relative w-full max-w-4xl rounded-3xl overflow-hidden flex flex-col items-center justify-center text-center"
             style={{
