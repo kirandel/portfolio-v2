@@ -11,7 +11,7 @@ export function KiranGPT() {
     {
       id: 'recruiter' as Mode,
       title: 'About Me',
-      subtitle: 'Background, education, and the path that shaped how I build product',
+      subtitle: 'Ask about my background and experience',
       gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       glowColor: '#667eea',
     },
