@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Mail, Copy, Check, X, ExternalLink, Coffee } from 'lucide-react';
+import { Sparkles, Copy, Check, X, ExternalLink, Coffee } from 'lucide-react';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -93,7 +93,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
               style={{ background: '#f3f4f6' }}
             >
-              <Mail className="w-5 h-5 text-gray-700" />
+              <Sparkles className="w-5 h-5 text-gray-700" />
             </div>
 
             {/* Header */}
