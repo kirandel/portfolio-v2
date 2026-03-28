@@ -91,9 +91,9 @@ export function BentoGrid() {
           <div 
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
-              background: 'linear-gradient(135deg, #D94962 0%, #9B3B8F 100%)',
+              background: 'linear-gradient(135deg, #E8456A 0%, #C03080 100%)',
               boxShadow: hoveredTile === 1 
-                ? '0px 12px 48px rgba(217, 73, 98, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
+                ? '0px 12px 48px rgba(232, 69, 106, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
               minHeight: '400px',
               transform: hoveredTile === 1 ? 'scale(1.03)' : 'scale(1)',
@@ -127,9 +127,9 @@ export function BentoGrid() {
           <div 
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
-              background: 'linear-gradient(135deg, #C83955 0%, #8B2B6E 100%)',
+              background: 'linear-gradient(135deg, #CF3470 0%, #A02885 100%)',
               boxShadow: hoveredTile === 2 
-                ? '0px 12px 48px rgba(200, 57, 85, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
+                ? '0px 12px 48px rgba(207, 52, 112, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
               minHeight: '400px',
               transform: hoveredTile === 2 ? 'scale(1.03)' : 'scale(1)',
@@ -163,9 +163,9 @@ export function BentoGrid() {
           <div 
             className="rounded-3xl lg:row-span-2 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
-              background: 'linear-gradient(135deg, #5E3FBF 0%, #7F2DF4 100%)',
+              background: 'linear-gradient(135deg, #8B2FA0 0%, #6B2FD4 100%)',
               boxShadow: hoveredTile === 3 
-                ? '0px 12px 48px rgba(94, 63, 191, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
+                ? '0px 12px 48px rgba(139, 47, 160, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
               minHeight: '650px',
               transform: hoveredTile === 3 ? 'scale(1.03)' : 'scale(1)',
@@ -222,9 +222,9 @@ export function BentoGrid() {
           <div 
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
-              background: 'linear-gradient(135deg, #E75B8D 0%, #9B3B8F 100%)',
+              background: 'linear-gradient(135deg, #B52E8A 0%, #8B2FA0 100%)',
               boxShadow: hoveredTile === 4 
-                ? '0px 12px 48px rgba(231, 91, 141, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
+                ? '0px 12px 48px rgba(181, 46, 138, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
               minHeight: '400px',
               transform: hoveredTile === 4 ? 'scale(1.03)' : 'scale(1)',
@@ -258,9 +258,9 @@ export function BentoGrid() {
           <div 
             className="rounded-3xl p-6 flex flex-col lg:row-span-2 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
-              background: 'linear-gradient(135deg, #9B3B8F 0%, #7F2DF4 100%)',
+              background: 'linear-gradient(135deg, #7A2DB8 0%, #5A25E0 100%)',
               boxShadow: hoveredTile === 5 
-                ? '0px 12px 48px rgba(155, 59, 143, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
+                ? '0px 12px 48px rgba(122, 45, 184, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
               minHeight: '560px',
               transform: hoveredTile === 5 ? 'scale(1.03)' : 'scale(1)',
@@ -294,9 +294,9 @@ export function BentoGrid() {
           <div 
             className="rounded-3xl p-6 flex flex-col lg:row-span-2 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
-              background: 'linear-gradient(135deg, #7F2DF4 0%, #3B1AF8 100%)',
+              background: 'linear-gradient(135deg, #5A25E0 0%, #3A18F0 100%)',
               boxShadow: hoveredTile === 6 
-                ? '0px 12px 48px rgba(127, 45, 244, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
+                ? '0px 12px 48px rgba(90, 37, 224, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
               minHeight: '650px',
               transform: hoveredTile === 6 ? 'scale(1.03)' : 'scale(1)',
@@ -330,9 +330,9 @@ export function BentoGrid() {
           <div 
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
-              background: '#7F2DF4',
+              background: 'linear-gradient(135deg, #6B2FD4 0%, #4A20EC 100%)',
               boxShadow: hoveredTile === 7 
-                ? '0px 12px 48px rgba(127, 45, 244, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
+                ? '0px 12px 48px rgba(107, 47, 212, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
               minHeight: '420px',
               transform: hoveredTile === 7 ? 'scale(1.03)' : 'scale(1)',
@@ -366,9 +366,9 @@ export function BentoGrid() {
           <div 
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
-              background: 'linear-gradient(135deg, #7F2DF4 0%, #3B1AF8 100%)',
+              background: 'linear-gradient(135deg, #4A20EC 0%, #2D14F5 100%)',
               boxShadow: hoveredTile === 8 
-                ? '0px 12px 48px rgba(127, 45, 244, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
+                ? '0px 12px 48px rgba(74, 32, 236, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
               minHeight: '420px',
               transform: hoveredTile === 8 ? 'scale(1.03)' : 'scale(1)',
@@ -402,9 +402,9 @@ export function BentoGrid() {
           <div 
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
-              background: 'linear-gradient(135deg, #5B34C7 0%, #3B1AF8 100%)',
+              background: 'linear-gradient(135deg, #3A18F0 0%, #2410D8 100%)',
               boxShadow: hoveredTile === 9 
-                ? '0px 12px 48px rgba(91, 52, 199, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
+                ? '0px 12px 48px rgba(58, 24, 240, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
               minHeight: '420px',
               transform: hoveredTile === 9 ? 'scale(1.03)' : 'scale(1)',
@@ -437,9 +437,9 @@ export function BentoGrid() {
           <div
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
-              background: 'linear-gradient(135deg, #4C1D95 0%, #7F2DF4 100%)',
+              background: 'linear-gradient(135deg, #2D14F5 0%, #1A0EC5 100%)',
               boxShadow: hoveredTile === 10
-                ? '0px 12px 48px rgba(127, 45, 244, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)'
+                ? '0px 12px 48px rgba(45, 20, 245, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)'
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
               minHeight: '420px',
               transform: hoveredTile === 10 ? 'scale(1.03)' : 'scale(1)',
@@ -473,9 +473,9 @@ export function BentoGrid() {
           <div
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out lg:col-span-2"
             style={{
-              background: 'linear-gradient(135deg, #3B1AF8 0%, #5B34C7 100%)',
+              background: 'linear-gradient(135deg, #1A0EC5 0%, #0D08A0 100%)',
               boxShadow: hoveredTile === 11
-                ? '0px 12px 48px rgba(59, 26, 248, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)'
+                ? '0px 12px 48px rgba(26, 14, 197, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)'
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
               minHeight: '420px',
               transform: hoveredTile === 11 ? 'scale(1.03)' : 'scale(1)',
