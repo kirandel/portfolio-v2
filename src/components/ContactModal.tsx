@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Mail, Copy, Check, X, Linkedin, ExternalLink, Coffee } from 'lucide-react';
+import { Mail, Copy, Check, X, ExternalLink, Coffee } from 'lucide-react';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -192,38 +192,31 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </div>
 
             {/* Social links */}
-            <div className="flex gap-2.5 mb-5">
-              <a
-                href="https://www.linkedin.com/in/kirandelneuville/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100 active:scale-95"
-                style={{
-                  background: '#111827',
-                  color: '#ffffff',
-                  fontSize: '13px',
-                  letterSpacing: '-0.01em',
-                }}
-              >
-                <Linkedin className="w-3.5 h-3.5" />
-                LinkedIn
-              </a>
-              <a
-                href="https://www.tandemchat.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg font-medium transition-all duration-200 hover:bg-gray-50"
-                style={{
-                  background: '#f9fafb',
-                  color: '#111827',
-                  border: '1px solid #e5e7eb',
-                  fontSize: '13px',
-                  letterSpacing: '-0.01em',
-                }}
-              >
-                <ExternalLink className="w-3.5 h-3.5" />
-                TandemChat
-              </a>
+            <div className="flex flex-col gap-2 mb-5">
+              {[
+                { href: 'https://www.linkedin.com/in/kirandelneuville/', label: 'LinkedIn' },
+                { href: 'https://www.tandemchat.ai', label: 'TandemChat.ai' },
+                { href: 'https://www.truenorthposters.com', label: 'True North Posters' },
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-100 group"
+                  style={{
+                    background: '#f9fafb',
+                    border: '1px solid #e5e7eb',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    color: '#111827',
+                    letterSpacing: '-0.01em',
+                  }}
+                >
+                  {link.label}
+                  <ExternalLink className="w-3.5 h-3.5 text-gray-400 group-hover:text-gray-600 transition-colors" />
+                </a>
+              ))}
             </div>
 
             {/* Availability */}
