@@ -433,54 +433,18 @@ export function BentoGrid() {
               </p>
             </div>
           </div>
-          {/* ROW 4 - Tile 10: Wide tile (col-span-2) */}
+          {/* ROW 4 - Tile 10: Square tile */}
           <div
-            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out lg:col-span-2"
+            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
-              background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)',
+              background: 'linear-gradient(135deg, #4C1D95 0%, #7F2DF4 100%)',
               boxShadow: hoveredTile === 10
-                ? '0px 12px 48px rgba(26, 26, 46, 0.5), 0px 4px 24px rgba(0, 0, 0, 0.3)'
+                ? '0px 12px 48px rgba(127, 45, 244, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)'
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
               minHeight: '420px',
               transform: hoveredTile === 10 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(10)}
-            onMouseLeave={() => setHoveredTile(null)}
-          >
-            <div className="relative z-20">
-              <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
-                Host Growth & Acquisition
-              </h3>
-              <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
-                Building the systems and strategies that brought professional supply to Turo at scale
-              </p>
-            </div>
-
-            <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 10 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
-
-            <div className={`absolute top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 10 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-              <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
-                Supply quality and density are the fundamental drivers of marketplace liquidity and guest trust. As Turo expanded into new markets and segments, acquiring the right hosts — particularly multi-vehicle operators with the experience and capacity to deliver consistent, high quality experiences — required more than standard paid acquisition. It required targeted outreach, differentiated value propositions, and onboarding systems designed for professional operators rather than individual owners.
-                <br /><br />
-                I led the design and execution of host acquisition programs across paid and owned channels, building segmentation frameworks that prioritized high potential operators and optimizing activation flows to reduce time to first trip. I built experimentation infrastructure to test messaging, incentive structures, and onboarding sequences at scale, using conversion and quality signals to identify which operator profiles produced the best long term marketplace outcomes.
-                <br /><br />
-                These efforts contributed directly to supply growth in key markets, improved early host retention, and established repeatable playbooks for future market entry. The work connected acquisition directly to marketplace health, treating supply growth not as a volume goal but as a quality and fit problem.
-              </p>
-            </div>
-          </div>
-
-          {/* ROW 4 - Tile 11: Square tile */}
-          <div
-            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
-            style={{
-              background: 'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)',
-              boxShadow: hoveredTile === 11
-                ? '0px 12px 48px rgba(44, 83, 100, 0.5), 0px 4px 24px rgba(0, 0, 0, 0.3)'
-                : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '420px',
-              transform: hoveredTile === 11 ? 'scale(1.03)' : 'scale(1)',
-            }}
-            onMouseEnter={() => setHoveredTile(11)}
             onMouseLeave={() => setHoveredTile(null)}
           >
             <div className="relative z-20">
@@ -492,15 +456,51 @@ export function BentoGrid() {
               </p>
             </div>
 
-            <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 11 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
+            <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 10 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
 
-            <div className={`absolute top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 11 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 10 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 In a marketplace where strangers share vehicles worth tens of thousands of dollars, trust is not a soft metric — it is the product. Bad actors, fraudulent listings, and unresolved disputes erode the confidence of every participant in the network, creating churn, increasing support costs, and degrading the brand equity that drives organic growth.
                 <br /><br />
                 I worked across policy, product, and operations to design and ship safety mechanisms including host and guest verification improvements, listing quality signals, and fraud detection inputs. I collaborated with data and risk teams to instrument signals that identified suspicious behavior early and developed intervention frameworks that balanced reducing risk with minimizing friction for legitimate users.
                 <br /><br />
                 The work strengthened platform integrity, improved trust scores across key segments, and created structural foundations for scaling the marketplace without proportionally scaling risk or support burden.
+              </p>
+            </div>
+          </div>
+
+          {/* ROW 4 - Tile 11: Wide tile (col-span-2) */}
+          <div
+            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out lg:col-span-2"
+            style={{
+              background: 'linear-gradient(135deg, #3B1AF8 0%, #5B34C7 100%)',
+              boxShadow: hoveredTile === 11
+                ? '0px 12px 48px rgba(59, 26, 248, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)'
+                : '0px 4px 24px rgba(0, 0, 0, 0.25)',
+              minHeight: '420px',
+              transform: hoveredTile === 11 ? 'scale(1.03)' : 'scale(1)',
+            }}
+            onMouseEnter={() => setHoveredTile(11)}
+            onMouseLeave={() => setHoveredTile(null)}
+          >
+            <div className="relative z-20">
+              <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
+                Host Growth & Acquisition
+              </h3>
+              <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
+                Building the systems and strategies that brought professional supply to Turo at scale
+              </p>
+            </div>
+
+            <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 11 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
+
+            <div className={`absolute top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 11 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+              <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
+                Supply quality and density are the fundamental drivers of marketplace liquidity and guest trust. As Turo expanded into new markets and segments, acquiring the right hosts — particularly multi-vehicle operators with the experience and capacity to deliver consistent, high quality experiences — required more than standard paid acquisition. It required targeted outreach, differentiated value propositions, and onboarding systems designed for professional operators rather than individual owners.
+                <br /><br />
+                I led the design and execution of host acquisition programs across paid and owned channels, building segmentation frameworks that prioritized high potential operators and optimizing activation flows to reduce time to first trip. I built experimentation infrastructure to test messaging, incentive structures, and onboarding sequences at scale, using conversion and quality signals to identify which operator profiles produced the best long term marketplace outcomes.
+                <br /><br />
+                These efforts contributed directly to supply growth in key markets, improved early host retention, and established repeatable playbooks for future market entry. The work connected acquisition directly to marketplace health, treating supply growth not as a volume goal but as a quality and fit problem.
               </p>
             </div>
           </div>
