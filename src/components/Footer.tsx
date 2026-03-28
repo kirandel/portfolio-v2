@@ -2,12 +2,22 @@ import { Mail, ExternalLink } from 'lucide-react';
 
 export function Footer() {
   const navigation = [
-    { label: 'Home', href: '#home' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'KiranGPT', href: '#kiran-gpt' },
-    { label: 'Education', href: '#education' },
-    { label: 'Resume', href: '#download-cv' },
+    { label: 'Home', id: 'home' },
+    { label: 'Experience', id: 'experience' },
+    { label: 'KiranGPT', id: 'kiran-gpt' },
+    { label: 'Education', id: 'education' },
+    { label: 'Resume', id: 'download-cv' },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    if (id === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   const externalLinks = [
     { label: 'LinkedIn', href: 'https://linkedin.com' },
@@ -123,8 +133,8 @@ export function Footer() {
               {navigation.map((item) => (
                 <a
                   key={item.label}
-                  href={item.href}
-                  onClick={item.label === 'Home' ? (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); } : undefined}
+                  href={`#${item.id}`}
+                  onClick={(e) => handleNavClick(e, item.id)}
                   className="text-white transition-all duration-200 hover:opacity-100 group inline-flex items-center w-fit"
                   style={{
                     fontSize: '16px',
