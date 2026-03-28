@@ -128,7 +128,6 @@ export default function App() {
               { label: 'KiranGPT', href: '#kiran-gpt' },
               { label: 'Education', href: '#education' },
               { label: 'Resume', href: '#download-cv', nowrap: true },
-              { label: 'Contact', href: '#contact' },
             ].map((item) => {
               const isActive = activeSection === item.label;
               const handleClick = (e: React.MouseEvent) => {

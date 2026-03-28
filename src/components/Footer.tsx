@@ -7,7 +7,6 @@ export function Footer() {
     { label: 'KiranGPT', href: '#kiran-gpt' },
     { label: 'Education', href: '#education' },
     { label: 'Resume', href: '#download-cv' },
-    { label: 'Contact', href: '#contact' },
   ];
 
   const externalLinks = [
@@ -20,7 +19,7 @@ export function Footer() {
     <footer 
       className="w-screen relative overflow-hidden -mx-6"
       style={{
-        background: 'linear-gradient(180deg, #0D1117 0%, #1a1630 100%)',
+        background: '#0a0a12',
         paddingTop: '120px',
         paddingBottom: '0',
       }}
