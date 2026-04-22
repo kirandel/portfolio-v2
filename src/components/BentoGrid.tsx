@@ -113,7 +113,7 @@ export function BentoGrid() {
 
             {/* Phone mockup image - fades out on hover */}
             <div 
-              className={`absolute top-[126px] md:top-[102px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 1 ? 'opacity-0' : 'opacity-100'}`}
+              className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 1 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
                 src="/images/vehicle-manager-mockup.png" 
@@ -163,7 +163,7 @@ export function BentoGrid() {
 
             {/* Phone mockup image - fades out on hover */}
             <div 
-              className={`absolute top-[126px] md:top-[102px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 2 ? 'opacity-0' : 'opacity-100'}`}
+              className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 2 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
                 src="/images/vehicle-manager-mockup.png" 
@@ -211,7 +211,7 @@ export function BentoGrid() {
 
             {/* Phone mockup image - fades out on hover */}
             <div 
-              className={`absolute top-[126px] md:top-[102px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 3 ? 'opacity-0' : 'opacity-100'}`}
+              className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 3 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
                 src="/images/vehicle-manager-mockup.png" 
@@ -259,7 +259,7 @@ export function BentoGrid() {
 
             {/* Phone mockup image - fades out on hover */}
             <div 
-              className={`absolute top-[126px] md:top-[102px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 4 ? 'opacity-0' : 'opacity-100'}`}
+              className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 4 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
                 src="/images/vehicle-manager-mockup.png" 
@@ -307,7 +307,7 @@ export function BentoGrid() {
 
             {/* Phone mockup image - fades out on hover */}
             <div 
-              className={`absolute top-[126px] md:top-[102px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 5 ? 'opacity-0' : 'opacity-100'}`}
+              className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 5 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
                 src="/images/vehicle-manager-mockup.png" 
@@ -355,7 +355,7 @@ export function BentoGrid() {
 
             {/* Phone mockup image - fades out on hover */}
             <div 
-              className={`absolute top-[126px] md:top-[102px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 6 ? 'opacity-0' : 'opacity-100'}`}
+              className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 6 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
                 src="/images/vehicle-manager-mockup.png" 
@@ -405,7 +405,7 @@ export function BentoGrid() {
 
             {/* Phone mockup image - fades out on hover */}
             <div 
-              className={`absolute top-[126px] md:top-[102px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 7 ? 'opacity-0' : 'opacity-100'}`}
+              className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 7 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
                 src="/images/vehicle-manager-mockup.png" 
@@ -453,7 +453,7 @@ export function BentoGrid() {
 
             {/* Phone mockup image - fades out on hover */}
             <div 
-              className={`absolute top-[126px] md:top-[102px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 8 ? 'opacity-0' : 'opacity-100'}`}
+              className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 8 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
                 src="/images/vehicle-manager-mockup.png" 
@@ -501,7 +501,7 @@ export function BentoGrid() {
 
             {/* Phone mockup image - fades out on hover */}
             <div 
-              className={`absolute top-[126px] md:top-[102px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 9 ? 'opacity-0' : 'opacity-100'}`}
+              className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 9 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
                 src="/images/vehicle-manager-mockup.png" 
