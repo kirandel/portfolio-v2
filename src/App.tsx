@@ -75,6 +75,11 @@ export default function App() {
       if (el) observer.observe(el);
     });
 
+    // Force initial check: if at top of page, set Home as active
+    if (window.scrollY < 100) {
+      setActiveSection('Home');
+    }
+
     return () => observer.disconnect();
   }, []);
   
