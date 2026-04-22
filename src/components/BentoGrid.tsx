@@ -113,7 +113,7 @@ export function BentoGrid() {
 
             {/* Phone mockup image - fades out on hover */}
             <div 
-              className={`absolute top-[102px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 1 ? 'opacity-0' : 'opacity-100'}`}
+              className={`absolute top-[114px] md:top-[102px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 1 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
                 src="/images/vehicle-manager-mockup.png" 
@@ -124,7 +124,7 @@ export function BentoGrid() {
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 1 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
 
-            <div className={`absolute top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 1 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 1 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 As Turo scaled, a growing segment of vehicle owners wanted to participate in the marketplace without taking on the operational complexity of hosting, while professional operators were constrained by access to reliable supply. This created a structural gap in the marketplace and a clear opportunity to introduce a managed model that could unlock new supply, improve utilization, and enable operators to scale more efficiently.
                 <br /><br />
