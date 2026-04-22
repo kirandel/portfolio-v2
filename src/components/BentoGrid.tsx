@@ -87,7 +87,7 @@ export function BentoGrid() {
             gridAutoRows: 'minmax(200px, auto)',
           }}
         >
-          {/* ========== BOX 1: In-App Vehicle Swaps ========== */}
+          {/* ========== BOX 1: Co-Host Network ========== */}
           <div 
             data-box="1"
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
@@ -104,10 +104,10 @@ export function BentoGrid() {
           >
             <div className="relative z-20">
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
-                In-App Vehicle Swaps
+                Co-Host Network
               </h3>
               <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
-                Turning a 30-minute support workflow into a 30-second product interaction
+                Created and Scaled the Co-Host Network, an AI-Powered Marketplace Unlocking Supply and Revenue Through the Financialization of Personal Vehicles
               </p>
             </div>
 
@@ -115,11 +115,13 @@ export function BentoGrid() {
 
             <div className={`absolute top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 1 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
-                Vehicle swaps were one of Turo's highest-friction operational workflows and a meaningful source of customer stress, support cost, and trip risk. When a booked vehicle became unavailable, hosts and guests had to rely on lengthy support calls to identify alternatives, validate eligibility, confirm pricing, and secure consent under time pressure. I identified this as a strategic reliability problem, not just a support issue, because it sat at the intersection of customer trust, marketplace efficiency, and operational scale.
+                As Turo scaled, a growing segment of vehicle owners wanted to participate in the marketplace without taking on the operational complexity of hosting, while professional operators were constrained by access to reliable supply. This created a structural gap in the marketplace and a clear opportunity to introduce a managed model that could unlock new supply, improve utilization, and enable operators to scale more efficiently.
                 <br /><br />
-                I led the end-to-end strategy, product definition, and launch of Turo's in-app vehicle swaps platform, converting a manual 30-minute workflow into a fast, self-serve experience. The product matched eligible replacement vehicles, enforced pricing and policy guardrails, and guided both parties through a clear, consent-based flow designed for high-stress moments. I partnered closely with engineering, design, operations, policy, and data teams to define the decision framework, prioritize safe defaults, and ensure the system performed reliably across real marketplace conditions.
+                I led the creation of the Co-Host Network from zero to one, defining the product strategy, business model, and initial roadmap. In late 2024, ahead of broader adoption of AI-driven product development, I leveraged AI-assisted workflows to design and build the initial product and matching system without dedicated engineering resources. This enabled rapid iteration across onboarding, vehicle-to-manager matching, analytics, and acquisition funnels, accelerating time to market while maintaining product quality. I ran tightly scoped pilots in Los Angeles and Denver, owning experiment design, supply recruitment, and performance measurement to validate product-market fit.
                 <br /><br />
-                The result was a step change in operational efficiency and customer experience. The launch materially reduced support burden, improved trip completion and reliability, and delivered millions in annual savings, while establishing a scalable platform for future automation and marketplace resilience.
+                Following early traction, I secured executive alignment and led the transition from pilot to scaled product. I managed a team of five and partnered cross-functionally with Legal, Insurance, Operations, and CX to define policies, risk frameworks, and operational systems required to integrate the model into Turo&apos;s core marketplace. I also established the playbook for expansion, enabling rollout across new markets and geographies.
+                <br /><br />
+                Today, the Co-Host Network is a core supply driver generating $15 million in annual revenue and is on track to reach $50-100 million, demonstrating the ability to apply emerging technologies to accelerate zero-to-one product development and scale it into a durable global business line.
               </p>
             </div>
           </div>
