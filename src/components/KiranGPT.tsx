@@ -54,8 +54,8 @@ export function KiranGPT() {
       className="w-screen relative overflow-hidden -mx-6"
       style={{
         background: 'linear-gradient(180deg, #0D1117 0%, #0a0e13 100%)',
-        paddingTop: '80px',
-        paddingBottom: '80px',
+        paddingTop: '120px',
+        paddingBottom: '120px',
       }}
     >
       {/* Ambient glow elements */}
@@ -97,17 +97,17 @@ export function KiranGPT() {
 
       {/* Main content container */}
       <div 
-        className="max-w-[1536px] mx-auto px-4 md:px-8 lg:px-[120px] relative z-10"
+        className="max-w-[1536px] mx-auto px-8 lg:px-[120px] relative z-10"
       >
         {/* Two-column layout */}
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
           {/* LEFT COLUMN: Text and Mode Cards */}
           <div className="w-full lg:w-[40%] flex flex-col gap-8">
             {/* Title */}
             <h2 
               className="text-white"
               style={{
-                fontSize: 'clamp(36px, 6vw, 60px)',
+                fontSize: '60px',
                 fontWeight: '700',
                 letterSpacing: '-0.02em',
                 lineHeight: '1.1',
@@ -118,9 +118,9 @@ export function KiranGPT() {
 
             {/* Subtitle */}
             <p 
-              className="text-white"
+              className="text-white max-w-[500px]"
               style={{
-                fontSize: 'clamp(15px, 2.5vw, 19px)',
+                fontSize: '19px',
                 lineHeight: '1.7',
                 opacity: 0.78,
               }}
@@ -128,9 +128,9 @@ export function KiranGPT() {
               An AI assistant trained on my product thinking, my education, my background and real-world experience, and how I approach building and scaling products.
             </p>
             <p 
-              className="text-white"
+              className="text-white max-w-[500px]"
               style={{
-                fontSize: 'clamp(15px, 2.5vw, 19px)',
+                fontSize: '19px',
                 lineHeight: '1.7',
                 opacity: 0.78,
                 marginTop: '-8px',
@@ -225,10 +225,10 @@ export function KiranGPT() {
 
               {/* Main chat container */}
               <div 
-                className="relative rounded-[32px] p-5 md:p-8 flex flex-col"
+                className="relative rounded-[32px] p-8 flex flex-col"
                 style={{
                   background: '#111318',
-                  minHeight: 'clamp(420px, 55vh, 750px)',
+                  minHeight: 'clamp(550px, 60vh, 750px)',
                   boxShadow: 'inset 0 2px 8px rgba(0, 0, 0, 0.4), 0 8px 32px rgba(0, 0, 0, 0.6)',
                 }}
               >

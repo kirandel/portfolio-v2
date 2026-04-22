@@ -71,16 +71,17 @@ export function Education() {
 
   return (
     <div
-      className="w-full"
+      ref={sectionRef}
+      className="relative w-screen -mx-6 overflow-hidden"
       style={{
         paddingTop: '80px',
         paddingBottom: '80px',
       }}
     >
-      {/* Main content container — centered */}
-      <div className="max-w-[1300px] mx-auto px-4 md:px-8 lg:px-12 relative z-10 w-full">
+      {/* Main content container */}
+      <div className="max-w-[1300px] mx-auto px-8 lg:px-12 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-8 md:mb-12 flex flex-col items-center">
+        <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm mb-5">
             <GraduationCap className="w-4 h-4 text-gray-500" />
             <span className="text-gray-600" style={{ fontSize: '14px', fontWeight: '500', letterSpacing: '0.05em' }}>
@@ -91,7 +92,7 @@ export function Education() {
           <h2
             className="mb-4"
             style={{
-              fontSize: 'clamp(36px, 6vw, 72px)',
+              fontSize: '72px',
               fontWeight: '700',
               color: '#0F172A',
               lineHeight: '1.05',
@@ -102,9 +103,9 @@ export function Education() {
           </h2>
 
           <p
-            className="max-w-[650px] mx-auto px-2"
+            className="max-w-[650px] mx-auto"
             style={{
-              fontSize: 'clamp(16px, 2.5vw, 24px)',
+              fontSize: '24px',
               fontWeight: '500',
               color: '#64748B',
               lineHeight: '1.4',
@@ -123,15 +124,14 @@ export function Education() {
         </div>
 
         {/* Bottom Stats Section */}
-        <div className="mt-12 md:mt-20">
+        <div className="mt-20">
 
           {/* Sub-heading */}
-          <div className="flex items-center justify-center mb-8 md:mb-12">
-          <div className="relative mb-8 md:mb-0 text-center flex flex-col items-center">
+          <div className="relative mb-12">
             <h2
               className="text-center text-gray-900 mb-3"
               style={{
-                fontSize: 'clamp(26px, 4.5vw, 48px)',
+                fontSize: '48px',
                 lineHeight: '1.1',
                 fontWeight: '700',
                 letterSpacing: '-0.03em',
@@ -171,12 +171,11 @@ export function Education() {
                 ))}
               </div>
             </div>
-            </div>
           </div>
 
           {/* 6 Cards — horizontal scroll */}
           <div
-            className="flex gap-5 overflow-x-auto pb-4 -mx-4 px-4 md:mx-0 md:px-0"
+            className="flex gap-5 overflow-x-auto pb-4"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {[
@@ -227,7 +226,7 @@ export function Education() {
                 <div
                   key={idx}
                   className="group flex-shrink-0"
-                  style={{ width: 'clamp(280px, 80vw, 340px)' }}
+                  style={{ width: '340px' }}
                 >
                   <div
                     className="h-full p-7 rounded-2xl bg-white border border-gray-200 flex flex-col relative overflow-hidden"
@@ -292,9 +291,9 @@ export function Education() {
 function DegreeCard({ degree, index }: { degree: any; index: number }) {
   return (
     <div className="relative bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm">
-      <div className="p-5 md:p-8">
+      <div className="p-8">
         {/* Degree Header */}
-        <div className="flex items-start justify-between mb-4">
+        <div className="flex items-start justify-between mb-6">
           <div className="flex-1">
             <div
               className="mb-1"
@@ -311,7 +310,7 @@ function DegreeCard({ degree, index }: { degree: any; index: number }) {
             <h3
               className="mb-2"
               style={{
-                fontSize: 'clamp(17px, 3vw, 26px)',
+                fontSize: '26px',
                 fontWeight: '700',
                 color: '#0F172A',
                 letterSpacing: '-0.02em',
