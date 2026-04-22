@@ -118,8 +118,7 @@ export function BentoGrid() {
               <img 
                 src="/images/vehicle-manager-mockup.png" 
                 alt="Vehicle Manager App Interface"
-                className="h-auto object-cover object-top drop-shadow-2xl"
-                style={{ width: '110%', marginLeft: '-5%' }}
+                className="w-full h-auto object-cover object-top drop-shadow-2xl"
               />
             </div>
 
