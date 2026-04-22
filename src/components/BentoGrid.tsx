@@ -113,14 +113,12 @@ export function BentoGrid() {
 
             {/* Phone mockup image - fades out on hover */}
             <div 
-              className={`absolute bottom-0 right-0 transition-all duration-500 z-10 ${hoveredTile === 1 ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}
-              style={{ width: '55%', maxWidth: '200px' }}
+              className={`absolute top-36 left-6 right-6 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 1 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
                 src="/images/vehicle-manager-mockup.png" 
                 alt="Vehicle Manager App Interface"
-                className="w-full h-auto object-contain drop-shadow-2xl"
-                style={{ transform: 'translateY(10%)' }}
+                className="w-full h-auto object-cover object-top drop-shadow-2xl"
               />
             </div>
 
