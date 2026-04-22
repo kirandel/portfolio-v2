@@ -194,7 +194,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 3 
                 ? '0px 12px 48px rgba(139, 47, 160, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '650px',
+              minHeight: '600px',
               transform: hoveredTile === 3 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(3)}
@@ -338,7 +338,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 6 
                 ? '0px 12px 48px rgba(90, 37, 224, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '650px',
+              minHeight: '600px',
               transform: hoveredTile === 6 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(6)}
