@@ -188,7 +188,7 @@ export function BentoGrid() {
           {/* ========== BOX 3: Co-Host Network (Financial) - TALL ========== */}
           <div 
             data-box="3"
-            className="rounded-3xl p-6 lg:row-span-2 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
+            className="rounded-3xl p-6 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
               background: 'linear-gradient(135deg, #8B2FA0 0%, #6B2FD4 100%)',
               boxShadow: hoveredTile === 3 
@@ -284,7 +284,7 @@ export function BentoGrid() {
           {/* ========== BOX 5: Turo Shop - TALL ========== */}
           <div 
             data-box="5"
-            className="rounded-3xl p-6 flex flex-col lg:row-span-2 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
+            className="rounded-3xl p-6 flex flex-col relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
               background: 'linear-gradient(135deg, #7A2DB8 0%, #5A25E0 100%)',
               boxShadow: hoveredTile === 5 
@@ -332,7 +332,7 @@ export function BentoGrid() {
           {/* ========== BOX 6: Co-Host Network (AI) - TALL ========== */}
           <div 
             data-box="6"
-            className="rounded-3xl p-6 flex flex-col lg:row-span-2 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
+            className="rounded-3xl p-6 flex flex-col relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
               background: 'linear-gradient(135deg, #5A25E0 0%, #3A18F0 100%)',
               boxShadow: hoveredTile === 6 
