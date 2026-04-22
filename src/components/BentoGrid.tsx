@@ -96,7 +96,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 1 
                 ? '0px 12px 48px rgba(232, 69, 106, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '400px',
+              minHeight: '420px',
               transform: hoveredTile === 1 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(1)}
@@ -146,7 +146,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 2 
                 ? '0px 12px 48px rgba(207, 52, 112, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '400px',
+              minHeight: '420px',
               transform: hoveredTile === 2 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(2)}
@@ -242,7 +242,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 4 
                 ? '0px 12px 48px rgba(181, 46, 138, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '400px',
+              minHeight: '420px',
               transform: hoveredTile === 4 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(4)}
@@ -290,7 +290,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 5 
                 ? '0px 12px 48px rgba(122, 45, 184, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '560px',
+              minHeight: '600px',
               transform: hoveredTile === 5 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(5)}
