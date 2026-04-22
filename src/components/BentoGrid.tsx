@@ -87,8 +87,9 @@ export function BentoGrid() {
             gridAutoRows: 'minmax(200px, auto)',
           }}
         >
-          {/* ROW 1 - Tile 1: Vehicle Swaps */}
+          {/* ========== BOX 1: In-App Vehicle Swaps ========== */}
           <div 
+            data-box="1"
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
               background: 'linear-gradient(135deg, #E8456A 0%, #C03080 100%)',
@@ -123,8 +124,9 @@ export function BentoGrid() {
             </div>
           </div>
 
-          {/* ROW 1 - Tile 2: True North Posters */}
+          {/* ========== BOX 2: True North Posters ========== */}
           <div 
+            data-box="2"
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
               background: 'linear-gradient(135deg, #CF3470 0%, #A02885 100%)',
@@ -159,8 +161,9 @@ export function BentoGrid() {
             </div>
           </div>
 
-          {/* ROW 1 - Tile 3: Co-Host Network Financial Infrastructure (tall) */}
+          {/* ========== BOX 3: Co-Host Network (Financial) - TALL ========== */}
           <div 
+            data-box="3"
             className="rounded-3xl lg:row-span-2 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
               background: 'linear-gradient(135deg, #8B2FA0 0%, #6B2FD4 100%)',
@@ -218,8 +221,9 @@ export function BentoGrid() {
             </div>
           </div>
 
-          {/* ROW 2 - Tile 4: Australia Launch */}
+          {/* ========== BOX 4: Australia Launch ========== */}
           <div 
+            data-box="4"
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
               background: 'linear-gradient(135deg, #B52E8A 0%, #8B2FA0 100%)',
@@ -254,8 +258,9 @@ export function BentoGrid() {
             </div>
           </div>
 
-          {/* ROW 2 - Tile 5: Turo Shop (Middle tall tile) */}
+          {/* ========== BOX 5: Turo Shop - TALL ========== */}
           <div 
+            data-box="5"
             className="rounded-3xl p-6 flex flex-col lg:row-span-2 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
               background: 'linear-gradient(135deg, #7A2DB8 0%, #5A25E0 100%)',
@@ -290,8 +295,9 @@ export function BentoGrid() {
             </div>
           </div>
 
-          {/* ROW 1/2 - Tile 6: Co-Host Network AI (Right tall tile) */}
+          {/* ========== BOX 6: Co-Host Network (AI) - TALL ========== */}
           <div 
+            data-box="6"
             className="rounded-3xl p-6 flex flex-col lg:row-span-2 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
               background: 'linear-gradient(135deg, #5A25E0 0%, #3A18F0 100%)',
@@ -326,8 +332,9 @@ export function BentoGrid() {
             </div>
           </div>
 
-          {/* ROW 3 - Tile 7: Pricing & Discount Platform */}
+          {/* ========== BOX 7: Pricing & Discount Platform ========== */}
           <div 
+            data-box="7"
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
               background: 'linear-gradient(135deg, #6B2FD4 0%, #4A20EC 100%)',
@@ -362,8 +369,9 @@ export function BentoGrid() {
             </div>
           </div>
 
-          {/* ROW 3 - Tile 8: Vehicle Recommendation Engine */}
+          {/* ========== BOX 8: "Which car should I buy next?" ========== */}
           <div 
+            data-box="8"
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
               background: 'linear-gradient(135deg, #4A20EC 0%, #2D14F5 100%)',
@@ -398,8 +406,9 @@ export function BentoGrid() {
             </div>
           </div>
 
-          {/* ROW 3 - Tile 9: TandemChat.ai */}
+          {/* ========== BOX 9: TandemChat.ai ========== */}
           <div 
+            data-box="9"
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
               background: 'linear-gradient(135deg, #3A18F0 0%, #2410D8 100%)',
@@ -433,8 +442,9 @@ export function BentoGrid() {
               </p>
             </div>
           </div>
-          {/* ROW 4 - Tile 10: Square tile */}
+          {/* ========== BOX 10: Trust & Safety Systems ========== */}
           <div
+            data-box="10"
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
             style={{
               background: 'linear-gradient(135deg, #2D14F5 0%, #1A0EC5 100%)',
@@ -469,8 +479,9 @@ export function BentoGrid() {
             </div>
           </div>
 
-          {/* ROW 4 - Tile 11: Wide tile (col-span-2) */}
+          {/* ========== BOX 11: Host Growth & Acquisition - WIDE ========== */}
           <div
+            data-box="11"
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out lg:col-span-2"
             style={{
               background: 'linear-gradient(135deg, #1A0EC5 0%, #0D08A0 100%)',
