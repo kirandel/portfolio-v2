@@ -107,7 +107,7 @@ export function BentoGrid() {
                 Co-Host Network
               </h3>
               <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
-                Created and scaled the Co-Host Network, an AI-powered vehicle manager to vehicle owner matching platform
+                Created and scaled an AI-powered vehicle manager to vehicle owner matching platform
               </p>
             </div>
 
@@ -250,7 +250,7 @@ export function BentoGrid() {
           >
             <div className="relative z-20">
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
-                {'"'}Which car should I buy next for Turo?{'"'}
+                Vehicle Investment Engine
               </h3>
               <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
                 Built ML-powered investment product to improve host ROI and marketplace supply
@@ -301,7 +301,7 @@ export function BentoGrid() {
                 True North Posters
               </h3>
               <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
-                Launched a 0→1 personalized map art DTC business and scaled to profitability in 90 days
+                Launched 0→1 personalized map art DTC business and scaled to profitability in 90 days
               </p>
             </div>
 
@@ -346,10 +346,10 @@ export function BentoGrid() {
           >
             <div className="relative z-20">
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
-                Turo Shop
+                TandemChat.ai
               </h3>
               <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
-                Built end-to-end e-commerce experience, from discovery through checkout and fulfillment
+                Launched a real-time collaborative AI app for shared planning and group decision-making
               </p>
             </div>
 
@@ -368,16 +368,18 @@ export function BentoGrid() {
 
             <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 6 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
-                As Turo&apos;s brand matured, I identified an opportunity to extend the customer relationship beyond the trip itself by launching a branded commerce experience that could deepen affinity, strengthen storytelling, and unlock incremental revenue. The challenge was to build a product that felt like a natural extension of the Turo experience while maintaining high standards for design, usability, and operational scalability.
+                TandemChat started from a simple, personal observation: planning trips and experiences with friends was always fragmented across group chats, docs, and notes, often driven by one person coordinating everything. As AI became more useful for planning, it remained a single player tool, disconnected from the people actually involved in the decision. This created an opportunity to rethink AI as something that participates inside shared conversations, making planning more collaborative, transparent, and engaging.
                 <br /><br />
-                I led the product from zero to one, defining the vision, architecture, and end to end experience for Turo Shop. I designed and built a responsive shopping flow optimized for desktop and mobile, tested pricing and merchandising strategies, and used heatmap and behavioral analysis to improve discovery and checkout conversion. In parallel, I built the underlying systems for inventory, fulfillment, and content management, ensuring the product could scale without creating operational overhead or fragmenting the user experience.
+                I designed and built TandemChat end to end, defining the product vision, interaction model, and technical architecture. I built a real time system using Supabase Realtime and Postgres as the source of truth, with row level security and presence to support multi user synchronization. I implemented a streaming AI pipeline on Vercel using OpenAI APIs, assembling context dynamically from a canonical message log and supporting token level streaming, interruption, and tool calls. I built orchestration logic to manage a single active AI run per room, ensure idempotent message handling, and maintain consistent shared state across clients. I also designed privacy as a core product principle, implementing ephemeral context handling and ensuring conversations are not stored or used for model training, creating a trusted space for personal and group decision making.
                 <br /><br />
-                Once launched, the Turo Shop was a polished, consumer grade commerce product that strengthened Turo&apos;s brand, expanded the customer journey beyond trips, and generated incremental revenue. It established a new owned surface for customer engagement and created a repeatable playbook for future e-commerce initiatives.
+                To drive adoption, I made collaboration frictionless by designing a link based sharing system that allows users to invite others into a live conversation instantly, without requiring sign up. This reduced onboarding friction and enabled natural, viral usage patterns as users brought others into the product during real planning moments. I also developed structured planning workflows using schema backed state, allowing groups to generate, refine, and version plans together in real time.
+                <br /><br />
+                Today, TandemChat.ai is actively used for trip planning, group coordination, and shared decision making, with early users consistently returning and inviting others into their planning process. It introduces a more social, collaborative model for AI, turning what is typically a solo experience into something that better reflects how people actually make decisions together.
               </p>
             </div>
           </div>
 
-          {/* ========== BOX 7: Pricing & Discount Platform ========== */}
+          {/* ========== BOX 7: Turo Shop ========== */}
           <div 
             data-box="7"
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
@@ -394,10 +396,10 @@ export function BentoGrid() {
           >
             <div className="relative z-20">
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
-                TandemChat.ai
+                Turo Shop
               </h3>
               <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
-                Launched a real-time collaborative AI app for shared planning and group decision-making
+                Built end-to-end e-commerce experience, from discovery through checkout and fulfillment
               </p>
             </div>
 
@@ -416,18 +418,16 @@ export function BentoGrid() {
 
             <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 7 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
-                TandemChat started from a simple, personal observation: planning trips and experiences with friends was always fragmented across group chats, docs, and notes, often driven by one person coordinating everything. As AI became more useful for planning, it remained a single player tool, disconnected from the people actually involved in the decision. This created an opportunity to rethink AI as something that participates inside shared conversations, making planning more collaborative, transparent, and engaging.
+                As Turo&apos;s brand matured, I identified an opportunity to extend the customer relationship beyond the trip itself by launching a branded commerce experience that could deepen affinity, strengthen storytelling, and unlock incremental revenue. The challenge was to build a product that felt like a natural extension of the Turo experience while maintaining high standards for design, usability, and operational scalability.
                 <br /><br />
-                I designed and built TandemChat end to end, defining the product vision, interaction model, and technical architecture. I built a real time system using Supabase Realtime and Postgres as the source of truth, with row level security and presence to support multi user synchronization. I implemented a streaming AI pipeline on Vercel using OpenAI APIs, assembling context dynamically from a canonical message log and supporting token level streaming, interruption, and tool calls. I built orchestration logic to manage a single active AI run per room, ensure idempotent message handling, and maintain consistent shared state across clients. I also designed privacy as a core product principle, implementing ephemeral context handling and ensuring conversations are not stored or used for model training, creating a trusted space for personal and group decision making.
+                I led the product from zero to one, defining the vision, architecture, and end to end experience for Turo Shop. I designed and built a responsive shopping flow optimized for desktop and mobile, tested pricing and merchandising strategies, and used heatmap and behavioral analysis to improve discovery and checkout conversion. In parallel, I built the underlying systems for inventory, fulfillment, and content management, ensuring the product could scale without creating operational overhead or fragmenting the user experience.
                 <br /><br />
-                To drive adoption, I made collaboration frictionless by designing a link based sharing system that allows users to invite others into a live conversation instantly, without requiring sign up. This reduced onboarding friction and enabled natural, viral usage patterns as users brought others into the product during real planning moments. I also developed structured planning workflows using schema backed state, allowing groups to generate, refine, and version plans together in real time.
-                <br /><br />
-                Today, TandemChat.ai is actively used for trip planning, group coordination, and shared decision making, with early users consistently returning and inviting others into their planning process. It introduces a more social, collaborative model for AI, turning what is typically a solo experience into something that better reflects how people actually make decisions together.
+                Once launched, the Turo Shop was a polished, consumer grade commerce product that strengthened Turo&apos;s brand, expanded the customer journey beyond trips, and generated incremental revenue. It established a new owned surface for customer engagement and created a repeatable playbook for future e-commerce initiatives.
               </p>
             </div>
           </div>
 
-          {/* ========== BOX 8: "Which car should I buy next?" ========== */}
+          {/* ========== BOX 8: Vehicle Swaps ========== */}
           <div 
             data-box="8"
             className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out"
