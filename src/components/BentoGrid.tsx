@@ -166,8 +166,8 @@ export function BentoGrid() {
               className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 2 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
-                src="/images/vehicle-manager-mockup.png" 
-                alt="Vehicle Manager App Interface"
+                src="/images/box-2-australia.png" 
+                alt="Australia Market Expansion"
                 className="w-full h-auto object-cover object-top drop-shadow-2xl"
               />
             </div>
@@ -214,8 +214,8 @@ export function BentoGrid() {
               className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 3 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
-                src="/images/vehicle-manager-mockup.png" 
-                alt="Vehicle Manager App Interface"
+                src="/images/box-3-revenue-sharing.png" 
+                alt="Turo Revenue Sharing Dashboard"
                 className="w-full h-auto object-cover object-top drop-shadow-2xl"
               />
             </div>
@@ -262,8 +262,8 @@ export function BentoGrid() {
               className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 4 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
-                src="/images/vehicle-manager-mockup.png" 
-                alt="Vehicle Manager App Interface"
+                src="/images/box-4-investment-engine.png" 
+                alt="Vehicle Investment Engine"
                 className="w-full h-auto object-cover object-top drop-shadow-2xl"
               />
             </div>
@@ -310,8 +310,8 @@ export function BentoGrid() {
               className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 5 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
-                src="/images/vehicle-manager-mockup.png" 
-                alt="Vehicle Manager App Interface"
+                src="/images/box-5-true-north.png" 
+                alt="True North Posters"
                 className="w-full h-auto object-cover object-top drop-shadow-2xl"
               />
             </div>
@@ -358,8 +358,8 @@ export function BentoGrid() {
               className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 6 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
-                src="/images/vehicle-manager-mockup.png" 
-                alt="Vehicle Manager App Interface"
+                src="/images/box-6-tandemchat.png" 
+                alt="TandemChat.ai"
                 className="w-full h-auto object-cover object-top drop-shadow-2xl"
               />
             </div>
@@ -408,8 +408,8 @@ export function BentoGrid() {
               className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 7 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
-                src="/images/vehicle-manager-mockup.png" 
-                alt="Vehicle Manager App Interface"
+                src="/images/box-7-turo-shop.png" 
+                alt="Turo Shop"
                 className="w-full h-auto object-cover object-top drop-shadow-2xl"
               />
             </div>
@@ -456,8 +456,8 @@ export function BentoGrid() {
               className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 8 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
-                src="/images/vehicle-manager-mockup.png" 
-                alt="Vehicle Manager App Interface"
+                src="/images/box-8-vehicle-swaps.png" 
+                alt="Vehicle Swaps"
                 className="w-full h-auto object-cover object-top drop-shadow-2xl"
               />
             </div>
@@ -504,8 +504,8 @@ export function BentoGrid() {
               className={`absolute top-[114px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 9 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
-                src="/images/vehicle-manager-mockup.png" 
-                alt="Vehicle Manager App Interface"
+                src="/images/box-9-pricing.png" 
+                alt="Pricing and Discount Platform"
                 className="w-full h-auto object-cover object-top drop-shadow-2xl"
               />
             </div>
