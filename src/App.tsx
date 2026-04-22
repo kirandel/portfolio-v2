@@ -209,7 +209,7 @@ export default function App() {
 
 
       {/* Bento Grid */}
-      <div id="experience">
+      <div id="experience" className="w-full">
         <BentoGrid />
       </div>
 
