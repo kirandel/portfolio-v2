@@ -107,7 +107,7 @@ export function BentoGrid() {
                 Co-Host Network
               </h3>
               <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
-                Created and Scaled the Co-Host Network, an AI-Powered Marketplace Unlocking Supply and Revenue Through the Financialization of Personal Vehicles
+                Created and scaled the Co-Host Network, an AI-powered marketplace unlocking supply and revenue through the financialization of personal vehicles
               </p>
             </div>
 
