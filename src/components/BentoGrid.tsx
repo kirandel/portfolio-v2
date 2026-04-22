@@ -113,7 +113,7 @@ export function BentoGrid() {
 
             {/* Phone mockup image - fades out on hover */}
             <div 
-              className={`absolute top-24 left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 1 ? 'opacity-0' : 'opacity-100'}`}
+              className={`absolute top-[102px] left-0 right-0 bottom-0 overflow-hidden transition-all duration-500 z-10 ${hoveredTile === 1 ? 'opacity-0' : 'opacity-100'}`}
             >
               <img 
                 src="/images/vehicle-manager-mockup.png" 
