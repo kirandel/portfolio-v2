@@ -96,7 +96,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 1 
                 ? '0px 12px 48px rgba(232, 69, 106, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '500px',
+              minHeight: '600px',
               transform: hoveredTile === 1 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(1)}
@@ -146,7 +146,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 2 
                 ? '0px 12px 48px rgba(207, 52, 112, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '500px',
+              minHeight: '600px',
               transform: hoveredTile === 2 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(2)}
@@ -194,7 +194,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 3 
                 ? '0px 12px 48px rgba(139, 47, 160, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '500px',
+              minHeight: '600px',
               transform: hoveredTile === 3 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(3)}
@@ -242,7 +242,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 4 
                 ? '0px 12px 48px rgba(181, 46, 138, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '500px',
+              minHeight: '600px',
               transform: hoveredTile === 4 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(4)}
@@ -290,7 +290,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 5 
                 ? '0px 12px 48px rgba(122, 45, 184, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '500px',
+              minHeight: '600px',
               transform: hoveredTile === 5 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(5)}
@@ -338,7 +338,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 6 
                 ? '0px 12px 48px rgba(90, 37, 224, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '500px',
+              minHeight: '600px',
               transform: hoveredTile === 6 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(6)}
@@ -388,7 +388,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 7 
                 ? '0px 12px 48px rgba(107, 47, 212, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '500px',
+              minHeight: '600px',
               transform: hoveredTile === 7 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(7)}
@@ -436,7 +436,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 8 
                 ? '0px 12px 48px rgba(74, 32, 236, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '500px',
+              minHeight: '600px',
               transform: hoveredTile === 8 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(8)}
@@ -484,7 +484,7 @@ export function BentoGrid() {
               boxShadow: hoveredTile === 9 
                 ? '0px 12px 48px rgba(58, 24, 240, 0.4), 0px 4px 24px rgba(0, 0, 0, 0.25)' 
                 : '0px 4px 24px rgba(0, 0, 0, 0.25)',
-              minHeight: '500px',
+              minHeight: '600px',
               transform: hoveredTile === 9 ? 'scale(1.03)' : 'scale(1)',
             }}
             onMouseEnter={() => setHoveredTile(9)}
