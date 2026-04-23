@@ -107,7 +107,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   lineHeight: '1.2',
                 }}
               >
-                {"Let's talk"}
+                {"Let's chat"}
               </h3>
               <p
                 className="text-gray-500"

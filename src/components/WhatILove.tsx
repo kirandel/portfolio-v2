@@ -62,7 +62,7 @@ export function WhatILove({ onContactClick }: WhatILoveProps) {
               onClick={onContactClick}
               className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-gray-900 font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
             >
-              <span>{"Let's talk"}</span>
+              <span>{"Let's chat"}</span>
               
               {/* Arrow */}
               <svg 

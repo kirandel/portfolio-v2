@@ -206,7 +206,7 @@ export default function App() {
               fontWeight: '500',
             }}
           >
-            {"Let's talk"}
+            {"Let's chat"}
           </Button>
         </div>
       </header>
@@ -288,7 +288,7 @@ export default function App() {
                   icon={<Mail size={18} strokeWidth={2.5} />}
                   onClick={() => setIsContactModalOpen(true)}
                 >
-                  {"Let's talk"}
+                  {"Let's chat"}
                 </Button>
                 <Button
                   icon={<Download size={18} strokeWidth={2.5} />}

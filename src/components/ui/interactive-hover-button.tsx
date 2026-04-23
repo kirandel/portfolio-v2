@@ -10,7 +10,7 @@ interface InteractiveHoverButtonProps
 const InteractiveHoverButton = React.forwardRef<
   HTMLButtonElement,
   InteractiveHoverButtonProps
->(({ text = "Let's talk", variant = "light", className = "", ...props }, ref) => {
+>(({ text = "Let's chat", variant = "light", className = "", ...props }, ref) => {
   const isDark = variant === "dark";
   return (
     <button

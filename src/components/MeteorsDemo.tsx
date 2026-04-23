@@ -35,7 +35,7 @@ export function MeteorsDemo({ onContactClick }: MeteorsDemoProps) {
             Let's build something exceptional together.
           </h2>
           <InteractiveHoverButton 
-            text="Let's talk"
+            text="Let's chat"
             onClick={onContactClick}
             className="mt-6"
             style={{
