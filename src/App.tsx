@@ -243,7 +243,7 @@ export default function App() {
         <div className="absolute top-[10%] left-[5%] w-96 h-96 opacity-[0.06] blur-3xl pointer-events-none" style={{ background: 'radial-gradient(circle, #6366F1 0%, transparent 70%)' }} />
         <div className="absolute bottom-[15%] right-[5%] w-96 h-96 opacity-[0.05] blur-3xl pointer-events-none" style={{ background: 'radial-gradient(circle, #8B5CF6 0%, transparent 70%)' }} />
 
-        <div id="education" className="relative z-10" style={{ scrollMarginTop: '32px' }}>
+        <div id="education" className="relative z-10" style={{ scrollMarginTop: '14px' }}>
           <Education />
         </div>
 
