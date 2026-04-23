@@ -9,7 +9,7 @@ export function BentoGrid() {
       style={{ paddingTop: '120px', paddingBottom: '132px' }}
     >
       {/* Responsive Container with Auto Layout behavior */}
-      <div className="max-w-[1536px] mx-auto">
+      <div className="max-w-[1200px] mx-auto">
         {/* Section Title */}
         <div className="relative" style={{ marginBottom: '120px' }}>
           <h1 
