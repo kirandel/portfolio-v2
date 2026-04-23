@@ -283,7 +283,7 @@ export default function App() {
               >
                 {"Let's build something amazing together."}
               </h2>
-              <div className="flex flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Button 
                   icon={<Mail size={18} strokeWidth={2.5} />}
                   onClick={() => setIsContactModalOpen(true)}
