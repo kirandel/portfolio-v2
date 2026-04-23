@@ -74,7 +74,7 @@ export function Education() {
       ref={sectionRef}
       className="relative w-screen -mx-6 overflow-hidden"
       style={{
-        paddingTop: '80px',
+        paddingTop: '104px',
         paddingBottom: '80px',
       }}
     >

@@ -54,8 +54,8 @@ export function KiranGPT() {
       className="w-screen relative overflow-hidden -mx-6"
       style={{
         background: 'linear-gradient(180deg, #0D1117 0%, #0a0e13 100%)',
-        paddingTop: '120px',
-        paddingBottom: '120px',
+        paddingTop: '144px',
+        paddingBottom: '144px',
       }}
     >
       {/* Ambient glow elements */}
