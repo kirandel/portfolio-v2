@@ -248,7 +248,7 @@ export default function App() {
         </div>
 
         {/* CTA Module */}
-        <div id="download-cv" className="relative z-10 w-full flex items-center justify-center py-24 px-6 pb-40">
+        <div id="download-cv" className="relative z-10 w-full flex items-center justify-center py-24 px-6 pb-40" style={{ scrollMarginTop: '24px' }}>
           <div
             className="relative w-full max-w-4xl rounded-3xl overflow-hidden flex flex-col items-center justify-center text-center"
             style={{
