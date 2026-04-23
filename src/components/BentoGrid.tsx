@@ -6,7 +6,7 @@ export function BentoGrid() {
   return (
     <div 
       className="w-full px-8"
-      style={{ paddingTop: '120px', paddingBottom: '132px' }}
+      style={{ paddingTop: '120px', paddingBottom: '140px' }}
     >
       {/* Responsive Container with Auto Layout behavior */}
       <div className="max-w-[1200px] mx-auto">
