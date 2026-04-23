@@ -136,9 +136,13 @@ export default function App() {
             ].map((item) => {
               const isActive = activeSection === item.label;
               const handleClick = (e: React.MouseEvent) => {
+                e.preventDefault();
                 if (item.label === 'Home') {
-                  e.preventDefault();
                   window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  const targetId = item.href.replace('#', '');
+                  const el = document.getElementById(targetId);
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
               };
               return (
