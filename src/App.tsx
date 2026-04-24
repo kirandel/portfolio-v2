@@ -194,21 +194,23 @@ export default function App() {
           </nav>
           
           {/* CTA - Right (hidden on mobile) */}
-          <Button 
-            onClick={() => setIsContactModalOpen(true)}
-            className="hidden md:flex flex-shrink-0 !px-6 !py-3 !text-sm !border-none !bg-black !text-white transition-all duration-300 cursor-pointer"
-            style={{
-              padding: isScrolled || isDarkSection ? '8px 20px' : '10px 24px',
-              borderRadius: '100px',
-              background: isDarkSection ? 'transparent' : '#1a1a1a',
-              color: '#ffffff',
-              border: isDarkSection ? '1.5px solid rgba(255,255,255,0.6)' : 'none',
-              fontSize: isScrolled || isDarkSection ? '14px' : '15px',
-              fontWeight: '500',
-            }}
-          >
-            {"Let's chat"}
-          </Button>
+          <div className="hidden md:block">
+            <Button 
+              onClick={() => setIsContactModalOpen(true)}
+              className="flex-shrink-0 !px-6 !py-3 !text-sm !border-none !bg-black !text-white transition-all duration-300 cursor-pointer"
+              style={{
+                padding: isScrolled || isDarkSection ? '8px 20px' : '10px 24px',
+                borderRadius: '100px',
+                background: isDarkSection ? 'transparent' : '#1a1a1a',
+                color: '#ffffff',
+                border: isDarkSection ? '1.5px solid rgba(255,255,255,0.6)' : 'none',
+                fontSize: isScrolled || isDarkSection ? '14px' : '15px',
+                fontWeight: '500',
+              }}
+            >
+              {"Let's chat"}
+            </Button>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
