@@ -395,6 +395,7 @@ export default function App() {
                 <Button 
                   icon={<Mail size={18} strokeWidth={2.5} />}
                   onClick={() => setIsContactModalOpen(true)}
+                  className="hidden sm:flex"
                 >
                   {"Let's chat"}
                 </Button>
