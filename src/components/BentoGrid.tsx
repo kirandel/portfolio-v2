@@ -90,7 +90,7 @@ export function BentoGrid() {
           {/* ========== BOX 1: Co-Host Network ========== */}
           <div 
             data-box="1"
-            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[658px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[628px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #E8456A 0%, #C03080 100%)',
               boxShadow: hoveredTile === 1 
@@ -140,7 +140,7 @@ export function BentoGrid() {
           {/* ========== BOX 2: True North Posters ========== */}
           <div 
             data-box="2"
-            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[658px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[628px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #CF3470 0%, #A02885 100%)',
               boxShadow: hoveredTile === 2 
@@ -188,7 +188,7 @@ Australia Launch
           {/* ========== BOX 3: Co-Host Network (Financial) - TALL ========== */}
           <div 
             data-box="3"
-            className="rounded-3xl p-6 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[658px] md:min-h-[600px]"
+            className="rounded-3xl p-6 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[628px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #8B2FA0 0%, #6B2FD4 100%)',
               boxShadow: hoveredTile === 3 
@@ -236,7 +236,7 @@ Revenue Sharing
           {/* ========== BOX 4: Australia Launch ========== */}
           <div 
             data-box="4"
-            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[658px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[628px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #B52E8A 0%, #8B2FA0 100%)',
               boxShadow: hoveredTile === 4 
@@ -284,7 +284,7 @@ Carculator
           {/* ========== BOX 5: Turo Shop - TALL ========== */}
           <div 
             data-box="5"
-            className="rounded-3xl p-6 flex flex-col relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[658px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[628px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #7A2DB8 0%, #5A25E0 100%)',
               boxShadow: hoveredTile === 5 
@@ -332,7 +332,7 @@ Carculator
           {/* ========== BOX 6: Co-Host Network (AI) - TALL ========== */}
           <div 
             data-box="6"
-            className="rounded-3xl p-6 flex flex-col relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[658px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[628px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #5A25E0 0%, #3A18F0 100%)',
               boxShadow: hoveredTile === 6 
@@ -382,7 +382,7 @@ Carculator
           {/* ========== BOX 7: Turo Shop ========== */}
           <div 
             data-box="7"
-            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[658px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[628px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #6B2FD4 0%, #4A20EC 100%)',
               boxShadow: hoveredTile === 7 
@@ -430,7 +430,7 @@ Carculator
           {/* ========== BOX 8: Vehicle Swaps ========== */}
           <div 
             data-box="8"
-            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[658px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[628px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #4A20EC 0%, #2D14F5 100%)',
               boxShadow: hoveredTile === 8 
@@ -478,7 +478,7 @@ Carculator
           {/* ========== BOX 9: TandemChat.ai ========== */}
           <div 
             data-box="9"
-            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[658px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[628px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #3A18F0 0%, #2410D8 100%)',
               boxShadow: hoveredTile === 9 
