@@ -10,7 +10,12 @@ interface AnimatedHeroProps {
 function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
-    () => ["Product manager", "Coffee lover", "(Terrible) surfer", "Planner of all my group trips"],
+    () => [
+      "Product manager",
+      <span key="coffee">Coffee<span className="md:hidden"><br /></span><span className="hidden md:inline">&nbsp;</span>lover</span>,
+      <span key="surfer">(Terrible)<span className="md:hidden"><br /></span><span className="hidden md:inline">&nbsp;</span>surfer</span>,
+      "Planner of all my group trips"
+    ],
     []
   );
 
