@@ -33,8 +33,8 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
               className="text-5xl md:text-7xl max-w-5xl tracking-tighter text-center"
               style={{ fontWeight: 400, lineHeight: 1.1 }}
             >
-              <div style={{ color: '#111827', marginBottom: '16px' }}>Hi 👋 Nice to meet you!&nbsp;&nbsp;&nbsp;I'm Kiran..</div>
-              <span className="relative flex justify-center overflow-hidden text-center h-[160px] md:h-[80px]">
+              <div className="mb-[28px] md:mb-[16px]" style={{ color: '#111827' }}>Hi 👋 Nice to meet you!&nbsp;&nbsp;&nbsp;I'm Kiran..</div>
+              <span className="relative flex justify-center overflow-hidden text-center h-[160px] md:h-[80px] mb-[18px] md:mb-0">
                 {titles.map((title, index) => (
                   <motion.span
                     key={index}
