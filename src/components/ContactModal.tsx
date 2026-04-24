@@ -182,7 +182,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             {/* Divider */}
             <div className="flex items-center gap-3 mb-3">
               <div className="flex-1 h-px bg-gray-100" />
-              <span className="text-xs text-gray-300 font-medium tracking-wide uppercase">also find me at</span>
+              <span className="text-xs text-gray-500 font-medium tracking-wide uppercase">also find me at</span>
               <div className="flex-1 h-px bg-gray-100" />
             </div>
 
