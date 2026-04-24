@@ -154,7 +154,7 @@ export function BentoGrid() {
           >
             <div className="relative z-20">
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
-                Australia Market Expansion
+Australia Launch
               </h3>
               <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
                 Launched and scaled a new country marketplace to segment leader in 6 months
@@ -202,7 +202,7 @@ export function BentoGrid() {
           >
             <div className="relative z-20">
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
-                Turo Revenue Sharing
+Revenue Sharing
               </h3>
               <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
                 Built financial infrastructure to bring off-platform payments into core product ecosystem
@@ -250,7 +250,7 @@ export function BentoGrid() {
           >
             <div className="relative z-20">
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
-                Vehicle Investment Engine
+Carculator
               </h3>
               <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
                 Built ML-powered investment product to improve host ROI and marketplace supply
@@ -492,7 +492,7 @@ export function BentoGrid() {
           >
             <div className="relative z-20">
               <h3 className="text-white mb-1" style={{ fontSize: '20px', fontWeight: '600' }}>
-                Pricing & Discount Platform
+                Pricing Management
               </h3>
               <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
                 Built a discount management tool balancing host control with marketplace health
