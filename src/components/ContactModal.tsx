@@ -212,22 +212,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               ))}
             </div>
 
-            {/* Availability */}
-            <div 
-              className="flex items-center justify-center gap-2 py-2.5 rounded-full"
-              style={{ background: '#f0fdf4' }}
-            >
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-              </span>
-              <span 
-                className="font-medium"
-                style={{ fontSize: '12px', color: '#16a34a', letterSpacing: '-0.01em' }}
-              >
-                Open to opportunities
-              </span>
-            </div>
+            
           </div>
         </div>
       </div>
