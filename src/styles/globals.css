@@ -335,3 +335,34 @@ html {
     transform: scale(1.05);
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes meteor-effect {
+  0% {
+    transform: rotate(215deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(215deg) translateX(-800px);
+    opacity: 0;
+  }
+}
+
+.animate-meteor-effect {
+  animation-name: meteor-effect;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}

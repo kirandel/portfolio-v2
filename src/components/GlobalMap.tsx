@@ -133,10 +133,7 @@ export function GlobalMap() {
       <div 
         className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(255,255,255,0.2) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px)
-          `,
+          backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px)',
           backgroundSize: '100px 100px',
         }}
       />
@@ -214,81 +211,80 @@ export function GlobalMap() {
             {connections.map((conn, i) => {
               const from = getCityById(conn.from);
               const to = getCityById(conn.to);
-              if (!from || to) {
-                const fromX = from!.x * 14.4;
-                const fromY = from!.y * 9;
-                const toX = to!.x * 14.4;
-                const toY = to!.y * 9;
-                
-                const midX = (fromX + toX) / 2;
-                const midY = (fromY + toY) / 2 - 60;
+              if (!from || !to) return null;
+              
+              const fromX = from.x * 14.4;
+              const fromY = from.y * 9;
+              const toX = to.x * 14.4;
+              const toY = to.y * 9;
+              
+              const midX = (fromX + toX) / 2;
+              const midY = (fromY + toY) / 2 - 60;
 
-                return (
-                  <g key={i}>
-                    <motion.path
-                      d={`M ${fromX} ${fromY} Q ${midX} ${midY} ${toX} ${toY}`}
+              return (
+                <g key={i}>
+                  <motion.path
+                    d={`M ${fromX} ${fromY} Q ${midX} ${midY} ${toX} ${toY}`}
+                    stroke={conn.color}
+                    strokeWidth="2"
+                    fill="none"
+                    filter="url(#lineGlow)"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={{ 
+                      pathLength: 1, 
+                      opacity: (hoveredCity === conn.from || hoveredCity === conn.to) ? 0.9 : 0.6 
+                    }}
+                    transition={{ 
+                      pathLength: { duration: 2, delay: conn.delay },
+                      opacity: { duration: 0.3 }
+                    }}
+                  />
+                  
+                  {/* Bandwidth label */}
+                  <motion.g
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: conn.delay + 2 }}
+                  >
+                    <rect
+                      x={midX - 25}
+                      y={midY - 55}
+                      width="50"
+                      height="16"
+                      rx="8"
+                      fill="rgba(255, 255, 255, 0.1)"
                       stroke={conn.color}
-                      strokeWidth="2"
-                      fill="none"
-                      filter="url(#lineGlow)"
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      animate={{ 
-                        pathLength: 1, 
-                        opacity: (hoveredCity === conn.from || hoveredCity === conn.to) ? 0.9 : 0.6 
-                      }}
-                      transition={{ 
-                        pathLength: { duration: 2, delay: conn.delay },
-                        opacity: { duration: 0.3 }
-                      }}
+                      strokeWidth="1"
                     />
-                    
-                    {/* Bandwidth label */}
-                    <motion.g
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: conn.delay + 2 }}
+                    <text
+                      x={midX}
+                      y={midY - 45}
+                      fill="#ffffff"
+                      fontSize="9"
+                      fontFamily="monospace"
+                      textAnchor="middle"
+                      style={{ fontWeight: '600' }}
                     >
-                      <rect
-                        x={midX - 25}
-                        y={midY - 55}
-                        width="50"
-                        height="16"
-                        rx="8"
-                        fill="rgba(255, 255, 255, 0.1)"
-                        stroke={conn.color}
-                        strokeWidth="1"
-                      />
-                      <text
-                        x={midX}
-                        y={midY - 45}
-                        fill="#ffffff"
-                        fontSize="9"
-                        fontFamily="monospace"
-                        textAnchor="middle"
-                        style={{ fontWeight: '600' }}
-                      >
-                        {conn.label}
-                      </text>
-                    </motion.g>
+                      {conn.label}
+                    </text>
+                  </motion.g>
 
-                    {/* Flowing data dots */}
-                    {(hoveredCity === conn.from || hoveredCity === conn.to) && (
-                      <motion.circle
-                        r="3"
-                        fill={conn.color}
-                        filter="url(#dotGlow)"
-                      >
-                        <animateMotion
-                          dur="2s"
-                          repeatCount="indefinite"
-                          path={`M ${fromX} ${fromY} Q ${midX} ${midY} ${toX} ${toY}`}
-                        />
-                      </motion.circle>
-                    )}
-                  </g>
-                );
-              }
-              return null;
+                  {/* Flowing data dots */}
+                  {(hoveredCity === conn.from || hoveredCity === conn.to) && (
+                    <motion.circle
+                      r="3"
+                      fill={conn.color}
+                      filter="url(#dotGlow)"
+                    >
+                      <animateMotion
+                        dur="2s"
+                        repeatCount="indefinite"
+                        path={`M ${fromX} ${fromY} Q ${midX} ${midY} ${toX} ${toY}`}
+                      />
+                    </motion.circle>
+                  )}
+                </g>
+              );
             })}
 
             {/* City nodes */}

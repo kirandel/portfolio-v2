@@ -1,324 +1,409 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
+import { AnimatedHero } from './components/AnimatedHero';
 import { BentoGrid } from './components/BentoGrid';
 import { KiranGPT } from './components/KiranGPT';
 import { Education } from './components/Education';
-import { WhatILove } from './components/WhatILove';
 import { Footer } from './components/Footer';
+import { ContactModal } from './components/ContactModal';
+import { Button } from './components/ui/flow-hover-button';
+import { DitheringShader } from './components/ui/dithering-shader';
+import { Download, Mail, Menu, X } from 'lucide-react';
 
 export default function App() {
-  // Hero carousel state
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [displayedText, setDisplayedText] = useState('');
-  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [hoveredImageIndex, setHoveredImageIndex] = useState<number | null>(null);
-  const [showTLDRText, setShowTLDRText] = useState(false);
-  
-  // Hero images for carousel (8 images)
-  const heroImages = [
-    'https://images.unsplash.com/photo-1624901344246-8759f305fef3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGFydCUyMGRlc2lnbnxlbnwxfHx8fDE3NjMyNDI3NTh8MA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1519662978799-2f05096d3636?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhcmNoaXRlY3R1cmV8ZW58MXx8fHwxNzYzMjkyODMwfDA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1617634667039-8e4cb277ab46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuYXR1cmUlMjBsYW5kc2NhcGV8ZW58MXx8fHwxNzYzMjMyMDI0fDA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1541661538396-53ba2d051eed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvbG9yZnVsfGVufDF8fHx8MTc2MzMyMjgxN3ww&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1673885831398-9581891a3155?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5JTIwZGlnaXRhbHxlbnwxfHx8fDE3NjMyNjAxNTB8MA&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1708004228425-85703b49692e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1cmJhbiUyMHBob3RvZ3JhcGh5fGVufDF8fHx8MTc2MzI0MDI5MXww&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1541661538396-53ba2d051eed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvbG9yZnVsfGVufDF8fHx8MTc2MzMyMjgxN3ww&ixlib=rb-4.1.0&q=80&w=1200',
-    'https://images.unsplash.com/photo-1624901344246-8759f305fef3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGFydCUyMGRlc2lnbnxlbnwxfHx8fDE3NjMyNDI3NTh8MA&ixlib=rb-4.1.0&q=80&w=1200',
-  ];
-  
-  const messages = [
-    "Hi 👋 — i'm Kiran",
-    "It's nice to meet you!",
-    "Welcome to my interactive resume",
-    "Click here to get started →"
-  ];
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isDarkSection, setIsDarkSection] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('Home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Auto-scroll carousel
+  // Combined scroll detection for navbar transformation and dark section overlap
   useEffect(() => {
-    if (!isPaused && hoveredImageIndex === null) {
-      const interval = setInterval(() => {
-        setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-      }, 3500);
-      return () => clearInterval(interval);
-    }
-  }, [isPaused, hoveredImageIndex, heroImages.length]);
-  
-  // Typewriter effect
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+      
+      // Check if navbar physically overlaps the dark KiranGPT section
+      const darkSection = document.getElementById('kiran-gpt-section');
+      if (!darkSection) return;
+      
+      const rect = darkSection.getBoundingClientRect();
+      // Navbar bottom edge is approximately 72px from top (12px padding + ~48px navbar + 12px padding when scrolled)
+      const navbarBottom = 72;
+      
+      // Dark mode when: dark section top is above navbar bottom AND dark section bottom is below navbar bottom
+      const isOverDark = rect.top <= navbarBottom && rect.bottom >= navbarBottom;
+      setIsDarkSection(isOverDark);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    // Run once on mount to set initial state
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Intersection Observer for active section detection
   useEffect(() => {
-    const currentMessage = messages[currentMessageIndex];
-    
-    if (!isDeleting && displayedText === currentMessage) {
-      // Pause before deleting
-      const timeout = setTimeout(() => setIsDeleting(true), 500);
-      return () => clearTimeout(timeout);
-    }
-    
-    if (isDeleting && displayedText === '') {
-      // Move to next message
-      setIsDeleting(false);
-      setCurrentMessageIndex((prev) => (prev + 1) % messages.length);
-      return;
-    }
-    
-    const timeout = setTimeout(() => {
-      if (isDeleting) {
-        setDisplayedText(currentMessage.substring(0, displayedText.length - 1));
-      } else {
-        setDisplayedText(currentMessage.substring(0, displayedText.length + 1));
+    const sectionIds = ['home', 'experience', 'kiran-gpt', 'education', 'download-cv', 'contact'];
+    const sectionToLabel: Record<string, string> = {
+      'home': 'Home',
+      'experience': 'Experience',
+      'kiran-gpt': 'KiranGPT',
+      'education': 'Education',
+      'download-cv': 'Resume',
+      'contact': 'Contact',
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            if (sectionToLabel[id]) {
+              setActiveSection(sectionToLabel[id]);
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '-10% 0px -60% 0px',
+        threshold: 0,
       }
-    }, isDeleting ? 30 : 80);
-    
-    return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting, currentMessageIndex, messages]);
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    // Force initial check: if at top of page, set Home as active
+    if (window.scrollY < 100) {
+      setActiveSection('Home');
+    }
+
+    return () => observer.disconnect();
+  }, []);
+  
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center px-6">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-[100] backdrop-blur-md bg-white/90 border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      {/* Header - Scroll-responsive navbar */}
+      <header 
+        className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ease-in-out"
+        style={{
+          padding: isScrolled ? '12px 24px' : '0',
+        }}
+      >
+        <div 
+          className="transition-all duration-300 ease-in-out mx-auto flex items-center justify-between"
+          style={{
+            maxWidth: isScrolled || isDarkSection ? '900px' : '100%',
+            padding: isScrolled || isDarkSection ? '12px 24px' : '16px 48px',
+            borderRadius: isScrolled || isDarkSection ? '100px' : '0',
+            backgroundColor: isDarkSection
+              ? 'rgba(35, 35, 35, 0.8)'
+              : isScrolled ? 'rgba(255, 255, 255, 0.75)' : 'rgba(255, 255, 255, 0.55)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            boxShadow: isScrolled || isDarkSection
+              ? '0 4px 24px rgba(0, 0, 0, 0.18), 0 1px 2px rgba(0, 0, 0, 0.08)' 
+              : 'none',
+            borderBottom: isScrolled || isDarkSection ? 'none' : '1px solid rgba(0, 0, 0, 0.06)',
+          }}
+        >
           {/* Logo - Left */}
-          <div className="text-gray-900 flex-shrink-0" style={{ fontSize: '22px', fontWeight: '600' }}>Kiran.</div>
-          
-          {/* Navigation - Center */}
-          <nav className="absolute left-1/2 -translate-x-1/2 flex items-center gap-8">
-            <a href="#home" className="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
-            <a href="#experience" className="text-gray-600 hover:text-gray-900 transition-colors">Experience</a>
-            <a href="#education" className="text-gray-600 hover:text-gray-900 transition-colors">Education</a>
-            <a href="#kiran-gpt" className="text-gray-600 hover:text-gray-900 transition-colors">Kiran-GPT</a>
-            <a href="#download-cv" className="text-gray-600 hover:text-gray-900 transition-colors">Download CV</a>
-            <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
-          </nav>
-          
-          {/* Fun Mode - Right */}
-          <a 
-            href="#fun-mode" 
-            className="px-6 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white hover:from-indigo-600 hover:to-purple-700 transition-all shadow-sm hover:shadow-md flex-shrink-0"
+          <div 
+            className="flex-shrink-0 transition-all duration-300"
+            style={{ 
+              fontSize: isScrolled ? '20px' : '22px', 
+              fontWeight: '600',
+              color: isDarkSection ? '#ffffff' : '#1a1a1a',
+            }}
           >
-            Fun Mode
-          </a>
-        </div>
-      </header>
-
-      {/* SECTION 1: Hero Carousel */}
-      <div className="relative w-screen -mx-6 min-h-screen bg-white flex flex-col items-center justify-center pt-32 overflow-hidden">
-        {/* Carousel Container - 1700px wide */}
-        <div className="relative w-[1700px] h-[600px] flex items-center justify-center mb-8">
-          {/* Carousel Images */}
-          <div className="relative flex items-center justify-center">
-            {heroImages.map((image, index) => {
-              // Calculate position relative to current index
-              const position = (index - currentImageIndex + heroImages.length) % heroImages.length;
-              
-              // Determine size and visibility based on position
-              let width = 0;
-              let height = 0;
-              let opacity = 0;
-              let translateX = 0;
-              let zIndex = 0;
-              let scale = 1;
-              
-              if (position === 0) {
-                // Center image (main)
-                width = 440;
-                height = 587;
-                opacity = 1;
-                translateX = 0;
-                zIndex = 50;
-              } else if (position === 1) {
-                // Immediate right - added spacing
-                width = 330;
-                height = 440;
-                opacity = 1;
-                translateX = 410;
-                zIndex = 40;
-              } else if (position === heroImages.length - 1) {
-                // Immediate left - added spacing
-                width = 330;
-                height = 440;
-                opacity = 1;
-                translateX = -410;
-                zIndex = 40;
-              } else if (position === 2) {
-                // Outer right - added spacing
-                width = 240;
-                height = 320;
-                opacity = 1;
-                translateX = 740;
-                zIndex = 30;
-              } else if (position === heroImages.length - 2) {
-                // Outer left - added spacing
-                width = 240;
-                height = 320;
-                opacity = 1;
-                translateX = -740;
-                zIndex = 30;
-              } else {
-                // Hidden images
-                opacity = 0;
-                width = 240;
-                height = 320;
-                scale = 0.8;
-              }
-              
-              const isHovered = hoveredImageIndex === index;
-              
+            Kiran.
+          </div>
+          
+          {/* Navigation - Center (hidden on mobile) */}
+          <nav 
+            className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center transition-all duration-300"
+            style={{ gap: isScrolled ? '8px' : '12px' }}
+          >
+            {[
+              { label: 'Home', href: '#home' },
+              { label: 'Experience', href: '#experience' },
+              { label: 'KiranGPT', href: '#kiran-gpt' },
+              { label: 'Education', href: '#education' },
+              { label: 'Resume', href: '#download-cv', nowrap: true },
+            ].map((item) => {
+              const isActive = activeSection === item.label;
+              const handleClick = (e: React.MouseEvent) => {
+                e.preventDefault();
+                if (item.label === 'Home') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  const targetId = item.href.replace('#', '');
+                  const el = document.getElementById(targetId);
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              };
               return (
-                <a
-                  key={index}
-                  href="https://www.google.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute transition-all duration-700 ease-out rounded-2xl overflow-hidden"
-                  style={{
-                    width: `${width}px`,
-                    height: `${height}px`,
-                    transform: `translateX(${translateX}px) scale(${isHovered ? 1.05 : scale})`,
-                    opacity,
-                    zIndex,
-                    boxShadow: isHovered ? '0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 4px rgba(99, 102, 241, 0.5)' : '0 10px 40px rgba(0, 0, 0, 0.1)',
+                <a 
+                  key={item.label}
+                  href={item.href}
+                  onClick={handleClick}
+                  className="relative transition-colors duration-300 rounded-full"
+                  style={{ 
+                    fontSize: isScrolled ? '14px' : '15px',
+                    fontWeight: isActive ? '600' : '500',
+                    whiteSpace: 'nowrap',
+                    color: isActive 
+                      ? (isDarkSection ? '#ffffff' : '#1a1a1a')
+                      : (isDarkSection ? 'rgba(255,255,255,0.6)' : '#6b7280'),
+                    padding: isScrolled ? '6px 14px' : '8px 16px',
                   }}
-                  onMouseEnter={() => setHoveredImageIndex(index)}
-                  onMouseLeave={() => setHoveredImageIndex(null)}
                 >
-                  <ImageWithFallback
-                    src={image}
-                    alt={`Carousel image ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
+                  {item.label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="nav-tubelight"
+                      className="absolute inset-0 rounded-full -z-10"
+                      style={{
+                        backgroundColor: isDarkSection 
+                          ? 'rgba(255, 255, 255, 0.1)' 
+                          : 'rgba(0, 0, 0, 0.05)',
+                      }}
+                      initial={false}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 350,
+                        damping: 30,
+                      }}
+                    >
+                      {/* Tubelight glow pill */}
+                      <div 
+                        className="absolute -top-1 left-1/2 -translate-x-1/2 w-6 h-1 rounded-full"
+                        style={{
+                          backgroundColor: isDarkSection ? '#ffffff' : '#1a1a1a',
+                        }}
+                      />
+                    </motion.div>
+                  )}
                 </a>
               );
             })}
-          </div>
+          </nav>
           
-          {/* Text Box Overlay */}
-          <div 
-            className="absolute z-[60] bg-white rounded-3xl shadow-2xl p-10"
-            style={{ width: '700px', minHeight: '220px' }}
-          >
-            <div>
-              <h1 
-                className="text-black" 
-                style={{ 
-                  fontSize: '72px', 
-                  lineHeight: '1.05', 
-                  fontWeight: '700',
-                  letterSpacing: '-0.03em'
-                }}
-              >
-                {displayedText}<span className="animate-pulse">|</span>
-              </h1>
-            </div>
-          </div>
-        </div>
-
-        {/* Description Text */}
-        <div className="relative z-10 text-center max-w-4xl px-4 mb-4">
-          <p 
-            className={`text-gray-900 transition-all duration-500 ${showTLDRText ? 'blur-sm' : ''}`} 
-            style={{ 
-              fontSize: '24px', 
-              lineHeight: '1.4',
-              fontWeight: '500',
-              letterSpacing: '-0.01em'
-            }}
-          >
-            I'm a product manager in a complex two-sided marketplace, blending deep technical, design, marketing, and operational expertise. I specialize in uncovering high-TAM opportunities, validating new concepts quickly, and scaling zero-to-one initiatives into durable business lines.
-          </p>
-        </div>
-
-        {/* TLDR Checkbox */}
-        <div className="relative z-10 flex items-center justify-center gap-3 mb-6">
-          <button
-            onClick={() => setShowTLDRText(!showTLDRText)}
-            className="group flex items-center gap-3 cursor-pointer"
-          >
-            <div 
-              className={`
-                relative w-6 h-6 rounded-md border-2 
-                transition-all duration-300 ease-out
-                ${showTLDRText 
-                  ? 'bg-gradient-to-br from-indigo-500 to-purple-600 border-indigo-500 scale-110' 
-                  : 'bg-white border-gray-300 hover:border-indigo-400'
-                }
-              `}
+          {/* CTA - Right (hidden on mobile) */}
+          <div className="hidden md:block">
+            <Button 
+              onClick={() => setIsContactModalOpen(true)}
+              className="flex-shrink-0 !px-6 !py-3 !text-sm !border-none !bg-black !text-white transition-all duration-300 cursor-pointer"
               style={{
-                boxShadow: showTLDRText ? '0 0 20px rgba(99, 102, 241, 0.4), 0 4px 12px rgba(0, 0, 0, 0.1)' : 'none'
+                padding: isScrolled || isDarkSection ? '8px 20px' : '10px 24px',
+                borderRadius: '100px',
+                background: isDarkSection ? 'transparent' : '#1a1a1a',
+                color: '#ffffff',
+                border: isDarkSection ? '1.5px solid rgba(255,255,255,0.6)' : 'none',
+                fontSize: isScrolled || isDarkSection ? '14px' : '15px',
+                fontWeight: '500',
               }}
             >
-              {/* Checkmark SVG */}
-              <svg
-                className={`absolute inset-0 w-full h-full text-white transition-all duration-300 ${
-                  showTLDRText ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
-                }`}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              
-              {/* Ripple effect on click */}
-              {showTLDRText && (
-                <div 
-                  className="absolute inset-0 rounded-md animate-ping"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(168, 85, 247, 0.6))',
-                    animationDuration: '0.6s',
-                    animationIterationCount: '1'
-                  }}
-                />
-              )}
-            </div>
-            <span 
-              className={`transition-colors duration-300 ${
-                showTLDRText ? 'text-indigo-600' : 'text-gray-600 group-hover:text-gray-900'
-              }`}
-              style={{ fontSize: '16px', fontWeight: '500' }}
-            >
-              TLDR
-            </span>
+              {"Let's chat"}
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden flex items-center justify-center p-2 rounded-full transition-colors duration-300"
+            style={{
+              color: isDarkSection ? '#ffffff' : '#1a1a1a',
+            }}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
+      </header>
 
-        {/* TLDR Text - Appears when checkbox is clicked */}
-        {showTLDRText && (
-          <div className="relative z-10 text-center max-w-3xl px-4 mb-16 animate-in fade-in slide-in-from-top-2 duration-500">
-            <p 
-              className="text-gray-900"
-              style={{ 
-                fontSize: '20px', 
-                lineHeight: '1.7',
-                fontWeight: '600',
-                letterSpacing: '-0.01em'
-              }}
+      {/* Mobile Menu Overlay */}
+      <motion.div
+        initial={false}
+        animate={{
+          opacity: isMobileMenuOpen ? 1 : 0,
+          pointerEvents: isMobileMenuOpen ? 'auto' : 'none',
+        }}
+        transition={{ duration: 0.2 }}
+        className="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+        onClick={() => setIsMobileMenuOpen(false)}
+      />
+
+      {/* Mobile Menu Drawer */}
+      <motion.div
+        initial={false}
+        animate={{
+          x: isMobileMenuOpen ? 0 : '100%',
+        }}
+        transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+        className="md:hidden fixed top-0 right-0 h-full w-[280px] bg-white z-50 shadow-2xl"
+      >
+        <div className="flex flex-col h-full">
+          {/* Mobile Menu Header */}
+          <div className="flex items-center justify-between p-6 border-b border-gray-100">
+            <span className="text-xl font-semibold text-gray-900">Menu</span>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+              aria-label="Close menu"
             >
-              I find the biggest opportunities, build them fast, launch them well, and scale them into meaningful revenue.
-            </p>
+              <X size={24} className="text-gray-700" />
+            </button>
           </div>
-        )}
 
-        {!showTLDRText && <div className="mb-16" />}
+          {/* Mobile Nav Items */}
+          <nav className="flex flex-col p-6 gap-2">
+            {[
+              { label: 'Home', href: '#home' },
+              { label: 'Experience', href: '#experience' },
+              { label: 'KiranGPT', href: '#kiran-gpt' },
+              { label: 'Education', href: '#education' },
+              { label: 'Resume', href: '#download-cv' },
+            ].map((item) => {
+              const isActive = activeSection === item.label;
+              const handleClick = (e: React.MouseEvent) => {
+                e.preventDefault();
+                setIsMobileMenuOpen(false);
+                if (item.label === 'Home') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  const targetId = item.href.replace('#', '');
+                  const el = document.getElementById(targetId);
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              };
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={handleClick}
+                  className="py-3 px-4 rounded-xl transition-all duration-200"
+                  style={{
+                    backgroundColor: isActive ? 'rgba(0, 0, 0, 0.05)' : 'transparent',
+                    color: isActive ? '#1a1a1a' : '#6b7280',
+                    fontWeight: isActive ? '600' : '500',
+                    fontSize: '16px',
+                  }}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </nav>
+
+
+        </div>
+      </motion.div>
+
+      {/* Animated Hero Intro */}
+      <div id="home" className="w-full">
+        <AnimatedHero onContactClick={() => setIsContactModalOpen(true)} />
       </div>
 
+
       {/* Bento Grid */}
-      <BentoGrid />
+      <div id="experience" className="w-full">
+        <BentoGrid />
+      </div>
 
       {/* Kiran-GPT */}
-      <KiranGPT />
+      <div id="kiran-gpt">
+        <KiranGPT />
+      </div>
 
-      {/* Education */}
-      <Education />
+      {/* Education + CTA — shared continuous background */}
+      <div
+        style={{
+          background: 'linear-gradient(180deg, #FAFBFC 0%, #F8FAFC 50%, #FFFFFF 100%)',
+          position: 'relative',
+        }}
+      >
+        {/* Shared grid overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: 'linear-gradient(to right, #000 1px, transparent 1px), linear-gradient(to bottom, #000 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+            opacity: 0.03,
+          }}
+        />
+        {/* Shared radial accents */}
+        <div className="absolute top-[10%] left-[5%] w-96 h-96 opacity-[0.06] blur-3xl pointer-events-none" style={{ background: 'radial-gradient(circle, #6366F1 0%, transparent 70%)' }} />
+        <div className="absolute bottom-[15%] right-[5%] w-96 h-96 opacity-[0.05] blur-3xl pointer-events-none" style={{ background: 'radial-gradient(circle, #8B5CF6 0%, transparent 70%)' }} />
 
-      {/* What I Love */}
-      <WhatILove />
+        <div id="education" className="relative z-10" style={{ scrollMarginTop: '-2px' }}>
+          <Education />
+        </div>
+
+        {/* CTA Module */}
+        <div id="download-cv" className="relative z-10 w-full flex items-center justify-center py-24 px-6 pb-40" style={{ scrollMarginTop: '24px' }}>
+          <div
+            className="relative w-full max-w-4xl rounded-3xl overflow-hidden flex flex-col items-center justify-center text-center"
+            style={{
+              padding: '80px 48px',
+              boxShadow: '0 0 0 1px rgba(255,255,255,0.06), 0 32px 80px rgba(0,0,0,0.35)',
+            }}
+          >
+            {/* Wave shader background — fills the entire box */}
+            <DitheringShader
+              shape="wave"
+              type="8x8"
+              colorBack="#0a0a12"
+              colorFront="#1e3a5f"
+              pxSize={3}
+              speed={0.5}
+            />
+
+            <div className="relative z-10 flex flex-col items-center gap-8">
+              <h2
+                style={{
+                  fontSize: '44px',
+                  fontWeight: '700',
+                  color: '#ffffff',
+                  lineHeight: '1.12',
+                  letterSpacing: '-0.03em',
+                  maxWidth: '560px',
+                }}
+              >
+                {"Let's build something amazing together."}
+              </h2>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button 
+                  icon={<Mail size={18} strokeWidth={2.5} />}
+                  onClick={() => setIsContactModalOpen(true)}
+                  className="hidden sm:flex"
+                >
+                  {"Let's chat"}
+                </Button>
+                <Button
+                  icon={<Download size={18} strokeWidth={2.5} />}
+                  onClick={() => window.open('/resume.pdf', '_blank')}
+                >
+                  Download resume
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Footer */}
       <Footer />
+
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </div>
   );
 }
