@@ -447,7 +447,7 @@ Carculator
                 Vehicle Swaps
               </h3>
               <p className="text-white" style={{ opacity: 0.7, fontSize: '14px', fontWeight: '600' }}>
-                Turned a 30-minute support workflow into a 30-second product experience for trip recovery
+                Turned a 30-minute user CS call into a 30-second product experience
               </p>
             </div>
 
