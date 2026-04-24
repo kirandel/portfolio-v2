@@ -1,8 +1,16 @@
 import { Brain, Globe2, Globe, Layers, Code, BookOpen, Rocket, GraduationCap, Award, Lightbulb, Package, BarChart3, Shield, Briefcase, Search, TrendingUp, Network, Star } from 'lucide-react';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export function Education() {
   const sectionRef = useRef(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [hasScrolledLeft, setHasScrolledLeft] = useState(false);
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      setHasScrolledLeft(scrollContainerRef.current.scrollLeft > 10);
+    }
+  };
 
   const degrees = [
     {
@@ -175,10 +183,13 @@ export function Education() {
 
           {/* 6 Cards — horizontal scroll */}
           <div className="relative">
-            {/* Left fade */}
+            {/* Left fade - only visible after scrolling */}
             <div 
-              className="absolute left-0 top-0 bottom-4 w-8 md:w-16 z-10 pointer-events-none"
-              style={{ background: 'linear-gradient(to right, #f9fafb, transparent)' }}
+              className="absolute left-0 top-0 bottom-4 w-8 md:w-16 z-10 pointer-events-none transition-opacity duration-300"
+              style={{ 
+                background: 'linear-gradient(to right, #f9fafb, transparent)',
+                opacity: hasScrolledLeft ? 1 : 0,
+              }}
             />
             {/* Right fade */}
             <div 
@@ -186,6 +197,8 @@ export function Education() {
               style={{ background: 'linear-gradient(to left, #f9fafb, transparent)' }}
             />
             <div
+              ref={scrollContainerRef}
+              onScroll={handleScroll}
               className="flex gap-5 overflow-x-auto pb-4"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
