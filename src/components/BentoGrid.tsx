@@ -50,7 +50,7 @@ export function BentoGrid() {
               ].map((step, i) => (
                 <div key={step.label} className="flex items-center gap-1">
                   <span
-                    className="rounded-full px-4 py-1.5 text-sm font-medium"
+                    className="rounded-full px-4 py-1.5 text-sm font-medium whitespace-nowrap"
                     style={{
                       background: '#374151',
                       color: '#ffffff',
