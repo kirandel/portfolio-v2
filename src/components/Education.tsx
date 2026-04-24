@@ -174,10 +174,21 @@ export function Education() {
           </div>
 
           {/* 6 Cards — horizontal scroll */}
-          <div
-            className="flex gap-5 overflow-x-auto pb-4"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
+          <div className="relative">
+            {/* Left fade */}
+            <div 
+              className="absolute left-0 top-0 bottom-4 w-8 md:w-16 z-10 pointer-events-none"
+              style={{ background: 'linear-gradient(to right, #f9fafb, transparent)' }}
+            />
+            {/* Right fade */}
+            <div 
+              className="absolute right-0 top-0 bottom-4 w-8 md:w-16 z-10 pointer-events-none"
+              style={{ background: 'linear-gradient(to left, #f9fafb, transparent)' }}
+            />
+            <div
+              className="flex gap-5 overflow-x-auto pb-4"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
             {[
               {
                 number: '01',
@@ -281,6 +292,7 @@ export function Education() {
                 </div>
               );
             })}
+            </div>
           </div>
         </div>
       </div>
