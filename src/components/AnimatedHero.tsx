@@ -25,7 +25,7 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
     <div className="w-screen -mx-6 relative" style={{ background: '#f3f4f6' }}>
       <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(229, 231, 235, 0.2) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(229, 231, 235, 0.15) 0%, transparent 50%)' }}></div>
       <div className="container mx-auto relative z-10">
-        <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col px-[22px] pt-[80px] md:px-0 md:pt-0">
+        <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col px-[22px] pt-[98px] md:px-0 md:pt-0">
 
           {/* Heading */}
           <div className="flex gap-4 flex-col">
