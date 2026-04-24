@@ -34,12 +34,12 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
               style={{ fontWeight: 400, lineHeight: 1.1 }}
             >
               <div style={{ color: '#111827', marginBottom: '16px' }}>Hi 👋 Nice to meet you!&nbsp;&nbsp;&nbsp;I'm Kiran..</div>
-              <span className="relative flex justify-center overflow-hidden text-center" style={{ height: '80px' }}>
+              <span className="relative flex justify-center overflow-hidden text-center h-[160px] md:h-[80px]">
                 {titles.map((title, index) => (
                   <motion.span
                     key={index}
-                    className="absolute"
-                    style={{ fontWeight: 700, color: '#111827', whiteSpace: 'nowrap' }}
+                    className="absolute whitespace-normal md:whitespace-nowrap px-2 md:px-0"
+                    style={{ fontWeight: 700, color: '#111827' }}
                     initial={{ opacity: 0, y: 100 }}
                     transition={{ type: "spring", stiffness: 50 }}
                     animate={
