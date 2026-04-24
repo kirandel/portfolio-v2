@@ -69,7 +69,7 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
           </div>
 
           {/* CTA */}
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Button
               icon={<ArrowRight size={18} strokeWidth={2.5} />}
               onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
