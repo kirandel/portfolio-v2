@@ -118,7 +118,7 @@ export function BentoGrid() {
               <img 
                 src="/images/vehicle-manager-mockup.png" 
                 alt="Vehicle Manager App Interface"
-                className="w-full h-auto object-cover object-top drop-shadow-2xl"
+                className="w-full h-auto object-cover object-top drop-shadow-2xl mb-[40px] md:mb-0"
               />
             </div>
 
@@ -168,7 +168,7 @@ Australia Launch
               <img 
                 src="/images/box-2-australia.png" 
                 alt="Australia Market Expansion"
-                className="w-full h-auto object-cover object-top drop-shadow-2xl"
+                className="w-full h-auto object-cover object-top drop-shadow-2xl mb-[40px] md:mb-0"
               />
             </div>
 
@@ -216,7 +216,7 @@ Revenue Sharing
               <img 
                 src="/images/box-3-revenue-sharing.png" 
                 alt="Turo Revenue Sharing Dashboard"
-                className="w-full h-auto object-cover object-top drop-shadow-2xl"
+                className="w-full h-auto object-cover object-top drop-shadow-2xl mb-[40px] md:mb-0"
               />
             </div>
 
@@ -264,7 +264,7 @@ Carculator
               <img 
                 src="/images/box-4-investment-engine.png" 
                 alt="Vehicle Investment Engine"
-                className="w-full h-auto object-cover object-top drop-shadow-2xl"
+                className="w-full h-auto object-cover object-top drop-shadow-2xl mb-[40px] md:mb-0"
               />
             </div>
 
@@ -312,7 +312,7 @@ Carculator
               <img 
                 src="/images/box-5-true-north.png" 
                 alt="True North Posters"
-                className="w-full h-auto object-cover object-top drop-shadow-2xl"
+                className="w-full h-auto object-cover object-top drop-shadow-2xl mb-[40px] md:mb-0"
               />
             </div>
 
@@ -360,7 +360,7 @@ Carculator
               <img 
                 src="/images/box-6-tandemchat.png" 
                 alt="TandemChat.ai"
-                className="w-full h-auto object-cover object-top drop-shadow-2xl"
+                className="w-full h-auto object-cover object-top drop-shadow-2xl mb-[40px] md:mb-0"
               />
             </div>
 
@@ -410,7 +410,7 @@ Carculator
               <img 
                 src="/images/box-7-turo-shop.png" 
                 alt="Turo Shop"
-                className="w-full h-auto object-cover object-top drop-shadow-2xl"
+                className="w-full h-auto object-cover object-top drop-shadow-2xl mb-[40px] md:mb-0"
               />
             </div>
 
@@ -458,7 +458,7 @@ Carculator
               <img 
                 src="/images/box-8-vehicle-swaps.png" 
                 alt="Vehicle Swaps"
-                className="w-full h-auto object-cover object-top drop-shadow-2xl"
+                className="w-full h-auto object-cover object-top drop-shadow-2xl mb-[40px] md:mb-0"
               />
             </div>
 
@@ -506,7 +506,7 @@ Carculator
               <img 
                 src="/images/box-9-pricing.png" 
                 alt="Pricing and Discount Platform"
-                className="w-full h-auto object-cover object-top drop-shadow-2xl"
+                className="w-full h-auto object-cover object-top drop-shadow-2xl mb-[40px] md:mb-0"
               />
             </div>
 
