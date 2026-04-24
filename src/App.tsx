@@ -9,13 +9,14 @@ import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
 import { Button } from './components/ui/flow-hover-button';
 import { DitheringShader } from './components/ui/dithering-shader';
-import { Download, Mail } from 'lucide-react';
+import { Download, Mail, Menu, X } from 'lucide-react';
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkSection, setIsDarkSection] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('Home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Combined scroll detection for navbar transformation and dark section overlap
   useEffect(() => {
@@ -122,9 +123,9 @@ export default function App() {
             Kiran.
           </div>
           
-          {/* Navigation - Center */}
+          {/* Navigation - Center (hidden on mobile) */}
           <nav 
-            className="absolute left-1/2 -translate-x-1/2 flex items-center transition-all duration-300"
+            className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center transition-all duration-300"
             style={{ gap: isScrolled ? '8px' : '12px' }}
           >
             {[
@@ -192,10 +193,10 @@ export default function App() {
             })}
           </nav>
           
-          {/* CTA - Right */}
+          {/* CTA - Right (hidden on mobile) */}
           <Button 
             onClick={() => setIsContactModalOpen(true)}
-            className="flex-shrink-0 !px-6 !py-3 !text-sm !border-none !bg-black !text-white transition-all duration-300 cursor-pointer"
+            className="hidden md:flex flex-shrink-0 !px-6 !py-3 !text-sm !border-none !bg-black !text-white transition-all duration-300 cursor-pointer"
             style={{
               padding: isScrolled || isDarkSection ? '8px 20px' : '10px 24px',
               borderRadius: '100px',
@@ -208,8 +209,115 @@ export default function App() {
           >
             {"Let's chat"}
           </Button>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden flex items-center justify-center p-2 rounded-full transition-colors duration-300"
+            style={{
+              color: isDarkSection ? '#ffffff' : '#1a1a1a',
+            }}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </header>
+
+      {/* Mobile Menu Overlay */}
+      <motion.div
+        initial={false}
+        animate={{
+          opacity: isMobileMenuOpen ? 1 : 0,
+          pointerEvents: isMobileMenuOpen ? 'auto' : 'none',
+        }}
+        transition={{ duration: 0.2 }}
+        className="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+        onClick={() => setIsMobileMenuOpen(false)}
+      />
+
+      {/* Mobile Menu Drawer */}
+      <motion.div
+        initial={false}
+        animate={{
+          x: isMobileMenuOpen ? 0 : '100%',
+        }}
+        transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+        className="md:hidden fixed top-0 right-0 h-full w-[280px] bg-white z-50 shadow-2xl"
+      >
+        <div className="flex flex-col h-full">
+          {/* Mobile Menu Header */}
+          <div className="flex items-center justify-between p-6 border-b border-gray-100">
+            <span className="text-xl font-semibold text-gray-900">Menu</span>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+              aria-label="Close menu"
+            >
+              <X size={24} className="text-gray-700" />
+            </button>
+          </div>
+
+          {/* Mobile Nav Items */}
+          <nav className="flex flex-col p-6 gap-2">
+            {[
+              { label: 'Home', href: '#home' },
+              { label: 'Experience', href: '#experience' },
+              { label: 'KiranGPT', href: '#kiran-gpt' },
+              { label: 'Education', href: '#education' },
+              { label: 'Resume', href: '#download-cv' },
+            ].map((item) => {
+              const isActive = activeSection === item.label;
+              const handleClick = (e: React.MouseEvent) => {
+                e.preventDefault();
+                setIsMobileMenuOpen(false);
+                if (item.label === 'Home') {
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  const targetId = item.href.replace('#', '');
+                  const el = document.getElementById(targetId);
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              };
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={handleClick}
+                  className="py-3 px-4 rounded-xl transition-all duration-200"
+                  style={{
+                    backgroundColor: isActive ? 'rgba(0, 0, 0, 0.05)' : 'transparent',
+                    color: isActive ? '#1a1a1a' : '#6b7280',
+                    fontWeight: isActive ? '600' : '500',
+                    fontSize: '16px',
+                  }}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </nav>
+
+          {/* Mobile CTA */}
+          <div className="mt-auto p-6 border-t border-gray-100">
+            <Button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsContactModalOpen(true);
+              }}
+              className="w-full !py-4 !text-base !border-none !bg-black !text-white cursor-pointer"
+              style={{
+                borderRadius: '12px',
+                background: '#1a1a1a',
+                color: '#ffffff',
+                fontWeight: '500',
+              }}
+            >
+              {"Let's chat"}
+            </Button>
+          </div>
+        </div>
+      </motion.div>
 
       {/* Animated Hero Intro */}
       <div id="home" className="w-full">
