@@ -298,24 +298,7 @@ export default function App() {
             })}
           </nav>
 
-          {/* Mobile CTA */}
-          <div className="mt-auto p-6 border-t border-gray-100">
-            <Button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                setIsContactModalOpen(true);
-              }}
-              className="w-full !py-4 !text-base !border-none !bg-black !text-white cursor-pointer"
-              style={{
-                borderRadius: '12px',
-                background: '#1a1a1a',
-                color: '#ffffff',
-                fontWeight: '500',
-              }}
-            >
-              {"Let's chat"}
-            </Button>
-          </div>
+
         </div>
       </motion.div>
 
