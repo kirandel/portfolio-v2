@@ -55,7 +55,7 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
             </h1>
 
             <p
-              className="text-base md:text-lg leading-relaxed tracking-tight text-center max-w-2xl mx-auto"
+              className="text-base md:text-lg leading-relaxed tracking-tight text-center max-w-2xl mx-auto -mt-[24px] md:mt-0"
               style={{ color: '#6b7280', lineHeight: '1.65' }}
             >
               I'm a product manager with experience building complex, high-scale platforms at the intersection of user experience, data, and marketplace dynamics.
