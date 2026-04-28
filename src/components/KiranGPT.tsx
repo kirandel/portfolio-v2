@@ -168,11 +168,7 @@ export function KiranGPT() {
                 <div className="flex-1 min-h-0 flex flex-col">
                   {messages.length <= 1 && (
                     <SuggestedQuestions
-                      title={
-                        selectedMode === 'fun'
-                          ? 'Hi 👋 -- Ask something fun about Kiran!'
-                          : `Hi! ${modeConfig.emptyStateTitle}`
-                      }
+                      title={`Hi 👋\u00A0\u00A0\u00A0${modeConfig.emptyStateTitle}`}
                       hint="Or click on one of these preset questions to get started ⬇️"
                       questions={modeConfig.suggestedQuestions}
                       onSelect={(question) => void submitQuestion(question)}

@@ -44,8 +44,10 @@ const bodySchema = z.object({
 });
 
 const requestsByIp = new Map<string, { count: number; resetAt: number }>();
+const inFlightByIp = new Map<string, number>();
 const WINDOW_MS = 60_000;
 const MAX_PER_WINDOW = 20;
+const MAX_CONCURRENT_PER_IP = 1;
 
 function getRequestBody(req: any) {
   if (!req?.body) return null;
@@ -105,6 +107,9 @@ function buildPromptInput(params: {
     'You are KiranGPT, an assistant for Kiran Delneuville’s portfolio website.',
     'Answer in first person as Kiran when appropriate.',
     'Be truthful, concise, and specific. If unsure, say so instead of guessing.',
+    'Keep answers professional and recruiter-safe. Avoid profanity, insults, harsh negativity, personal attacks, or edgy/controversial phrasing.',
+    'Do not speculate negatively about Kiran or invent weaknesses. If asked to be negative, decline and redirect to balanced, factual framing.',
+    'If user requests harmful, illegal, hateful, sexual, or abusive content, refuse briefly and redirect to relevant portfolio topics.',
     MODE_PROMPTS[mode],
   ].join('\n\n');
 
@@ -150,6 +155,12 @@ export default async function handler(req: any, res: any) {
   }
 
   const { mode, input, messages } = parsed.data;
+  const currentInFlight = inFlightByIp.get(ip) ?? 0;
+  if (currentInFlight >= MAX_CONCURRENT_PER_IP) {
+    res.status(429).json({ error: 'Too many concurrent requests. Please wait for the current response to finish.' });
+    return;
+  }
+
   const prompt = buildPromptInput({ mode: mode as KiranModeId, input, messages });
   if (mode === 'about' && !prompt.modeContext) {
     console.error('kiran-gpt-about-context-missing', aboutModeLoadMeta);
@@ -159,17 +170,33 @@ export default async function handler(req: any, res: any) {
     return;
   }
 
+  const client = getOpenAIClient();
+  if (!client) {
+    res.status(500).end('Server is missing OpenAI credentials.');
+    return;
+  }
+
+  try {
+    const moderation = await client.moderations.create({
+      model: 'omni-moderation-latest',
+      input,
+    });
+    if (moderation.results?.[0]?.flagged) {
+      res
+        .status(400)
+        .json({ error: 'That request is outside the supported scope. Please ask about Kiran’s background, product work, or interests.' });
+      return;
+    }
+  } catch {
+    // Fail open on moderation API hiccups to preserve availability.
+  }
+
   res.setHeader('Content-Type', 'text/plain; charset=utf-8');
   res.setHeader('Cache-Control', 'no-store');
   res.setHeader('Transfer-Encoding', 'chunked');
 
+  inFlightByIp.set(ip, currentInFlight + 1);
   try {
-    const client = getOpenAIClient();
-    if (!client) {
-      res.status(500).end('Server is missing OpenAI credentials.');
-      return;
-    }
-
     let stream: Awaited<ReturnType<typeof client.responses.stream>> | null = null;
     let lastError: unknown = null;
 
@@ -208,5 +235,12 @@ export default async function handler(req: any, res: any) {
       message: error instanceof Error ? error.message : String(error),
     });
     res.status(500).end('Something went wrong while generating a response.');
+  } finally {
+    const nextInFlight = Math.max((inFlightByIp.get(ip) ?? 1) - 1, 0);
+    if (nextInFlight === 0) {
+      inFlightByIp.delete(ip);
+    } else {
+      inFlightByIp.set(ip, nextInFlight);
+    }
   }
 }

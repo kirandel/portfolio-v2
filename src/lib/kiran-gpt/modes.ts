@@ -7,7 +7,7 @@ export const KIRAN_MODES: Record<KiranModeId, ModeConfig> = {
     id: 'about',
     label: 'About Me',
     description: 'Ask about my background, path, and story.',
-    placeholder: 'Ask about my story, path, or motivations...',
+    placeholder: 'Ask Kiran about his story, path, or motivations...',
     suggestedQuestions: [
       'What is the story behind how Kiran became a product manager?',
       'Where did Kiran grow up, and what shaped him early on?',
@@ -24,7 +24,7 @@ export const KIRAN_MODES: Record<KiranModeId, ModeConfig> = {
     id: 'product',
     label: 'Product Mode',
     description: 'Ask how I design, build, and scale products from 0 to 1 and beyond.',
-    placeholder: 'Ask about my 0→1 work, strategy, tradeoffs, or leadership...',
+    placeholder: 'Ask Kiran about how he builds products...',
     suggestedQuestions: [
       'What is the most impressive product Kiran has built, and why?',
       'How does Kiran approach a completely ambiguous product problem?',
@@ -41,7 +41,7 @@ export const KIRAN_MODES: Record<KiranModeId, ModeConfig> = {
     id: 'fun',
     label: 'Fun Mode',
     description: 'Playful questions about me — travel, personality, and more.',
-    placeholder: 'Ask something playful about me...',
+    placeholder: 'Ask Kiran about something funny or interesting...',
     suggestedQuestions: [
       'Roast Kiran like you have worked with him for 5 years.',
       'If Kiran were a startup, what would his pitch be?',
