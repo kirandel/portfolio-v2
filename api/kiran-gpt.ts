@@ -17,8 +17,12 @@ const MODE_PROMPTS: Record<KiranModeId, string> = {
 };
 const ABOUT_MODE_FILE_URL = new URL('../src/content/kiran/profile/about.md', import.meta.url);
 const ABOUT_MODE_RELATIVE_PATH = 'src/content/kiran/profile/about.md';
+const PRODUCT_MODE_FILE_URL = new URL('../src/content/kiran/profile/product-philosophy.md', import.meta.url);
+const PRODUCT_MODE_RELATIVE_PATH = 'src/content/kiran/profile/product-philosophy.md';
 let aboutModeContextCache: string | null = null;
 let aboutModeLoadMeta: { loadedFrom?: string; attempted: string[] } = { attempted: [] };
+let productModeContextCache: string | null = null;
+let productModeLoadMeta: { loadedFrom?: string; attempted: string[] } = { attempted: [] };
 
 function getOpenAIClient() {
   const apiKey = process.env.OPENAI_API_KEY;
@@ -92,6 +96,37 @@ function getAboutModeContext() {
   return aboutModeContextCache;
 }
 
+function getProductModeContext() {
+  if (productModeContextCache !== null) return productModeContextCache;
+
+  const candidates = [
+    PRODUCT_MODE_FILE_URL.pathname,
+    path.resolve(process.cwd(), PRODUCT_MODE_RELATIVE_PATH),
+    `/var/task/${PRODUCT_MODE_RELATIVE_PATH}`,
+    path.resolve(path.dirname(PRODUCT_MODE_FILE_URL.pathname), '..', PRODUCT_MODE_RELATIVE_PATH),
+  ];
+
+  productModeLoadMeta = { attempted: [...candidates] };
+
+  for (const candidate of candidates) {
+    try {
+      if (!fs.existsSync(candidate)) continue;
+      const raw = fs.readFileSync(candidate, 'utf8');
+      const cleaned = raw.replace(/^---[\s\S]*?---\s*/m, '').trim();
+      if (cleaned.length > 0) {
+        productModeContextCache = cleaned;
+        productModeLoadMeta.loadedFrom = candidate;
+        return productModeContextCache;
+      }
+    } catch {
+      // try next candidate path
+    }
+  }
+
+  productModeContextCache = '';
+  return productModeContextCache;
+}
+
 function buildPromptInput(params: {
   mode: KiranModeId;
   input: string;
@@ -117,7 +152,7 @@ function buildPromptInput(params: {
   return {
     system,
     history: history || 'No prior turns.',
-    modeContext: mode === 'about' ? getAboutModeContext() : '',
+    modeContext: mode === 'about' ? getAboutModeContext() : mode === 'product' ? getProductModeContext() : '',
     user: input,
   };
 }
@@ -163,11 +198,12 @@ export default async function handler(req: any, res: any) {
   }
 
   const prompt = buildPromptInput({ mode: mode as KiranModeId, input, messages });
-  if (mode === 'about' && !prompt.modeContext) {
-    console.error('kiran-gpt-about-context-missing', aboutModeLoadMeta);
+  if ((mode === 'about' || mode === 'product') && !prompt.modeContext) {
+    const details = mode === 'about' ? aboutModeLoadMeta : productModeLoadMeta;
+    console.error('kiran-gpt-mode-context-missing', { mode, ...details });
     res
       .status(500)
-      .json({ error: 'About mode context failed to load in this deployment.', details: aboutModeLoadMeta });
+      .json({ error: `${mode} mode context failed to load in this deployment.`, details });
     return;
   }
 
@@ -208,7 +244,7 @@ export default async function handler(req: any, res: any) {
           input: [
             { role: 'system', content: prompt.system },
             ...(prompt.modeContext
-              ? [{ role: 'system' as const, content: `About Mode Knowledge:\n${prompt.modeContext}` }]
+              ? [{ role: 'system' as const, content: `${mode} Mode Knowledge:\n${prompt.modeContext}` }]
               : []),
             { role: 'system', content: `Conversation so far:\n${prompt.history}` },
             { role: 'user', content: prompt.user },
