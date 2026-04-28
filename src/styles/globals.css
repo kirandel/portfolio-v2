@@ -188,6 +188,16 @@ html {
   font-size: var(--font-size);
 }
 
+/* Prevent full-page horizontal overflow artifacts on mobile. */
+@media (max-width: 768px) {
+  html,
+  body,
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}
+
 /* Scoped scrollbar styling (KiranGPT transcript + bento hover panels). */
 .kiran-chat-scrollbar,
 .bento-box-scrollbar {

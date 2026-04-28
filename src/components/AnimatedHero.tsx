@@ -63,7 +63,7 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
               className="text-base md:text-lg leading-relaxed tracking-tight text-center max-w-2xl mx-auto -mt-[44px] md:mt-0"
               style={{ color: '#6b7280', lineHeight: '1.65' }}
             >
-              I'm a product manager with experience building complex, high-scale platforms at the intersection of user experience, data, and marketplace dynamics.
+              I'm a product manager with experience building complex, high-scale products at the intersection of user experience, data, and marketplace dynamics.
               <br />
               <span style={{ display: 'block', height: '0.5em' }} />
               With 7+ years in tech across product, marketing, strategic growth and user acquisition, I specialize in turning ambiguous problems into scalable, revenue-driving solutions.
