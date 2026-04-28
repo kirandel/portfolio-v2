@@ -32,6 +32,8 @@ export function ChatInput({
     }
   };
 
+  const isSendDisabled = disabled || !inputValue.trim();
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -54,8 +56,10 @@ export function ChatInput({
       />
       <button
         type="submit"
-        disabled={disabled || !inputValue.trim()}
-        className="rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:hover:scale-100"
+        disabled={isSendDisabled}
+        className={`rounded-xl flex items-center justify-center transition-all duration-300 active:scale-95 disabled:opacity-50 disabled:hover:scale-100 ${
+          isSendDisabled ? '' : 'cursor-pointer hover:scale-105'
+        }`}
         style={{
           width: '44px',
           height: '44px',

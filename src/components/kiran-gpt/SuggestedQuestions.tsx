@@ -36,7 +36,7 @@ export function SuggestedQuestions({ title, hint, questions, onSelect }: Suggest
           <button
             key={question}
             onClick={() => onSelect(question)}
-            className="text-left rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 text-white transition-all duration-200 hover:-translate-y-0.5"
+            className="cursor-pointer text-left rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 text-white transition-all duration-200 hover:-translate-y-0.5"
             style={{
               fontSize: 'clamp(14px, 1.9vw, 15px)',
               lineHeight: '1.45',
