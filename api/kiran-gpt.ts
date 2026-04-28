@@ -1,6 +1,7 @@
 import OpenAI from 'openai';
 import { z } from 'zod';
 import fs from 'node:fs';
+import path from 'node:path';
 
 let openaiClient: OpenAI | null = null;
 const MODEL_CANDIDATES = ['gpt-4.1-mini', 'gpt-4o-mini'] as const;
@@ -15,7 +16,9 @@ const MODE_PROMPTS: Record<KiranModeId, string> = {
     'Keep answers playful but grounded in Kiran’s profile. Avoid making up facts.',
 };
 const ABOUT_MODE_FILE_URL = new URL('../src/content/kiran/profile/about.md', import.meta.url);
+const ABOUT_MODE_RELATIVE_PATH = 'src/content/kiran/profile/about.md';
 let aboutModeContextCache: string | null = null;
+let aboutModeLoadMeta: { loadedFrom?: string; attempted: string[] } = { attempted: [] };
 
 function getOpenAIClient() {
   const apiKey = process.env.OPENAI_API_KEY;
@@ -58,13 +61,32 @@ function getRequestBody(req: any) {
 
 function getAboutModeContext() {
   if (aboutModeContextCache !== null) return aboutModeContextCache;
-  try {
-    const raw = fs.readFileSync(ABOUT_MODE_FILE_URL, 'utf8');
-    // Strip simple frontmatter so the model gets clean narrative context.
-    aboutModeContextCache = raw.replace(/^---[\s\S]*?---\s*/m, '').trim();
-  } catch {
-    aboutModeContextCache = '';
+
+  const candidates = [
+    ABOUT_MODE_FILE_URL.pathname,
+    path.resolve(process.cwd(), ABOUT_MODE_RELATIVE_PATH),
+    `/var/task/${ABOUT_MODE_RELATIVE_PATH}`,
+    path.resolve(path.dirname(ABOUT_MODE_FILE_URL.pathname), '..', ABOUT_MODE_RELATIVE_PATH),
+  ];
+
+  aboutModeLoadMeta = { attempted: [...candidates] };
+
+  for (const candidate of candidates) {
+    try {
+      if (!fs.existsSync(candidate)) continue;
+      const raw = fs.readFileSync(candidate, 'utf8');
+      const cleaned = raw.replace(/^---[\s\S]*?---\s*/m, '').trim();
+      if (cleaned.length > 0) {
+        aboutModeContextCache = cleaned;
+        aboutModeLoadMeta.loadedFrom = candidate;
+        return aboutModeContextCache;
+      }
+    } catch {
+      // try next candidate path
+    }
   }
+
+  aboutModeContextCache = '';
   return aboutModeContextCache;
 }
 
@@ -130,9 +152,10 @@ export default async function handler(req: any, res: any) {
   const { mode, input, messages } = parsed.data;
   const prompt = buildPromptInput({ mode: mode as KiranModeId, input, messages });
   if (mode === 'about' && !prompt.modeContext) {
+    console.error('kiran-gpt-about-context-missing', aboutModeLoadMeta);
     res
       .status(500)
-      .json({ error: 'About mode context failed to load in this deployment. Please redeploy and try again.' });
+      .json({ error: 'About mode context failed to load in this deployment.', details: aboutModeLoadMeta });
     return;
   }
 
