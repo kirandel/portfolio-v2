@@ -5,6 +5,7 @@ import { retrieveContext } from '../server/kiran-gpt/retrieve';
 import type { KiranModeId } from '../server/kiran-gpt/types';
 
 let openaiClient: OpenAI | null = null;
+const MODEL_CANDIDATES = ['gpt-4.1-mini', 'gpt-4o-mini'] as const;
 
 function getOpenAIClient() {
   const apiKey = process.env.OPENAI_API_KEY;
@@ -98,15 +99,29 @@ export default async function handler(req: any, res: any) {
       return;
     }
 
-    const stream = await client.responses.stream({
-      model: 'gpt-4.1-mini',
-      input: [
-        { role: 'system', content: prompt.system },
-        { role: 'system', content: `Relevant context:\n${prompt.context}` },
-        { role: 'system', content: `Conversation so far:\n${prompt.history || 'No prior turns.'}` },
-        { role: 'user', content: prompt.user },
-      ],
-    });
+    let stream: Awaited<ReturnType<typeof client.responses.stream>> | null = null;
+    let lastError: unknown = null;
+
+    for (const model of MODEL_CANDIDATES) {
+      try {
+        stream = await client.responses.stream({
+          model,
+          input: [
+            { role: 'system', content: prompt.system },
+            { role: 'system', content: `Relevant context:\n${prompt.context}` },
+            { role: 'system', content: `Conversation so far:\n${prompt.history || 'No prior turns.'}` },
+            { role: 'user', content: prompt.user },
+          ],
+        });
+        break;
+      } catch (error) {
+        lastError = error;
+      }
+    }
+
+    if (!stream) {
+      throw lastError ?? new Error('No supported model was available for this API key.');
+    }
 
     for await (const event of stream) {
       if (event.type === 'response.output_text.delta' && event.delta) {
@@ -116,7 +131,9 @@ export default async function handler(req: any, res: any) {
 
     res.end();
   } catch (error) {
-    console.error('kiran-gpt-error', error);
+    console.error('kiran-gpt-error', {
+      message: error instanceof Error ? error.message : String(error),
+    });
     res.status(500).end('Something went wrong while generating a response.');
   }
 }
