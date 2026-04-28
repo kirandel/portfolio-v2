@@ -1,7 +1,6 @@
 import OpenAI from 'openai';
 import { z } from 'zod';
 import fs from 'node:fs';
-import path from 'node:path';
 
 let openaiClient: OpenAI | null = null;
 const MODEL_CANDIDATES = ['gpt-4.1-mini', 'gpt-4o-mini'] as const;
@@ -15,7 +14,7 @@ const MODE_PROMPTS: Record<KiranModeId, string> = {
   fun:
     'Keep answers playful but grounded in Kiran’s profile. Avoid making up facts.',
 };
-const ABOUT_MODE_PATH = path.resolve(process.cwd(), 'src/content/kiran/profile/about.md');
+const ABOUT_MODE_FILE_URL = new URL('../src/content/kiran/profile/about.md', import.meta.url);
 let aboutModeContextCache: string | null = null;
 
 function getOpenAIClient() {
@@ -60,7 +59,7 @@ function getRequestBody(req: any) {
 function getAboutModeContext() {
   if (aboutModeContextCache !== null) return aboutModeContextCache;
   try {
-    const raw = fs.readFileSync(ABOUT_MODE_PATH, 'utf8');
+    const raw = fs.readFileSync(ABOUT_MODE_FILE_URL, 'utf8');
     // Strip simple frontmatter so the model gets clean narrative context.
     aboutModeContextCache = raw.replace(/^---[\s\S]*?---\s*/m, '').trim();
   } catch {
