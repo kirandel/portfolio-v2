@@ -1,7 +1,10 @@
 {
   "functions": {
     "api/kiran-gpt.ts": {
-      "includeFiles": "src/content/kiran/profile/*.md"
+      "includeFiles": [
+        "src/content/kiran/profile/*.md",
+        "src/content/kiran/personality/*.md"
+      ]
     }
   }
 }

@@ -19,10 +19,14 @@ const ABOUT_MODE_FILE_URL = new URL('../src/content/kiran/profile/about.md', imp
 const ABOUT_MODE_RELATIVE_PATH = 'src/content/kiran/profile/about.md';
 const PRODUCT_MODE_FILE_URL = new URL('../src/content/kiran/profile/product-philosophy.md', import.meta.url);
 const PRODUCT_MODE_RELATIVE_PATH = 'src/content/kiran/profile/product-philosophy.md';
+const FUN_MODE_FILE_URL = new URL('../src/content/kiran/personality/fun-facts.md', import.meta.url);
+const FUN_MODE_RELATIVE_PATH = 'src/content/kiran/personality/fun-facts.md';
 let aboutModeContextCache: string | null = null;
 let aboutModeLoadMeta: { loadedFrom?: string; attempted: string[] } = { attempted: [] };
 let productModeContextCache: string | null = null;
 let productModeLoadMeta: { loadedFrom?: string; attempted: string[] } = { attempted: [] };
+let funModeContextCache: string | null = null;
+let funModeLoadMeta: { loadedFrom?: string; attempted: string[] } = { attempted: [] };
 
 function getOpenAIClient() {
   const apiKey = process.env.OPENAI_API_KEY;
@@ -127,6 +131,37 @@ function getProductModeContext() {
   return productModeContextCache;
 }
 
+function getFunModeContext() {
+  if (funModeContextCache !== null) return funModeContextCache;
+
+  const candidates = [
+    FUN_MODE_FILE_URL.pathname,
+    path.resolve(process.cwd(), FUN_MODE_RELATIVE_PATH),
+    `/var/task/${FUN_MODE_RELATIVE_PATH}`,
+    path.resolve(path.dirname(FUN_MODE_FILE_URL.pathname), '..', FUN_MODE_RELATIVE_PATH),
+  ];
+
+  funModeLoadMeta = { attempted: [...candidates] };
+
+  for (const candidate of candidates) {
+    try {
+      if (!fs.existsSync(candidate)) continue;
+      const raw = fs.readFileSync(candidate, 'utf8');
+      const cleaned = raw.replace(/^---[\s\S]*?---\s*/m, '').trim();
+      if (cleaned.length > 0) {
+        funModeContextCache = cleaned;
+        funModeLoadMeta.loadedFrom = candidate;
+        return funModeContextCache;
+      }
+    } catch {
+      // try next candidate path
+    }
+  }
+
+  funModeContextCache = '';
+  return funModeContextCache;
+}
+
 function buildPromptInput(params: {
   mode: KiranModeId;
   input: string;
@@ -152,7 +187,8 @@ function buildPromptInput(params: {
   return {
     system,
     history: history || 'No prior turns.',
-    modeContext: mode === 'about' ? getAboutModeContext() : mode === 'product' ? getProductModeContext() : '',
+    modeContext:
+      mode === 'about' ? getAboutModeContext() : mode === 'product' ? getProductModeContext() : getFunModeContext(),
     user: input,
   };
 }
@@ -198,8 +234,9 @@ export default async function handler(req: any, res: any) {
   }
 
   const prompt = buildPromptInput({ mode: mode as KiranModeId, input, messages });
-  if ((mode === 'about' || mode === 'product') && !prompt.modeContext) {
-    const details = mode === 'about' ? aboutModeLoadMeta : productModeLoadMeta;
+  if (!prompt.modeContext) {
+    const details =
+      mode === 'about' ? aboutModeLoadMeta : mode === 'product' ? productModeLoadMeta : funModeLoadMeta;
     console.error('kiran-gpt-mode-context-missing', { mode, ...details });
     res
       .status(500)
