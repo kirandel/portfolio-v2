@@ -90,7 +90,7 @@ export function BentoGrid() {
           {/* ========== BOX 1: Co-Host Network ========== */}
           <div 
             data-box="1"
-            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-default transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #E8456A 0%, #C03080 100%)',
               boxShadow: hoveredTile === 1 
@@ -124,7 +124,7 @@ export function BentoGrid() {
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 1 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
 
-            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 1 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 bento-box-scrollbar overflow-y-auto pr-2 ${hoveredTile === 1 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 As Turo scaled, a growing segment of vehicle owners wanted to participate in the marketplace without taking on the operational complexity of hosting, while professional operators were constrained by access to reliable supply. This created a structural gap in the marketplace and a clear opportunity to introduce a managed model that could unlock new supply, improve utilization, and enable operators to scale more efficiently.
                 <br /><br />
@@ -140,7 +140,7 @@ export function BentoGrid() {
           {/* ========== BOX 2: True North Posters ========== */}
           <div 
             data-box="2"
-            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-default transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #CF3470 0%, #A02885 100%)',
               boxShadow: hoveredTile === 2 
@@ -174,7 +174,7 @@ Australia Launch
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 2 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
 
-            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 2 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 bento-box-scrollbar overflow-y-auto pr-2 ${hoveredTile === 2 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 Launching Turo in Australia required adapting a complex two sided marketplace to a new regulatory, insurance, and cultural environment while rapidly building enough supply to support a credible consumer launch. The core challenge was balancing speed with trust and compliance, ensuring the platform could operate reliably in a new market without fragmenting the global product or introducing long term risk.
                 <br /><br />
@@ -188,7 +188,7 @@ Australia Launch
           {/* ========== BOX 3: Co-Host Network (Financial) - TALL ========== */}
           <div 
             data-box="3"
-            className="rounded-3xl p-6 relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
+            className="rounded-3xl p-6 relative overflow-hidden cursor-default transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #8B2FA0 0%, #6B2FD4 100%)',
               boxShadow: hoveredTile === 3 
@@ -222,7 +222,7 @@ Revenue Sharing
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 3 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
 
-            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 3 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 bento-box-scrollbar overflow-y-auto pr-2 ${hoveredTile === 3 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 I led the creation and launch of a net new product that enabled individuals to invest in a Turo business by placing their vehicles with hosts who operated them on their behalf. This introduced a new user identity within the marketplace, investors, and effectively financialized the Turo business model. Prior to this, financial flows between hosts and investors were handled off platform through Venmo, Zelle, and Cash App, creating significant risk, lack of transparency, and no system of record for how revenue was generated or distributed.
                 <br /><br />
@@ -236,7 +236,7 @@ Revenue Sharing
           {/* ========== BOX 4: Australia Launch ========== */}
           <div 
             data-box="4"
-            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-default transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #B52E8A 0%, #8B2FA0 100%)',
               boxShadow: hoveredTile === 4 
@@ -270,7 +270,7 @@ Carculator
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 4 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
 
-            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 4 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 bento-box-scrollbar overflow-y-auto pr-2 ${hoveredTile === 4 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 As the marketplace matured, hosts faced a critical and recurring decision with limited guidance: which vehicles to acquire to maximize returns. This lack of decision support led to inefficient capital allocation, inconsistent host performance, and supply growth that was misaligned with underlying demand patterns, ultimately impacting marketplace efficiency and profitability.
                 <br /><br />
@@ -284,7 +284,7 @@ Carculator
           {/* ========== BOX 5: Turo Shop - TALL ========== */}
           <div 
             data-box="5"
-            className="rounded-3xl p-6 flex flex-col relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col relative overflow-hidden cursor-default transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #7A2DB8 0%, #5A25E0 100%)',
               boxShadow: hoveredTile === 5 
@@ -318,7 +318,7 @@ Carculator
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 5 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
 
-            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 5 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 bento-box-scrollbar overflow-y-auto pr-2 ${hoveredTile === 5 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 True North Posters began with a consumer insight I identified while studying Geographic Information Systems (GIS) at UC Berkeley: people want meaningful, personalized art connected to places that matter to them, but existing products felt generic, static, and difficult to customize in a way that felt personal.
                 <br /><br />
@@ -332,7 +332,7 @@ Carculator
           {/* ========== BOX 6: Co-Host Network (AI) - TALL ========== */}
           <div 
             data-box="6"
-            className="rounded-3xl p-6 flex flex-col relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col relative overflow-hidden cursor-default transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #5A25E0 0%, #3A18F0 100%)',
               boxShadow: hoveredTile === 6 
@@ -366,7 +366,7 @@ Carculator
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 6 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
 
-            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 6 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 bento-box-scrollbar overflow-y-auto pr-2 ${hoveredTile === 6 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 TandemChat started from a simple, personal observation: planning trips and experiences with friends was always fragmented across group chats, docs, and notes, often driven by one person coordinating everything. As AI became more useful for planning, it remained a single player tool, disconnected from the people actually involved in the decision. This created an opportunity to rethink AI as something that participates inside shared conversations, making planning more collaborative, transparent, and engaging.
                 <br /><br />
@@ -382,7 +382,7 @@ Carculator
           {/* ========== BOX 7: Turo Shop ========== */}
           <div 
             data-box="7"
-            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-default transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #6B2FD4 0%, #4A20EC 100%)',
               boxShadow: hoveredTile === 7 
@@ -416,7 +416,7 @@ Carculator
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 7 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
 
-            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 7 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 bento-box-scrollbar overflow-y-auto pr-2 ${hoveredTile === 7 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 As Turo&apos;s brand matured, I identified an opportunity to extend the customer relationship beyond the trip itself by launching a branded commerce experience that could deepen affinity, strengthen storytelling, and unlock incremental revenue. The challenge was to build a product that felt like a natural extension of the Turo experience while maintaining high standards for design, usability, and operational scalability.
                 <br /><br />
@@ -430,7 +430,7 @@ Carculator
           {/* ========== BOX 8: Vehicle Swaps ========== */}
           <div 
             data-box="8"
-            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-default transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #4A20EC 0%, #2D14F5 100%)',
               boxShadow: hoveredTile === 8 
@@ -464,7 +464,7 @@ Carculator
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 8 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
 
-            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 8 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 bento-box-scrollbar overflow-y-auto pr-2 ${hoveredTile === 8 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 Vehicle swaps were one of Turo&apos;s highest-friction operational workflows and a meaningful source of customer stress, support cost, and trip risk. When a booked vehicle became unavailable, hosts and guests had to rely on lengthy support calls to identify alternatives, validate eligibility, confirm pricing, and secure consent under time pressure. I identified this as a strategic reliability problem, not just a support issue, because it sat at the intersection of customer trust, marketplace efficiency, and operational scale.
                 <br /><br />
@@ -478,7 +478,7 @@ Carculator
           {/* ========== BOX 9: TandemChat.ai ========== */}
           <div 
             data-box="9"
-            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-pointer transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
+            className="rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden cursor-default transition-all duration-500 ease-out min-h-[632px] md:min-h-[600px]"
             style={{
               background: 'linear-gradient(135deg, #3A18F0 0%, #2410D8 100%)',
               boxShadow: hoveredTile === 9 
@@ -512,7 +512,7 @@ Carculator
 
             <div className={`absolute inset-0 bg-black/40 transition-all duration-500 ${hoveredTile === 9 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}></div>
 
-            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 overflow-y-auto ${hoveredTile === 9 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`absolute top-[156px] md:top-36 left-6 right-6 bottom-6 transition-all duration-500 z-10 bento-box-scrollbar overflow-y-auto pr-2 ${hoveredTile === 9 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <p className="text-white text-left" style={{ opacity: 0.95, fontSize: '13px', lineHeight: '1.6' }}>
                 Pricing is one of the most critical and sensitive levers in a two sided marketplace. Hosts needed more control to grow revenue, but existing tools were limited and lacked clarity, often leading to inconsistent pricing, poor guest comparison experiences, and increased exposure to high risk trips that negatively impacted marketplace profitability.
                 <br /><br />

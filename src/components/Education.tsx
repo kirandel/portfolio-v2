@@ -39,7 +39,7 @@ export function Education() {
         },
         {
           icon: Briefcase,
-          title: 'Product Design & Full-Cycle Shipping',
+          title: 'Product Design & Prototyping',
           description: 'Designed and shipped both physical and digital products through the Jacobs Institute for Design Innovation, working end-to-end from concept through prototyping, iteration, and production under real-world constraints.',
         },
       ],

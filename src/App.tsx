@@ -95,7 +95,7 @@ export default function App() {
         }}
       >
         <div 
-          className="transition-all duration-300 ease-in-out mx-auto flex items-center justify-between"
+          className="transition-all duration-300 ease-in-out mx-auto flex w-full items-center gap-2 md:gap-3"
           style={{
             maxWidth: isScrolled || isDarkSection ? '900px' : '100%',
             padding: isScrolled || isDarkSection ? '12px 24px' : '16px 48px',
@@ -123,10 +123,10 @@ export default function App() {
             Kiran.
           </div>
           
-          {/* Navigation - Center (hidden on mobile) */}
+          {/* Navigation - center column between logo and CTA (avoids overlap at md widths) */}
           <nav 
-            className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center transition-all duration-300"
-            style={{ gap: isScrolled ? '8px' : '12px' }}
+            className="hidden min-w-0 flex-1 justify-center md:flex items-center transition-all duration-300"
+            style={{ gap: isScrolled ? '6px' : '8px' }}
           >
             {[
               { label: 'Home', href: '#home' },
@@ -194,7 +194,7 @@ export default function App() {
           </nav>
           
           {/* CTA - Right (hidden on mobile) */}
-          <div className="hidden md:block">
+          <div className="hidden flex-shrink-0 md:block">
             <Button 
               onClick={() => setIsContactModalOpen(true)}
               className="flex-shrink-0 !px-6 !py-3 !text-sm !border-none !bg-black !text-white transition-all duration-300 cursor-pointer"
@@ -215,7 +215,7 @@ export default function App() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden flex items-center justify-center p-2 rounded-full transition-colors duration-300"
+            className="ml-auto flex flex-shrink-0 items-center justify-center rounded-full p-2 transition-colors duration-300 md:hidden"
             style={{
               color: isDarkSection ? '#ffffff' : '#1a1a1a',
             }}

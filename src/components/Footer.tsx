@@ -22,7 +22,7 @@ export function Footer() {
   const externalLinks = [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/kirandelneuville/' },
     { label: 'TandemChat.ai', href: 'https://www.tandemchat.ai' },
-    { label: 'True North Posters', href: 'https://www.truenorthposters.com' },
+    { label: 'True North Posters', href: 'https://truenorthposters.myshopify.com/' },
   ];
 
   return (
@@ -198,7 +198,7 @@ export function Footer() {
             <div className="flex flex-col gap-5">
               {/* Email */}
               <a
-                href="mailto:hello@kirandelneuville.com"
+                href="mailto:kirandelneuville@gmail.com"
                 className="text-white transition-opacity duration-200 hover:opacity-100 inline-flex items-center gap-2 w-fit"
                 style={{
                   fontSize: '16px',
@@ -206,7 +206,7 @@ export function Footer() {
                 }}
               >
                 <Mail className="w-4 h-4" />
-                hello@kirandelneuville.com
+                kirandelneuville@gmail.com
               </a>
               
               {/* Availability */}

@@ -11,7 +11,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const email = 'hello@kirandelneuville.com';
+  const email = 'kirandelneuville@gmail.com';
 
   useEffect(() => {
     if (isOpen) {
@@ -191,7 +191,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               {[
                 { href: 'https://www.linkedin.com/in/kirandelneuville/', label: 'LinkedIn' },
                 { href: 'https://www.tandemchat.ai', label: 'TandemChat.ai' },
-                { href: 'https://www.truenorthposters.com', label: 'True North Posters' },
+                { href: 'https://truenorthposters.myshopify.com/', label: 'True North Posters' },
               ].map((link) => (
                 <a
                   key={link.label}
