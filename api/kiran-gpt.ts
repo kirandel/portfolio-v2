@@ -129,6 +129,12 @@ export default async function handler(req: any, res: any) {
 
   const { mode, input, messages } = parsed.data;
   const prompt = buildPromptInput({ mode: mode as KiranModeId, input, messages });
+  if (mode === 'about' && !prompt.modeContext) {
+    res
+      .status(500)
+      .json({ error: 'About mode context failed to load in this deployment. Please redeploy and try again.' });
+    return;
+  }
 
   res.setHeader('Content-Type', 'text/plain; charset=utf-8');
   res.setHeader('Cache-Control', 'no-store');

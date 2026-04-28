@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/kiran-gpt.ts": {
+      "includeFiles": "src/content/kiran/profile/about.md"
+    }
+  }
+}
