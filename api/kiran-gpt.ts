@@ -1,11 +1,18 @@
 import OpenAI from 'openai';
 import { z } from 'zod';
-import { buildPromptInput } from '../server/kiran-gpt/prompt';
-import { retrieveContext } from '../server/kiran-gpt/retrieve';
-import type { KiranModeId } from '../server/kiran-gpt/types';
 
 let openaiClient: OpenAI | null = null;
 const MODEL_CANDIDATES = ['gpt-4.1-mini', 'gpt-4o-mini'] as const;
+type KiranModeId = 'about' | 'product' | 'fun';
+
+const MODE_PROMPTS: Record<KiranModeId, string> = {
+  about:
+    'Focus on Kiran’s background, leadership style, and values. Be concise, specific, and friendly.',
+  product:
+    'Focus on product strategy, zero-to-one execution, tradeoffs, and measurable outcomes from Kiran’s work.',
+  fun:
+    'Keep answers playful but grounded in Kiran’s profile. Avoid making up facts.',
+};
 
 function getOpenAIClient() {
   const apiKey = process.env.OPENAI_API_KEY;
@@ -46,6 +53,31 @@ function getRequestBody(req: any) {
   return req.body;
 }
 
+function buildPromptInput(params: {
+  mode: KiranModeId;
+  input: string;
+  messages: Array<{ role: 'user' | 'assistant' | 'system'; content: string }>;
+}) {
+  const { mode, input, messages } = params;
+  const history = messages
+    .slice(-10)
+    .map((message) => `${message.role.toUpperCase()}: ${message.content}`)
+    .join('\n');
+
+  const system = [
+    'You are KiranGPT, an assistant for Kiran Delneuville’s portfolio website.',
+    'Answer in first person as Kiran when appropriate.',
+    'Be truthful, concise, and specific. If unsure, say so instead of guessing.',
+    MODE_PROMPTS[mode],
+  ].join('\n\n');
+
+  return {
+    system,
+    history: history || 'No prior turns.',
+    user: input,
+  };
+}
+
 export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -80,13 +112,7 @@ export default async function handler(req: any, res: any) {
   }
 
   const { mode, input, messages } = parsed.data;
-  const retrieved = retrieveContext(mode as KiranModeId, input);
-  const prompt = buildPromptInput({
-    mode: mode as KiranModeId,
-    input,
-    messages,
-    retrieved,
-  });
+  const prompt = buildPromptInput({ mode: mode as KiranModeId, input, messages });
 
   res.setHeader('Content-Type', 'text/plain; charset=utf-8');
   res.setHeader('Cache-Control', 'no-store');
@@ -108,8 +134,7 @@ export default async function handler(req: any, res: any) {
           model,
           input: [
             { role: 'system', content: prompt.system },
-            { role: 'system', content: `Relevant context:\n${prompt.context}` },
-            { role: 'system', content: `Conversation so far:\n${prompt.history || 'No prior turns.'}` },
+            { role: 'system', content: `Conversation so far:\n${prompt.history}` },
             { role: 'user', content: prompt.user },
           ],
         });
