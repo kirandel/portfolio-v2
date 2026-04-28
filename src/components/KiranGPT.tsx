@@ -105,7 +105,7 @@ export function KiranGPT() {
                 opacity: 0.78,
               }}
             >
-              An AI assistant trained on Kiran’s product thinking, education, background, and how he approaches building and scaling products.
+              An AI assistant trained on my thinking, education, background, and how I approach building and scaling products.
             </p>
             <p 
               className="text-white max-w-[500px]"
@@ -116,7 +116,7 @@ export function KiranGPT() {
                 marginTop: '-8px',
               }}
             >
-              Ask about Kiran’s strategy, past work, or decision-making frameworks — or go off-script with travel, food, or something playful.
+              Ask about my strategy, past work, or decision-making frameworks — or go off-script with travel, food, or something playful.
             </p>
 
             <ModeSelector selectedMode={selectedMode} onSelect={switchMode} />
@@ -168,8 +168,12 @@ export function KiranGPT() {
                 <div className="flex-1 min-h-0 flex flex-col">
                   {messages.length <= 1 && (
                     <SuggestedQuestions
-                      title={`Hi! ${modeConfig.emptyStateTitle}`}
-                      hint="Or click on one of these present questions to get started : )"
+                      title={
+                        selectedMode === 'fun'
+                          ? 'Hi 👋 -- Ask something fun about Kiran!'
+                          : `Hi! ${modeConfig.emptyStateTitle}`
+                      }
+                      hint="Or click on one of these preset questions to get started ⬇️"
                       questions={modeConfig.suggestedQuestions}
                       onSelect={(question) => void submitQuestion(question)}
                     />

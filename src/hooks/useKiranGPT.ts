@@ -8,7 +8,7 @@ function uid() {
 }
 
 export function useKiranGPT() {
-  const [selectedMode, setSelectedMode] = useState<KiranModeId>('product');
+  const [selectedMode, setSelectedMode] = useState<KiranModeId>('about');
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);

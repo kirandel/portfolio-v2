@@ -8,7 +8,7 @@ interface SuggestedQuestionsProps {
 export function SuggestedQuestions({ title, hint, questions, onSelect }: SuggestedQuestionsProps) {
   return (
     <div
-      className="mb-4 rounded-2xl p-4 relative overflow-hidden"
+      className="mb-5 rounded-2xl p-5 relative overflow-hidden"
       style={{
         background: 'linear-gradient(140deg, rgba(18,22,30,0.96) 0%, rgba(25,33,46,0.88) 65%, rgba(18,22,30,0.96) 100%)',
         border: '1px solid rgba(255,255,255,0.12)',
@@ -20,23 +20,23 @@ export function SuggestedQuestions({ title, hint, questions, onSelect }: Suggest
         style={{ background: 'rgba(123, 97, 255, 0.22)', pointerEvents: 'none' }}
       />
       <p
-        className="text-white mb-1 relative z-10"
+        className="text-white mb-2 relative z-10"
         style={{ fontSize: '20px', fontWeight: 600, letterSpacing: '-0.01em', lineHeight: '1.35', opacity: 0.96 }}
       >
         {title}
       </p>
       <p
-        className="text-white mb-4 relative z-10"
+        className="text-white mb-5 relative z-10"
         style={{ fontSize: '16px', fontWeight: 400, letterSpacing: '-0.005em', lineHeight: '1.5', opacity: 0.72 }}
       >
         {hint}
       </p>
-      <div className="flex flex-col gap-2.5">
+      <div className="flex flex-col gap-3">
         {questions.map((question) => (
           <button
             key={question}
             onClick={() => onSelect(question)}
-            className="text-left rounded-2xl px-5 py-3 text-white transition-all duration-200 hover:-translate-y-0.5"
+            className="text-left rounded-2xl px-5 py-3.5 text-white transition-all duration-200 hover:-translate-y-0.5"
             style={{
               fontSize: '15px',
               lineHeight: '1.45',

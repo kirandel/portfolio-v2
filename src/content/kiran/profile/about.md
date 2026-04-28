@@ -1,11 +1,3 @@
----
-tags:
-  - about
-  - background
-  - journey
-  - resume
-  - mode-1
----
 ### **Early Life & Upbringing**
 
 Kiran grew up in Southeast Asia, with a background shaped by movement, resilience, and exposure to very different cultures from an early age. His parents met in a refugee camp, and he spent the first few years of his life along the border of Cambodia and Thailand.
@@ -299,3 +291,4 @@ He wants to build:
 At a high level:
 
 Success, for him, isn’t just about building great products—it’s about building a great life alongside them.
+
