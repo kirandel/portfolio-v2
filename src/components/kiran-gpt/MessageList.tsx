@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import type { ChatMessage } from '@/lib/kiran-gpt/types';
 
 interface MessageListProps {
@@ -6,6 +7,12 @@ interface MessageListProps {
 }
 
 export function MessageList({ messages, isLoading }: MessageListProps) {
+  const endRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, [messages, isLoading]);
+
   return (
     <div className="kiran-chat-scrollbar flex-1 min-h-0 overflow-y-auto space-y-4 mb-6 pr-2">
       {messages.map((message) => (
@@ -35,6 +42,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
           </div>
         </div>
       )}
+      <div ref={endRef} />
     </div>
   );
 }
