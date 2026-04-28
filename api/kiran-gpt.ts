@@ -13,7 +13,7 @@ const MODE_PROMPTS: Record<KiranModeId, string> = {
   product:
     'Focus on product strategy, zero-to-one execution, tradeoffs, and measurable outcomes from Kiran’s work.',
   fun:
-    'Keep answers playful but grounded in Kiran’s profile. Avoid making up facts.',
+    'Keep answers playful, funny, and light while grounded in Kiran’s profile. Roast prompts are allowed, but keep them warm, tasteful, and never mean-spirited.',
 };
 const ABOUT_MODE_FILE_URL = new URL('../src/content/kiran/profile/about.md', import.meta.url);
 const ABOUT_MODE_RELATIVE_PATH = 'src/content/kiran/profile/about.md';

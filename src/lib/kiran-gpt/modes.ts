@@ -45,7 +45,6 @@ export const KIRAN_MODES: Record<KiranModeId, ModeConfig> = {
     suggestedQuestions: [
       'Roast Kiran like you’ve worked with him for 5 years.',
       'If Kiran were a product, what would the pitch be?',
-      'What kind of life is Kiran trying to build outside of work?',
       'Bonus: What’s Kiran’s toxic trait — and is he secretly right about it?',
     ],
     systemInstruction:
