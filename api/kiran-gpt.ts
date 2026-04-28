@@ -1,5 +1,7 @@
 import OpenAI from 'openai';
 import { z } from 'zod';
+import fs from 'node:fs';
+import path from 'node:path';
 
 let openaiClient: OpenAI | null = null;
 const MODEL_CANDIDATES = ['gpt-4.1-mini', 'gpt-4o-mini'] as const;
@@ -13,6 +15,8 @@ const MODE_PROMPTS: Record<KiranModeId, string> = {
   fun:
     'Keep answers playful but grounded in Kiran’s profile. Avoid making up facts.',
 };
+const ABOUT_MODE_PATH = path.resolve(process.cwd(), 'src/content/kiran/profile/about.md');
+let aboutModeContextCache: string | null = null;
 
 function getOpenAIClient() {
   const apiKey = process.env.OPENAI_API_KEY;
@@ -53,6 +57,18 @@ function getRequestBody(req: any) {
   return req.body;
 }
 
+function getAboutModeContext() {
+  if (aboutModeContextCache !== null) return aboutModeContextCache;
+  try {
+    const raw = fs.readFileSync(ABOUT_MODE_PATH, 'utf8');
+    // Strip simple frontmatter so the model gets clean narrative context.
+    aboutModeContextCache = raw.replace(/^---[\s\S]*?---\s*/m, '').trim();
+  } catch {
+    aboutModeContextCache = '';
+  }
+  return aboutModeContextCache;
+}
+
 function buildPromptInput(params: {
   mode: KiranModeId;
   input: string;
@@ -74,6 +90,7 @@ function buildPromptInput(params: {
   return {
     system,
     history: history || 'No prior turns.',
+    modeContext: mode === 'about' ? getAboutModeContext() : '',
     user: input,
   };
 }
@@ -134,6 +151,9 @@ export default async function handler(req: any, res: any) {
           model,
           input: [
             { role: 'system', content: prompt.system },
+            ...(prompt.modeContext
+              ? [{ role: 'system' as const, content: `About Mode Knowledge:\n${prompt.modeContext}` }]
+              : []),
             { role: 'system', content: `Conversation so far:\n${prompt.history}` },
             { role: 'user', content: prompt.user },
           ],
