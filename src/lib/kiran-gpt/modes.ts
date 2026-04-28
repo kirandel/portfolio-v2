@@ -9,9 +9,9 @@ export const KIRAN_MODES: Record<KiranModeId, ModeConfig> = {
     description: 'Ask about my background, path, and story.',
     placeholder: 'Ask Kiran about his story, path, or motivations...',
     suggestedQuestions: [
-      'How did Kiran go from growing up in Southeast Asia to building products in tech?',
-      'What experiences most shaped how Kiran thinks and makes decisions today?',
-      'What’s something about Kiran that doesn’t show up on his resume?',
+      'What’s the story behind how Kiran went from growing up in Thailand to building products in tech?',
+      'What made Kiran realize he wanted to build products, not just work in tech?',
+      'What’s a small moment in Kiran’s life that says a lot about how he thinks?',
     ],
     systemInstruction:
       'Speak in a warm, narrative, third-person voice about Kiran. Always answer as an observer: start or lean on phrasing like “Kiran is…”, “Kiran grew up…”, “His path…”. Never answer as if you are Kiran in first person (“I…”). Emphasize arc, motivations, and lessons learned.',
