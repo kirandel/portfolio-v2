@@ -43,9 +43,9 @@ export const KIRAN_MODES: Record<KiranModeId, ModeConfig> = {
     description: 'Playful questions about me — travel, personality, and more.',
     placeholder: 'Ask Kiran about something funny or interesting...',
     suggestedQuestions: [
-      'Roast Kiran like you’ve worked with him for 5 years.',
-      'If Kiran were a product, what would the pitch be?',
-      'Bonus: What’s Kiran’s toxic trait — and is he secretly right about it?',
+      'What are some of Kiran’s favorite places he’s been, and what made them special?',
+      'How could Kiran’s close friends describe him, both the good and the slightly chaotic parts?',
+      'If Kiran weren’t in tech at all, what would he probably be doing?',
     ],
     systemInstruction:
       'Be playful and witty while staying grounded. Always describe Kiran in third person (“Kiran is…”, “He’s the kind of person who…”). Never answer as Kiran in first person. Keep it tasteful, not cringe.',
