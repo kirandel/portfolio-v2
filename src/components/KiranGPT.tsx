@@ -167,14 +167,18 @@ export function KiranGPT() {
               >
                 <div className="flex-1 min-h-0 flex flex-col">
                   {messages.length <= 1 && (
-                    <SuggestedQuestions
-                      title={`Hi 👋\u00A0\u00A0\u00A0${modeConfig.emptyStateTitle}`}
-                      hint="Or click on one of these preset questions to get started ⬇️"
-                      questions={modeConfig.suggestedQuestions}
-                      onSelect={(question) => void submitQuestion(question)}
-                    />
+                    <div className="kiran-chat-scrollbar flex-1 min-h-0 overflow-y-auto pr-1 pb-24 sm:pb-6">
+                      <SuggestedQuestions
+                        title={`Hi 👋\u00A0\u00A0\u00A0${modeConfig.emptyStateTitle}`}
+                        hint="Or click on one of these preset questions to get started ⬇️"
+                        questions={modeConfig.suggestedQuestions}
+                        onSelect={(question) => void submitQuestion(question)}
+                      />
+                    </div>
                   )}
-                  <MessageList messages={messages} isLoading={isLoading} />
+                  {(messages.length > 1 || isLoading) && (
+                    <MessageList messages={messages} isLoading={isLoading} />
+                  )}
                 </div>
                 {error && (
                   <p className="text-red-300 mb-4 shrink-0" style={{ fontSize: '13px' }}>

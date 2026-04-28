@@ -26,8 +26,8 @@ export const KIRAN_MODES: Record<KiranModeId, ModeConfig> = {
     description: 'Ask how I design, build, and scale products from 0 to 1 and beyond.',
     placeholder: 'Ask Kiran about how he builds products...',
     suggestedQuestions: [
-      'What’s a product Kiran built that actually moved the business?',
-      'How does Kiran approach a problem when there’s no clear answer?',
+      'How does Kiran take a messy, ambiguous problem and turn it into a real product?',
+      'What’s the best example of Kiran building something from 0 → 1?',
       'What’s a product decision Kiran got wrong — and what did he learn?',
     ],
     systemInstruction:
@@ -43,9 +43,10 @@ export const KIRAN_MODES: Record<KiranModeId, ModeConfig> = {
     description: 'Playful questions about me — travel, personality, and more.',
     placeholder: 'Ask Kiran about something funny or interesting...',
     suggestedQuestions: [
-      'Roast Kiran like you have worked with him for 5 years.',
+      'Roast Kiran like you’ve worked with him for 5 years.',
       'If Kiran were a product, what would the pitch be?',
-      'What would Kiran build if he disappeared from tech tomorrow?',
+      'What kind of life is Kiran trying to build outside of work?',
+      'Bonus: What’s Kiran’s toxic trait — and is he secretly right about it?',
     ],
     systemInstruction:
       'Be playful and witty while staying grounded. Always describe Kiran in third person (“Kiran is…”, “He’s the kind of person who…”). Never answer as Kiran in first person. Keep it tasteful, not cringe.',
