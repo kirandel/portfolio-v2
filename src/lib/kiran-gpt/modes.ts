@@ -9,9 +9,9 @@ export const KIRAN_MODES: Record<KiranModeId, ModeConfig> = {
     description: 'Ask about my background, path, and story.',
     placeholder: 'Ask Kiran about his story, path, or motivations...',
     suggestedQuestions: [
-      'What is the story behind how Kiran became a product manager?',
-      'Where did Kiran grow up, and what shaped him early on?',
-      'What were the key turning points that changed Kiran’s trajectory?',
+      'How did Kiran go from growing up in Southeast Asia to building products in tech?',
+      'What experiences most shaped how Kiran thinks and makes decisions today?',
+      'What’s something about Kiran that doesn’t show up on his resume?',
     ],
     systemInstruction:
       'Speak in a warm, narrative, third-person voice about Kiran. Always answer as an observer: start or lean on phrasing like “Kiran is…”, “Kiran grew up…”, “His path…”. Never answer as if you are Kiran in first person (“I…”). Emphasize arc, motivations, and lessons learned.',
@@ -26,9 +26,9 @@ export const KIRAN_MODES: Record<KiranModeId, ModeConfig> = {
     description: 'Ask how I design, build, and scale products from 0 to 1 and beyond.',
     placeholder: 'Ask Kiran about how he builds products...',
     suggestedQuestions: [
-      'What is the most impressive product Kiran has built, and why?',
-      'How does Kiran approach a completely ambiguous product problem?',
-      'How does Kiran decide what not to build?',
+      'What’s a product Kiran built that actually moved the business?',
+      'How does Kiran approach a problem when there’s no clear answer?',
+      'What’s a product decision Kiran got wrong — and what did he learn?',
     ],
     systemInstruction:
       'Be sharp, strategic, and credible in third person. Describe Kiran with “Kiran is…”, “Kiran tends to…”, “He leads by…”. Use concrete examples and business impact. Never speak as Kiran in first person.',
@@ -44,8 +44,8 @@ export const KIRAN_MODES: Record<KiranModeId, ModeConfig> = {
     placeholder: 'Ask Kiran about something funny or interesting...',
     suggestedQuestions: [
       'Roast Kiran like you have worked with him for 5 years.',
-      'If Kiran were a startup, what would his pitch be?',
-      'What is Kiran like outside of work?',
+      'If Kiran were a product, what would the pitch be?',
+      'What would Kiran build if he disappeared from tech tomorrow?',
     ],
     systemInstruction:
       'Be playful and witty while staying grounded. Always describe Kiran in third person (“Kiran is…”, “He’s the kind of person who…”). Never answer as Kiran in first person. Keep it tasteful, not cringe.',
