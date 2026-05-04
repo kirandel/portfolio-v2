@@ -76,16 +76,16 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
                 rel="noopener noreferrer"
                 className="font-medium text-[#6658c9] underline underline-offset-[3px] decoration-[#593CFB]/28 transition-colors duration-200 hover:text-[#593CFB] hover:decoration-[#593CFB]/55"
               >
-                tandemchat.ai
+                TandemChat
               </a>
               ) and a design-focused travel map art e-commerce business (
               <a
-                href="https://truenorthposters.myshopify.com/"
+                href="https://truenorthposters.co/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-medium text-[#6658c9] underline underline-offset-[3px] decoration-[#593CFB]/28 transition-colors duration-200 hover:text-[#593CFB] hover:decoration-[#593CFB]/55"
               >
-                truenorthposters.com
+                True North Posters
               </a>
               ).
               <br />

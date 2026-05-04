@@ -91,7 +91,7 @@ It also made the transition into tech more meaningful. When he eventually became
 
 ### **First Real Exposure to Product Building**
 
-Kiran’s first true exposure to product thinking came from building his own business: **truenorthposters.com**.
+Kiran’s first true exposure to product thinking came from building his own business: **truenorthposters.co**.
 
 The idea originated while taking a GIS (Geographic Information Systems) course at Berkeley. He noticed that the maps he was generating—when styled correctly—looked visually compelling, almost like art.
 

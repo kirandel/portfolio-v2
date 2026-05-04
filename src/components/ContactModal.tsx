@@ -191,7 +191,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               {[
                 { href: 'https://www.linkedin.com/in/kirandelneuville/', label: 'LinkedIn' },
                 { href: 'https://www.tandemchat.ai', label: 'TandemChat.ai' },
-                { href: 'https://truenorthposters.myshopify.com/', label: 'True North Posters' },
+                { href: 'https://truenorthposters.co/', label: 'True North Posters' },
               ].map((link) => (
                 <a
                   key={link.label}
