@@ -69,6 +69,27 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
               With 7+ years in tech across product, marketing, strategic growth and user acquisition, I specialize in turning ambiguous problems into scalable, revenue-driving solutions.
               <br />
               <span style={{ display: 'block', height: '0.5em' }} />
+              Outside of work, I build and ship products, including a multiplayer collaborative AI travel planning app (
+              <a
+                href="https://tandemchat.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-[#6658c9] underline underline-offset-[3px] decoration-[#593CFB]/28 transition-colors duration-200 hover:text-[#593CFB] hover:decoration-[#593CFB]/55"
+              >
+                tandemchat.ai
+              </a>
+              ) and a design-focused travel map art e-commerce business (
+              <a
+                href="https://truenorthposters.myshopify.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-[#6658c9] underline underline-offset-[3px] decoration-[#593CFB]/28 transition-colors duration-200 hover:text-[#593CFB] hover:decoration-[#593CFB]/55"
+              >
+                truenorthposters.com
+              </a>
+              ).
+              <br />
+              <span style={{ display: 'block', height: '0.5em' }} />
               I studied at UC Berkeley and grew up across Laos, Cambodia, Thailand, and Indonesia — and have been the default trip planner in every group I've ever been in 🗺️
             </p>
           </div>

@@ -1,12 +1,46 @@
+import { useRef } from 'react';
 import { ChatInput } from './kiran-gpt/ChatInput';
 import { MessageList } from './kiran-gpt/MessageList';
 import { ModeSelector } from './kiran-gpt/ModeSelector';
 import { SuggestedQuestions } from './kiran-gpt/SuggestedQuestions';
 import { useKiranGPT } from '@/hooks/useKiranGPT';
+import type { KiranModeId } from '@/lib/kiran-gpt/types';
+
+/** Gap between fixed nav bottom and "Meet KiranGPT" when snapping on narrow screens. */
+const TITLE_GAP_BELOW_HEADER_PX = 10;
 
 export function KiranGPT() {
   const { selectedMode, modeConfig, inputValue, setInputValue, messages, isLoading, error, switchMode, submitQuestion } =
     useKiranGPT();
+  const meetTitleRef = useRef<HTMLHeadingElement>(null);
+
+  /** Align the heading just under the fixed header (delta scroll works reliably on iOS; avoids 767px excluding 768-wide layouts). */
+  const scrollMeetTitleBelowNav = () => {
+    if (typeof window === 'undefined') return;
+    // Stacked layout only (below Tailwind `lg`); covers phones + small tablets / responsive widths like 768–820px.
+    if (!window.matchMedia('(max-width: 1023px)').matches) return;
+
+    const el = meetTitleRef.current;
+    const header = document.querySelector('header');
+    if (!el || !header) return;
+
+    const targetTop = header.getBoundingClientRect().bottom + TITLE_GAP_BELOW_HEADER_PX;
+    const titleTop = el.getBoundingClientRect().top;
+    const delta = titleTop - targetTop;
+    if (Math.abs(delta) < 4) return;
+
+    window.scrollBy({ top: delta, behavior: 'smooth' });
+  };
+
+  const handleModeSelect = (mode: KiranModeId) => {
+    switchMode(mode);
+    // After React commits + next paint (layout stable before measuring header/title positions).
+    setTimeout(() => {
+      requestAnimationFrame(() => {
+        scrollMeetTitleBelowNav();
+      });
+    }, 0);
+  };
 
   const modeGlow: Record<typeof selectedMode, { gradient: string; glowColor: string; buttonShadowColor: string }> = {
     about: {
@@ -31,11 +65,9 @@ export function KiranGPT() {
   return (
     <div 
       id="kiran-gpt-section"
-      className="w-screen relative overflow-hidden -mx-6"
+      className="w-screen relative overflow-hidden -mx-6 pt-[134px] pb-[150px] lg:pt-[208px] lg:pb-[208px]"
       style={{
         background: 'linear-gradient(180deg, #0D1117 0%, #0a0e13 100%)',
-        paddingTop: '208px',
-        paddingBottom: '208px',
       }}
     >
       {/* Ambient glow elements */}
@@ -85,6 +117,7 @@ export function KiranGPT() {
           <div className="w-full lg:w-[40%] flex flex-col gap-8">
             {/* Title */}
             <h2 
+              ref={meetTitleRef}
               className="text-white"
               style={{
                 fontSize: '60px',
@@ -119,7 +152,7 @@ export function KiranGPT() {
               Ask about my strategy, past work, or decision-making frameworks — or go off-script with travel, food, or something playful.
             </p>
 
-            <ModeSelector selectedMode={selectedMode} onSelect={switchMode} />
+            <ModeSelector selectedMode={selectedMode} onSelect={handleModeSelect} />
 
             {/* Divider for mobile */}
             <div 
