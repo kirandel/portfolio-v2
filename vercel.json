@@ -3,5 +3,11 @@
     "api/kiran-gpt.ts": {
       "includeFiles": "src/content/kiran/{profile,personality}/*.md"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/airbnb-prototypes",
+      "destination": "/airbnb-prototypes/index.html"
+    }
+  ]
 }

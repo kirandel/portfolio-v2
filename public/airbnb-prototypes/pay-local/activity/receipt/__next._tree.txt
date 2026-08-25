@@ -1,0 +1,2 @@
+:HL["/airbnb-prototypes/_next/static/chunks/2c0fvnfozczz_.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"pay-local","param":null,"prefetchHints":4192,"slots":{"children":{"name":"activity","param":null,"prefetchHints":4192,"slots":{"children":{"name":"receipt","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}}}},"staleTime":300,"buildId":"vvr8ejoaCvH_XSl2RQ1l9"}

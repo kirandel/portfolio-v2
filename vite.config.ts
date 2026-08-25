@@ -1,10 +1,67 @@
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
+import fs from 'fs';
 import path from 'path';
+import type { IncomingMessage, ServerResponse } from 'http';
+
+/**
+ * Vite's SPA fallback would otherwise serve the portfolio homepage for
+ * /airbnb-prototypes/ and its nested routes. This only serves HTML that
+ * already exists under public/airbnb-prototypes/.
+ */
+function serveAirbnbPrototypes(): Plugin {
+  const root = path.resolve(__dirname, 'public/airbnb-prototypes');
+  const prefix = '/airbnb-prototypes';
+
+  const middleware = (
+    req: IncomingMessage,
+    res: ServerResponse,
+    next: () => void,
+  ) => {
+    const raw = req.url?.split('?')[0] ?? '';
+    if (!raw.startsWith(prefix)) return next();
+
+    const rel = decodeURIComponent(raw.slice(prefix.length));
+    const ext = path.extname(rel);
+    if (ext && ext !== '.html') return next();
+
+    let candidate = path.join(root, rel);
+    if (rel === '' || rel.endsWith('/')) {
+      candidate = path.join(root, rel, 'index.html');
+    } else if (!ext) {
+      const asDir = path.join(root, rel, 'index.html');
+      const asHtml = path.join(root, `${rel}.html`);
+      if (fs.existsSync(asDir)) candidate = asDir;
+      else if (fs.existsSync(asHtml)) candidate = asHtml;
+    }
+
+    const resolved = path.resolve(candidate);
+    if (
+      !resolved.startsWith(root) ||
+      !fs.existsSync(resolved) ||
+      !fs.statSync(resolved).isFile()
+    ) {
+      return next();
+    }
+
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    fs.createReadStream(resolved).pipe(res);
+  };
+
+  return {
+    name: 'serve-airbnb-prototypes',
+    configureServer(server) {
+      server.middlewares.use(middleware);
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use(middleware);
+    },
+  };
+}
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [serveAirbnbPrototypes(), react(), tailwindcss()],
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
