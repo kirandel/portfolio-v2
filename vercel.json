@@ -4,6 +4,13 @@
       "includeFiles": "src/content/kiran/{profile,personality}/*.md"
     }
   },
+  "redirects": [
+    {
+      "source": "/resume.pdf",
+      "destination": "/Kiran-Delneuville-Resume-2026.pdf",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/airbnb-prototypes",

@@ -105,7 +105,7 @@ function AnimatedHero({ onContactClick }: AnimatedHeroProps) {
               </Button>
               <Button
                 icon={<Download size={18} strokeWidth={2.5} />}
-                onClick={() => window.open('/resume.pdf', '_blank')}
+                onClick={() => window.open('/Kiran-Delneuville-Resume-2026.pdf', '_blank')}
               >
                 Download resume
               </Button>
