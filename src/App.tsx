@@ -11,6 +11,23 @@ import { Button } from './components/ui/flow-hover-button';
 import { DitheringShader } from './components/ui/dithering-shader';
 import { Download, Mail, Menu, X } from 'lucide-react';
 
+function getHashId() {
+  return decodeURIComponent(window.location.hash.replace(/^#/, ''));
+}
+
+function scrollToHash(behavior: ScrollBehavior) {
+  const id = getHashId();
+  if (!id) return false;
+  if (id === 'home') {
+    window.scrollTo({ top: 0, behavior });
+    return true;
+  }
+  const el = document.getElementById(id);
+  if (!el) return false;
+  el.scrollIntoView({ behavior, block: 'start' });
+  return true;
+}
+
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkSection, setIsDarkSection] = useState(false);
@@ -77,13 +94,37 @@ export default function App() {
     });
 
     // Force initial check: if at top of page, set Home as active
-    if (window.scrollY < 100) {
+    if (window.scrollY < 100 && !getHashId()) {
       setActiveSection('Home');
     }
 
     return () => observer.disconnect();
   }, []);
-  
+
+  // Deep links like /#education run before React paints the target. Scroll after mount
+  // and retry as images above the section finish loading and shift layout.
+  useEffect(() => {
+    if (!getHashId()) return;
+
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    scrollToHash('auto');
+    const timeouts = [50, 200, 500, 1200].map((ms) =>
+      window.setTimeout(() => scrollToHash('auto'), ms),
+    );
+    const onLoad = () => scrollToHash('auto');
+    const onHashChange = () => scrollToHash('smooth');
+    window.addEventListener('load', onLoad);
+    window.addEventListener('hashchange', onHashChange);
+
+    return () => {
+      timeouts.forEach(clearTimeout);
+      window.removeEventListener('load', onLoad);
+      window.removeEventListener('hashchange', onHashChange);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center px-6">
